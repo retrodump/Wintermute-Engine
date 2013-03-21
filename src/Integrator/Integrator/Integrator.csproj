@@ -1,0 +1,151 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{863A45BF-1796-4616-BCC0-8565320B61FB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Integrator</RootNamespace>
+    <AssemblyName>Integrator</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IntegratorModule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModGeshi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ModGeshi.Designer.cs">
+      <DependentUpon>ModGeshi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModPsPad.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ModPsPad.Designer.cs">
+      <DependentUpon>ModPsPad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModSciTE.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ModSciTE.Designer.cs">
+      <DependentUpon>ModSciTE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModUeStudio.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ModUeStudio.Designer.cs">
+      <DependentUpon>ModUeStudio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ModUltraEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ModUltraEdit.Designer.cs">
+      <DependentUpon>ModUltraEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="MainForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModGeshi.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ModGeshi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModPsPad.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ModPsPad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModSciTE.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ModSciTE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModUeStudio.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ModUeStudio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModUltraEdit.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ModUltraEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\asm\DocMaker\DocMaker\DocMaker.csproj">
+      <Project>{472A4C7D-EAA0-4549-B06B-7539C98F8AA4}</Project>
+      <Name>DocMaker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\asm\Global\Global\Global.csproj">
+      <Project>{DA8FF13F-661C-48CE-8060-0CEB05033923}</Project>
+      <Name>Global</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\asm\ScriptParser\ScriptParser\ScriptParser.csproj">
+      <Project>{F0006A00-4159-464D-85BE-CAEE4C220B01}</Project>
+      <Name>ScriptParser</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

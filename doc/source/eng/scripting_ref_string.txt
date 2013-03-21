@@ -1,0 +1,71 @@
+*tit String object
+*des The String objects allow you to perform advanced string manipulations. The String object can be created using the one of the following syntaxes:
+*des <br><br>
+*des <table border="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" cellpadding="0" id="AutoNumber4">
+*des <tr>
+*des     <td class="code"><pre>
+*des var StrObject = new String("Initial value");
+*des var FixedString = new String(256); // create an empty string, 256 characters long
+*des </pre></td>
+*des </tr>
+*des </table>
+*des <br>
+*des The second variation allows you to allocate a fixed text buffer which can be used to communicate with external DLL libraries.
+*cls CSXString
+
+*con String()
+*des Creates an empty string object.
+
+*con String(StringValue)
+*des Creates a new string object and assigns it a specified value.
+*par StringValue The string value to be assigned to the string object
+
+*con String(BufferSize)
+*des Creates a new string buffer of a specified size
+*par BufferSize The size of the string buffer to be allocated
+*rem String objects created this way are intended for passing fixed string buffers to DLL libraries
+
+*met Substring(Start, End)
+*des Extracts a substring by specifying the start and end positions within the original string 
+*par Start A start position of the substring to be extracted
+*par End An end position of the substring to be extracted
+*ret Returns the extracted substring.
+
+*met Substr(Start, Length)
+*des Extracts a substring by specifying the start position and length of the fragment
+*par Start A start position of the substring to be extracted
+*par Length A length of the substring to be extracted (optional, defaults to the end of the string)
+*ret Returns the extracted substring.
+
+*met ToUpperCase()
+*des Converts the string to upper case
+*ret Returns the string converted to upper case.
+
+*met ToLowerCase()
+*des Converts the string to lower case
+*ret Returns the string converted to lower case.
+
+*met IndexOf(Substring, Starting)
+*des Searches the string for a specified substring.
+*par Substring A substring to search for
+*par Starting A position from which to start searching (optional, defaults to the beginning of the string)
+*ret Returns the position of the substring within the searched string or -1 of the substring cannot be found.
+
+*met Split(Separators)
+*des Splits string into a list of values.
+*par Separators Characters to be used as item separators (optional, default=",")
+*ret Returns an <b>Array</b> object containing items of an original string.
+
+
+*grp 
+
+*atr Type
+*des Returns always "string"
+*ro
+
+*atr Length
+*des Returns the length of the string (in characters)
+*ro
+
+*atr Capacity
+*des Specifies the current size of the underlying character buffer of this string object.

@@ -1,0 +1,194 @@
+<html>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="WME DocMaker 2.0">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Subframe object</title>
+<link rel="stylesheet" type="text/css" href="../../styles.css">
+</head>
+
+<body>
+<!-- Generated on 7.11.2005 18:05:37, settings file: english -->
+
+<h3>Subframe object</h3>
+<p>
+The Subframe object allows you to access the properties of the animation subframes. Subframe objects can be queried using the <b>Frame.GetSubframe</b> and <b>Frame.Addsubframe</b> methods. Also if there is only one subframe assigned to an animation frame all these methods and attributes apply directly to the frame.
+</p>
+
+<br>
+
+<h4>Methods</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%"><b>Actions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetSound">GetSound</a></td>
+    <td>Returns the sound assigned to this frame.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetSound">SetSound</a></td>
+    <td>Assigns a sound to this frame.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetSubframe">GetSubframe</a></td>
+    <td>Returns a subframe of this frame.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#AddSubframe">AddSubframe</a></td>
+    <td>Adds a new subframe to this animation frame.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#InsertSubframe">InsertSubframe</a></td>
+    <td>Inserts a new subframe to this animation frame.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#Deletesubframe">Deletesubframe</a></td>
+    <td>Removes specified subframe from this animation frame.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetEvent">GetEvent</a></td>
+    <td>Returns an event assigned to this frame.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#AddEvent">AddEvent</a></td>
+    <td>Adds an event to this frame.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#DeleteEvent">DeleteEvent</a></td>
+    <td>Removes an event from this frame.</td>
+  </tr>
+</table>
+
+<h4>Attributes</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%">Type (read only)</td>
+    <td>Returns always "subframe"</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">AlphaColor</td>
+    <td>Specifies an RGBA color of this subframe.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">TransparentColor (read only)</td>
+    <td>Returns the transparent color of this subframe.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Is2DOnly</td>
+    <td>Specifies if this frame is only displayed when the game is running in non-accelerated mode.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Is3DOnly</td>
+    <td>Specifies if this frame is only displayed when the game is running in accelerated mode.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Decoration</td>
+    <td>Specifies if this is the decoration subrame (i.e. it's not active under mouse cursor)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">HotspotX</td>
+    <td>The X coordinate of the hotspot (the point the sprite is painted from)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">HotspotY</td>
+    <td>The Y coordinate of the hotspot (the point the sprite is painted from)</td>
+  </tr>
+</table>
+
+<hr>
+<h3><a name="GetSound"></a>GetSound()</h3>
+<p>Returns the sound assigned to this frame.</p>
+<h4>Return value</h4>
+<p>The filename of the assigned sound or <b>null</b>.</p>
+
+<hr>
+<h3><a name="SetSound"></a>SetSound(Filename)</h3>
+<p>Assigns a sound to this frame.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the sound to be assigned.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetSubframe"></a>GetSubframe(Index)</h3>
+<p>Returns a subframe of this frame.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Index</i></dt>
+<dd>A zero-based index of the subframe to be returned.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds it returns a subframe object.</p>
+
+<hr>
+<h3><a name="AddSubframe"></a>AddSubframe(Filename)</h3>
+<p>Adds a new subframe to this animation frame.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>An image file to be used for this subframe.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns the newly created subframe object.</p>
+
+<hr>
+<h3><a name="InsertSubframe"></a>InsertSubframe(Index, Filename)</h3>
+<p>Inserts a new subframe to this animation frame.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Index</i></dt>
+<dd>The position where the new subframe should be inserted.</dd>
+<dt><i>Filename</i></dt>
+<dd>An image file to be used for this subframe.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns the newly created subframe object.</p>
+
+<hr>
+<h3><a name="Deletesubframe"></a>Deletesubframe(Index)<br>Deletesubframe(Subframe)</h3>
+<p>Removes specified subframe from this animation frame.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Index</i></dt>
+<dd>A zero-based index of a subframe to be removed.</dd>
+<dt><i>Subframe</i></dt>
+<dd>The subframe object to be removed.</dd>
+</dl>
+
+<hr>
+<h3><a name="GetEvent"></a>GetEvent(Index)</h3>
+<p>Returns an event assigned to this frame.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Index</i></dt>
+<dd>A zero-based index of an event to be returned.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds it returns a name of the event.</p>
+
+<hr>
+<h3><a name="AddEvent"></a>AddEvent(EventName)</h3>
+<p>Adds an event to this frame.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>EventName</i></dt>
+<dd>A name of the event to be added.</dd>
+</dl>
+
+<hr>
+<h3><a name="DeleteEvent"></a>DeleteEvent(EventName)</h3>
+<p>Removes an event from this frame.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>EventName</i></dt>
+<dd>A name of the event to be removed.</dd>
+</dl>
+
+
+</body>
+
+</html>

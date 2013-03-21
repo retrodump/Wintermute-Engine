@@ -1,0 +1,172 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Sprites</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h2>Sprites</h2>
+
+<p>Sprites are the basic graphics elements used by WME. A &quot;sprite&quot; can be either 
+a normal static image or an animation. While a normal image can be created by 
+any graphics editor program, the animated sprites are more complicated to 
+create. Basically, the animated sprite is a set of one or more images. Those 
+images change in specified interval thus forming an animation.</p>
+
+<p>WME Development Kit includes a tool for creating animated sprites; this tool 
+is called <b>SpriteEdit</b>. The SpriteEdit tool allows you to assemble a bunch 
+of single images (animation frames) into one animation and setting several 
+additional properties. You can also assign sounds to individual frames of the 
+animation.</p>
+
+<p>One animation frame is not limited to a single image. You can compose one 
+frame of multiple images (they are then called the &quot;<b>subframes</b>&quot;). You 
+don't usually need to use subframes, but they can be useful sometimes. For 
+example let's assume you have an animation of a walking man. Now you want the man to 
+wear a hat. Instead of redrawing all the animation frames, you can draw just the 
+hat and add it as a subframe to all the animation frames. Of course this is not 
+a good example, but you may find a more creative use for the subframes.</p>
+
+<p>The easiest way of creating a new sprite is to use the template facility of 
+the ProjectMan (<a href="inside_projectman.html#creating_objects">read more</a>), 
+but you can as well build a new sprite from scratch by creating a new file in 
+SpriteEdit.</p>
+
+<p>SpriteEdit can be invoked either by double-clicking a sprite file in 
+ProjectMan or by clicking the SpriteEdit icon in the WME Development Kit program 
+group in the Windows Start menu.</p>
+
+<p>&nbsp;</p>
+
+<h3>SpriteEdit interface</h3>
+
+<p>The user interface of the SpriteEdit tool is very straightforward. The 
+&quot;sprite bar&quot; on the left side displays information about your animation and 
+allows you to change its properties.</p>
+
+<p><img border="0" src="../img/SpriteEdit1.png" width="220" height="115"></p>
+
+<p>This toolbar allows you to change position within a sprite, or test your 
+animation (the &quot;Play&quot; button). You can reorder the animation frames or subframes 
+using the green arrows. The <b>Looping</b> check-box specifies whether the animation 
+loops, i.e. after displaying the last frame the animation won't stop, but rather 
+skip back to the beginning.</p>
+
+<p>The last set of buttons allows you to add frames and subframes or remove them 
+respectively.</p>
+
+<table border="1" cellspacing="0" cellpadding="3" style="border-collapse: collapse" bordercolor="#111111">
+<tr>
+  <td>
+    <p align="center"><img src="../img/hint.png" width="23" height="30"><br><b>Hint</b>
+  </td>
+  <td>
+    You can select multiple files in the &quot;Add frame(s)&quot; file selection dialog.&nbsp;
+  </td>
+</table>
+
+<p>Below the toolbar you can see a list of all frames your animation consists 
+of.</p>
+
+<p>The &quot;Frame properties&quot; toolbar allows you to change settings for each 
+animation frame (or subframe). </p>
+
+<p><img border="0" src="../img/SpriteEdit2.png" width="231" height="301"></p>
+
+<ul>
+  <li>
+
+<b>Delay</b> - specifies a time duration of the selected frame (in milliseconds)</li>
+  <li>
+<b>Move by</b> - the sprite can move its owner (actor or entity); if you fill in 
+the &quot;move by&quot; values, every time this frame is displayed, the owning object will 
+move by a specified amount of pixels. For example actors' walking sprites use 
+this function.</li>
+  <li><b>Sound</b> - you can assign sound files to animation frames</li>
+  <li>
+<b>Event</b> - individual animation frames can trigger a script event in their 
+owning object; it's useful when you need to synchronize certain script action 
+with an animation (for example playing footstep sounds)</li>
+  <li><b>Keyframe</b> - not 
+used yet</li>
+  <li><b>Kill sounds</b> - whenever this frame is displayed, all the 
+sounds played by previous frames are stopped</li>
+  <li><b>3D only / 2D only</b> - specifies whether this subframe should only be 
+  displayed when the game runs in accelerated mode or non-accelerated mode 
+  respectively. This way you can optimize your sprites for both the accelerated 
+  and non-accelerated mode if you need to. For example you can add a shadow 
+  subframe, which will be half-transparent. But it would look bad in 
+  non-accelerated mode. Therefore by checking the &quot;3D Only&quot; check-box you can 
+  disable the shadows for non-accelerated mode.</li>
+  <li><b>Image</b> - the image to be displayed in this subframe.</li>
+  <li><b>Hot spot</b> - the &quot;hot spot&quot; specifies the base point of the subframe, 
+  i.e. the point from which the image will be drawn. For example in case of 
+  walking character animation you will want to place the hot spot at the 
+  character's feet so that you can set its position conveniently. You can change 
+  the hot spot easily by dragging the image in the right&nbsp; window.</li>
+  <li><b>Transparent</b> - specifies a color which will be treated as 
+  &quot;transparent&quot; by the engine. It defaults to the pink color (RGB(255, 0, 255)) 
+  because that color is rarely used in the graphics itself.</li>
+  <li><b>Alpha color / Opacity</b> - specifies the color shade and opacity of 
+  the current subframe. This setting only applies in accelerated mode.</li>
+  <li><b>Decoration subframe</b> - A subframe marked as &quot;decoration&quot; will appear 
+  as non-interactive when the player moves the mouse pointer over it. It is 
+  useful for example for shadows; you want them to be displayed on screen but 
+  you don't want the player to be able to click on them.</li>
+</ul>
+<table border="1" cellspacing="0" cellpadding="3" style="border-collapse: collapse" bordercolor="#111111">
+<tr>
+  <td>
+    <p align="center"><img src="../img/hint.png" width="23" height="30"><br><b>Hint</b>
+  </td>
+  <td>
+    Some properties can by copied to all frames at once by pressing the &quot;Apply 
+    to all frames&quot; buttons.&nbsp;
+  </td>
+</table>
+
+
+
+<p>&nbsp;</p>
+<p>By selecting the &quot;Properties&quot; tab on the sprite bar, you can change 
+properties of the entire animation.</p>
+<p><img border="0" src="../img/SpriteEdit3.png" width="219" height="331"></p>
+<ul>
+  <li><b>Name</b> - specifies the internal name of this animation</li>
+  <li><b>Looping</b> - specifies whether this is a looping animation (same 
+  setting as on the first page, it's duplicated for better conveninece)</li>
+  <li><b>Continuous</b> - the &quot;continuous&quot; animation cannot be interrupted in 
+  the middle (not used in WME)</li>
+  <li><b>Pixel precise</b> - specifies whether this animation uses 
+  &quot;pixel-prefect&quot; mouse-over detection when it's used to display an interactive 
+  object. If not set,&nbsp; the entire rectangle appears as interactive.</li>
+  <li><b>Streaming animation</b> - the animation isn't stored in memory, rather 
+  the frames are loaded from disk when needed. Useful for long slow animations.</li>
+  <li><b>Mute sounds</b> - design only setting; it allows you to disable sounds 
+  in the SpriteEdit while editing this animation.</li>
+  <li><b>Scripts</b> - you can assign one or more script to a sprite; that way 
+  you can programmatically control sprite properties, frames and the animation 
+  flow</li>
+</ul>
+<p>&nbsp;</p>
+<p>Another feature of SpriteEdit you may find useful is the ability to set a 
+background image for the animation. This is a design-only setting and it can be 
+used for example for tweaking an animation to correctly fit a certain game 
+background. You can set the background image by opening the &quot;View&quot; menu and then 
+selecting the &quot;Background image...&quot; command. A dialog window will appear 
+allowing you to specify an image file, an offset of the image (so that you can 
+position your sprite within the image) and a transparency for easier designing.</p>
+
+
+
+<p>&nbsp;</p>
+
+
+
+</body></html>

@@ -1,0 +1,839 @@
+<html>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="WME DocMaker 2.0">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Button object</title>
+<link rel="stylesheet" type="text/css" href="../../styles.css">
+</head>
+
+<body>
+<!-- Generated on 7.11.2005 18:05:37, settings file: english -->
+
+<h3>Button object</h3>
+<p>
+The Button object allows you to access the properties of the button controls contained in the game windows. Button objects can be queried using the Window.GetControl method.
+</p>
+
+<br>
+
+<h4>Methods</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%"><a href="#SetFont">SetFont</a></td>
+    <td>Sets a normal font.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetImage">SetImage</a></td>
+    <td>Sets a background image (sprite).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetImage">GetImage</a></td>
+    <td>Returns the filename of the background sprite (or null if no sprite is set)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetImageObject">GetImageObject</a></td>
+    <td>Returns a reference to the background sprite (or null if no sprite is set)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#Focus">Focus</a></td>
+    <td>Focuses the control.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#MoveAfter">MoveAfter</a></td>
+    <td>Moves the control in z-order after a given control.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#MoveBefore">MoveBefore</a></td>
+    <td>Moves the control in z-order before a given control.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#MoveToTop">MoveToTop</a></td>
+    <td>Moves the control to the top of the z-order.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#MoveToBottom">MoveToBottom</a></td>
+    <td>Moves the control to the bottom of the z-order.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SkipTo">SkipTo</a></td>
+    <td>Moves an object to a specified location.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Actions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetDisabledFont">SetDisabledFont</a></td>
+    <td>Sets a font for button's disabled state.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetHoverFont">SetHoverFont</a></td>
+    <td>Sets a font for button's hover (mouse-over) state.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetPressedFont">SetPressedFont</a></td>
+    <td>Sets a font for button's pressed state.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetFocusedFont">SetFocusedFont</a></td>
+    <td>Sets a font for button's focused state.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetDisabledImage">SetDisabledImage</a></td>
+    <td>Sets a background image (sprite) for button's disabled state.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetDisabledImage">GetDisabledImage</a></td>
+    <td>Returns the filename of the disabled background sprite (or null if no sprite is set)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetDisabledImageObject">GetDisabledImageObject</a></td>
+    <td>Returns a reference to the disabled background sprite (or null if no sprite is set)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetHoverImage">SetHoverImage</a></td>
+    <td>Sets a background image (sprite) for button's hover (mouse-over) state.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetHoverImage">GetHoverImage</a></td>
+    <td>Returns the filename of the hovered background sprite (or null if no sprite is set)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetHoverImageObject">GetHoverImageObject</a></td>
+    <td>Returns a reference to the hovered background sprite (or null if no sprite is set)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetPressedImage">SetPressedImage</a></td>
+    <td>Sets a background image (sprite) for button's pressed state.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetPressedImage">GetPressedImage</a></td>
+    <td>Returns the filename of the pressed background sprite (or null if no sprite is set)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetPressedImageObject">GetPressedImageObject</a></td>
+    <td>Returns a reference to the pressed background sprite (or null if no sprite is set)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetFocusedImage">SetFocusedImage</a></td>
+    <td>Sets a background image (sprite) for button's focused state.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetFocusedImage">GetFocusedImage</a></td>
+    <td>Returns the filename of the focused background sprite (or null if no sprite is set)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetFocusedImageObject">GetFocusedImageObject</a></td>
+    <td>Returns a reference to the focused background sprite (or null if no sprite is set)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#Press">Press</a></td>
+    <td>Presses the button programatically.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Cursor functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetCursor">SetCursor</a></td>
+    <td>Sets the standard cursor.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetCursor">GetCursor</a></td>
+    <td>Returns the filename of the cursor sprite (or null if no cursor is set)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetCursorObject">GetCursorObject</a></td>
+    <td>Returns a reference to the cursor sprite (or null if no cursor is set)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#RemoveCursor">RemoveCursor</a></td>
+    <td>Removes the standard cursor.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#HasCursor">HasCursor</a></td>
+    <td>Queries whether the standard cursor is set.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Script functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#AttachScript">AttachScript</a></td>
+    <td>Executes a script file and attaches it to the object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#DetachScript">DetachScript</a></td>
+    <td>Terminates a specified script file and detaches it from an object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#IsScriptRunning">IsScriptRunning</a></td>
+    <td>Queries whether a specified script file is running and attached to an object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#CanHandleMethod">CanHandleMethod</a></td>
+    <td>Queries whether the object supports a method of a specified name.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Sound functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#PlaySound">PlaySound</a></td>
+    <td>Plays a sound. If the filename is omitted, the currently assigned sound is played (if any).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#PlaySoundEvent">PlaySoundEvent</a></td>
+    <td>Plays a sound and triggers an event when the sound is over. If the filename is omitted, the currently assigned sound is played (if any).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#StopSound">StopSound</a></td>
+    <td>Stops the currently playing sound (if any).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#PauseSound">PauseSound</a></td>
+    <td>Pauses the currently playing sound.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ResumeSound">ResumeSound</a></td>
+    <td>Resumes a paused sound playback.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#IsSoundPlaying">IsSoundPlaying</a></td>
+    <td>Queries whether a sound playback is in progress.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetSoundPosition">SetSoundPosition</a></td>
+    <td>Sets the sound's current playing position.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetSoundPosition">GetSoundPosition</a></td>
+    <td>Queries the sound's current playing position</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetSoundVolume">SetSoundVolume</a></td>
+    <td>Sets a volume of the currently playing sound.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetSoundVolume">GetSoundVolume</a></td>
+    <td>Gets a volume of the currently playing sound.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#LoadSound">LoadSound</a></td>
+    <td>Initializes a sound from file and makes it ready to be played.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Sound effects functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SoundFXNone">SoundFXNone</a></td>
+    <td>Removes any sound effect currently assigned to this object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SoundFXEcho">SoundFXEcho</a></td>
+    <td>Assigns an echo effect to the sounds played by this object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SoundFXReverb">SoundFXReverb</a></td>
+    <td>Assigns a reverb effect to the sounds played by this object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Event functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ApplyEvent">ApplyEvent</a></td>
+    <td>Applies a named event to the object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#CanHandleEvent">CanHandleEvent</a></td>
+    <td>Queries whether the object has an event handler for a specified event.</td>
+  </tr>
+</table>
+
+<h4>Attributes</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%">Parent (read only)</td>
+    <td>Returns a reference to a parent window of this control (or null)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">ParentNotify</td>
+    <td>Specifies whether this control should notify its parent about events</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Width</td>
+    <td>A width of the control</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Height</td>
+    <td>A height of the control</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Visible</td>
+    <td>Specifies whether the control is visible</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Disabled</td>
+    <td>Specifies whether the control is disabled</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Text</td>
+    <td>A text the control displays</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">NextSibling (read only)</td>
+    <td>Returns a reference to the next control in z-order</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">PrevSibling (read only)</td>
+    <td>Returns a reference to the previous control in z-order</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Type (read only)</td>
+    <td>Returns always "button"</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Focusable</td>
+    <td>Specifies whether the button can be focused.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Pressed</td>
+    <td>Specifies whether the button appears to be pressed all the time (useful for two state buttons, such as check-boxes).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">PixelPerfect</td>
+    <td>Specifies whether the button checks mouse-over based on the shape of its background sprite.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Name</td>
+    <td>The internal name of the object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Caption</td>
+    <td>The caption of the object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">X</td>
+    <td>The X position of the object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Y</td>
+    <td>The Y position of the object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Height (read only)</td>
+    <td>Returns the current height of the object. In case of actors and entities the scaling is taken into account.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Filename (read only)</td>
+    <td>Returns the filename.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Ready (read only)</td>
+    <td>Returns whether the object isn't currently performing any action.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Interactive</td>
+    <td>Specifies whether the object recieves user input.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">SoundPanning</td>
+    <td>Specifies whether the sounds played by this object are automatically panned depending on object's position on screen.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">NonIntMouseEvents</td>
+    <td>Specifies if the object can receive the <b>MouseEntry</b> and <b>MouseLeave</b> events even if the game is in non-interactive mode.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Movable</td>
+    <td>Specifies whether the object can be moved by its sprites (in case the sprite frames have a "move" property set).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Scalable</td>
+    <td>Specifies whether the object is affected by scene's scaling levels.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Rotatable</td>
+    <td>Specifies whether the object is affected by scene's rotation levels.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Colorable</td>
+    <td>Specifies whether the object is affected by scene's color regions.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">AlphaColor</td>
+    <td>Specifies an RGBA color of this object (overrides scene coloring); set to 0 to reset default behavior.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Scale</td>
+    <td>Specifies a scale of this object (overrides scene scaling); set to null to reset default behavior.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">ScaleX</td>
+    <td>Specifies horizontal scale of this object; set to null to reset default behavior.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">ScaleY</td>
+    <td>Specifies vertical scale of this object; set to null to reset default behavior.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">RelativeScale</td>
+    <td>Specifies a scale amount to be added to the default scene scale.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Rotate</td>
+    <td>Specifies rotation of this object (in degrees); overrides scene rotation; set to null to reset default behavior; not available in compatibility mode</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">RelativeRotate</td>
+    <td>Specifies a rotation amount to be added to the default scene rotation.</td>
+  </tr>
+</table>
+
+<hr>
+<h3><a name="SetFont"></a>SetFont(Filename)</h3>
+<p>Sets a normal font.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>A filename of a font file to be used.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="SetImage"></a>SetImage(Filename)</h3>
+<p>Sets a background image (sprite).</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>A filename of a sprite file to be used.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetImage"></a>GetImage()</h3>
+<p>Returns the filename of the background sprite (or null if no sprite is set)</p>
+
+<hr>
+<h3><a name="GetImageObject"></a>GetImageObject()</h3>
+<p>Returns a reference to the background sprite (or null if no sprite is set)</p>
+
+<hr>
+<h3><a name="Focus"></a>Focus()</h3>
+<p>Focuses the control.</p>
+
+<hr>
+<h3><a name="MoveAfter"></a>MoveAfter(Control)<br>MoveAfter(ControlName)</h3>
+<p>Moves the control in z-order after a given control.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Control</i></dt>
+<dd>A control object we will move our control after</dd>
+<dt><i>ControlName</i></dt>
+<dd>A name of a control object we will move our control after</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="MoveBefore"></a>MoveBefore(Control)<br>MoveBefore(ControlName)</h3>
+<p>Moves the control in z-order before a given control.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Control</i></dt>
+<dd>A control object we will move our control before</dd>
+<dt><i>ControlName</i></dt>
+<dd>A name of a control object we will move our control before</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="MoveToTop"></a>MoveToTop()</h3>
+<p>Moves the control to the top of the z-order.</p>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="MoveToBottom"></a>MoveToBottom()</h3>
+<p>Moves the control to the bottom of the z-order.</p>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="SkipTo"></a>SkipTo(X, Y)</h3>
+<p>Moves an object to a specified location.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>X</i></dt>
+<dd>Destination X coordinate.</dd>
+<dt><i>Y</i></dt>
+<dd>Destination Y coordinate.</dd>
+</dl>
+
+<hr>
+<h3><a name="SetDisabledFont"></a>SetDisabledFont(Filename)</h3>
+<p>Sets a font for button's disabled state.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>A filename of a font file to be used.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="SetHoverFont"></a>SetHoverFont(Filename)</h3>
+<p>Sets a font for button's hover (mouse-over) state.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>A filename of a font file to be used.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="SetPressedFont"></a>SetPressedFont(Filename)</h3>
+<p>Sets a font for button's pressed state.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>A filename of a font file to be used.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="SetFocusedFont"></a>SetFocusedFont(Filename)</h3>
+<p>Sets a font for button's focused state.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>A filename of a font file to be used.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="SetDisabledImage"></a>SetDisabledImage(Filename)</h3>
+<p>Sets a background image (sprite) for button's disabled state.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>A filename of a sprite file to be used.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetDisabledImage"></a>GetDisabledImage()</h3>
+<p>Returns the filename of the disabled background sprite (or null if no sprite is set)</p>
+
+<hr>
+<h3><a name="GetDisabledImageObject"></a>GetDisabledImageObject()</h3>
+<p>Returns a reference to the disabled background sprite (or null if no sprite is set)</p>
+
+<hr>
+<h3><a name="SetHoverImage"></a>SetHoverImage(Filename)</h3>
+<p>Sets a background image (sprite) for button's hover (mouse-over) state.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>A filename of a sprite file to be used.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetHoverImage"></a>GetHoverImage()</h3>
+<p>Returns the filename of the hovered background sprite (or null if no sprite is set)</p>
+
+<hr>
+<h3><a name="GetHoverImageObject"></a>GetHoverImageObject()</h3>
+<p>Returns a reference to the hovered background sprite (or null if no sprite is set)</p>
+
+<hr>
+<h3><a name="SetPressedImage"></a>SetPressedImage(Filename)</h3>
+<p>Sets a background image (sprite) for button's pressed state.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>A filename of a sprite file to be used.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetPressedImage"></a>GetPressedImage()</h3>
+<p>Returns the filename of the pressed background sprite (or null if no sprite is set)</p>
+
+<hr>
+<h3><a name="GetPressedImageObject"></a>GetPressedImageObject()</h3>
+<p>Returns a reference to the pressed background sprite (or null if no sprite is set)</p>
+
+<hr>
+<h3><a name="SetFocusedImage"></a>SetFocusedImage(Filename)</h3>
+<p>Sets a background image (sprite) for button's focused state.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>A filename of a sprite file to be used.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetFocusedImage"></a>GetFocusedImage()</h3>
+<p>Returns the filename of the focused background sprite (or null if no sprite is set)</p>
+
+<hr>
+<h3><a name="GetFocusedImageObject"></a>GetFocusedImageObject()</h3>
+<p>Returns a reference to the focused background sprite (or null if no sprite is set)</p>
+
+<hr>
+<h3><a name="Press"></a>Press()</h3>
+<p>Presses the button programatically.</p>
+
+<hr>
+<h3><a name="SetCursor"></a>SetCursor(Filename)</h3>
+<p>Sets the standard cursor.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>Filename of a sprite file to be used as a cursor pointer.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the cursor has been set succesfuly.</p>
+
+<hr>
+<h3><a name="GetCursor"></a>GetCursor()</h3>
+<p>Returns the filename of the cursor sprite (or null if no cursor is set)</p>
+
+<hr>
+<h3><a name="GetCursorObject"></a>GetCursorObject()</h3>
+<p>Returns a reference to the cursor sprite (or null if no cursor is set)</p>
+
+<hr>
+<h3><a name="RemoveCursor"></a>RemoveCursor()</h3>
+<p>Removes the standard cursor.</p>
+
+<hr>
+<h3><a name="HasCursor"></a>HasCursor()</h3>
+<p>Queries whether the standard cursor is set.</p>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the object has a custom mouse pointer assigned.</p>
+
+<hr>
+<h3><a name="AttachScript"></a>AttachScript(Filename)</h3>
+<p>Executes a script file and attaches it to the object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the script file to be executed.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the script hs been executed succesfuly.</p>
+<h4>Remarks</h4>
+<p>Each WME object can have multiple scripts attached.</p>
+
+<hr>
+<h3><a name="DetachScript"></a>DetachScript(Filename)</h3>
+<p>Terminates a specified script file and detaches it from an object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the (running) script to be terminated and detached.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the script has been detached succesfully.</p>
+
+<hr>
+<h3><a name="IsScriptRunning"></a>IsScriptRunning(Filename)</h3>
+<p>Queries whether a specified script file is running and attached to an object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the script to be queried.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if a specified script file is attached to an object.</p>
+
+<hr>
+<h3><a name="CanHandleMethod"></a>CanHandleMethod(MethodName)</h3>
+<p>Queries whether the object supports a method of a specified name.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>MethodName</i></dt>
+<dd>The name of the method to be checked.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the object is able to handle the specified method.</p>
+
+<hr>
+<h3><a name="PlaySound"></a>PlaySound(Filename, Looping, LoopStart)<br>PlaySound(Looping, LoopStart)</h3>
+<p>Plays a sound. If the filename is omitted, the currently assigned sound is played (if any).</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the sound file to be played</dd>
+<dt><i>Looping</i></dt>
+<dd>Whether the sound should be looped (optional, default = false).</dd>
+<dt><i>LoopStart</i></dt>
+<dd>The point from which the sound restarts when looping, in milliseconds (optional, default=0).</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="PlaySoundEvent"></a>PlaySoundEvent(Filename, EventName)<br>PlaySoundEvent(EventName)</h3>
+<p>Plays a sound and triggers an event when the sound is over. If the filename is omitted, the currently assigned sound is played (if any).</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the sound file to be played</dd>
+<dt><i>EventName</i></dt>
+<dd>The name of the event to be triggered after the sound finishes.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="StopSound"></a>StopSound()</h3>
+<p>Stops the currently playing sound (if any).</p>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="PauseSound"></a>PauseSound()</h3>
+<p>Pauses the currently playing sound.</p>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="ResumeSound"></a>ResumeSound()</h3>
+<p>Resumes a paused sound playback.</p>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="IsSoundPlaying"></a>IsSoundPlaying()</h3>
+<p>Queries whether a sound playback is in progress.</p>
+<h4>Return value</h4>
+<p>If the sound is playing, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="SetSoundPosition"></a>SetSoundPosition(Time)</h3>
+<p>Sets the sound's current playing position.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Time</i></dt>
+<dd>A new playing position (in milliseconds)</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetSoundPosition"></a>GetSoundPosition()</h3>
+<p>Queries the sound's current playing position</p>
+<h4>Return value</h4>
+<p>Returns the current playing position (in milliseconds).</p>
+
+<hr>
+<h3><a name="SetSoundVolume"></a>SetSoundVolume(Volume)</h3>
+<p>Sets a volume of the currently playing sound.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Volume</i></dt>
+<dd>A new sound volume (in percent).</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetSoundVolume"></a>GetSoundVolume()</h3>
+<p>Gets a volume of the currently playing sound.</p>
+<h4>Return value</h4>
+<p>Returns the volume of the currently playing sound (in percent).</p>
+
+<hr>
+<h3><a name="LoadSound"></a>LoadSound(Filename)</h3>
+<p>Initializes a sound from file and makes it ready to be played.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The sound file to be loaded</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+<h4>Remarks</h4>
+<p>Use this method to pre-cache a sound file. Initializing the sound takes some time and sometimes it's desirable to move all sound initialization to e.g. scene start so that the subsequent PlaySound calls don't slow the game down. That's what LoadSound is for. To play the pre-cached sound simply call PlaySound without specifying a filename, for example SomeObject.PlaySound(false);</p>
+
+<hr>
+<h3><a name="SoundFXNone"></a>SoundFXNone()</h3>
+<p>Removes any sound effect currently assigned to this object.</p>
+
+<hr>
+<h3><a name="SoundFXEcho"></a>SoundFXEcho(WetDryMix, Feedback, LeftDelay, RightDelay)</h3>
+<p>Assigns an echo effect to the sounds played by this object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>WetDryMix</i></dt>
+<dd>Wet/Dry Mix, in percent (0 to 100)</dd>
+<dt><i>Feedback</i></dt>
+<dd>Feedback, in percent (0 to 100)</dd>
+<dt><i>LeftDelay</i></dt>
+<dd>Left delay, in milliseconds (1 to 2000)</dd>
+<dt><i>RightDelay</i></dt>
+<dd>Right delay, in milliseconds (1 to 2000)</dd>
+</dl>
+<h4>Remarks</h4>
+<p>Example: <b>actor.SoundFXEcho(50, 50);</b></p>
+
+<hr>
+<h3><a name="SoundFXReverb"></a>SoundFXReverb(InGain, ReverbMix, ReverbTime, HighFreqRTRatio)</h3>
+<p>Assigns a reverb effect to the sounds played by this object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>InGain</i></dt>
+<dd>In gain, in dB (-96 to 0)</dd>
+<dt><i>ReverbMix</i></dt>
+<dd>Reverb mix, in dB (-96 to 0)</dd>
+<dt><i>ReverbTime</i></dt>
+<dd>Reverb time, in milliseconds (0.001 to 3000)</dd>
+<dt><i>HighFreqRTRatio</i></dt>
+<dd>HighFreq RT Ratio (0.001 to 0.999)</dd>
+</dl>
+<h4>Remarks</h4>
+<p>Example: <b>actor.SoundFXReverb(0, 0, 2000);</b></p>
+
+<hr>
+<h3><a name="ApplyEvent"></a>ApplyEvent(EventName)</h3>
+<p>Applies a named event to the object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>EventName</i></dt>
+<dd>A name of the event to be applied to the object.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> it the event has been applied succesfuly.</p>
+
+<hr>
+<h3><a name="CanHandleEvent"></a>CanHandleEvent(EventName)</h3>
+<p>Queries whether the object has an event handler for a specified event.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>EventName</i></dt>
+<dd>The name of the event to be checked.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the object is able to handle the specified event.</p>
+
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+WINDOW
+{
+  NAME = ""
+  IMAGE = "interface\menu\menu.bmp"
+  SCRIPT = "interface\menu\menu.script"
+  MENU = TRUE
+
+  BUTTON
+  {
+    NAME = "LookAt"
+    X = 96
+    Y = 5
+    IMAGE_HOVER = "interface\menu\look.bmp"
+    PARENT_NOTIFY = TRUE
+  }
+
+  BUTTON
+  {
+    NAME = "Talk"
+    X = 160
+    Y = 28
+    IMAGE_HOVER = "interface\menu\talk.bmp"
+    PARENT_NOTIFY = TRUE
+  }
+
+  BUTTON
+  {
+    NAME = "Take"
+    X = 35
+    Y = 14
+    IMAGE_HOVER = "interface\menu\take.bmp"
+    PARENT_NOTIFY = TRUE
+  }
+  
+  STATIC
+  {
+    NAME = "caption"
+    TEXT = "Caption"
+    TEXT_ALIGN = "center"
+    FONT = "fonts\outline_white.font"
+    X = 0
+    Y = 110
+    WIDTH = 246
+    HEIGHT = 20
+  }
+}

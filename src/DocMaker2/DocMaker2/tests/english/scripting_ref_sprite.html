@@ -1,0 +1,234 @@
+<html>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="WME DocMaker 2.0">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Sprite object</title>
+<link rel="stylesheet" type="text/css" href="../../styles.css">
+</head>
+
+<body>
+<!-- Generated on 7.11.2005 18:05:37, settings file: english -->
+
+<h3>Sprite object</h3>
+<p>
+The Sprite object allows you to access the properties of your animations. Sprite objects can be queried using the <b>GetSpriteObject</b> methods of various objects and their equivalents.
+</p>
+
+<br>
+
+<h4>Methods</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%"><b>Actions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetFrame">GetFrame</a></td>
+    <td>Returns one animation frame.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#AddFrame">AddFrame</a></td>
+    <td>Adds a new frame to the animation.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#InsertFrame">InsertFrame</a></td>
+    <td>Inserts a new frame to the animation.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#DeleteFrame">DeleteFrame</a></td>
+    <td>Removes specified animation frame.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#Reset">Reset</a></td>
+    <td>Resets the animation.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#Pause">Pause</a></td>
+    <td>Pauses the animation.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#Play">Play</a></td>
+    <td>Resumes a paused animation.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Script functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#AttachScript">AttachScript</a></td>
+    <td>Executes a script file and attaches it to the object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#DetachScript">DetachScript</a></td>
+    <td>Terminates a specified script file and detaches it from an object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#IsScriptRunning">IsScriptRunning</a></td>
+    <td>Queries whether a specified script file is running and attached to an object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#CanHandleMethod">CanHandleMethod</a></td>
+    <td>Queries whether the object supports a method of a specified name.</td>
+  </tr>
+</table>
+
+<h4>Attributes</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%">Type (read only)</td>
+    <td>Returns always "sprite"</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Name</td>
+    <td>The internal name of the sprite.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Filename (read only)</td>
+    <td>Returns the filename.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">NumFrames (read only)</td>
+    <td>Returns the actual number of animation frames.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">CurrentFrame</td>
+    <td>Specifies the index of the currently playing animation frame.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">PixelPerfect</td>
+    <td>Specifies if this sprite uses pixel-perfect mouse-over detection.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Looping</td>
+    <td>Specifies if this is a looping animation.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Owner (read only)</td>
+    <td>Returns an object which owns this animation.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Finished (read only)</td>
+    <td>Returns <b>true</b> if the animation already finished playing.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Paused (read only)</td>
+    <td>Returns <b>true</b> if the animation is paused.</td>
+  </tr>
+</table>
+
+<h4>Low level events</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%">FrameChanged</td>
+    <td>The sprite just switched to the next frame.</td>
+  </tr>
+</table>
+
+<hr>
+<h3><a name="GetFrame"></a>GetFrame(Index)</h3>
+<p>Returns one animation frame.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Index</i></dt>
+<dd>A zero-based index of the frame to be returned.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds it returns a frame object.</p>
+
+<hr>
+<h3><a name="AddFrame"></a>AddFrame(Filename)</h3>
+<p>Adds a new frame to the animation.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>An image file to be used for this frame.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns the newly created frame.</p>
+
+<hr>
+<h3><a name="InsertFrame"></a>InsertFrame(Index, Filename)</h3>
+<p>Inserts a new frame to the animation.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Index</i></dt>
+<dd>The position where the new frame should be inserted.</dd>
+<dt><i>Filename</i></dt>
+<dd>An image file to be used for this frame.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns the newly created frame.</p>
+
+<hr>
+<h3><a name="DeleteFrame"></a>DeleteFrame(Index)<br>DeleteFrame(Frame)</h3>
+<p>Removes specified animation frame.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Index</i></dt>
+<dd>A zero-based index of a frame to be removed.</dd>
+<dt><i>Frame</i></dt>
+<dd>The frame object to be removed.</dd>
+</dl>
+
+<hr>
+<h3><a name="Reset"></a>Reset()</h3>
+<p>Resets the animation.</p>
+
+<hr>
+<h3><a name="Pause"></a>Pause()</h3>
+<p>Pauses the animation.</p>
+
+<hr>
+<h3><a name="Play"></a>Play()</h3>
+<p>Resumes a paused animation.</p>
+
+<hr>
+<h3><a name="AttachScript"></a>AttachScript(Filename)</h3>
+<p>Executes a script file and attaches it to the object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the script file to be executed.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the script hs been executed succesfuly.</p>
+<h4>Remarks</h4>
+<p>Each WME object can have multiple scripts attached.</p>
+
+<hr>
+<h3><a name="DetachScript"></a>DetachScript(Filename)</h3>
+<p>Terminates a specified script file and detaches it from an object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the (running) script to be terminated and detached.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the script has been detached succesfully.</p>
+
+<hr>
+<h3><a name="IsScriptRunning"></a>IsScriptRunning(Filename)</h3>
+<p>Queries whether a specified script file is running and attached to an object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the script to be queried.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if a specified script file is attached to an object.</p>
+
+<hr>
+<h3><a name="CanHandleMethod"></a>CanHandleMethod(MethodName)</h3>
+<p>Queries whether the object supports a method of a specified name.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>MethodName</i></dt>
+<dd>The name of the method to be checked.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the object is able to handle the specified method.</p>
+
+
+</body>
+
+</html>

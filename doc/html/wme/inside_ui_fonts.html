@@ -1,0 +1,50 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Fonts</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3>Fonts</h3>
+
+<p>WME supports two types of fonts to display all the in-game texts: bitmap 
+fonts and TrueType fonts. Bitmap fonts are created by a single image containing 
+all the letters, while TrueType fonts are the typical vector-based fonts used 
+anywhere else in Windows.</p>
+
+<p>Both types of fonts have their advantages and disadvantages. Since bitmap 
+fonts are based on an image, you have better control over the letters appearance 
+and you can use various color gradients and other graphics effects. You can even 
+make animated bitmap fonts. On the other hand, bitmap fonts are limited to 256 
+characters and therefore you can't use them to display texts in Asian and other 
+&quot;double-byted&quot; languages. Also creating bitmap fonts is more difficult.</p>
+
+<p>TrueType fonts are limited to simple non-animated colored texts, but because 
+WME uses the standard Windows text rendering functions, you can use them to 
+display wide variety of world languages, including Asian languages. Also, 
+enabling TrueType font to be used in WME is a matter of writing a simple text 
+definition file, making it a much easier process than generating bitmap fonts.</p>
+
+<p>The following chapters discuss both types of fonts in greater detail:</p>
+
+<ul>
+  <li><a href="inside_ui_fonts_bitmap.html">Bitmap fonts</a></li>
+  <li><a href="inside_ui_fonts_ttf.html">TrueType fonts </a></li>
+</ul>
+
+<p>One important thing to note it that from WME's point of view the two font types are interchangeable. They both 
+use the .font extension. The interchangeability means you can, for example, 
+create an English version of your game using bitmap fonts, and when you later 
+decide to create a Japanese version of the game, the Japanese language package 
+will contain a different font with the same name, but defining a TrueType font 
+instead.</p>
+
+</body>
+
+</html>

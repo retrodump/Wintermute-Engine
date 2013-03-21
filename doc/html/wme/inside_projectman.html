@@ -1,0 +1,119 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>WME ProjectMan: the headquarters</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h2>WME ProjectMan: the headquarters</h2>
+<p>The ProjectMan utility is the place 
+where you’ll spend most of the time creating your game. We will now briefly 
+describe this program. Run ProjectMan by clicking its icon in the Start menu or 
+double click the “WME ProjectMan” icon on your desktop.</p>
+<p>The basic interface is similar to most 
+of the Windows programs. There is a menu bar, containing all the functions, and 
+the toolbar, with icons for the most commonly used tasks.</p>
+<p>Select the “File-&gt;Open…” command and 
+open the “wme_demo.wpr” file (it’s located in your WME Development Kit folder in 
+the “wme_demo” subfolder).</p>
+<p>The window is now divided into four 
+panes. The left pane contains global properties of your project.</p>
+<p>Next there is the project tree pane. It 
+shows the layout of your project, all the files and folders. You can browse the 
+project tree in a way similar to the Windows Explorer. Most of the functions are 
+available via the popup menu (right click the nodes of the project tree to 
+display the popup menu).</p>
+<p>At the right there is a preview pane. It 
+shows a preview of the object currently selected in the project tree pane. It 
+helps you to easily navigate through the project.</p>
+<p>And the last pane at the bottom-right is 
+the help/log pane. It displays either a short description of a selected property 
+or a log of certain operations executed by the ProjectMan.</p>
+
+
+<table border="1" cellspacing="0" cellpadding="3" style="border-collapse: collapse" bordercolor="#111111">
+<tr>
+  <td>
+    <p align="center"><img src="../img/info.png" width="32" height="32"><br><b>Note</b>
+  </td>
+  <td>
+    ProjectMan doesn't use any 
+    database for storing the objects; everything you see in the project tree pane is 
+    actually a view of files and folders on your hard disk.
+  </td>
+</table>
+
+<p>You can use the ProjectMan for a wide 
+variety of tasks but the most important ones are:</p>
+<ul type="disc" style="margin-bottom: 0cm">
+  <li>creating new objects (using the 
+  templates)</li>
+  <li>invoking editing tools on the 
+  existing objects</li>
+  <li>running the game</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3><a name="creating_objects"></a>Creating new objects</h3>
+<p>In the project tree view navigate to a 
+folder, in which you want to create a new object. For example, if you want to 
+add a new scene, select the “scenes” folder. Right-click the folder and a popup 
+menu will show up. Select the “Add” item. Another menu will pop up, which 
+contains a list of objects you can add. If you select one, a “Template 
+selection” window will appear. Here you can select a template as a starting 
+point of your new object. You can fill-in some of its properties and its name. 
+After you click the “OK” button a new object is created.</p>
+<p>You can also add new files into the 
+project by importing existing files or folders. Use the “Import” command in the 
+popup menu. The import command is usually used for importing graphics and sound 
+files, while the WME’s native objects are created using the templates.</p>
+
+<p>&nbsp;</p>
+
+<h3><a name="editing_objects"></a>Editing existing objects</h3>
+<p>Editing the existing objects is very 
+easy. Just right-click the object in the project tree pane and select an “Edit…” 
+command. Alternatively you can simply double-click the objects. ProjectMan will 
+then invoke an associated editor on the selected file. It uses the standard 
+Windows file associations. It means that you can redefine the tools to suit your 
+needs. For example, the scripts (*.script files) are by default opened in the 
+Windows Notepad program. If you prefer another text editor, simply change the 
+.script file association (using the Windows Explorer). From now on the 
+ProjectMan will open the script files in the text editor of your choice.</p>
+
+<table border="1" cellspacing="0" cellpadding="3" style="border-collapse: collapse" bordercolor="#111111">
+<tr>
+  <td>
+    <p align="center"><img src="../img/info.png" width="32" height="32"><br><b>Note</b>
+  </td>
+  <td>
+    ProjectMan isn't meant to be a 
+    replacement of the Windows Explorer and some file operations are unavailable. 
+    That's why it provides an "Explore" command in the popup menu. If you 
+    right-click a folder in the project tree pane and select the "Explore" command, 
+    ProjectMan will open the folder in the Windows Explorer.
+  </td>
+</table>
+
+<p>&nbsp;</p>
+
+<h3><a name="running_game"></a>Running the game</h3>
+<p>If you need to test you game while 
+developing it, you can run it directly from the ProjectMan. Select the 
+“Project-&gt;Run game” command or click the “Run game” toolbar button.</p>
+<p>Note that <u>you don’t need to compile 
+anything to run the game</u>. The engine will operate directly on the files on 
+your hard disk. You only compile the game when you are about to distribute it 
+(also it’s useful to compile the game from time to time, because the compilation 
+process checks all your scripts for syntactical errors). </p>
+
+</body>
+
+</html>

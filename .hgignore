@@ -1,0 +1,45 @@
+syntax: glob
+*.ncb
+*.suo
+*.vcproj.JNML.Jan Nedoma.user
+*.vcproj.JNWIN8.Jan.user
+install/Output/*
+install/source/*.dll
+install/source/*.exe
+install/source/plugin/*
+doc/html/wme/generated/*
+doc/wiki/*
+doc/source/wme_docs_source.zip
+install/source/*.chm
+install/source/*.xml
+src/BuildAll/release/*
+src/BuildAll/debug/*
+install/Thumbs.db
+lib/wme_*.lib
+src/asm/Controls/Controls/bin/*
+src/asm/Controls/Controls/obj/*
+*/bin/Debug/*
+*/bin/Release/*
+*/obj/Debug/*
+*/obj/Release/*
+*/Debug/*
+*/Release/*
+*/obj/*
+*.aps
+*/debug/*
+*/release/*
+*/released3d9/*
+*/DebugD3D9/*
+*/ReleaseD3D9/*
+src/external_lib/BCG/BCGControlBar/Debug*
+src/external_lib/BCG/BCGControlBar/Release*
+src/external_lib/BCG/BCGControlBar/UDebug*
+src/external_lib/BCG/BCGControlBar/URelease*
+src/external_lib/libtheora/win32/VS2005/Debug*
+src/external_lib/libtheora/win32/VS2005/Release*
+src/external_lib/libtheora/win32/VS2005/libtheora/Debug*
+src/external_lib/libtheora/win32/VS2005/libtheora/Release*
+src/external_lib/vorbis/Debug*
+src/external_lib/vorbis/Release*
+*.vcproj.jnml.Jan Nedoma.user
+install/source/plugin/wme_sample_pixel/wme_sample_pixel.suo.old

@@ -1,0 +1,135 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>WindowEdit tool</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h2>WindowEdit tool</h2>
+<p>WindowEdit is a tool for creating and editing user-interface elements. The 
+game engine provides several control types, which can be used to compose complex 
+user interface layer. The supported controls are:</p>
+<ul>
+	<li><strong>Windows</strong> - Window is a container which can contain other 
+	controls. Windows can even contain other nested windows.</li>
+	<li><strong>Static controls</strong> - Static controls are simple controls, 
+	which can either display a static text or a static image (or both). These 
+	controls are not interactive and only serve for decoration.</li>
+	<li><strong>Buttons</strong> - Buttons provide several states (normal, 
+	pressed, disabled, hovered, focused) and they can trigger script code when 
+	pressed. Other types of control can be simulated by buttons, such as 
+	check-boxes or sliders.</li>
+	<li><strong>Editors</strong> - Editors are simple single-line editing fields 
+	used for entering text.</li>
+	<li><strong>Entity containers</strong> - Entity containers are special 
+	controls which allow you to include an entire <a href="inside_entites.html">
+	WME entity</a> object within your user interface.</li>
+</ul>
+<p>Among standard windows, there are also two special kinds of windows serving 
+specific purposes:</p>
+<ul>
+	<li><strong>Inventory boxes</strong> - Inventory boxes are used to display 
+	the player's inventory. They consist of a normal window and a rectangular 
+	area, which displays the inventory items.</li>
+	<li><strong>Response boxes</strong> - Response boxes are used to display the 
+	list of responses during dialogues. They consist of a normal window and a 
+	rectangular area, which displays the dialogue responses (either textual or 
+	iconic ones).</li>
+</ul>
+<h3>Getting started</h3>
+<p>You can start the WindowEdit tool either by clicking its icon in the Windows 
+Start menu, or by double-clicking a .window or a .def file in
+<a href="inside_projectman.html">WME ProjectMan</a>. This will either start an 
+empty editor or open the appropriate file for editing. The WindowEdit main 
+window consists of several areas:</p>
+<p><img src="../img/WindowEdit1.png"></p>
+<p>The upper-left pane is the <strong>layout pane</strong>. It displays the 
+layout of the window. You can quickly find and select any control here. To 
+select multiple items, hold down the Control key or the Shift key and click more 
+items.</p>
+<p>Below the layout pane there's the <strong>property pane</strong>. It allows 
+you to view and change the properties of a selected item (or multiple items).</p>
+<p>The largest right part of the window is the <strong>editor pane</strong>. It 
+contains a live preview of the window you're editing. You can select controls by 
+clicking them, you can drag and resize controls using mouse. To select multiple 
+controls, hold down the Control key and click more controls. You can also use 
+the following keyboard shortcuts in the editor pane:</p>
+<ul>
+	<li>Arrow keys - Move the currently selected items.</li>
+	<li>Shift + arrow keys - Resize the currently selected items.</li>
+	<li>Delete - Remove currently selected items.</li>
+</ul>
+<p>If you hold down the Control key while moving or resizing items by keyboard, 
+the movement will use 5 pixels step.</p>
+<p>In addition, WindowEdit supports the standard keyboard shortcuts for using 
+clipboard and for Undo/Redo. You can also use the toolbar or menu-bar to access 
+these functions.</p>
+<h3>Adding and reordering controls</h3>
+<p>To add a new control, click one of the &quot;Add control&quot; icons on the toolbar or in the 
+Control menu. The mouse pointer will change to crosshair. Now either click or 
+click and drag anywhere within the editor pane to add a new control of a 
+selected type (or right-click to cancel).</p>
+<p>If your window contains other nested windows, the new control will be added 
+to the window nearest to the point where you clicked.</p>
+<p>To change the order of controls (or to assign controls to another parent 
+window), simply drag and drop items in the layout pane.</p>
+<h3>Changing control properties</h3>
+<p>Use the property pane to change properties of selected controls. Some 
+properties contain simple textual or numeric value, others allow you to select 
+an external file. External files define the used fonts, background images, 
+background tiled images (see below) scripts and other. To select an external 
+file, select the property you want to change and click the &quot;...&quot; button. This 
+will display the file selection window:</p>
+<p><img src="../img/WindowEdit2.png"></p>
+<p>Here you can either manually enter the path to the file you want to assign or 
+browse it on disk using the &quot;...&quot; button. You can remove the currently selected 
+file using the &quot;Remove assigned file&quot; (note this doesn't delete the file, just 
+removes the assignment). Additionally you can click the &quot;Edit selected file&quot; to 
+open the file in an associated external editor.</p>
+<p>Once you're happy with your selection, click the OK button to confirm. Please 
+note that you cannot assign external files to multiple selected controls at 
+once, this is by design.</p>
+<p>Scripts are assigned in a similar window, which allows you to attach one or 
+more scripts and change their order.</p>
+<h3>Tiled images</h3>
+<p>You can notice that WindowEdit allows you to attach either an Image or a 
+TiledImage. Normal images are either static pictures or
+<a href="inside_sprites.html">WME sprites</a> (animations). But what are &quot;tiled 
+images&quot;? Sometimes it's useful to specify a special kind of image which can be 
+&quot;stretched&quot; when needed. This way you can use the same background for 
+windows/controls with variable size. A tiled image looks like this:</p>
+<p><img src="../img/tiled_image.png" width="100" height="100"></p>
+<p>Basically you divide the image into 9 rectangles (tiles). If you use such 
+tiled image as a background image of a control, the inside tiles will get 
+repeated to cover the entire width/height of the control.</p>
+<p>WindowEdit contains a simple built-in editor for defining tiled images. When 
+you use the file selection window to assign a tiled image and you click the 
+&quot;Edit selected file&quot; button, the tiled image editor is launched:</p>
+<p><img src="../img/WindowEdit3.png" width="383" height="434"></p>
+<p>Here you can select the image file and specify the dimensions of tiles. Use 
+the toolbar icons to open/save tiled image definition files.</p>
+<h3>Inventory and response boxes</h3>
+<p>If you edit an inventory box or a response box, an extra item will appear in 
+the layout pane, which will allow you to set additional properties of an 
+inventory/response box. Also if you select this item in the layout pane, you can 
+resize the items/responses area with mouse in the editor pane.</p>
+<p>Inventory box automatically displays a preview of the item cells based on the 
+inventory box properties.</p>
+<p>If the inventory/response window contains buttons named &quot;next&quot; and &quot;prev&quot;, 
+these buttons will be automatically used by the engine for scrolling the 
+inventory items / dialogue responses. In addition, the inventory window can 
+contain a button named &quot;close&quot;, which will be used to dismiss the inventory 
+window.</p>
+<h3>Options</h3>
+<p>You can use the Tools -&gt; Options command to change the default editor values, 
+such as the grid size and the colors used.</p>
+
+</body>
+
+</html>

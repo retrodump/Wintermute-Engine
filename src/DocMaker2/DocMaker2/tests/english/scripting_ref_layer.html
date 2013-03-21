@@ -1,0 +1,79 @@
+<html>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="WME DocMaker 2.0">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Layer object</title>
+<link rel="stylesheet" type="text/css" href="../../styles.css">
+</head>
+
+<body>
+<!-- Generated on 7.11.2005 18:05:37, settings file: english -->
+
+<h3>Layer object</h3>
+<p>
+The Layer object allows you to access the properties of your scene's layers. Layers can be queried by using the <b>Scene.GetLayer</b> method.
+</p>
+
+<br>
+
+<h4>Methods</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%"><b>Layer actions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetNode">GetNode</a></td>
+    <td>Queries a given node (region/entity) of the layer.</td>
+  </tr>
+</table>
+
+<h4>Attributes</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%">Type (read only)</td>
+    <td>Returns always "layer" </td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Name</td>
+    <td>The internal name of the layer</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Active</td>
+    <td>Specifies whether the layer is visible on screen</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">NumNodes (read only)</td>
+    <td>Returns the number of nodes of the layer</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Width (read only)</td>
+    <td>Returns the width of the layer</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Height (read only)</td>
+    <td>Returns the height of the layer</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Main (read only)</td>
+    <td>Returns <b>true</b> if this is the scene's main layer</td>
+  </tr>
+</table>
+
+<hr>
+<h3><a name="GetNode"></a>GetNode(NodeIndex)<br>GetNode(NodeName)</h3>
+<p>Queries a given node (region/entity) of the layer.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>NodeIndex</i></dt>
+<dd>An index of the requested scene node</dd>
+<dt><i>NodeName</i></dt>
+<dd>A name of the requested scene node</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns the requested node or <b>null</b> if a specified node doesn't exist.</p>
+
+
+</body>
+
+</html>

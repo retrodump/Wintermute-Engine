@@ -1,0 +1,6 @@
+TILED_IMAGE
+{
+  IMAGE="ui_elements\editor.bmp"
+  VERTICAL_TILES {5, 5, 5}
+  HORIZONTAL_TILES {5, 5, 5}
+}

@@ -1,0 +1,106 @@
+*tit Button object
+*des The Button object allows you to access the properties of the button controls contained in the game windows. Button objects can be queried using the Window.GetControl method.
+*cls CUIButton
+
+*inc inc_uiobject_methods.inc
+*inc inc_object_misc.inc
+
+
+*grp Actions
+
+*met SetDisabledFont(Filename)
+*des Sets a font for button's disabled state.
+*par Filename A filename of a font file to be used.
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met SetHoverFont(Filename)
+*des Sets a font for button's hover (mouse-over) state.
+*par Filename A filename of a font file to be used.
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met SetPressedFont(Filename)
+*des Sets a font for button's pressed state.
+*par Filename A filename of a font file to be used.
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met SetFocusedFont(Filename)
+*des Sets a font for button's focused state.
+*par Filename A filename of a font file to be used.
+*ret If the method succeeds, the return value is <b>true</b>.
+
+
+
+*met SetDisabledImage(Filename)
+*des Sets a background image (sprite) for button's disabled state.
+*par Filename A filename of a sprite file to be used.
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met GetDisabledImage()
+*des Returns the filename of the disabled background sprite (or null if no sprite is set)
+
+*met GetDisabledImageObject()
+*des Returns a reference to the disabled background sprite (or null if no sprite is set)
+
+*met SetHoverImage(Filename)
+*des Sets a background image (sprite) for button's hover (mouse-over) state.
+*par Filename A filename of a sprite file to be used.
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met GetHoverImage()
+*des Returns the filename of the hovered background sprite (or null if no sprite is set)
+
+*met GetHoverImageObject()
+*des Returns a reference to the hovered background sprite (or null if no sprite is set)
+
+*met SetPressedImage(Filename)
+*des Sets a background image (sprite) for button's pressed state.
+*par Filename A filename of a sprite file to be used.
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met GetPressedImage()
+*des Returns the filename of the pressed background sprite (or null if no sprite is set)
+
+*met GetPressedImageObject()
+*des Returns a reference to the pressed background sprite (or null if no sprite is set)
+
+
+*met SetFocusedImage(Filename)
+*des Sets a background image (sprite) for button's focused state.
+*par Filename A filename of a sprite file to be used.
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met GetFocusedImage()
+*des Returns the filename of the focused background sprite (or null if no sprite is set)
+
+*met GetFocusedImageObject()
+*des Returns a reference to the focused background sprite (or null if no sprite is set)
+
+
+*met Press()
+*des Presses the button programatically.
+
+*inc inc_object_cursor.inc
+*inc inc_object_script.inc
+*inc inc_object_sound.inc
+*inc inc_object_events.inc
+
+
+*grp 
+
+*atr Type
+*des Returns always "button"
+*ro
+
+*atr Focusable
+*des Specifies whether the button can be focused.
+
+*atr Pressed
+*des Specifies whether the button appears to be pressed all the time (useful for two state buttons, such as check-boxes).
+
+*atr PixelPerfect
+*des Specifies whether the button checks mouse-over based on the shape of its background sprite.
+
+*atr TextAlign
+*des Specifies the text alignment of the label (TAL_LEFT, TAL_RIGHT or TAL_CENTER).
+
+*inc inc_object_attr_2D.inc

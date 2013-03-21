@@ -1,0 +1,8 @@
+#include "scripts\base.inc"
+
+////////////////////////////////////////////////////////////////////////////////
+on "LeftClick"
+{
+  // when the scene is left-clicked, just send the actor to the specified point
+  actor.GoTo(Scene.MouseX, Scene.MouseY);
+}

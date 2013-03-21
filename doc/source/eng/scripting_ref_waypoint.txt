@@ -1,0 +1,15 @@
+*tit Waypoint group object
+*des The Waypoint group object allows you to access the properties of your scene's waypoint groups. Waypoint groups can be queried by using the <b>Scene.GetNode</b> or <b>Scene.GetWaypointGroup</b> methods.
+*cls CAdWaypointGroup
+
+*grp 
+
+*atr Type
+*des Returns always "waypoint-group" 
+*ro
+
+*atr Name
+*des The internal name of the waypoint group
+
+*atr Active
+*des Specifies whether the waypoint group is active

@@ -1,0 +1,43 @@
+// TreeItem.cpp: implementation of the CTreeItem class.
+//
+//////////////////////////////////////////////////////////////////////
+
+#include "stdafx.h"
+#include "ProjectMan.h"
+#include "TreeItem.h"
+
+#ifdef _DEBUG
+#undef THIS_FILE
+static char THIS_FILE[]=__FILE__;
+#define new DEBUG_NEW
+#endif
+
+//////////////////////////////////////////////////////////////////////
+// Construction/Destruction
+//////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////////
+CTreeItem::CTreeItem()
+{
+	m_IsDir = false;
+	m_IsPackage = false;
+	m_IsTopLevel = false;
+
+	m_IsObject = 0;
+	m_Contains = 0;
+
+	m_Item = NULL;
+	m_IconIndex = 0;
+	m_ShortName = "";
+	m_FullPath = "";
+
+	m_KeyFile = "";
+}
+
+
+//////////////////////////////////////////////////////////////////////////
+CTreeItem::~CTreeItem()
+{
+
+}

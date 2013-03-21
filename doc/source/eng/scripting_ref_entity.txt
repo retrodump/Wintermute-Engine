@@ -1,0 +1,119 @@
+*tit Entity object
+*des The Entity object allows you to access the properties of your entities. Entity objects are created  by loading an entity definition file using the <b>Game.LoadEntity</b> or <b>Scene.LoadEntity</b> methods. Entities which are part of the scene layout can be queried by using the <b>Scene.GetNode</b> method.
+*cls CAdEntity
+
+*grp Actions
+
+*met SetSprite(Filename)
+*des Sets entity's default sprite.
+*par Filename The filename of the sprite file to be used as a default sprite.
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met SetTalkSprite(Filename, Extended)
+*des Sets entity's talk sprite.
+*par Filename The filename of the sprite file to be used as a talk sprite.
+*par Extended Should this sprite be used for explicit talk stances only (optional, default=false).
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met AddTalkSprite(Filename, Extended)
+*des Adds entity's talk sprite.
+*par Filename The filename of the sprite file to be added to the list of talk sprites.
+*par Extended Should this sprite be used for explicit talk stances only (optional, default=false).
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met RemoveTalkSprite(Filename)
+*des Removes a sprite from the list of talk sprites.
+*par Filename The filename of the sprite file to be removed.
+*ret If the method succeeds, the return value is <b>true</b>.
+
+
+*met GetSprite()
+*des Queries a default sprite of this entity.
+*ret Returns filename of the currently assigned sprite.
+
+
+*met GetSpriteObject()
+*des Queries a default sprite of this entity.
+*ret Returns a reference to the currently assigned sprite object.
+
+*met CreateRegion()
+*des Creates a region for this entity.
+*ret Returns the reference to the region object or <b>null</b> if the creation failed.
+*rem If the entity already has a region assigned, it's NOT recreated and this method returns the original region.
+
+*met DeleteRegion()
+*des Removes a region from this entity.
+*ret Returns <b>true</b> if the method succeeded.
+
+
+*grp Video playback
+
+*met PlayTheora(Filename, Looping, AlphaImage, StartTime)
+*des Plays a video in Theora format
+*par Filename The Ogg Theora file to be played
+*par Looping Specifies whether the video should loop (optional, default=false)
+*par AlphaImage Specifies the image to be used for an alpha channel underlying the video playback (optional)
+*par StartTime Specifies the time point from which the video playback starts, in milliseconds (optional)
+
+*met StopTheora()
+*des Stops the Theora video playback
+
+*met IsTheoraPlaying()
+*des Queries whether the entity is currently playing a Theora video
+*ret Returns <b>true</b> if video playback is in progress
+
+*met PauseTheora()
+*des Pauses the Theora video playback
+
+*met ResumeTheora()
+*des Resumes a paused Theora video playback
+
+*met IsTheoraPaused()
+*des Queries whether the entity is currently playing a Theora video and the playback is paused
+*ret Returns <b>true</b> if video playback is paused
+
+
+
+*inc inc_inventory.inc 
+
+*inc inc_adobject_methods_2D.inc
+*inc inc_object_misc.inc
+
+*inc inc_object_cursor.inc
+*inc inc_object_script.inc
+*inc inc_object_sound.inc
+*inc inc_object_events.inc
+
+
+
+*grp 
+
+*atr Type
+*des Returns always "entity"
+*ro
+
+*atr Subtype
+*des Returns either "normal" or "sound" depending on entity type
+*ro
+
+*atr Item
+*des Specifies a name of an inventory item which controls the activity of this entity
+
+*atr SaveState
+*des Specifies if the scene entity remembers its state after the player leaves the scene
+
+*atr WalkToX
+*des The default postition the actor should walk to using the GoToObject method (X) 
+
+*atr WalkToY
+*des The default postition the actor should walk to using the GoToObject method (Y)
+
+*atr WalkToDirection
+*des The default direction the actor turn to after walking to this entity  using the GoToObject method.
+
+*atr Region
+*ro
+*des Returns a reference to the region object assigned to this entity, or <b>null</b> if no region is assigned.
+
+*inc inc_adobject_attr.inc 
+*inc inc_object_attr_2D.inc

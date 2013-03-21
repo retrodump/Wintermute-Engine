@@ -1,0 +1,42 @@
+RESPONSE_BOX
+{
+  FONT = "fonts\outline_white.font"
+  FONT_HOVER = "fonts\outline_red.font"
+  HORIZONTAL = FALSE
+  SPACING = 5
+
+  AREA {40, 0, 800, 170}
+
+  WINDOW
+  {    
+    X = 0
+    Y = 420
+    WIDTH = 800
+    HEIGHT = 180
+
+    BUTTON
+    {
+      TEMPLATE = "ui_elements\template\but.button"
+      IMAGE = "ui_elements\arrow_up.bmp"
+      TEXT = ""
+      NAME = "prev"
+
+      X = 0
+      Y = 0
+      WIDTH = 30
+      HEIGHT = 30
+    }
+
+    BUTTON{
+      TEMPLATE = "ui_elements\template\but.button"
+      IMAGE = "ui_elements\arrow_down.bmp"
+      TEXT = ""
+      NAME = "next"
+
+      X = 0
+      Y = 150
+      WIDTH = 30
+      HEIGHT = 30
+    }
+  }
+}

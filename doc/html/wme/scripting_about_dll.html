@@ -1,0 +1,172 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Calling external DLL libraries from WME scripts</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3>Calling external DLL libraries from WME scripts</h3>
+<p>(Note: this functionality is aimed at advanced users with programming 
+experience)</p>
+<h4>Declaration</h4>
+<p>WME allows your scripts to call external functions from DLL libraries. 
+This way you can either call Win32 API functions or write your own extension DLL 
+libraries (plug-ins).</p>
+<p>To use an external function from a script you must &quot;declare&quot; it first. The 
+declaration syntax is:</p>
+<blockquote>
+  <p><b>external &quot;dll_name&quot; [calling_convention] [return_type] 
+  function_name ( [parameters] );</b></p>
+  <p>(components enclosed in square brackets are optional)</p>
+</blockquote>
+<p><i>dll_name</i> - The name of the DLL library, enclosed in quotes. It can 
+also contain a relative or absolute path (not recommended). Please refer to the 
+WIN32 API documentation for the information on how Windows searches for a DLL 
+library.</p>
+<p><i>calling_convention</i> - This specifies which calling convention does the 
+specified function use. It can be either <font face="Courier New">stdcall</font> 
+or <font face="Courier New">cdecl</font>. If you don't specify a calling 
+convention, WME uses stdcall by default. The stdcall convention is used by Win32 
+API, while your custom DLL library written in C/C++ will probably use cdecl 
+convention. Please refer to you compiler documentation for more information 
+about calling conventions.</p>
+<p><i>return_type</i> - Specifies a data type of the value returned by the 
+function. If the function doesn't return a value (its return type is <b>void</b>) 
+or if you don't want to use its return value, you don't need to specify any 
+return type. See below for the list of supported data types.</p>
+<p><i>function_name</i> - This is the name of the function as exported by the 
+DLL library. It must match the name <i>exactly</i> otherwise WME will fail to 
+call the function.<br>
+&nbsp;- Note 1: If you are using C++ to write your DLL, be sure to declare your 
+function as <font face="Courier New">extern &quot;C&quot;</font> otherwise your DLL will 
+export a &quot;decorated&quot; C++ name.<br>
+&nbsp;- Note 2: If you are declaring a Win32 API function, remember that all 
+functions working with strings are provided in two variations, ANSI and Unicode. 
+Thus Windows DLLs export two functions: FunctionNameA (for ANSI) and 
+FunctionNameW (for Unicode). WME currently doesn't support Unicode, therefore 
+you must use the &quot;A&quot; (ANSI) functions.</p>
+<p><i>parameters</i> - This is the list of parameters delimited by commas. 
+Parameters are defined by their types followed (optionally) by their names. You 
+don't need to specify parameter names, they are not used for anything. See below 
+for the list of supported data types.</p>
+<h4>Data types</h4>
+<p>WME only allows you to pass primitive types to the DLL functions. While WME 
+script uses untyped variables, they are converted to a requested primitive data 
+type when passed to a DLL function.</p>
+<p>Supported data types are:</p>
+<table id="AutoNumber1" style="BORDER-COLLAPSE: collapse" borderColor="#111111" cellSpacing="1" border="2">
+  <tr>
+    <td style="font-size: 68%">int</td>
+    <td style="font-size: 68%">32 bit integer number, equivalent to int, long or 
+    DWORD </td>
+  </tr>
+  <tr>
+    <td style="font-size: 68%">bool</td>
+    <td style="font-size: 68%">logical value, true or false</td>
+  </tr>
+  <tr>
+    <td style="font-size: 68%">byte</td>
+    <td style="font-size: 68%">8 bit value, equivalent to BYTE or unsigned char</td>
+  </tr>
+  <tr>
+    <td style="font-size: 68%">string</td>
+    <td style="font-size: 68%">array of 8 bit characters, equivalent to char* 
+    or LPSTR or LPCSTR (see below)</td>
+  </tr>
+  <tr>
+    <td style="font-size: 68%">float</td>
+    <td style="font-size: 68%">32 bit floating-point value, equivalent to float 
+    of FLOAT</td>
+  </tr>
+  <tr>
+    <td style="font-size: 68%">double</td>
+    <td style="font-size: 68%">64 bit floating-point value, equivalent to double</td>
+  </tr>
+  <tr>
+    <td style="font-size: 68%">membuffer</td>
+    <td style="font-size: 68%">32 bit memory pointer value; it must be 
+    represented by WME's <a href="generated/scripting_ref_membuffer.html">
+    MemBuffer</a> object</td>
+  </tr>
+</table>
+<p>You can also use <i>short</i> and <i>long</i> data types, they are synonymous 
+to <i>int</i>.</p>
+<p>Strings in WME scripts have variable length, dependent on the value they 
+currently contain. But some DLL functions are able to return you a string value 
+into a provided buffer of a fixed size. In this case you can't use ordinary 
+string variables, but you must construct a String object and specify the 
+requested buffer size:</p>
+<table>
+  <tr>
+    <td bgColor="#ccffff" style="font-size: 68%">
+    <pre>var MyFixedString = new String(256); // this will create a 255 characters long string buffer
+</pre>
+    </td>
+  </tr>
+</table>
+<p>Note: You can query string buffer size using the string object's <b>Capacity</b> 
+attribute. </p>
+<h4>DLL internal data</h4>
+<p>When WME calls an external DLL function, it only loads the DLL immediately 
+before the call and unloads the DLL immediately after. Therefore the DLL cannot 
+hold any internal data between subsequent calls to its functions, because they 
+would be lost after unloading the library. This can be overcome by explicitly 
+loading your DLL from a script using the LoadLibraryA API function and keeping 
+it loaded all the time, but you must remember that the player can save/load game 
+at anytime, therefore your loaded DLL can get unloaded anyway. You can use 
+game's <b>BeforeSave</b> and <b>AfterLoad</b> events to store/restore private 
+data before saving and after loading game.</p>
+<h4>Passing structures to/from DLL functions</h4>
+<p>Some of the API functions and possibly your own DLL functions may require 
+passing structures to them. WME provides a built-in <b>MemBuffer</b> object type 
+for this purpose. By creating a MemBuffer object in a script you reserve a 
+memory space which can be then passed to a DLL function. MemBuffer objects 
+provide a number of methods for writing/reading values of different types 
+to/from them thus simulating the &quot;struct&quot; keyword known from some other 
+programming languages. See the <a href="generated/scripting_ref_membuffer.html">
+MemBuffer scripting reference</a> for more details.</p>
+<h4>A word of warning</h4>
+<p>By using external DLL functions, you are skating on a thin ice. While 
+normally WME tries to catch developer's mistakes to prevent fatal errors and 
+crashes, using the external functions you can crash the engine quite easily. 
+Keep this in mind and be very careful about the passed parameters, their order 
+and about the calling convention.</p>
+<h4>Example</h4>
+<p>The following example demonstrates declaring and calling several Win32 API 
+functions from a WME script.</p>
+<table>
+  <tr>
+    <td bgColor="#ccffff" style="font-size: 68%">
+    <pre>// declaration
+external &quot;user32.dll&quot; MessageBeep(int uType);
+external &quot;kernel32.dll&quot; long GetTempPathA(int nBufferLength, string lpBuffer);
+external &quot;kernel32.dll&quot; int LoadLibraryA(string);
+external &quot;kernel32.dll&quot; FreeLibrary(int);
+
+function MyDllTest()
+{
+  // MessageBeep plays a sound
+  MessageBeep(0);
+  
+  // GetTempPath returns the Windows' temporary folder
+  var TempPath = new String(256);
+  GetTempPathA(TempPath.Capacity, TempPath);
+  Game.Msg(&quot;Windows temporary folder is: &quot; + TempPath);
+
+  // load our custom DLL and unload it immediately
+  var hDll = LoadLibraryA(&quot;MyDll.dll&quot;);
+  FreeLibrary(hDll);
+}</pre>
+    </td>
+  </tr>
+</table>
+
+</body>
+
+</html>

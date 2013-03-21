@@ -1,0 +1,58 @@
+; engine system strings
+SYSENG0001	Game settings
+SYSENG0002	Display
+SYSENG0003	Sound
+SYSENG0004	Use hardware acceleration
+SYSENG0005	Display device:
+SYSENG0006	Colors:
+SYSENG0007	Run in window
+SYSENG0008	Multisample type:
+SYSENG0009	Use hardware T&&L
+SYSENG0010	More...
+SYSENG0011	Sound device:
+SYSENG0012	Advanced settings
+SYSENG0013	Note: These settings are provided for troubleshooting purposes only. If the game displays correctly on your computer, you don't need to select any of these options.
+SYSENG0014	Texture settings
+SYSENG0015	Force 16bit textures
+SYSENG0016	Force texture subdivision
+SYSENG0017	16 bit
+SYSENG0018	32 bit
+SYSENG0019	[no sound]
+SYSENG0020	none
+SYSENG0021	samples
+SYSENG0022	Antialiasing:
+SYSENG0023	x
+SYSENG0024	Don't show this window again
+SYSENG0025	This game requires 3D acceleration which doesn't seem to be supported by your video card. Please make sure you have a 3D accelerated video card and that you have the latest video drivers installed.
+SYSENG0026	This game requires Microsoft DirectX 8.0 or later which is not installed on your computer. Please install DirectX 8.0 or later and try again. Do you want to display the DirectX download page now?
+SYSENG0027	Loading...
+SYSENG0028	This game requires a sound card which doesn't seem to be available. Please make sure you have a sound card and that you have the latest audio drivers installed.
+
+SYSENG0030	Accessibility
+SYSENG0031	These options are intended for enhancing accessibility for some vision-impaired players.
+SYSENG0032	Send written text to text-to-speech output
+SYSENG0033	Read item captions
+SYSENG0034	Read spoken lines
+SYSENG0035	Read typed characters
+SYSENG0036	Use keyboard shortcuts to highlight active items
+SYSENG0037	Move mouse pointer to the active item
+SYSENG0038	(Use Ctrl+Tab and Ctrl+Shift+Tab to cycle through active items)
+SYSENG0039	Allow pausing game anytime using Ctrl+Space
+SYSENG0040	Game paused. Press Ctrl+Space to resume.
+
+SYSENG0050	About
+SYSENG0051	Powered by Wintermute Engine
+
+; game explorer strings
+SYSENG0060	Play
+SYSENG0061	Settings
+SYSENG0062	Website 1
+SYSENG0063	http://dead-code.org
+SYSENG0064	Website 2
+SYSENG0065	http://dead-code.org
+
+SYSENG0070	Maintain aspect ratio
+SYSENG0071	Use desktop resolution
+
+SYSENG0100	OK
+SYSENG0101	Cancel

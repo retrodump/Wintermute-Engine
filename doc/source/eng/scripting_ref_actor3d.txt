@@ -1,0 +1,394 @@
+*tit 3D actor object
+*des The 3D actor object allows you to access the properties of your 3D actors. 3D actor objects are created by loading an actor definition file using the Game.LoadActor3D or Scene.LoadActor3D methods.
+*cls CAdActor3DX
+
+*grp Actions
+
+*met GoTo(X, Y)
+*mt2 GoToAsync(X, Y)
+*des Makes the actor walk to a given point.
+*par X The X coordinate of the target walking point
+*par Y The Y coordinate of the target walking point
+*rem The GoTo method blocks the script execution until the walking is over, while the GoToAsync method returns immediately.
+
+*met GoToObject(Entity)
+*mt2 GoToObjectAsync(Entity)
+*des Makes the actor walk to a specified entity.
+*par Entity The entity object the actor should walk and turn to
+*rem This method utilizes the WalkToX, WalkToY and WalkToDirection properties of the target entity. They can be set directly in SceneEdit.
+
+*met GoTo3D(X, Y, Z)
+*mt2 GoTo3DAsync(X, Y, Z)
+*des Makes the actor walk to a given point in 3D space.
+*par X The X coordinate of the target walking point
+*par Y The Y coordinate of the target walking point
+*rem The GoTo3D method blocks the script execution until the walking is over, while the GoTo3DAsync method returns immediately.
+*rem Unlike the standard GoTo method, this method doesn't project the target point from screen position, but rather uses the "raw" 3D point within scene geometry as a target point.
+
+
+*met TurnTo(Direction)
+*mt2 TurnTo(Object)
+*mt2 TurnToAsync(Direction)
+*mt2 TurnToAsync(Object)
+*des Makes actor turn to the given direction or to a given object.
+*par Direction The direction to turn to
+*par Object The object to turn to
+*rem The TurnTo method blocks the script execution until the turning is over, while the TurnToAsync method returns immediately. The direction can be one of the following constants: DI_UP, DI_UPRIGHT, DI_RIGHT, DI_DOWNRIGHT, DI_DOWN, DI_DOWNLEFT, DI_LEFT or DI_UPLEFT (those equal to numbers 0 to 7).
+
+*met TurnToAngle(Angle)
+*mt2 TurnToAngleAsync(Angle)
+*des Makes actor turn to the given angle.
+*par Angle The angle to turn to, in degrees
+*rem The TurnToAngle method blocks the script execution until the turning is over, while the TurnToAngleAsync method returns immediately.
+
+*met IsWalking()
+*des Queries whether the actor is currently walking.
+*ret Returns <b>true</b> if the actor is walking.
+
+*met PlayAnim(AnimName)
+*mt2 PlayAnimAsync(AnimName)
+*des Plays an animation.
+*par AnimName The name of the animation sequence to be played
+*ret Returns <b>true</b> if the animation has been played successfuly.
+*rem The PlayAnim method blocks the script execution until the animation is over, while the PlayAnimAsync method returns immediately. <b>PlayAnim</b> is equivalent to <b>PlayAnimChannel</b> with channel set to zero.
+
+*met PlayAnimChannel(Channel, AnimName)
+*mt2 PlayAnimChannelAsync(Channel, AnimName)
+*des Plays an animation in a specified channel.
+*par Channel The channel to be used by this animation (0 - 9)
+*par AnimName The name of the animation sequence to be played
+*ret Returns <b>true</b> if the animation has been played successfuly.
+*rem The PlayAnimChannel method blocks the script execution until the animation is over, while the PlayAnimChannelAsync method returns immediately.
+
+*met StopAnim(TransitionTime)
+*des Stops a currently playing animation.
+*par TransitionTime The transition time to smoothly switch back to basic pose, in milliseconds (optional, default=0)
+*ret Returns <b>true</b> if the animation has been stopped successfuly.
+
+*met StopAnimChannel(Channel)
+*des Stops a currently playing animation in the specified channel.
+*par Channel The channel in which the animation should be stopped (0 - 9)
+*par TransitionTime The transition time to smoothly switch back to basic pose, in milliseconds (optional, default=0)
+*ret Returns <b>true</b> if the animation has been stopped successfuly.
+
+*met IsAnimPlaying(AnimName)
+*des Checks whether the actor is currently playing an animation
+*par AnimName Optional animation name to be queried
+*ret Returns <b>true</b> if the actor is playing an animation.
+*rem If you don't specify an animation name, this method checks if any animaton is playing. Otherwise it checks if the specified animation is playing.
+
+*met IsAnimChannelPlaying(Channel, AnimName)
+*des Checks whether the actor is currently playing an animation in a specified channel
+*par Channel The channel in which the animation should be queried (0 - 9)
+*par AnimName Optional animation name to be queried
+*ret Returns <b>true</b> if the actor is playing an animation in a specified channel.
+*rem If you don't specify an animation name, this method checks if any animaton is playing. Otherwise it checks if the specified animation is playing.
+
+*met SetAnimTransitionTime(AnimFrom, AnimTo, Time)
+*des Sets a transition time for an animation pair
+*par AnimFrom The original animation
+*par AnimTo The new animation
+*par Time The transition time
+*ret Returns <b>true</b> if the method succeeded.
+*rem For example, if you want to set the transition from walking to idle animation to 1 second, you'd call: actor.SetAnimTransitionTime("walk", "idle", 1000);
+*rem Specify a negative Time value to restore the default transition time.
+
+*met GetAnimTransitionTime(AnimFrom, AnimTo)
+*des Queries a transition time for an animation pair
+*par AnimFrom The original animation
+*par AnimTo The new animation
+*ret Returns the transition time for the specified animation pair, or a negative value if no transition time is defined.
+
+*met SkipTo3D(X, Y, Z)
+*des Moves the actor to a specified point in 3D space
+*par X The X coordinate
+*par Y The Y coordinate
+*par Z The Z coordinate
+
+*met SetTexture(MaterialName, TextureFilename)
+*des Assigns a new texture to a specified material
+*par Material The material whose texture should be set
+*par TextureFilename The filename of a new texture
+*rem <b>MaterialName</b> defaults to the name of the original texture assigned to the model, without extension. For example, if the model uses texture called "path\some_texture.png", the material will be called "some_texture".
+*rem <b>TextureFilename</b> can be either a static image or WME sprite.
+
+*met SetTheoraTexture(MaterialName, VideoFilename)
+*des Assigns a Theora video as a texture to a specified material
+*par Material The material whose texture should be set
+*par VideoFilename The filename of a Theora video to be used as texture
+*rem <b>MaterialName</b> defaults to the name of the original texture assigned to the model, without extension. For example, if the model uses texture called "path\some_texture.png", the material will be called "some_texture".
+*rem The Theora video dimensions must be powers of two (2, 4, 8, 16, 32...) and the video is always looping until it's replaced by other texture.
+
+*met SetEffect(MaterialName, EffectFilename)
+*des Assigns an advanced material defined by effect file to a specified material
+*par Material The material to which the effect is to be assigned
+*par EffectFilename The filename of an effect file
+*rem <b>MaterialName</b> defaults to the name of the original texture assigned to the model, without extension. For example, if the model uses texture called "path\some_texture.png", the material will be called "some_texture".
+
+*met RemoveEffect(MaterialName)
+*des Removed an advanced material defined by effect file from a specified material
+*par Material The material from which the effect is to be removed
+*rem <b>MaterialName</b> defaults to the name of the original texture assigned to the model, without extension. For example, if the model uses texture called "path\some_texture.png", the material will be called "some_texture".
+
+*met SetEffectParam(MaterialName, ParamName, Value)
+*des Sets a parameter of an effect applied to a material
+*par Material The material to which the effect parameter is to be assigned
+*par ParamName The name of the parameter to set
+*par Value The value to be assigned to the parameter
+*rem The value can contain one of the following types: string, logical value, integer number or floating point number.
+
+*met SetEffectParamVector(MaterialName, ParamName, X, Y, Z, W)
+*des Sets a 4D vector parameter of an effect applied to a material
+*par Material The material to which the effect parameter is to be assigned
+*par ParamName The name of the parameter to set
+*par X The X coordinate of a vector
+*par Y The Y coordinate of a vector
+*par Z The Z coordinate of a vector
+*par W The W coordinate of a vector
+
+*met SetEffectParamColor(MaterialName, ParamName, Color)
+*des Sets a color parameter of an effect applied to a material
+*par Material The material to which the effect parameter is to be assigned
+*par ParamName The name of the parameter to set
+*par Color The color to be assigned to parameter
+*rem The Color parameter should contain a packed RGBA color value created using the <b>MakeRGBA()</b> function.
+*rem Internally the color is converted to a 4D vector.
+
+
+*met GetBonePosition2D(BoneName)
+*des Returns current position of a specified bone in screen coordinates
+*par BoneName The name of the bone to be queried
+*ret Returns an object providing two properties, X and Y.
+
+*met GetBonePosition3D(BoneName)
+*des Returns current position of a specified bone in world coordinates
+*par BoneName The name of the bone to be queried
+*ret Returns an object providing three properties, X, Y and Z.
+
+*met AddIgnoredLight(LightName)
+*des Adds a light to the list of lights that shouldn't affect the actor
+*par LightName The name of the light that will not affect the actor
+*ret Returns <b>true</b> if the method succeeded.
+*rem The light name is case-insensitive.
+
+*met RemoveIgnoredLight(LightName)
+*des Removes a light from the list of lights that shouldn't affect the actor
+*par LightName The name of the light to be removed from ignore list
+*ret Returns <b>true</b> if the method succeeded.
+*rem The light name is case-insensitive.
+
+*grp Direct control
+
+*met DirectWalk(Velocity, Animation)
+*des Makes the character walk forward.
+*par Velocity The walking velocity to be used (optional, defaults to standard velocity)
+*par Animation The animation to be used (optional, defaults to standard animation)
+
+*met DirectWalkBack(Velocity, Animation)
+*des Makes the character walk backwards.
+*par Velocity The walking velocity to be used (optional, defaults to standard velocity)
+*par Animation The animation to be used (optional, defaults to standard animation)
+
+*met DirectWalkStop()
+*des Stops character from walking.
+
+*met DirectTurnLeft(Velocity, Animation)
+*des Makes the character turn counter-clockwise.
+*par Velocity The turning velocity to be used (optional, defaults to standard velocity)
+*par Animation The animation to be used (optional, defaults to standard animation)
+
+*met DirectTurnRight(Velocity, Animation)
+*des Makes the character turn clockwise.
+*par Velocity The turning velocity to be used (optional, defaults to standard velocity)
+*par Animation The animation to be used (optional, defaults to standard animation)
+
+*met DirectTurnStop()
+*des Stops character from turning.
+
+
+*grp Shadow related functions
+
+*met SetShadowImage(Filename)
+*des Sets and image to be used as a simple shadow for this actor
+*par Filename The filename of an image to be used
+*ret Returns <b>true</b> if the image has been successfuly set.
+
+*met GetShadowImage()
+*des Gets the currently assigned image to be used as a simple shadow for this actor
+*ret Returns the filename of currently assigned shadow image or <b>null</b> if no image is set.
+
+*met SetLightPosition(X, Y, Z)
+*des Sets the position of a light to project a real-time shadow
+*par X The X coordinate of the light
+*par Y The Y coordinate of the light
+*par Z The Z coordinate of the light
+*rem The light position is relative to actor's position.
+
+*grp Attachment functions
+
+*met AddAttachment(Filename, AttachmentName, ParentBone)
+*des Load a new model from a file and attaches it to a specified bone of this actor
+*par Filename Filename of the model file to be loaded (X file)
+*par AttachmentName The name of the attachment to be loaded
+*par ParentBone The name of the bone the loaded mesh will be attached to
+*ret Returns <b>true</b> if the attachment has been successfuly loaded and attached.
+
+*met RemoveAttachment(AttachmentName)
+*des Permanently removes a specified attachment from this actor
+*par AttachmentName The attachment to be removed
+*ret Returns <b>true</b> if the attachment has been successfuly removed.
+
+*met GetAttachment(AttachmentName)
+*des Gets a reference to a specified attachment object
+*par AttachmentName The attachment to be queried
+*ret Returns a reference to an attachment object or <b>null</b> if there's no attachment with a specified name.
+
+*grp Animation management
+
+*met MergeAnims(ModelName)
+*des Loads animations from X file
+*par ModelName The name of an X model whose animations should be loaded
+*ret Returns <b>true</b> if the animations have been successfuly merged.
+
+*met UnloadAnim(AnimationName)
+*des Unload specified named animation from memory
+*par AnimationName The name of the animation to be unloaded
+*ret Returns <b>true</b> if the animation has been successfuly removed.
+
+
+*grp Mesh related functions (deprecated)
+
+*met HideMesh(MeshName)
+*des Hides a specified part (mesh) of this actor
+*par MeshName The mesh to be hidden
+*ret Returns <b>true</b> if the mesh has been successfuly hidden.
+*rem This method is DEPRECATED and not supported by .X models.
+
+*met ShowMesh(MeshName)
+*des Shows a specified part (mesh) of this actor
+*par MeshName The mesh to be shown
+*ret Returns <b>true</b> if the mesh has been successfuly shown.
+*rem This method is DEPRECATED and not supported by .X models.
+
+*met AddMesh(Filename, MeshName, ParentBone)
+*des Load a new model from a file and attaches it to a specified bone of this actor
+*par Filename Filename of the model file to be loaded (MS3D file)
+*par MeshName The name of the mesh to be loaded
+*par ParentBone The name of the bone (joint) the loaded mesh will be attached to
+*ret Returns <b>true</b> if the mesh has been successfuly loaded and attached.
+*rem This method is DEPRECATED and not supported by .X models.
+
+*met RemoveMesh(MeshName)
+*des Permanently removes a specified mesh from this actor
+*par MeshName The mesh to be removed
+*ret Returns <b>true</b> if the mesh has been successfuly removed.
+*rem This method is DEPRECATED and not supported by .X models.
+
+
+*inc inc_inventory.inc 
+
+*inc inc_object_cursor.inc
+*inc inc_object_script.inc
+*inc inc_object_sound.inc
+*inc inc_object_events.inc
+
+*grp Miscelaneous functions
+*inc inc_object_misc.inc
+*inc inc_adobject_methods.inc
+
+
+*grp Particle functions
+
+*met CreateParticleEmitterBone(BoneName, OffsetX, OffsetY, OffsetZ)
+*des Initializes the particle emitter and attaches it to a specified bone.
+*par BoneName The name of the bone the particle emitter is attached to
+*par OffsetX The X offset to be added to bone's 3D position when displaying particles
+*par OffsetY The Y offset to be added to bone's 3D position when displaying particles
+*par OffsetZ The Z offset to be added to bone's 3D position when displaying particles
+*ret Returns the reference to the particle emitter object
+*rem Once initialized with this method, the particle emitter object can be queried using the <b>ParticleEmitter</b> property.
+
+
+
+*grp 
+
+*atr Type
+*des Returns always "actor3d"
+*ro
+
+*atr Direction
+*des The direction the actor is currently facing
+
+*atr DirectionAngle
+*des The angle the actor is currently facing, in degrees
+
+
+*inc inc_adobject_attr.inc 
+*inc inc_object_attr.inc
+
+*atr Scale
+*des The scale of this character in percent. The scale affects both the character model and its shadow.
+
+*atr PosX
+*des The 3D X coordinate of the actor's current position
+
+*atr PosY
+*des The 3D Y coordinate of the actor's current position
+
+*atr PosZ
+*des The 3D Z coordinate of the actor's current position
+
+*atr Velocity
+*des The movement velocity to be used for walking
+
+*atr AngularVelocity
+*des The turning velocity to be used for turning
+
+*atr ShadowType
+*des Specifies the shadow detail level to be used for this actor (0..none, 1..simple, 2..flat, 3..stencil shadows)
+
+*atr ShadowColor
+*des The RGBA color of the real-time shadow cast by this character
+
+*atr Shadow
+*des Specified if this character casts shadow (obsolete, use ShadowType)
+
+*atr SimpleShadow
+*des Specifies if simple shadow is used instead of real-time one (obsolete, use ShadowType)
+
+
+*atr DrawBackfaces
+*des Specifies whether the 3D model should display also polygons facing away from the camera.
+
+*atr TalkAnimName
+*des The name of an animation sequence to be used for talking
+
+*atr WalkAnimName
+*des The name of an animation sequence to be used for walking
+
+*atr IdleAnimName
+*des The name of an animation sequence to be used for standing still
+
+*atr TurnLeftAnimName
+*des The name of an animation sequence to be used for turning left (counter clockwise)
+
+*atr TurnRightAnimName
+*des The name of an animation sequence to be used for turning right (clockwise)
+
+*atr TalkAnimChannel
+*des The animation channel to be used for playing talking animations.
+
+*atr GoToTolerance
+*des Specifies the shortest distance between the actor's current position and its GoTo target (in pixels); If the distance is shorter than this value, GoTo command is ignored.
+
+*atr AnimTransitionTime
+*des Specifies the time taken to smoothly transition between two animations (in milliseconds)
+
+*atr AnimStopTransitionTime
+*des Specifies the time taken to smoothly transition back to basic pose after an animation finishes (in milliseconds)
+
+*atr DropToFloor
+*des Specifies whether the actor is always standing on the ground, no matter what Y coordinate is assigned to it.
+
+*atr AmbientLightColor
+*des The color of the scene ambient light, which only affects this actor (overrides scene ambient light color).

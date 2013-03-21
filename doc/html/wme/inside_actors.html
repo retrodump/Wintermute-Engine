@@ -1,0 +1,254 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Actors</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h2>Actors</h2>
+<p>The &quot;actors&quot; represent the characters of your game (both player characters 
+and non-player characters). The actor has the ability to walk in up to eight 
+directions, he can turn to a certain direction, he can talk and he can play 
+custom animations (such as a &quot;take item&quot; animation). A typical actor comprises 
+of many animations therefore designing an actor is a time consuming process.</p>
+
+<p>A typical adventure game contains lots of various characters, but you can 
+notice most of these characters are somehow &quot;limited&quot;, i.e. they are only 
+standing/sitting at one fixed position. That's to limit the amount of work 
+needed to design a fully-featured actor. In WME, it's recommended to use the 
+&quot;entities&quot; to design those simpler characters (<a href="inside_entites.html">learn 
+more about entities</a>) and to only use actors to design complicated (walking) 
+characters, such as the player character.</p>
+
+<p>There is currently no tool for designing a WME actor. You must create an 
+actor by writing a simple text file, defining the actor's properties. But don't 
+worry, the structure of this file isn't very complicated and you will probably 
+need to create very few actors for your game.</p>
+
+<p>&nbsp;</p>
+
+<p>What do we need to build an actor? First, we need the animations (<a href="inside_sprites.html">sprites</a>). 
+Each actor usually needs several sets of animations, such as walking animation, 
+idle animation, 
+turning animation and talking animation. Also, remember the actor is able to walk 
+into eight directions, therefore you may need up to eight versions of each animation 
+type for different directions. You don't necessarily need to define all eight 
+directions if you don't want to, though. For example if your actor can only walk 
+to four directions (common for smaller games), you can only define the four 
+directions necessary. The engine will automatically choose the nearest defined 
+direction. You should define at least one direction for each sprite set, though.</p>
+
+<p>The actor definition doesn't need to reference any special animations, such as &quot;take 
+item&quot; animations or idle animations. Those specific situations can be handled 
+separately using the scripting language (<a href="scripting_about.html">learn 
+more about scripting</a>).</p>
+
+<p>&nbsp;</p>
+
+<h3>Walking animations</h3>
+
+<p>The walking animations are used when the actor walks from one place to 
+another. The only specific thing about walking animations is that you have to 
+define their &quot;move&quot; properties in SpriteEdit. The &quot;Move X&quot; and &quot;Move Y&quot; 
+properties specify how much does the actor move when walking.</p>
+
+<p>For example, the following picture displays the &quot;walk left&quot; animation of an 
+actor. As you can see, the animation defines that the selected frame moves the 
+actor by -12 pixels in the X coordinate (i.e. 12 pixels to the left).</p>
+
+<p align="center">
+<img border="0" src="../img/Actors1.png" width="456" height="327"></p>
+
+<p align="left">This way you can define the walking speed of your actors. Note 
+that the amount of pixels is adjusted automatically when the actor is scaled 
+(i.e. he moves slower when he's scaled down and vice versa).</p>
+
+<p align="left">&nbsp;</p>
+
+<h3 align="left">Idle animations</h3>
+
+<p align="left">The idle animations are used when the actor is standing at 
+one place. You can use only one frame for the idle animation, or you can create 
+some simple animation, such as breathing.</p>
+
+<p align="left">&nbsp;</p>
+
+<h3 align="left">Turning animations</h3>
+
+<p align="left">When the actor is facing a certain direction and he needs to 
+turn to another direction, he plays the turning animation. The turning 
+animations are defined for each direction and when the actor is turning, he 
+plays the turning animation for each direction subsequently. Also, the turning 
+animations are different depending on whether the actor is turning right 
+(clockwise) or left (counterclockwise). For example, when the actor is facing up 
+and he needs to turn down, he plays the turning animation for the up, up-right, 
+right and down-right directions and he uses the &quot;turn right&quot; set of animations.</p>
+
+<p align="left">The turning animation usually comprises of only one frame, but 
+you can use a more complex animations to create a more realistic effect (people 
+are actually shifting their feet when turning, try it :-)</p>
+
+<p align="left">&nbsp;</p>
+
+<h3 align="left"><a name="talking_animations"></a>Talking animations</h3>
+
+<p align="left">Talking animations, as the name suggests, are used when the 
+actor is talking. WME allows you to achieve complex effects for actors' talking 
+by defining so called &quot;talk stances&quot;. Basically, the stances are different 
+animations used&nbsp; for talking, that can be combined for one actor.Talk 
+command. For example you can use talk stances to add gestures to actor's 
+talking. You can define as many talk stances as you want, and when you call the 
+actor's Talk method from script, you can specify which stances should be used 
+while talking (<a href="generated/scripting_ref_actor.html#Talk">learn more 
+about the actor.Talk command</a>). If you don't specify any stances, the engine 
+will use random stances. Thus you can prepare several talking animations and let 
+the engine use them randomly.</p>
+
+<p align="left">Of course, sometimes it's not desirable to use certain talking 
+stances randomly (in case they are designed only for certain situation), 
+therefore you can define two sets of talk stances, normal and special. The 
+normal stances can be used by the engine randomly, while the special stances 
+will never be used unless you request them explicitly.</p>
+
+<p align="left">Before you get scared by all those complexities described above 
+:-) note that for the simple actors you can only specify one talking animation 
+(or even no animation at all). The talk stances mechanism is provided for 
+advanced users.</p>
+
+<p align="left">&nbsp;</p>
+
+<h3 align="left">Scripts</h3>
+
+<p align="left">All the animations described above only define the look of your 
+actor, his &quot;body&quot;, so to say. But the actual brain is done by scripting (<a href="scripting_about.html">learn 
+more about scripting</a>). As all the other WME objects, the actor can have one 
+or more scripts assigned, defining his behavior.</p>
+
+<p align="left">&nbsp;</p>
+
+<h3 align="left">Actor definition file</h3>
+
+<p align="left">OK, we've described what we need to define the actor, now we'll 
+assemble those component into one definition file (the actor files use the 
+.actor extension by a convention). First, there is the file 
+heading and some general properties:</p>
+
+<div align="left">
+<pre><font color="#800000">ACTOR
+{
+  NAME = "MyActor"
+  CAPTION="My brand new actor"
+  X = 100
+  Y = 100
+  SCALABLE = TRUE
+  INTERACTIVE = FALSE
+  COLORABLE=TRUE
+  ROTATABLE = FALSE
+  SOUND_PANNING=TRUE
+  SCRIPT="actors\MyActor\MyActor.script"
+  FONT = "fonts\outline_red.font"</font>
+</pre>
+</div>
+Description:<ul>
+  <li>NAME - the internal name of the actor</li>
+  <li>CAPTION - actor's caption</li>
+  <li>X, Y - the initial position</li>
+  <li>SCALABLE - whether the actor is affected by the scene scaling</li>
+  <li>INTERACTIVE - whether the actor appears to be interactive (it reacts to 
+  mouse events)</li>
+  <li>COLORABLE - whether the actor is affected by the scene coloring</li>
+  <li>ROTATABLE - whether the actor is affected by the scene rotation definition</li>
+  <li>SOUND_PANNING - specifies whether all the sounds generated by this actor 
+  are automatically panned depending on his position on screen</li>
+  <li>SCRIPT - the script assigned to this actor (there can be multiple SCRIPT 
+  lines)</li>
+  <li>FONT - the font to be used for actor's speech subtitles</li>
+</ul>
+<p>Then follows the definition of all the animations described above. There can 
+be up to eight animations defined in each section, for the eight directions.</p>
+<p>For example the walk animation definition might look like this:</p>
+<pre><font color="#800000">  ANIMATION
+  {
+    NAME       = "walk"
+
+    LEFT       = "actors\MyActor\ll\walk.sprite"
+    RIGHT      = "actors\MyActor\rr\walk.sprite"
+    UP         = "actors\MyActor\uu\walk.sprite"
+    DOWN       = "actors\MyActor\dd\walk.sprite"
+
+    UP_LEFT    = "actors\MyActor\ul\walk.sprite"
+    UP_RIGHT   = "actors\MyActor\ur\walk.sprite"
+    DOWN_LEFT  = "actors\MyActor\dl\walk.sprite"
+    DOWN_RIGHT = "actors\MyActor\dr\walk.sprite"
+  }</font>
+</pre>
+
+The other animations are defines similarly, you only need to replace the &quot;walk&quot; 
+name with other predefined names: &quot;idle&quot;, &quot;talk&quot;, &quot;turnleft&quot; or &quot;turnright&quot;.<p>
+There can be more than one animation sets called &quot;talk&quot;. In that case, the 
+engine will choose one of them by random when the character is talking.</p>
+<p>In addition to these &quot;standard&quot; names, you can define any number of other 
+animation sets for special purposes. For example you can define special talking 
+stances with specific names (&quot;gesture_angry&quot;) which you can request when calling 
+the <a href="generated/scripting_ref_actor.html#Talk">actor.Talk()</a> method.</p>
+<p>Or you can create custom versions of the standard animations (for example a 
+&quot;run&quot; animation to replace &quot;walk&quot;) and switch them at runtime using the <strong>
+actor.TalkAnimName</strong>, <strong>actor.IdleAnimName</strong>, <strong>
+actor.WalkAnimName</strong>, <strong>actor.TurnLeftAnimName</strong> and <strong>
+actor.TurnRightAnimName</strong> properties.</p>
+
+<p>Be careful about memory usage, though, when defining too many animation sets. 
+WME allows you to load animations from file when they are needed. Such file 
+would only contain one or more ANIMATION blocks and you can load it using the
+<a href="generated/scripting_ref_actor.html#MergeAnims">actor.MergeAnims()</a> 
+method. Similarly, when an animation set is no longer needed, you can unload it 
+from memory using the <a href="generated/scripting_ref_actor.html#UnloadAnim">
+actor.UnloadAnim()</a> method.</p>
+
+&nbsp;<p>For an example of a complete actor definition file please see the &quot;WME 
+demo&quot; project. There is the &quot;molly&quot; actor prepared in the &quot;actors\molly&quot; folder. 
+Also, you don't need to write the definition file from scratch, there is an 
+actor template available in ProjectMan (<a href="inside_projectman.html">learn 
+more about ProjectMan</a>).</p>
+<h3><a name="collisions"></a>Collisions between multiple actors</h3>
+<p>In addition to the actor definition components described above, the 
+definition file can contain a definition of a &quot;private blocked region&quot;. If you 
+are already familiar with the concept of blocked regions and waypoints in scenes 
+(described <a href="inside_scenes_step4.html">here</a> and
+<a href="inside_scenes_step5.html">here</a>), this is something similar. The actors can carry their own 
+blocked region and a set of waypoints as they walk within the scene. This is 
+primarily intended for preventing actors walking through each other, and as such 
+you only need to use it if your scenes contain multiple walking actors. To 
+define the private blocked region, you'll need to add something like this to the 
+actor definition file:</p>
+<pre><font color="#800000">  BLOCKED_REGION
+  {
+    POINT {-60,-48}
+    POINT {46,-48}
+    POINT {46,53}
+    POINT {-60,53}
+  }
+  WAYPOINTS
+  {
+    POINT {-65,-53}
+    POINT {-56,39}
+    POINT {51,-58}
+    POINT {60,58}
+  }</font>
+</pre>
+
+<p>The points define the blocked region and surrounding waypoints, and their 
+position is defined as relative to actor's position. Apparently, defining those 
+by hand is not very user-friendly, but you can usually just copy the above lines 
+to the actor definition file without modifications.</p>
+<p><b>See also</b>: <a href="generated/scripting_ref_actor.html">Actor scripting 
+reference</a></p>
+</body>
+
+</html>

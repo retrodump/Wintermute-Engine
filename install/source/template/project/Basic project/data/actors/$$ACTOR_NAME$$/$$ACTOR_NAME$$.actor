@@ -1,0 +1,90 @@
+; $EDITOR_PROJECT_ROOT_DIR$ ..\..\..\
+
+ACTOR
+{
+  NAME = "$$ACTOR_NAME$$"
+  CAPTION=""
+  SCALABLE = TRUE
+  INTERACTIVE = FALSE
+  X = 400
+  Y = 460
+  SCRIPT="actors\$$ACTOR_NAME$$\$$ACTOR_NAME$$.script"
+
+  FONT = "fonts\outline_red.font"
+
+
+  ANIMATION
+  {
+    NAME       = "idle"
+    
+    LEFT       = "actors\$$ACTOR_NAME$$\ll\stand.sprite"
+    RIGHT      = "actors\$$ACTOR_NAME$$\rr\stand.sprite"
+    UP         = "actors\$$ACTOR_NAME$$\uu\stand.sprite"
+    DOWN       = "actors\$$ACTOR_NAME$$\dd\stand.sprite"
+
+    UP_LEFT    = "actors\$$ACTOR_NAME$$\ul\stand.sprite"
+    UP_RIGHT   = "actors\$$ACTOR_NAME$$\ur\stand.sprite"
+    DOWN_LEFT  = "actors\$$ACTOR_NAME$$\dl\stand.sprite"
+    DOWN_RIGHT = "actors\$$ACTOR_NAME$$\dr\stand.sprite"
+  }  
+
+  ANIMATION
+  {
+    NAME       = "walk"
+    
+    LEFT       = "actors\$$ACTOR_NAME$$\ll\walk.sprite"
+    RIGHT      = "actors\$$ACTOR_NAME$$\rr\walk.sprite"
+    UP         = "actors\$$ACTOR_NAME$$\uu\walk.sprite"
+    DOWN       = "actors\$$ACTOR_NAME$$\dd\walk.sprite"
+
+    UP_LEFT    = "actors\$$ACTOR_NAME$$\ul\walk.sprite"
+    UP_RIGHT   = "actors\$$ACTOR_NAME$$\ur\walk.sprite"
+    DOWN_LEFT  = "actors\$$ACTOR_NAME$$\dl\walk.sprite"
+    DOWN_RIGHT = "actors\$$ACTOR_NAME$$\dr\walk.sprite"
+  }
+
+  ANIMATION
+  {
+    NAME       = "talk"
+    
+    LEFT       = "actors\$$ACTOR_NAME$$\ll\talk.sprite"
+    RIGHT      = "actors\$$ACTOR_NAME$$\rr\talk.sprite"
+    UP         = "actors\$$ACTOR_NAME$$\uu\talk.sprite"
+    DOWN       = "actors\$$ACTOR_NAME$$\dd\talk.sprite"
+
+    UP_LEFT    = "actors\$$ACTOR_NAME$$\ul\talk.sprite"
+    UP_RIGHT   = "actors\$$ACTOR_NAME$$\ur\talk.sprite"
+    DOWN_LEFT  = "actors\$$ACTOR_NAME$$\dl\talk.sprite"
+    DOWN_RIGHT = "actors\$$ACTOR_NAME$$\dr\talk.sprite"
+  }
+
+  ANIMATION
+  {
+    NAME       = "turnleft"
+    
+    LEFT       = "actors\$$ACTOR_NAME$$\ll\turn.sprite"
+    RIGHT      = "actors\$$ACTOR_NAME$$\rr\turn.sprite"
+    UP         = "actors\$$ACTOR_NAME$$\uu\turn.sprite"
+    DOWN       = "actors\$$ACTOR_NAME$$\dd\turn.sprite"
+
+    UP_LEFT    = "actors\$$ACTOR_NAME$$\ul\turn.sprite"
+    UP_RIGHT   = "actors\$$ACTOR_NAME$$\ur\turn.sprite"
+    DOWN_LEFT  = "actors\$$ACTOR_NAME$$\dl\turn.sprite"
+    DOWN_RIGHT = "actors\$$ACTOR_NAME$$\dr\turn.sprite"
+  }
+  
+  ANIMATION
+  {
+    NAME       = "turnright"
+    
+    LEFT       = "actors\$$ACTOR_NAME$$\ll\turn.sprite"
+    RIGHT      = "actors\$$ACTOR_NAME$$\rr\turn.sprite"
+    UP         = "actors\$$ACTOR_NAME$$\uu\turn.sprite"
+    DOWN       = "actors\$$ACTOR_NAME$$\dd\turn.sprite"
+
+    UP_LEFT    = "actors\$$ACTOR_NAME$$\ul\turn.sprite"
+    UP_RIGHT   = "actors\$$ACTOR_NAME$$\ur\turn.sprite"
+    DOWN_LEFT  = "actors\$$ACTOR_NAME$$\dl\turn.sprite"
+    DOWN_RIGHT = "actors\$$ACTOR_NAME$$\dr\turn.sprite"
+  }  
+}

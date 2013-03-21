@@ -1,0 +1,119 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Localization support</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h2>Localization support</h2>
+<p>WME supports localization (i.e. translating your game into different 
+languages) using two basic principles: the string table and multiple packages.</p>
+
+<h3>String tables</h3>
+
+<p>The <b>string table</b> is a simple text file, which should ideally contain 
+all the localizable in-game texts, such as captions, talk subtitle, GUI labels 
+and others. The string table contains the dictionary of terms in the following 
+format:</p>
+
+<p>Each line of the string table file contains one term, formed by a unique 
+identifier, a tab character and the actual text. For example:</p>
+
+<pre><font color="#800000">SYSENG0001	Game settings
+SYSENG0002	Display
+SYSENG0003	Sound
+SYSENG0004	Use hardware acceleration
+SYSENG0005	Display device:
+SYSENG0006	Colors:
+SYSENG0007	Run in window</font>
+</pre>
+Now, all the texts used throughout the game need to be written down in a special 
+format, like this:<blockquote>
+  <p> <font face="Courier New" color="#800000">/syseng0001/Game 
+settings</font></p>
+</blockquote>
+<p>At runtime, the engine extract the identifier and the text 
+itself. It then searches the string table for an entry with the same identifier, 
+and if it's found, it will be used instead. That way you can have the original 
+texts written directly in your scripts (and other game files) and they will only 
+be replaced if there is a string table present.</p>
+<p>Strings written in this &quot;localizable&quot; format are automatically translated on 
+most occasions (for example when calling the
+<a href="generated/scripting_ref_actor.html#Talk">Talk()</a> method, you can 
+pass the text in this format and the character will automatically say the 
+translated line). But sometimes it's necessary to explicitly translate some 
+text. For this purpose use the <b>
+<a href="generated/scripting_ref_game.html#ExpandString">Game.ExpandString()</a></b> 
+method which receives the original text and returns its translated version.</p>
+<p>For automatic generation of string tables from your game source files, use 
+the <a href="inside_stm.html">String Table Manager utility</a>.</p>
+<h4>References from one string table entry to another</h4>
+<p>String table entries can recursively reference other entries as well. That's 
+useful if you need multiple string table entries to reference the same text. In 
+that case, use the following syntax:</p>
+<p><pre><font color="#800000">SYSENG0001	Game settings<br>SYSENG0008	/SYSENG0001/</font></pre></p>
+<p>Now both SYSENG0001 and SYSENG0008 strings reference the text &quot;Game settings&quot; 
+and translators only need to edit the text once.<h4>Automatically locating 
+speech files</h4>
+<p>String table IDs are also 
+used to automatically locate speech sound files corresponding to each line. By 
+default, WME looks for speech files in a &quot;speech&quot; directory, but you can set 
+other directories using the <b>
+<a href="generated/scripting_ref_game.html#AddSpeechDir">Game.AddSpeechDir()</a></b> method.<p>For example, if 
+your string table contains line:<p><font color="#800000" face="Courier New">
+STR0123</font><font color="#800000">	</font><font color="#800000" face="Courier New">
+Hi, I'm Bob. How are you?</font><p>The corresponding speech file should be named 
+&quot;str0123.ogg&quot;. If you copy this file to the &quot;speech&quot; directory, WME will play 
+the sound automatically when the above line is referenced in any Talk() command.<h3>Unicode support</h3>
+<p>The string tables are not limited to standard ASCII texts, they can contain 
+Unicode characters, encoded in
+<a target="_blank" href="http://en.wikipedia.org/wiki/UTF8">UTF8 format</a>. 
+That way you can translate your game to literally any language, including Asian 
+and other &quot;double-byted&quot; languages. There are some prerequisites for using UTF8 
+string tables, though:</p>
+<ul>
+  <li>You have to edit the string table in an UTF8-enabled text editor. Windows 
+  Notepad in Win 2000/XP is capable of saving text in UTF8 and so is
+  <a target="_blank" href="http://www.ultraedit.com/">Ultraedit</a>.</li>
+  <li>You have to use <a href="inside_ui_fonts_ttf.html">TrueType fonts</a> to 
+  display in-game texts. <a href="inside_ui_fonts_bitmap.html">Bitmap fonts</a> 
+  can only handle up to 256 characters, which makes them unusable for certain 
+  languages.</li>
+  <li>Use the <b>Game.TextEncoding</b> attribute to switch the game to UTF8 mode 
+  (<i>Game.TextEncoding = 1;</i>). The game switches to UTF8 mode automatically 
+  if it detects a string table saved in UTF8 format.</li>
+  <li>The editor GUI controls currently don't support UTF8 texts, they are only 
+  capable of displaying/editing standard ASCII characters.</li>
+</ul>
+<p>Please note that WME does NOT support Unicode files, only files saved in UTF8 
+format.</p>
+<h3>Right-to-left reading order support</h3>
+<p>To enable support for right-to-left reading order (used by Arabic and Hebrew) 
+use the <b>Game.TextRTL</b> attribute. Note that you must use
+<a href="inside_ui_fonts_ttf.html">TrueType fonts</a> for this to have any 
+effect. Unfortunately you cannot use this attribute to enable right-to-left 
+layout for the initial engine settings window, because it's displayed before any 
+script is executed. Therefore it's possible to enable right-to-left text 
+directly in the string table (similarly to automatic UTF-8 detection in string 
+table). To enable right-to-left support, add the following directive to the 
+string table:</p>
+<p><font color="#800000" face="Courier New">@right-to-left</font></p>
+<p>&nbsp;</p>
+<h3>Language packages</h3>
+<p>But localization isn't limited to texts. Your localized version can have 
+different fonts (using a different codepage), some part of the graphics may need 
+to be changed, or you can have different sound. For that WME allows you to 
+divide your game resources into multiple &quot;packages&quot;. You can then move all the 
+localizable resource into a separate package and manipulate is safely 
+independently on the rest of the game.&nbsp; See the
+<a href="inside_filesystem.html#packages">Packages and file system</a> chapter 
+for more details on game packages.</p>
+</body>
+
+</html>

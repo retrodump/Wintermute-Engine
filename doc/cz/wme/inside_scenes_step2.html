@@ -1,0 +1,130 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="cs">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Krok 2: Entity ve scéně</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3>Krok 2: Entity ve scéně</h3>
+<p>V tomto kroku se naučíme, jak vložit do scény další grafické objekty a jak 
+nastavit jejich vlastnosti.</p>
+<p>Každá scéna se skládá z jednoho nebo více grafických objektů, které nazýváme 
+&quot;entity&quot;. Entity si můžete představit jako divadelní kulisy. Například pozadí v 
+naší scéně je jedna entita, kterou ProjectMan automaticky vytvořil při zakládání 
+nové scény. Ale určitě jste si všimli, že naše postava se vesele prochází po 
+nábytku, což nevypadá příliš realisticky. Potřebujeme, aby některé části scény 
+překrývaly postavy, pokud je to žádoucí. Například pokud postava stojí za 
+stolem,&nbsp; chceme, aby ji stůl částečně překrýval. Všechny objekty ve scéně, 
+které mohou překrývat postavy, musí být vytvořeny jako samostatné entity.</p>
+<p>Nyní vytvoříme ve scéně entitu pro stůl (desk), aby se pak stůl choval
+tak, jak bychom očekávali. </p>
+
+<p>Neprve potřebujeme obrázek stolu. Normálně bychom otevřeli pozadí v nějakém
+grafickém programu a vyřízli z něho část, představující stůl, tak aby
+z něho vznikl samostatný objekt. Pro tuto výuku již jsem obrázek připravil;
+najdete ho v adresáři &quot;tutorial\gfx&quot; a jmenuje se
+&quot;desk.bmp&quot;. Naimportujte obrázek do adresáře se scénou (jak
+importovat soubory jsme se naučili v první kapitole této výuky).</p>
+
+<p>Otevřete scénu ve SceneEditu (double-click na &quot;MyScene.scene&quot; v nástroji
+ProjectMan).</p>
+
+<p>Ujistěte se, že vlevo v seznamu vrstev máte vybránu položku
+&quot;main&quot;. Nyní klikněte na tlačítko &quot;Add entity&quot; (Přidat
+entitu) a v menu vyberte &quot;Sprite entity&quot;. Sprite-entita je reprezentována
+nějakou grafikou (v terminologii WME je <b>sprite</b> buďto statický obrázek,
+nebo animace). Další možné typy entit probereme později.</p>
+
+<p align="center">
+<img border="0" src="../img/tut2-1.gif" width="255" height="153"></p>
+
+<p></p>
+<p>SceneEdit vytvořil novou entitu. Jmenuje se &quot;new entity&quot;&nbsp;a ve
+scéně je zobrazena jako červený obdélník. Nyní potřebujeme změnit
+vlastnosti této nově vytvořené entity. Vlastnosti lze změnit v okně
+vlastností (Properties) vlevo dole. Změňte název (Name) na &quot;desk&quot;.
+Také můžete změnit vlastnost Caption (titulek) na &quot;Stůl&quot;. Jméno
+je interní identifikátor entity, zatímco titulek se zobrazí hráči. Těď
+potřebujeme změnit grafiku, kterou reprezentuje vlastnost &quot;Sprite&quot;
+(jak už jsme si řekli, sprite je buďto obrázek, nebo animace). Klikněte na
+tlačítko s třemi tečkami vedle vlastnosti Sprite a objeví se standardní
+okno pro výběr souboru. Najděte soubor &quot;desk.bmp&quot; v adresáři
+&quot;scenes\MyScene&quot; (ten, který jsme před chvílí naimportovali). Po
+vybrání správného souboru by se měl změnit vzhled naší entity
+&quot;desk&quot;. Nyní by měla být ve scéně zobrazena jako obrázek stolu.
+Ostatních vlastností entity si prozatím nebudeme všímat.</p>
+<p>Entitu můžete posouvat ve scéně tak, že ji přetáhnete myší. Přesuňte
+obrázek stolu tak, aby přesně překrýval stůl na pozadí (správná pozice
+by měla být 432, 327).</p>
+
+<table border="1" cellspacing="0" cellpadding="3" style="border-collapse: collapse" bordercolor="#111111">
+<tr>
+  <td>
+    <p align="center"><img src="../img/hint.gif" width="23" height="30"><br><b>Rada</b>
+  </td>
+  <td>
+    Pro posunování objektů ve scéně můžete používat i klávesy se šipkami,
+    tak lze entitu velice přesně umístit. Pokud budete během přesouvání
+    držet klávesu SHIFT, bude objekt skákat po pěti pixelech.
+  </td>
+</table>
+
+<p>&nbsp;</p>
+
+<p>Teď se podívejte vlevo na seznam prvků. Měl by vypadat takto (pokud ne,
+použite tlačítka se šipkami pro změnu pořadí prvků):</p>
+
+<p align="center">
+<img border="0" src="../img/tut2-2.gif" width="202" height="194"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Pořadí prvků je <u>velice důležité</u>. Tak vlastně říkáte hernímu
+engine, v jakém pořadí má jednotlivé části scény vykreslovat (prvky,
+které jsou v seznamu první, jsou vykreslovány nejdříve).</p>
+
+<p>Momentálně vypadá seznam prvk takto:</p>
+<ul type="disc" style="margin-bottom: 0cm">
+  <li>background (entity) - <i><font color="#808080">pozadí</font></i></li>
+  <li>desk (entity) - <i><font color="#808080">stůl</font></i></li>
+  <li>floor (region) - <i><font color="#808080">podlaha</font></i></li>
+</ul>
+
+<p>Herní engine potom zpracovává scénu takto:</p>
+<ul type="disc" style="margin-bottom: 0cm">
+  <li>nejprve se nakreslí obrázek pozadí</li>
+  <li>pak se vykreslí obrázek stolu</li>
+  <li>pak se vykreslí všechny postavy, které stojí v regionu
+    &quot;floor&quot; (podlaha)</li>
+</ul>
+
+<p>Uložte scénu a zavřete SceneEdit. Spusťte hru, abychom scénu otestovali.
+Uvidíte, že postava je skutečně vykreslována vždy nad pozadím i stolem.</p>
+<p>Můžete zkusit měnit pořadí prvků scény, abyste viděli, jak pořadí
+ovlivňuje vykreslování. Například pokud změníte pořadí takto:</p>
+<ul type="disc" style="margin-bottom: 0cm">
+  <li>background (entity)</li>
+  <li>floor (region)</li>
+  <li>desk (entity)</li>
+</ul>
+
+<p>Potom bude stůl vždy překrývat postavu (je vykreslován až po ní).
+Zkuste si to.</p>
+
+<p>Dobrá, ale my přece chceme, aby stůl zakrýval postavu jen v případě,
+že postava stojí <u>za stolem</u>. Tento úkol dokončíme v kapitole <a href="inside_scenes_step3.html">Krok
+3: Rozložení scény</a>.</p>
+
+<p>Mimochodem, všimli jste si, že stůl se nyní ve hře chová jako
+interaktivní objekt? Pokud nad něj přesunete ukazatel myši, změní se
+kurzor a objeví se titulek &quot;Stůl&quot;.</p>
+
+</body>
+
+</html>

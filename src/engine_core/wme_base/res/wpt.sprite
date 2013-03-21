@@ -1,0 +1,10 @@
+SPRITE
+{
+  LOOPING = FALSE
+
+  FRAME{
+    IMAGE = "wpt.bmp"
+    HOTSPOT {5,5}
+    ALPHA = 128
+  }
+}

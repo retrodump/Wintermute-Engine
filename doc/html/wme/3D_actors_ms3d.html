@@ -1,0 +1,163 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Actor definition file, MS3D format (deprecated)</title>
+<link rel="stylesheet" type="text/css" href="../styles.css"></head>
+
+<body>
+
+<h1>Actor definition file, MS3D format (deprecated)</h1>
+
+<p><b><font color="#FF0000">NOTE: 3D actors in MS3D format are now deprecated 
+and provided for backward compatibility only.</font></b></p>
+
+<p>Similarly to the ordinary actors, you define 3D actors by creating a simple 
+definition files. These files use the .act3d extension and use the same syntax 
+as other WME files. This is an example of a 3D actor definition file:</p>
+
+<p>
+<pre><font color="#800000">ACTOR3D
+{
+  NAME = "trinity"
+  CAPTION = "Trinity"
+  INTERACTIVE = TRUE
+  SCRIPT = "actors\trinity\trinity.script"
+
+  SCALE = 180
+
+  ;--- velocities
+  VELOCITY = 70.0
+  ANGULAR_VELOCITY = 400.0
+
+  ;--- external data
+  MODEL = "actors\trinity\trinity.ms3d"
+  FONT = "fonts\outline_red.font"  
+  CURSOR = "sprites\arrow.sprite"
+
+  SHADOW = TRUE
+  SIMPLE_SHADOW = TRUE
+
+  ; real-time shadow settings
+  LIGHT_POSITION { -40, 200, -40 }
+  SHADOW_COLOR { 0, 0, 0, 128 }
+
+  ; simple shadow settings
+  SHADOW_SIZE = 12.0
+  SHADOW_IMAGE = "actors\trinity\shadow.png"
+  
+
+
+
+  ANIMATION
+  {
+    NAME="walk"
+    LOOPING=TRUE
+    START_FRAME=1
+    END_FRAME=25
+
+    EVENT
+    {
+      FRAME = 4
+      NAME = "footstep"
+    }
+
+    EVENT
+    {
+      FRAME = 16
+      NAME = "footstep"
+    }
+  }
+
+
+  ANIMATION
+  {
+    MODEL = "actors\trinity\trinity2.ms3d"
+    NAME="idle"
+    LOOPING=TRUE
+    START_FRAME=26
+    END_FRAME=65
+  }
+}</font>
+
+</pre>
+Most of these properties are optional. WME tries to use reasonable default 
+values for them.</p>
+
+<p>The first block defines the usual properties, name, caption, interactivity 
+and script assignment. You should already know these. If not, take a look at the
+<a href="inside_actors.html">Actors chapter</a>.</p>
+<p>The <font color="#800000">SCALE</font> property affects the overall scale of 
+the character. You will typically use this property if your character model uses 
+different scale than your scene models, but the scaling can also be changed 
+dynamically at runtime to achieve some game effects (shrinking characters, 
+dwarfs etc.). This property also automatically modifies the walking velocity.</p>
+<p>Speaking of velocity, it's defined by the following two properties. The
+<font color="#800000">VELOCITY</font> property specifies the walking speed, 
+while <font color="#800000">ANGULAR_VELOCITY</font> specifies how fast the 
+character turns.</p>
+<p>Following section defines references to external files, <font color="#800000">
+FONT</font> and <font color="#800000">CURSOR</font> properties are standard 
+ones, <font color="#800000">MODEL</font> property is new to 3D characters. It 
+should point to a MilkShape file (.ms3d).</p>
+<p>The next few properties are dealing with character shadows. WME supports two 
+types of shadows, simple and real-time. Simple shadow is a black &quot;blob&quot; below 
+the character; real-time shadow is calculated at runtime and looks more 
+realistic. You can choose whether to use shadows at all (the
+<font color="#800000">SHADOW</font> property) and which type of shadow to use 
+(the <font color="#800000">SIMPLE_SHADOW</font> property). Note that some older 
+video cards don't support real-time shadows. In that case WME fill automatically 
+fall back to simple shadows regardless this setting.</p>
+<p>If you use real-time shadows, you can define the color of the shadow (this is 
+usually unnecessary) and more importantly the position of the light source (<font color="#800000">LIGHT_POSITION</font>). 
+This position is defined relatively to characters position and defines how long 
+the shadow is and to which direction it's being cast. The property is defined by 
+X, Y and Z coordinates of the light which casts the shadow. See the picture 
+below for an example:</p>
+<p><img border="0" src="../img/shadow.png" width="190" height="296"></p>
+<p><br>
+<br>
+If you use simple shadows, you will need the following two properties. The
+<font color="#800000">SHADOW_SIZE</font> property defines the size of that black 
+blob, while using the <font color="#800000">SHADOW_IMAGE</font> you can change 
+its appearance. If you don't specify the shadow image, WME will use a default 
+one. </p>
+<p><br>
+The last large section of the file defines all the animations the character 
+provides. This is a big difference compared to 2D characters. Instead of several 
+small animation files all the animations are predefined in the MS3D files and 
+made accessible via this actor definition file. Each animation is defined by an
+<font color="#800000">ANIMATION</font> block which contains several nested 
+properties.</p>
+<p>The animation properties start with name of the animation (<font color="#800000">NAME</font>). 
+By using this name you can reference the animations later from game scripts when 
+calling the <a href="generated/scripting_ref_actor3d.html#PlayAnim">PlayAnim</a> 
+method. There are few special names for animations, namely &quot;walk&quot;, &quot;idle&quot; and 
+&quot;talk&quot;. These animations are used by the engine automatically.</p>
+<p>The next property is called <font color="#800000">LOOPING</font>. It 
+specifies whether this animation loops or plays only once.</p>
+<p>The <font color="#800000">START_FRAME</font> and <font color="#800000">
+END_FRAME</font> define the actual placement of this particular animation within 
+the MilkShape file. You can have several animations in one file, and using these 
+properties you can tell WME where does each animation start and end.</p>
+<p>The second animation block in the example above contains an optional
+<font color="#800000">MODEL</font> property. You can have various animations 
+spread into several MilkShape files. In that case you have to specify in which 
+file this particular animation is stored. Please note that only the bone 
+animations are taken from these additional files, not the actual character 
+model. Therefore you should use exactly the same skeleton in all files or you 
+will get unpredictable results.</p>
+<p>You can see the first animation block above contains two nested blocks named
+<font color="#800000">EVENT</font>. Using these blocks you can trigger a script 
+event whenever a certain frame of animation is played. Experienced WME users 
+already know this from ordinary sprites. The example above specifies that frames 
+4 and 16 trigger a script event called &quot;footstep&quot;. You can use these 
+animation-triggered events in a script for various animation-dependent actions.<br>
+&nbsp;</p>
+
+</body>
+
+</html>

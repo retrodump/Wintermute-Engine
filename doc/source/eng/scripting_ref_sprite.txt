@@ -1,0 +1,95 @@
+*tit Sprite object
+*des The Sprite object allows you to access the properties of your animations. Sprite objects can be queried using the <b>GetSpriteObject</b> methods of various objects and their equivalents.
+*cls CBSprite
+
+*grp Actions
+
+*met GetFrame(Index)
+*des Returns one animation frame.
+*par Index A zero-based index of the frame to be returned.
+*ret If the method succeeds it returns a frame object.
+
+
+*met AddFrame(Filename)
+*des Adds a new frame to the animation.
+*par Filename An image file to be used for this frame.
+*ret Returns the newly created frame.
+
+*met InsertFrame(Index, Filename)
+*des Inserts a new frame to the animation.
+*par Index The position where the new frame should be inserted.
+*par Filename An image file to be used for this frame.
+*ret Returns the newly created frame.
+
+
+*met DeleteFrame(Index)
+*mt2 DeleteFrame(Frame)
+*des Removes specified animation frame.
+*par Index A zero-based index of a frame to be removed.
+*par Frame The frame object to be removed.
+
+
+*met Reset()
+*des Resets the animation.
+
+*met Pause()
+*des Pauses the animation.
+
+*met Play()
+*des Resumes a paused animation.
+
+
+
+
+*inc inc_object_script.inc
+
+
+*grp 
+
+*atr Type
+*des Returns always "sprite"
+*ro
+
+*atr Name
+*des The internal name of the sprite.
+
+
+*atr Filename
+*ro
+*des Returns the filename.
+
+
+*atr NumFrames
+*ro
+*des Returns the actual number of animation frames.
+
+
+*atr CurrentFrame
+*des Specifies the index of the currently playing animation frame.
+
+
+*atr PixelPerfect
+*des Specifies if this sprite uses pixel-perfect mouse-over detection.
+
+
+*atr Looping
+*des Specifies if this is a looping animation.
+
+
+*atr Owner
+*ro
+*des Returns an object which owns this animation.
+
+
+*atr Finished
+*ro
+*des Returns <b>true</b> if the animation already finished playing.
+
+
+*atr Paused
+*ro
+*des Returns <b>true</b> if the animation is paused.
+
+
+*evn FrameChanged
+*des The sprite just switched to the next frame.

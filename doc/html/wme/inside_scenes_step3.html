@@ -1,0 +1,89 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Step 3: Scene layout</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3>Step 3: Scene layout</h3>
+<p>OK, now the real fun begins. We will 
+learn how the scene layout works. We already know that the order of scene nodes 
+is important and it affects the drawing order of the scene contents.</p>
+
+<p>Open our “MyScene.scene” file in 
+SceneEdit.</p>
+
+<p>We have two entities (“background” and 
+“desk”) and one “walkable” region (“floor”). We need the “desk” entity to 
+overlap the actor whenever the actor stands behind the desk. The solution is 
+adding another region.</p>
+<p>Click the “Add region” button. A new 
+scene node will be added, its name is preset to “new region”.</p>
+
+<p align="center">
+<img border="0" src="../img/tut3-1.png" width="207" height="119"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Change the name 
+for example to “behind_desk”. Now we need to change the shape of this region to 
+cover the area on the floor, which is “behind the desk”. Edit the region to 
+match the shape on the picture:</p>
+
+<p align="center">
+<img border="0" src="../img/tut3-2.png" width="709" height="377"></p>
+
+<p>The last we have to do is to sort the 
+scene nodes in a correct order (use the up and down arrow buttons to move the 
+scene nodes up or down):</p>
+
+<p align="center">
+<img border="0" src="../img/tut3-3.png" width="215" height="242"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>What did we achieve? The engine will 
+draw the scene in a following way:</p>
+
+<blockquote>
+
+1)&nbsp;&nbsp;&nbsp;draw the “background” entity first<br>
+2)&nbsp;&nbsp;&nbsp;then draw all the actors standing within the “behind_desk” region<br>
+3)&nbsp;&nbsp;&nbsp;then draw the “desk” entity<br>
+4)&nbsp;&nbsp;&nbsp;then draw all the actors standing within the “floor” region<br>
+
+</blockquote>
+
+<p>In other words: if the actor stands 
+within the “behind_desk” area, he will be drawn <u>before</u> the desk; 
+otherwise he will be drawn <u>after</u> the desk.</p>
+
+<p>Try it yourself. Save the scene, quit 
+SceneEdit and click the “Run game” button in the ProjectMan. Select the 
+“MyScene” item and try to move the actor to different places within the scene. 
+He should be correctly overlapped by the desk. For now, we will ignore the fact 
+that the actor can walk through the desk. We will handle this problem in 
+<a href="inside_scenes_step4.html">Step 4: 
+Blocked regions</a>.</p>
+
+<p align="center">
+<img border="0" src="../img/tut3-4.png" width="409" height="358"></p>
+
+<p align="center">
+<img border="0" src="../img/tut3-5.png" width="409" height="358"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>I hope I made it clear enough; this was 
+the most difficult part of this tutorial. The rest will be easy :-) Make sure 
+you understand the importance of the scene nodes ordering.</p>
+
+</body>
+
+</html>

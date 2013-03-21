@@ -1,0 +1,48 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Script and include files</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3>Script and include files</h3>
+<p>The WME scripts are simple text files 
+which use the “.script” extension (“.dcs” extension is also recognized by the 
+tools). You can include other external script files into your script using the 
+#include directive. It’s meant only for including constant definitions or shared 
+variables into multiple scripts, it’s not recommended to include files 
+containing large pieces of code, because it’s hard to debug and maintain. The 
+include files should use the “.inc” extension (“inc” for include). Whenever you 
+use the #include directive, you must specify a full path to the include file 
+(relative to your package’s root folder).</p>
+
+<p>Example:</p>
+
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber1">
+  <tr>
+    <td class="code"><pre>#include "scripts\base.inc"</pre></td>
+  </tr>
+</table>
+
+<p>
+<table border="1" cellspacing="0" cellpadding="3" style="border-collapse: collapse" bordercolor="#111111">
+<tr>
+  <td>
+    <p align="center"><img src="../img/info.png" width="32" height="32"><br><b>Note</b>
+  </td>
+  <td>
+    The WME script compiler is <b>case 
+    sensitive</b>, i.e. the names "MyVariable", "Myvariable", "myVariable" or 
+    "MyVaRiAbLe" are NOT the same.
+  </td>
+</table>
+
+</body>
+
+</html>

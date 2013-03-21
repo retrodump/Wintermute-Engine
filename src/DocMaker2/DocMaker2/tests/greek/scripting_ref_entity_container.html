@@ -1,0 +1,307 @@
+<html>
+<meta http-equiv="Content-Language" content="el">
+<meta name="GENERATOR" content="WME DocMaker 2.0">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-7">
+<title>Αντικείμενο entity container</title>
+<link rel="stylesheet" type="text/css" href="../../styles.css">
+</head>
+
+<body>
+<!-- Generated on 6.11.2005 22:35:34, settings file: greek -->
+
+<h3>Αντικείμενο entity container</h3>
+<p>
+Το αντικείμενο entity container σας δίνει τη δυνατότητα να ενσωματώσετε ένα ανεπτυγμένο διαδραστικό αντικείμενο (μία entity) στο γραφικό περιβάλλον χειρισμού και στα παράθυρα του παιχνιδιού σας. Μπορείτε να καλέσετε μια entity container με τη μέθοδο <b>Window.GetControl</b>.
+</p>
+
+<br>
+
+<h4>Μέθοδοι</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%"><b>Διάφορες συναρτήσεις</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetFont">SetFont</a></td>
+    <td>Ορίζει την κανονική γραμματοσειρά.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetImage">SetImage</a></td>
+    <td>Ορίζει μία εικόνα ως φόντο.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetImage">GetImage</a></td>
+    <td>Επιστρέφει το όνομα του αρχείου του sprite που θα χρησιμοποιηθεί ως φόντο ή <b>null</b> αν δεν έχει οριστεί κανένα.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetImageObject">GetImageObject</a></td>
+    <td>Επιστρέφει αναφορά στο sprite που θα χρησιμοποιηθεί ως φόντο ή <b>null</b> αν δεν έχει οριστεί κανένα.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#Focus">Focus</a></td>
+    <td>Εστιάζει το αντικείμενο του παραθύρου.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#MoveAfter">MoveAfter</a></td>
+    <td>Μετακινεί το αντικείμενο στον άξονα Z μετά από το δοσμένο αντικείμενο.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#MoveBefore">MoveBefore</a></td>
+    <td>Μετακινεί το αντικείμενο στο άξονα Z πριν από το δοσμένο αντικείμενο.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#MoveToTop">MoveToTop</a></td>
+    <td>Μετακινεί το αντικείμενο πάνω από όλα τα άλλα στον άξονα Z.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#MoveToBottom">MoveToBottom</a></td>
+    <td>Μετακινεί το αντικείμενο πίσω από όλα τα άλλα στον άξονα Z.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Ενέργειες</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetEntity">GetEntity</a></td>
+    <td>Επιστρέφει το αντικείμενο entity που είναι ορισμένο στον container.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetEntity">SetEntity</a></td>
+    <td>Ορίζει το δωσμένο αντικείμενο entity στον container.</td>
+  </tr>
+</table>
+
+<h4>Ιδιότητες</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%"><b>Διάφορες συναρτήσεις</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Parent (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει αναφορά στο παράθυρο που ανήκει το αντικείμενο ή <b>null</b>.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">ParentNotify</td>
+    <td>Ορίζει αν το αντικείμενο θα πρέπει να ειδοποιεί το παράθυρο στο οποίο ανήκει για τα γεγονότα.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Width</td>
+    <td>Το μήκος του αντικειμένου.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Height</td>
+    <td>Το ύψος τους αντικειμένου.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Visible</td>
+    <td>Ορίζει αν το αντικείμενο είναι ορατό.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Disabled</td>
+    <td>Ορίζει αν το αντικείμενο είναι ανενεργό.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Text</td>
+    <td>Το κείμενο που περιέχει το αντικείμενο.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">NextSibling (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει αναφορά στο επόμενο αντικείμενο στον άξονα Z.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">PrevSibling (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει αναφορά στο προηγούμενο αντικείμενο στον άξονα Z.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b></b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Type (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει πάντα "entity container".</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Freezable</td>
+    <td>Ορίζει αν η περιεχόμενη entity θα παγώνει όταν ένα ενεργό παράθυρο είναι σε αποκλειστική κατάσταση συστήματος.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Name</td>
+    <td>Το εσωτερικό όνομα του αντικειμένου.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Caption</td>
+    <td>Ο τίτλος του αντικειμένου.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">X</td>
+    <td>Η θέση του αντικειμένου στον άξονα Χ.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Y</td>
+    <td>Η θέση του αντικειμένου στον άξονα Y.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Height (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει το ύψος του αντικειμένου. Σε περίπτωση χαρακτήρων και entities η τιμή scale λαμβάνεται υπόψη.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Filename (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει το όνομα του αρχείου.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Ready (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει αν το αντικείμενο δεν εκτελεί κάποια πράξη αυτή τη στιγμή.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Interactive</td>
+    <td>Ορίζει αν το παιχνίδι θα είναι διαδραστικό, δηλαδή αν θα δέχεται τις ενέργειες του παίκτη.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">SoundPanning</td>
+    <td>Ορίζει αν οι ήχοι που παίζει το αντικείμενο τοποθετούνται αυτόματα στο χώρο ανάλογα με τη θέση αυτού στην οθόνη.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">NonIntMouseEvents</td>
+    <td>Ορίζει αν το αντικείμενο μπορεί να δεχτεί τα γεγονότα <b>MouseEntry</b> και <b>MouseLeave</b> ακόμα και αν το παιχνίδι είναι είναι σε μη διαδραστική κατάσταση.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Movable</td>
+    <td>Ορίζει αν το αντικείμενο μπορεί να μετακινηθεί από τα sprite του (σε περίπτωση που κάποιο από τα καρέ των sprites έχει ορισμένη την ιδιότητα "move").</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Scalable</td>
+    <td>Ορίζει αν το αντικείμενο επηρεάζεται από τα επίπεδα scale της σκηνής.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Rotatable</td>
+    <td>Ορίζει αν το αντικείμενο επηρεάζεται από τα επίπεδα περιστροφής της σκηνής.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Colorable</td>
+    <td>Ορίζει αν το αντικείμενο επηρεάζεται από τα διακοσμητικά (ή χρωματικά) πεδία της σκηνής.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">AlphaColor</td>
+    <td>Ορίζει το χρώμα RGBA του αντικειμένου (υπερισχύει του χρωματισμού της σκηνής). Για να επαναφέρετε το αντικείμενο στην αρχική κατάσταση ορίστε το μηδέν.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Scale</td>
+    <td>Ορίζει το scale του αντικειμένου (υπερισχύει του scale της σκηνής). Για να επαναφέρετε το αντικείμενο στην αρχική κατάσταση ορίστε το μηδέν.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">ScaleX</td>
+    <td>Ορίζει το οριζόντιο scale του αντικειμένου. Για να επαναφέρετε το αντικείμενο στην αρχική κατάσταση ορίστε το μηδέν.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">ScaleY</td>
+    <td>Ορίζει το κάθετο scale του αντικειμένου. Για να επαναφέρετε το αντικείμενο στην αρχική κατάσταση ορίστε το μηδέν.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">RelativeScale</td>
+    <td>Ορίζει ένα scale να προστεθεί στο προκαθορισμένο scale της σκηνής.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Rotate</td>
+    <td>Ορίζει την περιστροφή του αντικειμένου σε μοίρες (υπερισχύει των επιπέδων περιστροφής της σκηνής). Για να επαναφέρετε το αντικείμενο στην αρχική κατάσταση ορίστε το μηδέν.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">RelativeRotate</td>
+    <td>Ορίζει μία περιστροφή να προστεθεί στη προκαθορισμένη περιστροφή της σκηνής.</td>
+  </tr>
+</table>
+
+<hr>
+<h3><a name="SetFont"></a>SetFont(ΌνομαΑρχείου)</h3>
+<p>Ορίζει την κανονική γραμματοσειρά.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του αρχείου της γραμματοσειράς που θα χρησιμοποιηθεί</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="SetImage"></a>SetImage(ΌνομαΑρχείου)</h3>
+<p>Ορίζει μία εικόνα ως φόντο.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του αρχείου του sprite που θα χρησιμοποιηθεί</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetImage"></a>GetImage()</h3>
+<p>Επιστρέφει το όνομα του αρχείου του sprite που θα χρησιμοποιηθεί ως φόντο ή <b>null</b> αν δεν έχει οριστεί κανένα.</p>
+
+<hr>
+<h3><a name="GetImageObject"></a>GetImageObject()</h3>
+<p>Επιστρέφει αναφορά στο sprite που θα χρησιμοποιηθεί ως φόντο ή <b>null</b> αν δεν έχει οριστεί κανένα.</p>
+
+<hr>
+<h3><a name="Focus"></a>Focus()</h3>
+<p>Εστιάζει το αντικείμενο του παραθύρου.</p>
+
+<hr>
+<h3><a name="MoveAfter"></a>MoveAfter(Αντικείμενο)<br>MoveAfter(ΌνομαΑντικειμένου)</h3>
+<p>Μετακινεί το αντικείμενο στον άξονα Z μετά από το δοσμένο αντικείμενο.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Αντικείμενο</i></dt>
+<dd>Το αντικείμενο του παραθύρου μετά το οποίο θα τοποθετηθεί το αντικείμενό μας</dd>
+<dt><i>ControlName</i></dt>
+<dd>Το όνομα του αντικειμένου μετά το οποίο θα τοποθετηθεί το αντικείμενό μας</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="MoveBefore"></a>MoveBefore(Αντικείμενο)<br>MoveBefore(ΌνομαΑντικειμένου)</h3>
+<p>Μετακινεί το αντικείμενο στο άξονα Z πριν από το δοσμένο αντικείμενο.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Αντικείμενο</i></dt>
+<dd>Το αντικείμενο του παραθύρου πριν το οποίο θα τοποθετηθεί το αντικείμενό μας</dd>
+<dt><i>ControlName</i></dt>
+<dd>Το όνομα του αντικειμένου πριν το οποίο θα τοποθετηθεί το αντικείμενό μας</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="MoveToTop"></a>MoveToTop()</h3>
+<p>Μετακινεί το αντικείμενο πάνω από όλα τα άλλα στον άξονα Z.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="MoveToBottom"></a>MoveToBottom()</h3>
+<p>Μετακινεί το αντικείμενο πίσω από όλα τα άλλα στον άξονα Z.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetEntity"></a>GetEntity()</h3>
+<p>Επιστρέφει το αντικείμενο entity που είναι ορισμένο στον container.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει αναφορά στο αντικείμενο entity.</p>
+
+<hr>
+<h3><a name="SetEntity"></a>SetEntity(ΌνομαΑρχείου)</h3>
+<p>Ορίζει το δωσμένο αντικείμενο entity στον container.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του αρχείου της entity που θα οριστεί</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+
+</body>
+
+</html>

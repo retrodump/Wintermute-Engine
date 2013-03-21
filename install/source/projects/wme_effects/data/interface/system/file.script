@@ -1,0 +1,122 @@
+#include "scripts\base.inc"
+#include "scripts\keys.inc"
+
+this.xResult = "";
+
+var Files = Directory.GetFiles(Directory.CurrentDirectory + "\data\" + this.xDir, this.xMask);
+
+
+var Offset = 0;
+Repaint();
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+function Repaint()
+{  
+  if (Offset > Files.Length - 10) Offset = Files.Length - 10;
+  if (Offset < 0) Offset = 0;
+  
+  
+  for (var i = Offset; i < Offset + 10; i = i + 1)
+  {
+    var Button = this.GetControl("slot" + ToString(i - Offset + 1));
+    if (i >= Files.Length)
+    {
+      Button.Text = "";
+      Button.Disabled = true;
+    }
+    else
+    {
+      Button.Text = Files[i];
+      Button.Disabled = false;      
+    }
+  }  
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "close"
+{
+  this.Close();
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "up"
+{
+  Offset = Offset - 1;
+  Repaint();
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "down"
+{
+  Offset = Offset + 1;
+  Repaint();
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "slot1"  OnSlot(1);
+on "slot2"  OnSlot(2);
+on "slot3"  OnSlot(3);
+on "slot4"  OnSlot(4);
+on "slot5"  OnSlot(5);
+on "slot6"  OnSlot(6);
+on "slot7"  OnSlot(7);
+on "slot8"  OnSlot(8);
+on "slot9"  OnSlot(9);
+on "slot10" OnSlot(10);
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+function OnSlot(SlotNum)
+{
+  var Button = this.GetControl("slot" + ToString(SlotNum));
+  if (Button == null) return;
+  
+  this.xResult = this.xDir + "\" + Button.Text;
+  this.Close();
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "Keypress"
+{
+  var button;
+
+  if(Keyboard.KeyCode==VK_ESCAPE)
+  {
+    button = this.GetControl("close");
+    button.Press();
+  }
+  else if(Keyboard.KeyCode==VK_NEXT)
+  {
+    button = this.GetControl("down");
+    button.Press();
+  }
+  else if(Keyboard.KeyCode==VK_PRIOR)
+  {
+    button = this.GetControl("up");
+    button.Press();
+  }  
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "MouseWheelUp"
+{
+    var button = this.GetControl("up");
+    button.Press();
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "MouseWheelDown"
+{
+    var button = this.GetControl("down");
+    button.Press();
+}

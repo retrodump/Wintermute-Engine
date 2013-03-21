@@ -1,0 +1,10 @@
+ITEM
+{
+   CURSOR_COMBINED = TRUE
+   CAPTION = "WME User's Guide"
+   NAME = "book"
+   IMAGE = "items\book.bmp"
+   CURSOR = "items\book.bmp"
+   CURSOR_HOVER = "items\book_h.bmp"
+   SCRIPT = "items\book.script"
+}

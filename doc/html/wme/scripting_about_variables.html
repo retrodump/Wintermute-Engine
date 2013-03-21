@@ -1,0 +1,223 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Variables and data types</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3>Variables and data types</h3>
+<p>A <i>variable</i> is a memory cell which 
+holds a value. You must always declare a variable before you use it. You can 
+assign a variable a value either at the declaration or later in the script.</p>
+<p>WME script is a loosely typed language. 
+It means you do not have to specify a data type of a variable while declaring 
+it. The variable’s data type depends on the value you store in the variable.</p>
+<p>Internally, the WME script uses the 
+following data types:</p>
+
+<h4>&nbsp;</h4>
+
+<h4><a name="boolean_type"></a>Boolean data type</h4>
+<p>Boolean type variables can only contain 
+a logical value: <b>true</b> or <b>false.</b></p>
+
+<h4>&nbsp;</h4>
+
+<h4><a name="string_type"></a>String data type</h4>
+<p>A string value is a chain of zero or 
+more characters (letters, digits and punctuation marks) strung together. String 
+literals can be included in your scripts by enclosing them in matching pairs of 
+double quotation marks.</p>
+
+<h4>&nbsp;</h4>
+
+<h4><a name="integer_type"></a>Integer data type</h4>
+<p>Integer values can be positive whole 
+numbers, negative whole numbers, and 0.</p>
+
+<h4>&nbsp;</h4>
+
+<h4><a name="float_type"></a>Floating-point data type</h4>
+<p>Floating-point values can be whole 
+numbers with a decimal portion.</p>
+
+<h4>&nbsp;</h4>
+
+<h4><a name="null_type"></a>Null data type</h4>
+<p>The <b>null</b> data type has only one 
+value in WME script: <b>null</b>. A variable that contains <b>null</b> contains 
+&quot;no value&quot; or &quot;no object.&quot; You can erase the contents of a variable by assigning 
+it the null value.</p>
+
+
+<p>&nbsp;</p>
+
+
+<p>There are three types of variables in the 
+WME script: local, global and constants.</p>
+
+<h4><a name="local_Variables"></a>Local variables</h4>
+<p>The local variables are declared using 
+the <b>var</b> keyword and they are only visible in the block of code in which 
+they are declared.</p>
+
+<p>Examples:</p>
+
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber1">
+  <tr>
+    <td class="code"><pre>var MyVariable;
+var MyInitializedVariable = 10;</pre></td>
+  </tr>
+</table>
+
+<h4>&nbsp;</h4>
+
+<h4><a name="global_bariables"></a>Global variables</h4>
+<p>The global variables are declared using 
+the <b>global</b> keyword and they are visible in all scripts. The values of the 
+global variables are shared in between all scripts. Therefore the global 
+variables are used for storing the persistent game state values.</p>
+
+<p>Examples:</p>
+
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td class="code"><pre>global MyGlobal;
+global MyInitializedGlobal = 10;</pre></td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+
+<h4><a name="constantl_variables"></a>Constant variables</h4>
+<p>The constant variables are declared using 
+the <b>const</b> keyword and they are visible in all scripts. Constant variables 
+behave exactly the same as global variables with one exception: their value is 
+not cleared after calling the <b>Game.Reset()</b> method. They are suitable for 
+predefined constants, rarely changing their value.</p>
+
+<p>Example:</p>
+
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber6">
+  <tr>
+    <td class="code"><pre>const DI_UP = 0;</pre></td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+
+<p>&nbsp;</p>
+
+
+<h4><a name="predefined_variables"></a>Predefined variables: ‘Game’ and ‘this’</h4>
+<p>There are two special variables, <b>Game</b> 
+and <b>this</b>. Those two variables are always declared and accessible by your 
+scripts.</p>
+<p>The <b>Game</b> variable contains a 
+reference to the main game object. You can call its methods and set or query its 
+attributes.</p>
+<p>The <b>this</b> variable contains a 
+reference to the object which owns the currently running script (the scripts in 
+WME are <u>always</u> assigned to an object).</p>
+
+<h4>&nbsp;</h4>
+
+<h4><a name="variables_are_objects"></a>Variables are objects</h4>
+<p>All the variables are actually objects, 
+it means you can either assign a simple value to the variable, or you can set 
+values of its properties. You can name the properties whatever you want. All the 
+following examples are valid in WME script:</p>
+
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber3">
+  <tr>
+    <td class="code"><pre>var MyVariable;
+MyVariable.SomeProperty = 10;
+MyVariable.AnotherProperty = "a string value";
+MyVariable.LogProperty = true;
+MyVariable[0] = 20;
+MyVariable[1] = 30;
+MyVariable["YetAnotherProperty"] = 40;
+</pre></td>
+  </tr>
+</table>
+
+
+<p>Note the MyVariable[0] notation. This 
+way you can easily use the arrays (know from other languages) without declaring 
+them.</p>
+
+<p>Remember that instead of tens of global 
+variables it’s better to take advantage of the object nature of the variables 
+and to group coherent variables into one “object” variable. For example: You 
+will probably end up having many state variables for individual scenes of your 
+game. Such states as “is the window open in scene XXX?”, “did the player visit 
+scene YYY yet?”. It’s recommended that you define one global variable per scene 
+and store all scene related states in this variable.</p>
+
+<p>Example:</p>
+
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber4">
+  <tr>
+    <td class="code"><pre>global StateMyScene;
+StateMyScene.VisitedByPlayer = false;
+StateMyScene.IsWindowOpen = true;</pre></td>
+  </tr>
+</table>
+
+<p>These conventions are demonstrated in 
+the demo game and they are supported by the standard templates, which are part 
+of the WME Development Kit distribution.</p>
+
+
+<h4>&nbsp;</h4>
+
+
+<h4><a name="game_objects"></a>Game objects</h4>
+<p>Besides the normal variables, you will 
+often use special variables containing reference to game objects (such as 
+scenes, actors, entities, windows etc.). Setting properties of these object 
+variables will have an impact on the game’s appearance or behavior. For example 
+setting an “X” attribute of an actor variable will make the actor to change his 
+position on screen. These special variables also allow you to call their <b>
+methods</b>. For example calling actor’s “Talk” method will make the actor talk.</p>
+
+<p>Example:</p>
+
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber5">
+  <tr>
+    <td class="code"><pre>var actor = Game.LoadActor("actors\molly\molly.actor");
+actor.SetPosition(100, 200);
+actor.Talk("Blah blah.");
+actor.Active = false;
+</pre></td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+
+<p>The above example does the following:</p>
+<blockquote>
+1)&nbsp;&nbsp;&nbsp;it declares a local variable “actor”<br>
+2)&nbsp;&nbsp;&nbsp;it invokes a “LoadActor” method of the Game object and stores the resulting actor reference in the “actor” variable<br>
+3)&nbsp;&nbsp;&nbsp;it invokes a “SetPosition” method of the newly created actor to change his position on screen<br>
+4)&nbsp;&nbsp;&nbsp;it invokes a “Talk” method of the actor to make him say “Blah blah”<br>
+5)&nbsp;&nbsp;&nbsp;it sets actor’s “Active” property to hide the actor<br>
+
+</blockquote>
+
+<p>Note: A complete list of game objects, 
+their methods and attributes can be found in the <a href="scripting_ref.html">reference section</a> of this 
+chapter.</p>
+
+</body>
+
+</html>

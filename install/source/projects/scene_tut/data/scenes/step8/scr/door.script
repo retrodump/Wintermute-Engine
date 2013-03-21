@@ -1,0 +1,10 @@
+#include "scripts\base.inc"
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "LeftClick"
+{
+  actor.GoTo(122, 422);
+  actor.TurnTo(DI_UPLEFT);
+  Game.ChangeScene("scenes\menu\menu.scene");
+}

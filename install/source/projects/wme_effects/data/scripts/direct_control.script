@@ -1,0 +1,42 @@
+#include "scripts\base.inc"
+#include "scripts\keys.inc"
+
+var IsTurning;
+var IsWalking;
+
+while(true)
+{
+	IsTurning = false;
+	IsWalking = false;
+
+	if(Game.Interactive)
+	{
+		if(Keyboard.IsKeyDown(VK_LEFT))
+		{
+			actor.DirectTurnLeft();
+			IsTurning = true;
+		}
+		if(Keyboard.IsKeyDown(VK_RIGHT))
+		{
+			actor.DirectTurnRight();
+			IsTurning = true;
+		}
+
+		if(Keyboard.IsKeyDown(VK_UP))
+		{
+		  actor.Scale = actor.Scale + 5;
+		  if (actor.Scale > 300) actor.Scale = 300;
+		}
+		if(Keyboard.IsKeyDown(VK_DOWN))
+		{
+		  actor.Scale = actor.Scale - 5;
+		  if (actor.Scale < 10) actor.Scale = 10;
+		}
+
+	}
+	
+	if(!IsWalking) actor.DirectWalkStop();	
+	if(!IsTurning) actor.DirectTurnStop();
+	
+	Sleep(20);
+}

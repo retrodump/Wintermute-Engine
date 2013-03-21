@@ -1,0 +1,2205 @@
+<html>
+<meta http-equiv="Content-Language" content="el">
+<meta name="GENERATOR" content="WME DocMaker 2.0">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-7">
+<title>Αντικείμενο παιχνίδι</title>
+<link rel="stylesheet" type="text/css" href="../../styles.css">
+</head>
+
+<body>
+<!-- Generated on 6.11.2005 22:35:34, settings file: greek -->
+
+<h3>Αντικείμενο παιχνίδι</h3>
+<p>
+Με το αντικείμενο παιχνίδι μπορείτε να έχετε πρόσβαση στις ρυθμίσεις του παιχνιδιού σας και στην ίδια τη μηχανή. Πάντα υπάρχει ένα και μόνο ένα αντικείμενο παιχνίδι και είναι αποθηκευμένο στην προκαθορισμένη μεταβλητή <b>Game</b>.
+</p>
+
+<br>
+
+<h4>Μέθοδοι</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%"><b>Διαγνωστικές συναρτήσεις</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#LOG">LOG</a></td>
+    <td>Γράφει μία γραμμή κειμένου στο αρχείο καταγραφής της λειτουργίας της μηχανής.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#Msg">Msg</a></td>
+    <td>Εμφανίζει ένα γρήγορο διαγνωστικό μήνυμα στην οθόνη.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#DumpTextureStats">DumpTextureStats</a></td>
+    <td>Γράφει τα δεδομένα της χρήσης υφών σε ένα αρχείο κειμένου CSV.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Χειρισμός αντικειμένων</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ValidObject">ValidObject</a></td>
+    <td>Ελέγχει αν μία δοσμένη αναφορά σε κάποιο αντικείμενο είναι αληθής.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#UnloadObject">UnloadObject</a></td>
+    <td>Αφαιρεί κάποιο αντικείμενο από τη μνήμη.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#LoadActor">LoadActor</a></td>
+    <td>Φορτώνει ένα καινούριο χαρακτήρα από ένα αρχείο.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#LoadActor3D">LoadActor3D</a></td>
+    <td>Φορτώνει ένα καινούριο 3D χαρακτήρα από ένα αρχείο.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#LoadEntity">LoadEntity</a></td>
+    <td>Φορτώνει μία καινούρια entity από ένα αρχείο.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#LoadWindow">LoadWindow</a></td>
+    <td>Φορτώνει ένα καινούριο παράθυρο από ένα αρχείο.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ExpandString">ExpandString</a></td>
+    <td>Διευρύνει μία δοσμένη string με βάση τον πίνακα κειμένων.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Συναρτήσεις για μουσική</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#MusicCrossfade">MusicCrossfade</a></td>
+    <td>Προκαλεί την ομαλή μετάβαση από ένα μουσικό κανάλι σε κάποιο άλλο.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#PlayMusic">PlayMusic</a></td>
+    <td>Παίζει ένα αρχείο μουσικής.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#StopMusic">StopMusic</a></td>
+    <td>Σταματάει τη μουσική.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#PauseMusic">PauseMusic</a></td>
+    <td>Διακόπτει τη μουσική.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ResumeMusic">ResumeMusic</a></td>
+    <td>Συνεχίζει τη μουσική από το ίδιο σημείο που την έχετε διακόψει.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetMusicPosition">SetMusicPosition</a></td>
+    <td>Ορίζει καινούριο χρονικό σημείο αναπαραγωγής για τη μουσική.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetMusicPosition">GetMusicPosition</a></td>
+    <td>Ελέγχει το χρονικό σημείο αναπαραγωγής της μουσικής που παίζει αυτή τη στιγμή.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#IsMusicPlaying">IsMusicPlaying</a></td>
+    <td>Ελέγχει αν παίζει μουσική αυτή τη στιγμή.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetMusic">GetMusic</a></td>
+    <td>Ελέγχει το όνομα του αρχείου την μουσικής που παίζει αυτή τη στιγμή.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetMusicVolume">SetMusicVolume</a></td>
+    <td>Ορίζει την ένταση της μουσικής που παίζει αυτή τη στιγμή.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetMusicVolume">GetMusicVolume</a></td>
+    <td>Ελέγχει την ένταση της μουσικής που παίζει αυτή τη στιγμή.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#PlayMusicChannel">PlayMusicChannel</a></td>
+    <td>Παίζει ένα αρχείο μουσικής σε ένα δοσμένο κανάλι.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#StopMusicChannel">StopMusicChannel</a></td>
+    <td>Σταματάει τη μουσική στο δοσμένο κανάλι.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#PauseMusicChannel">PauseMusicChannel</a></td>
+    <td>Διακόπτει τη μουσική στο δοσμένο κανάλι.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ResumeMusicChannel">ResumeMusicChannel</a></td>
+    <td>Συνεχίζει από το ίδιο σημείο την μουσική που έχετε διακόψει στο δοσμένο κανάλι.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetMusicChannelPosition">SetMusicChannelPosition</a></td>
+    <td>Ορίζει καινούριο χρονικό σημείο αναπαραγωγής για τη μουσική στο δοσμένο κανάλι.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetMusicChannelPosition">GetMusicChannelPosition</a></td>
+    <td>Ελέγχει το χρονικό σημείο αναπαραγωγής της μουσικής που παίζει αυτή τη στιγμή στο δοσμένο κανάλι.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#IsMusicChannelPlaying">IsMusicChannelPlaying</a></td>
+    <td>Ελέγχει αν παίζει μουσική αυτή τη στιγμή στο δοσμένο κανάλι</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetMusicChannel">GetMusicChannel</a></td>
+    <td>Ελέγχει το όνομα του αρχείου την μουσικής που παίζει αυτή τη στιγμή στο δοσμένο κανάλι.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetMusicChannelVolume">SetMusicChannelVolume</a></td>
+    <td>Ορίζει την ένταση της μουσικής που παίζει αυτή τη στιγμή στο δοσμένο κανάλι.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetMusicChannelVolume">GetMusicChannelVolume</a></td>
+    <td>Ελέγχει την ένταση της μουσικής που παίζει αυτή τη στιγμή στο δοσμένο κανάλι.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Συναρτήσεις για scripts</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#AttachScript">AttachScript</a></td>
+    <td>Τρέχει ένα script και το ορίζει στο αντικείμενο.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#DetachScript">DetachScript</a></td>
+    <td>Σταματάει ένα συγκεκριμένο script και το χωρίζει από το αντικείμενο.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#IsScriptRunning">IsScriptRunning</a></td>
+    <td>Ελέγχει αν ένα συγκεκριμένο script τρέχει αυτή τη στιγμή και αν είναι ορισμένο σε κάποιο αντικείμενο.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#CanHandleMethod">CanHandleMethod</a></td>
+    <td>Ελέγχει αν το αντικείμενο υποστηρίζει τη δοσμένη μέθοδο.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Συναρτήσεις για ήχους</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetSoundLength">GetSoundLength</a></td>
+    <td>Ελέγχει τη διάρκεια ενός αρχείου ήχου.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#PlaySound">PlaySound</a></td>
+    <td>Παίζει έναν ήχο. Αν δεν δοθεί κάποιο όνομα αρχείου τότε παίζει τον προσδιορισμένο ήχο (αν υπάρχει).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#PlaySoundEvent">PlaySoundEvent</a></td>
+    <td>Παίζει έναν ήχο και ενεργοποιεί ένα γεγονός όταν τελειώσει. Αν δε δοθεί κάποιο όνομα αρχείου τότε παίζει τον προσδιορισμένο ήχο (αν υπάρχει).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#StopSound">StopSound</a></td>
+    <td>Σταματάει τον ήχο που παίζει αυτή τη στιγμή (αν υπάρχει).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#PauseSound">PauseSound</a></td>
+    <td>Διακόπτει τον ήχο που παίζει αυτή τη στιγμή.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ResumeSound">ResumeSound</a></td>
+    <td>Συνεχίζει από το ίδιο σημείο τον ήχο που έχετε διακόψει.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#IsSoundPlaying">IsSoundPlaying</a></td>
+    <td>Ελέγχει αν παίζει κάποιος ήχος αυτή τη στιγμή.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetSoundPosition">SetSoundPosition</a></td>
+    <td>Ορίζει καινούριο χρονικό σημείο αναπαραγωγής για τον ήχο.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetSoundPosition">GetSoundPosition</a></td>
+    <td>Ελέγχει το χρονικό σημείο αναπαραγωγής του ήχου που παίζει αυτή τη στιγμή.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetSoundVolume">SetSoundVolume</a></td>
+    <td>Ορίζει την ένταση του ήχου που παίζει αυτή τη στιγμή.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetSoundVolume">GetSoundVolume</a></td>
+    <td>Ελέγχει την ένταση του ήχου που παίζει αυτή τη στιγμή.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#LoadSound">LoadSound</a></td>
+    <td>Φορτώνει τον ήχο από το δοσμένο αρχείο για να είναι έτοιμο να παίξει όταν χρειαστεί.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Συναρτήσεις για ηχητικά εφέ</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SoundFXNone">SoundFXNone</a></td>
+    <td>Αφαιρεί οποιοδήποτε εφέ είναι ενεργοποιημένο στο αντικείμενο αυτή τη στιγμή.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SoundFXEcho">SoundFXEcho</a></td>
+    <td>Ενεργοποιεί το εφέ ηχώ στον ήχο που παίζει το αντικείμενο.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SoundFXReverb">SoundFXReverb</a></td>
+    <td>Ενεργοποιεί το εφέ αντανάκλαση στον ήχο που παίζει το αντικείμενο.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Συναρτήσεις γεγονότων</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ApplyEvent">ApplyEvent</a></td>
+    <td>Εφαρμογή του δοσμένου γεγονότος στο αντικείμενο.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#CanHandleEvent">CanHandleEvent</a></td>
+    <td>Ελέγχει αν το αντικείμενο έχει ορισμένο κάποιο χειριστή γεγονότος για το δοσμένο γεγονός.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Διάφορες συναρτήσεις</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SkipTo">SkipTo</a></td>
+    <td>Μετακινεί το αντικείμενο στη δοσμένη θέση.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetMousePos">SetMousePos</a></td>
+    <td>Ορίζει τη θέση του κέρσορα του ποντικιού.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#QuitGame">QuitGame</a></td>
+    <td>Τερματίζει/κλείνει το παιχνίδι.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#FileExists">FileExists</a></td>
+    <td>Ελέγχει αν υπάρχει το δοσμένο αρχείο.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#Screenshot">Screenshot</a></td>
+    <td>Παίρνει "φωτογραφία" το παιχνίδι και την αποθηκεύει σε ένα αρχείο BMP.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ScreenshotEx">ScreenshotEx</a></td>
+    <td>Παίρνει "φωτογραφία" το παιχνίδι και την αποθηκεύει σε ένα αρχείο BMP (με δυνατότητα ορισμού του μεγέθους της εικόνας).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#LoadStringTable">LoadStringTable</a></td>
+    <td>Φορτώνει τον πίνακα κειμένων από ένα αρχείο.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#Reset">Reset</a></td>
+    <td>Σβήνει όλα τα μόνιμα δεδομένα του παιχνιδιού.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#OpenDocument">OpenDocument</a></td>
+    <td>Ανοίγει το δοσμένο αρχείο ή τη διεύθυνση του διαδικτύου στο αντίστοιχο πρόγραμμα.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetLoadingScreen">SetLoadingScreen</a></td>
+    <td>Ορίζει μία εικόνα που θα εμφανίζεται κατά τη διάρκεια επαναφοράς ενός παιχνιδιού.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetSavingScreen">SetSavingScreen</a></td>
+    <td>Ορίζει μία εικόνα που θα εμφανίζεται κατά τη διάρκεια αποθήκευσης ενός παιχνιδιού.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ClearScriptCache">ClearScriptCache</a></td>
+    <td>Σβήνει τα περιεχόμενα του script cache της μηχανής.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#DisplayLoadingIcon">DisplayLoadingIcon</a></td>
+    <td>Εμφανίζει γρήγορα ένα εικονίδιο φορτώματος/εργασίας.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#HideLoadingIcon">HideLoadingIcon</a></td>
+    <td>Εξαφανίζει το εικονίδιο φορτώματος που έχει εμφανιστεί με τη μέθοδο DisplayLoadingIcon().</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Συναρτήσεις για βίντεο</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#PlayVideo">PlayVideo</a></td>
+    <td>Παίζει το δοσμένο βίντεο AVI.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#PlayTheora">PlayTheora</a></td>
+    <td>Παίζει το δοσμένο βίντεο Theora.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Συναρτήσεις για το μητρώο</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#RegWriteNumber">RegWriteNumber</a></td>
+    <td>Γράφει τη δοσμένη αριθμητική τιμή στο μητρώο των Windows.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#RegWriteString">RegWriteString</a></td>
+    <td>Γράφει τη δοσμένη γραμμή στο μητρώο των Windows.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#RegReadNumber">RegReadNumber</a></td>
+    <td>Διαβάζει μία αριθμητική τιμή από το μητρώο των Windows.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#RegReadString">RegReadString</a></td>
+    <td>Διαβάζει μία γραμμή από το μητρώο των Widnows.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Aποθήκευση/Επαναφορά</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SaveGame">SaveGame</a></td>
+    <td>Αποθηκεύει το παιχνίδι στη δοσμένη θέση.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#LoadGame">LoadGame</a></td>
+    <td>Φορτώνει το παιχνίδι από τη δοσμένη θέση.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#IsSaveSlotUsed">IsSaveSlotUsed</a></td>
+    <td>Ελέγχει αν η δοσμένη θέση για αποθήκευση είναι σε χρήση.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetSaveSlotDescription">GetSaveSlotDescription</a></td>
+    <td>Ελέγχει την περιγραφή της δοσμένης θέσης για αποθήκευση.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#EmptySaveSlot">EmptySaveSlot</a></td>
+    <td>Αδειάζει τη δοσμένη θέση αποθήκευσης.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Ένταση ήχου</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetGlobalSFXVolume">SetGlobalSFXVolume</a></td>
+    <td>Ορίζει την ένταση για τα ηχητικά εφέ.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetGlobalSpeechVolume">SetGlobalSpeechVolume</a></td>
+    <td>Ορίζει την ένταση για την ομιλία των χαρακτήρων.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetGlobalMusicVolume">SetGlobalMusicVolume</a></td>
+    <td>Ορίζει την ένταση της μουσικής.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetGlobalMasterVolume">SetGlobalMasterVolume</a></td>
+    <td>Ορίζει τη γενική ένταση του ήχου.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetGlobalSFXVolume">GetGlobalSFXVolume</a></td>
+    <td>Ελέγχει την ένταση των ηχητικών εφέ.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetGlobalSpeechVolume">GetGlobalSpeechVolume</a></td>
+    <td>Ελέγχει την ένταση για την ομιλία.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetGlobalMusicVolume">GetGlobalMusicVolume</a></td>
+    <td>Ελέγχει την ένταση της μουσικής.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetGlobalMasterVolume">GetGlobalMasterVolume</a></td>
+    <td>Ελέγχει την γενική ένταση του ήχου.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Συναρτήσεις για τον κέρσορα</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetCursor">SetCursor</a></td>
+    <td>Ορίζει τον κανονικό κέρσορα.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetCursor">GetCursor</a></td>
+    <td>Επιστρέφει το όνομα του sprite που χρησιμοποιείται ως κανονικός κέρσορας ή <b>null</b> αν δεν έχει οριστεί κανένα.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetCursorObject">GetCursorObject</a></td>
+    <td>Επιστρέφει αναφορά στο sprite του κανονικού κέρσορα ή <b>null</b> αν δεν έχει οριστεί κανένα.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#RemoveCursor">RemoveCursor</a></td>
+    <td>Αφαιρέι τον κανονικό κέρσορα.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#HasCursor">HasCursor</a></td>
+    <td>Ελέγχει αν ο κανονικός κέρσορας έχει ορισθεί.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetActiveCursor">SetActiveCursor</a></td>
+    <td>Ορίζει τον ενεργό κέρσορα.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetActiveCursor">GetActiveCursor</a></td>
+    <td>Επιστρέφει το όνομα του sprite που χρησιμοποιείται ως ενεργός κέρσορας ή <b>null</b> αν δεν έχει οριστεί κανένας κέρσορας.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetActiveCursorObject">GetActiveCursorObject</a></td>
+    <td>Επιστρέφει αναφορά στο sprite του ενεργού κέρσορα ή <b>null</b> αν δεν έχει οριστεί κανένα.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#RemoveActiveCursor">RemoveActiveCursor</a></td>
+    <td>Αφαιρεί τον ενεργό κέρσορα.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#HasActiveCursor">HasActiveCursor</a></td>
+    <td>Ελέγχει αν ο ενεργός κέρσορας έχει οριστεί.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetWaitCursor">SetWaitCursor</a></td>
+    <td>Ορίζει τον μη διαδραστικό κέρσορα.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetWaitCursor">GetWaitCursor</a></td>
+    <td>Επιστρέφει το όνομα του sprite που χρησιμοποιείται ως μη διαδραστικός κέρσορας ή <b>null</b> αν δεν έχει οριστεί κανένας κέρσορας.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetWaitCursorObject">GetWaitCursorObject</a></td>
+    <td>Επιστρέφει αναφορά στο sprite του μη διαδραστικού κέρσορα ή <b>null</b> αν δεν έχει οριστεί κανένα.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#RemoveWaitCursor">RemoveWaitCursor</a></td>
+    <td>Αφαιρεί τον μη διαδραστικό κέρσορα.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Ομαλή διαβάθμιση σκηνών</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#FadeOut">FadeOut</a></td>
+    <td>Σβήνει τη σκηνή προς το δοσμένο χρώμα.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#FadeIn">FadeIn</a></td>
+    <td>Εμφανίζει τη σκηνή από το δοσμένο χρώμα.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetFadeColor">GetFadeColor</a></td>
+    <td>Διαβάζει το ορισμένο χρώμα διαβάθμισης των σκηνών.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Συναρτήσεις σκηνών</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ChangeScene">ChangeScene</a></td>
+    <td>Φορτώνει τη σκηνή από το δοσμένο αρχείο.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Διάλογοι & inventory</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#AddResponse">AddResponse</a></td>
+    <td>Προσθέτει μία απάντηση στο πλαίσιο διαλόγου.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#AddResponseOnce">AddResponseOnce</a></td>
+    <td>Προσθέτει μία απάντηση στο πλαίσιο διαλόγου μόνο μία φορά σε κάθε παρακλάδι διαλόγου.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#AddResponseOnceGame">AddResponseOnceGame</a></td>
+    <td>Προσθέτει μία απάντηση στο πλαίσιο διαλόγου μόνο μία φορά σε κάθε παιχνίδι.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ResetResponse">ResetResponse</a></td>
+    <td>Επαναφέρει μία απενεργοποιημένη επιλογή διαλόγου.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetResponse">GetResponse</a></td>
+    <td>Εμφανίζει το πλαίσιο διαλόγου και περιμένει τον παίκτη να κάνει μία επιλογή.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetNumResponses">GetNumResponses</a></td>
+    <td>Ελέγχει τον αριθμό των εναπομεινάντων απαντήσεων στο πλαίσιο διαλόγου.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetInventoryWindow">GetInventoryWindow</a></td>
+    <td>Επιστρέφει αναφορά στο αντικείμενο παράθυρο που χρησιμοποιείται από το πλαίσιο του inventory.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetResponsesWindow">GetResponsesWindow</a></td>
+    <td>Επιστρέφει αναφορά στο αντικείμενο παράθυρο που χρησιμοποιείται από το πλαίσιο διαλόγων.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#StartDlgBranch">StartDlgBranch</a></td>
+    <td>Δηλώνει την αρχή του παρακλαδιού του διαλόγου.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#EndDlgBranch">EndDlgBranch</a></td>
+    <td>Δηλώνει το τέλος του παρακλαδιού του διαλόγου.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetCurrentDlgBranch">GetCurrentDlgBranch</a></td>
+    <td>Ελέγχει το όνομα του παρακλαδιού του διαλόγου που είναι ενεργοποιημένο αυτή τη στιγμή.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#LoadResponseBox">LoadResponseBox</a></td>
+    <td>Ξαναφορτώνει το πλαίσιο διαλόγου από ένα αρχείο.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#LoadInventoryBox">LoadInventoryBox</a></td>
+    <td>Ξαναφορτώνει το πλαίσιο του inventory από ένα αρχείο.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#LoadItems">LoadItems</a></td>
+    <td>Φορτώνει αντικείμενα του inventory από ένα αρχείο προσδιορισμού.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Αντικείμενα</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#TakeItem">TakeItem</a></td>
+    <td>Προσθέτει ένα αντικείμενο στο inventory.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#DropItem">DropItem</a></td>
+    <td>Αφαιρεί ένα αντικείμενο από το inventory.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetItem">GetItem</a></td>
+    <td>Ελέγχει το δοσμένο αντικείμενο του inventory.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#HasItem">HasItem</a></td>
+    <td>Ελέγχει αν το δοσμένο αντικείμενο βρίσκεται στο inventory του αντικειμένου (του παιχνιδιού).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#IsItemTaken">IsItemTaken</a></td>
+    <td>Ελέγχει αν το δοσμένο αντικείμενο βρίσκεται στο inventory κάποιου από τα αντικείμενα του παιχνιδιού.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Δυναμική δημιουργία αντικειμένων</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#CreateEntity">CreateEntity</a></td>
+    <td>Δημιουργεί ένα καινούριο αντικείμενο entity.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#DeleteEntity">DeleteEntity</a></td>
+    <td>Διαγράφει το δοσμένο αντικείμενο entity.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#CreateWindow">CreateWindow</a></td>
+    <td>Δημιουργεί ένα καινούριο αντικείμενο παράθυρο.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#DeleteWindow">DeleteWindow</a></td>
+    <td>Διαγράφει το δοσμένο αντικείμενο παράθυρο.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#CreateItem">CreateItem</a></td>
+    <td>Δημιουργεί ένα καινούριο αντικείμενο του intentory.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#DeleteItem">DeleteItem</a></td>
+    <td>Διαγράφει το δοσμένο αντικείμενο του inventory.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Σχετικά με τους 3D χαρακτήρες</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetShadowImage">SetShadowImage</a></td>
+    <td>Ορίζει μία εικόνα για να χρησιμοποιηθεί ως απλή σκιά για τους 3D χαρακτήρες.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetShadowImage">GetShadowImage</a></td>
+    <td>Ελέγχει την εικόνα που είναι ορισμένη να χρησιμοποιηθεί ως απλή σκιά για τους 3D χαρακτήρες.</td>
+  </tr>
+</table>
+
+<h4>Ιδιότητες</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%">Type (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει πάντα "game".</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Accelerated (μόνο για ανάγνωση)</td>
+    <td>Αν το παιχνίδι αυτή τη στιγμή χρησιμοποιεί την 3D επιτάχυνση γραφικών επιστρέφει <b>true</b>.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">CurrentTime (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει το χρόνο που έχει περάσει από τη στιγμή που ξεκίνησε το παιχνίδι.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">WindowsTime (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει το χρόνο που έχει περάσει από τη στιγμή που ξεκίνησαν τα Windows.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">TextEncoding</td>
+    <td>Ορίζει την κωδικοποίηση για τα εσωτερικά του παιχνιδιού κείμενα, 0 για ANSI και 1 για UTF8.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">TextRTL</td>
+    <td>Ορίζει αν τα κείμενα του παιχνιδιού διαβάζονται από τα δεξιά προς τα αριστερά (για Εβραϊκά και Αραβικά). Επηρεάζει μόνο τις γραμματοσειρές TrueType.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">MouseX</td>
+    <td>Η θέση του κέρσορα του ποντικιού στον άξονα X.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">MouseY</td>
+    <td>Η θέση του κέρσορα του ποντικιού στον άξονα Y.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">MainObject</td>
+    <td>Το αντικείμενο με βάση το οποίο λειτουργεί το αυτόματο scroll της σκηνής. Μπορεί να οριστεί και ως <b>null</b>.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">ActiveObject (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει το αντικείμενο που βρίσκεται κάτω από τον κέρσορα του ποντικιού ή <b>null</b> αν δεν υπάρχει κανένα.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">InventoryObject</td>
+    <td>Το όνομα του αντικειμένου του οποίου το inventory παρουσιάζεται στην οθόνη.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">ScreenWidth (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει το μήκος της οθόνης σε εικονοστοιχεία.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">ScreenHeight (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει το ύψος της οθόνης σε εικονοστοιχεία.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Interactive</td>
+    <td>Ορίζει αν το παιχνίδι θα είναι διαδραστικό, δηλαδή αν θα δέχεται τις ενέργειες του παίκτη.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">DebugMode (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει αν το παιχνίδι τρέχει στην κατάσταση εκσφαλμάτωσης ή όχι.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">SoundAvailable (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει αν ο ήχος είναι διαθέσιμος και ενεργός.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Keyboard (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει αναφορά στο αντικείμενο πληκτρολόγιο.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Subtitles</td>
+    <td>Ορίζει αν οι υπότιτλοι είναι ενεργοί.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">VideoSubtitles</td>
+    <td>Ορίζει αν οι υπότιτλοι για τα βίντεο AVI και Theora είναι ενεργοί.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">SubtitlesSpeed</td>
+    <td>Ορίζει την ταχύτητα των υποτίτλων (σε χιλιοστά του δευτερολέπτου για κάθε χαρακτήρα).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Scene (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει αναφορά στο αντικείμενο σκηνή που είναι φορτωμένο αυτή τη στιγμή.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">SelectedItem</td>
+    <td>Το επιλεγμένο αντικείμενο του inventory ή <b>null</b> αν δεν υπάρχει κανένα.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">NumItems (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει τον αριθμό των αντικειμένων στο inventory του παίκτη.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">InventoryVisible</td>
+    <td>Ορίζει αν το πλαίσιο του inventory είναι ορατό αυτή τη στιγμή.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">ResponsesVisible (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει αν κάποιο πλαίσιο διαλόγου είναι ενεργό αυτή τη στιγμή (για παράδειγμα όταν το παιχνίδι περιμένει την επιλογή του παίκτη).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">WindowedMode (μόνο για ανάγνωση)</td>
+    <td>Αν το παιχνίδι τρέχει σε παράθυρο και όχι σε πλήρη οθόνη επιστρέφει <b>true</b>.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Hwnd (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει το window handle (HWND) του παραθύρου του παιχνιδιού (χρήσιμο μόνο για τη δημιουργία πρόσθετων αρθρωμάτων).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">PrevScene (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει το όνομα της προηγούμενης σκηνής.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">PrevSceneFilename (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει το όνομα του αρχείου της προηγούμενης σκηνής.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">LastResponse (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει το κείμενο του τελευταίου επιλεγμένου διαλόγου.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">FPS (μόνο για ανάγνωση)</td>
+    <td>Επιστρεφει το ρυθμό ανανέωσης αυτής της στιγμής (σε καρέ ανά δευτερόλεπτο).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Shadows</td>
+    <td>Ορίζει αν οι σκιές για τους 3D χαρακτήρες είναι ενεργές.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">SimpleShadows</td>
+    <td>Ορίζει αν θα χρησιμοποιηθούν απλές σκιές για τους 3D χαρακτήρες. Αυτή η ιδιότητα δεν έχει κανένα αποτέλεσμα αν οι σκιές πραγματικού χρόνου δεν υποστηρίζονται.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">SupportsRealTimeShadows (μόνο για ανάγνωση)</td>
+    <td>Αν η κάρτα γραφικών υποστηρίζει σκιές πραγματικού χρόνου επιστρέφει <b>true</b>.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Direct3DDevice (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει το δείκτη στο θεμελιώδες αντικείμενο IDirect3DDevice8 (χρήσιμο μόνο για δημιουργία πρόσθετων αρθρωμάτων).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">DirectDrawInterface (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει το δείκτη στο θεμελιώδες αντικείμενο IDirectDraw7 (χρήσιμο μόνο για δημιουργία πρόσθετων αρθρωμάτων).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Frozen (μόνο για ανάγνωση)</td>
+    <td>Αν το παιχνίδι είναι σε παγωμένη κατάσταση επιστρέφει <b>true</b>.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Name</td>
+    <td>Το εσωτερικό όνομα του αντικειμένου.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Caption</td>
+    <td>Ο τίτλος του αντικειμένου.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">X</td>
+    <td>Η θέση του αντικειμένου στον άξονα Χ.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Y</td>
+    <td>Η θέση του αντικειμένου στον άξονα Y.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Height (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει το ύψος του αντικειμένου. Σε περίπτωση χαρακτήρων και entities η τιμή scale λαμβάνεται υπόψη.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Filename (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει το όνομα του αρχείου.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Ready (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει αν το αντικείμενο δεν εκτελεί κάποια πράξη αυτή τη στιγμή.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Interactive</td>
+    <td>Ορίζει αν το παιχνίδι θα είναι διαδραστικό, δηλαδή αν θα δέχεται τις ενέργειες του παίκτη.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">SoundPanning</td>
+    <td>Ορίζει αν οι ήχοι που παίζει το αντικείμενο τοποθετούνται αυτόματα στο χώρο ανάλογα με τη θέση αυτού στην οθόνη.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">NonIntMouseEvents</td>
+    <td>Ορίζει αν το αντικείμενο μπορεί να δεχτεί τα γεγονότα <b>MouseEntry</b> και <b>MouseLeave</b> ακόμα και αν το παιχνίδι είναι είναι σε μη διαδραστική κατάσταση.</td>
+  </tr>
+</table>
+
+<h4>Γεγονότα χαμηλού επιπέδου</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%">LeftClick</td>
+    <td>Έχει πατηθεί το αριστερό κουμπί του ποντικιού.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">RightClick</td>
+    <td>Έχει πατηθεί το δεξί κουμπί του ποντικιού.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">MiddleClick</td>
+    <td>Έχει πατηθεί το μεσαίο κουμπί του ποντικιού.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">LeftDoubleClick</td>
+    <td>Έχει πατηθεί γρήγορα δύο φορές το αριστερό κουμπί του ποντικιού.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">LeftRelease</td>
+    <td>Το αριστερό κουμπί του ποντικιού έχει ελευθερωθεί.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">RightRelease</td>
+    <td>Το δεξί κουμπί του ποντικιού έχει ελευθερωθεί.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">MiddleRelease</td>
+    <td>Το μεσαίο κουμπί του ποντικιού έχει ελευθερωθεί.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">MouseWheelUp</td>
+    <td>Το ροδάκι του ποντικιού έχει κυλίσει προς τα πάνω.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">MouseWheelDown</td>
+    <td>Το ροδάκι του ποντικιού έχει κυλίσει προς τα κάτω.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Keypress</td>
+    <td>Κάποιο κουμπί έχει πατηθεί. Χρησιμοποιήστε τη μεταβλητή <b>Keyboard</b> για να βρείτε περισσότερες λεπτομέρειες.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">BeforeSave</td>
+    <td>Το παιχνίδι πρόκειται να αποθηκεύσει τη κατάστασή του.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">AfterLoad</td>
+    <td>Το παιχνίδι μόλις φόρτωσε μία αποθηκευμένη κατάσταση.</td>
+  </tr>
+</table>
+
+<hr>
+<h3><a name="LOG"></a>LOG(Κείμενο)</h3>
+<p>Γράφει μία γραμμή κειμένου στο αρχείο καταγραφής της λειτουργίας της μηχανής.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Κείμενο</i></dt>
+<dd>Η γραμμή κειμένου που θα γραφεί στο αρχείο καταγραφής της λειτουργίας της μηχανής </dd>
+</dl>
+<h4>Παρατηρήσεις</h4>
+<p>Όταν το παιχνίδι τρέχει στην κατάσταση εκσφαλμάτωσης δημιουργεί το αρχείο "wme.log" στον ίδιο φάκελο που βρίσκεται αυτό. Με τη μέθοδο αυτή μπορείτε να εισάγετε τα δικά σας διαγνωστικά μηνύματα σε αυτό.</p>
+
+<hr>
+<h3><a name="Msg"></a>Msg(Κείμενο)</h3>
+<p>Εμφανίζει ένα γρήγορο διαγνωστικό μήνυμα στην οθόνη.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Κείμενο</i></dt>
+<dd>Το κείμενο που θα εμφανιστεί στην οθόνη </dd>
+</dl>
+<h4>Παρατηρήσεις</h4>
+<p>Το μήνυμα θα εξαφανιστεί μετά από μερικά δευτερόλεπτα.</p>
+
+<hr>
+<h3><a name="DumpTextureStats"></a>DumpTextureStats(ΌνομαΑρχείου)</h3>
+<p>Γράφει τα δεδομένα της χρήσης υφών σε ένα αρχείο κειμένου CSV.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του αρχείου που θα δημιουργηθεί </dd>
+</dl>
+<h4>Παρατηρήσεις</h4>
+<p>Αυτή η μέθοδος είναι διαθέσιμη μόνο όταν το παιχνίδι τρέχει με την επιτάχυνση υλικού.</p>
+
+<hr>
+<h3><a name="ValidObject"></a>ValidObject(Αντικείμενο)</h3>
+<p>Ελέγχει αν μία δοσμένη αναφορά σε κάποιο αντικείμενο είναι αληθής.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Αντικείμενο</i></dt>
+<dd>Μία αναφορά σε αντικείμενο για να ελεγχθεί η εγκυρότητά της</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η αναφορά στο αντικείμενο είναι έγκυρη τότε επιστρέφει <b>true</b>.</p>
+<h4>Παρατηρήσεις</h4>
+<p>Αν αποθηκεύσετε μία αναφορά αντικειμένου σε μία μεταβλητή μπορείτε να βεβαιωθείτε ότι το αντικείμενο είναι ακόμα έγκυρο με την χρήση της μεθόδου ValidObject. Τα αντικείμενα γίνονται άκυρα όταν σβηστούν από τη μνήμη (είτε μόνιμα είτε, για παράδειγμα, με την αλλαγή της σκηνής).</p>
+
+<hr>
+<h3><a name="UnloadObject"></a>UnloadObject(Αντικείμενο)</h3>
+<p>Αφαιρεί κάποιο αντικείμενο από τη μνήμη.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Αντικείμενο</i></dt>
+<dd>Το αντικείμενο που θα αφαιρεθεί από τη μνήμη</dd>
+</dl>
+<h4>Παρατηρήσεις</h4>
+<p>Αν φορτώσετε ένα αντικείμενο με τις μεθόδους Game.LoadActor, GameLoadEntity και άλλες παρόμοιες πρέπει να τα ξεφορτώσετε όταν πλέον δεν τα χρειάζεστε για να ελευθερώσετε τη μνήμη. Σε αντίθετη περίπτωση θα μείνουν στη μνήμη εώς ότου κλείσετε το παιχνίδι.</p>
+
+<hr>
+<h3><a name="LoadActor"></a>LoadActor(ΌνομαΑρχείου)</h3>
+<p>Φορτώνει ένα καινούριο χαρακτήρα από ένα αρχείο.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του αρχείου του χαρακτήρα που θα φορτωθεί</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αναφορά στο καινούριο αντικείμενο χαρακτήρα. Αν η μέθοδος αποτύχει τότε επιστρέφει <b>null</b>.</p>
+
+<hr>
+<h3><a name="LoadActor3D"></a>LoadActor3D(ΌνομαΑρχείου)</h3>
+<p>Φορτώνει ένα καινούριο 3D χαρακτήρα από ένα αρχείο.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του αρχείου του 3D χαρακτήρα που θα φορτωθεί</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αναφορά στο καινούριο αντικείμενο 3D χαρακτήρα. Αν η μέθοδος αποτύχει τότε επιστρέφει <b>null</b>.</p>
+
+<hr>
+<h3><a name="LoadEntity"></a>LoadEntity(ΌνομαΑρχείου)</h3>
+<p>Φορτώνει μία καινούρια entity από ένα αρχείο.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του αρχείου της entity που θα φορτωθεί</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αναφορά στο καινούριο αντικείμενο entity. Αν η μέθοδος αποτύχει τότε επιστρέφει <b>null</b>.</p>
+
+<hr>
+<h3><a name="LoadWindow"></a>LoadWindow(ΌνομαΑρχείου)</h3>
+<p>Φορτώνει ένα καινούριο παράθυρο από ένα αρχείο.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του αρχείου προσδιορισμού του παραθύρου που θα φορτωθεί</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αναφορά στο καινούριο αντικείμενο παράθυρο. Αν η μέθοδος αποτύχει τότε επιστρέφει <b>null</b>.</p>
+
+<hr>
+<h3><a name="ExpandString"></a>ExpandString(String)</h3>
+<p>Διευρύνει μία δοσμένη string με βάση τον πίνακα κειμένων.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Η</i></dt>
+<dd>γραμμή κειμένου που θα διευρυνθεί</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει τη διευρυμένη γραμμή κειμένου.</p>
+<h4>Παρατηρήσεις</h4>
+<p>Σημειώστε ότι μέθοδοι όπως Actor.Talk() διευρύνουν τις γραμμές αυτόματα.</p>
+
+<hr>
+<h3><a name="MusicCrossfade"></a>MusicCrossfade(Κανάλι1, Κανάλι2, Χρόνος, ΑλλαγήΚαναλιών)</h3>
+<p>Προκαλεί την ομαλή μετάβαση από ένα μουσικό κανάλι σε κάποιο άλλο.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Κανάλι1</i></dt>
+<dd>Το κανάλι του οποίου η ένταση θα μειωθεί σταδιακά</dd>
+<dt><i>Κανάλι2</i></dt>
+<dd>Το κανάλι του οποίου η ένταση θα αυξηθεί σταδιακά</dd>
+<dt><i>Χρόνος</i></dt>
+<dd>Ο χρόνος που θα κρατήσει η διαδικασία</dd>
+<dt><i>ΑλλαγήΚαναλιών</i></dt>
+<dd>Ορίζει αν τα δύο κανάλια θα αλλάξουν θέση μετά το τέλος της διαδικασίας (προαιρετικό, προκαθορισμένη τιμή=true)</dd>
+</dl>
+<h4>Παρατηρήσεις</h4>
+<p>Μόνο δύο κανάλια μπορούν να εναλλαχτούν την ίδια στιγμή.</p>
+
+<hr>
+<h3><a name="PlayMusic"></a>PlayMusic(ΌνομαΑρχείου, Βρόχος, ΑρχήΒρόχου)</h3>
+<p>Παίζει ένα αρχείο μουσικής.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του αρχείου μουσικής που θα παίξει</dd>
+<dt><i>Βρόχος</i></dt>
+<dd>Ορίζει αν η μουσική θα επαναλαμβάνεται μετά το τέλος της (προαιρετικό, προκαθορισμένη τιμή=true)</dd>
+<dt><i>ΑρχήΒρόχου</i></dt>
+<dd>Η θέση από όπου θα παίζει το αρχείο στην επανάληψη σε χιλιοστά του δευτερολέπτου (προαιρετικό, προκαθορισμένη τιμή=0)</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="StopMusic"></a>StopMusic()</h3>
+<p>Σταματάει τη μουσική.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="PauseMusic"></a>PauseMusic()</h3>
+<p>Διακόπτει τη μουσική.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="ResumeMusic"></a>ResumeMusic()</h3>
+<p>Συνεχίζει τη μουσική από το ίδιο σημείο που την έχετε διακόψει.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="SetMusicPosition"></a>SetMusicPosition(Χρόνος)</h3>
+<p>Ορίζει καινούριο χρονικό σημείο αναπαραγωγής για τη μουσική.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Χρόνος</i></dt>
+<dd>Το καινούριο χρονικό σημείο αναπαραγωγής σε χιλιοστά του δευτερολέπτου</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetMusicPosition"></a>GetMusicPosition()</h3>
+<p>Ελέγχει το χρονικό σημείο αναπαραγωγής της μουσικής που παίζει αυτή τη στιγμή.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει το χρονικό σημείο αναπαραγωγής αυτής της στιγμής σε χιλιοστά του δευτερολέπτου.</p>
+
+<hr>
+<h3><a name="IsMusicPlaying"></a>IsMusicPlaying()</h3>
+<p>Ελέγχει αν παίζει μουσική αυτή τη στιγμή.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μουσική παίζει επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetMusic"></a>GetMusic()</h3>
+<p>Ελέγχει το όνομα του αρχείου την μουσικής που παίζει αυτή τη στιγμή.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει το όνομα του αρχείου της μουσικής ή <b>null</b> αν δεν παίζει μουσική.</p>
+
+<hr>
+<h3><a name="SetMusicVolume"></a>SetMusicVolume(Ένταση)</h3>
+<p>Ορίζει την ένταση της μουσικής που παίζει αυτή τη στιγμή.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Ένταση</i></dt>
+<dd>Η ένταση της μουσικής σε ποσοστό επί τοις εκατό.</dd>
+</dl>
+
+<hr>
+<h3><a name="GetMusicVolume"></a>GetMusicVolume()</h3>
+<p>Ελέγχει την ένταση της μουσικής που παίζει αυτή τη στιγμή.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει την ένταση της μουσικής σε ποσοστό επί τοις εκατό.</p>
+
+<hr>
+<h3><a name="PlayMusicChannel"></a>PlayMusicChannel(Κανάλι, ΌνομαΑρχείου, Βρόχος, ΑρχήΒρόχου)</h3>
+<p>Παίζει ένα αρχείο μουσικής σε ένα δοσμένο κανάλι.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Κανάλι</i></dt>
+<dd>Το κανάλι μουσικής που θα χρησιμοποιήσει</dd>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του αρχείου μουσικής που θα παίξει</dd>
+<dt><i>Βρόχος</i></dt>
+<dd>Ορίζει αν η μουσική θα επαναλαμβάνεται μετά το τέλος της (προαιρετικό, προκαθορισμένη τιμή=true).</dd>
+<dt><i>ΑρχήΒρόχου</i></dt>
+<dd>Η θέση από όπου θα παίζει το αρχείο στην επανάληψη σε χιλιοστά του δευτερολέπτου (προαιρετικό, προκαθορισμένη τιμή=0)</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="StopMusicChannel"></a>StopMusicChannel(Κανάλι)</h3>
+<p>Σταματάει τη μουσική στο δοσμένο κανάλι.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Κανάλι</i></dt>
+<dd>Το κανάλι που θα χρησιμοποιήσει</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="PauseMusicChannel"></a>PauseMusicChannel(Κανάλι)</h3>
+<p>Διακόπτει τη μουσική στο δοσμένο κανάλι.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Κανάλι</i></dt>
+<dd>Το κανάλι που θα χρησιμοποιήσει</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="ResumeMusicChannel"></a>ResumeMusicChannel(Κανάλι)</h3>
+<p>Συνεχίζει από το ίδιο σημείο την μουσική που έχετε διακόψει στο δοσμένο κανάλι.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Κανάλι</i></dt>
+<dd>Το κανάλι που θα χρησιμοποιήσει</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="SetMusicChannelPosition"></a>SetMusicChannelPosition(Κανάλι, Χρόνος)</h3>
+<p>Ορίζει καινούριο χρονικό σημείο αναπαραγωγής για τη μουσική στο δοσμένο κανάλι.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Κανάλι</i></dt>
+<dd>Το κανάλι που θα χρησιμοποιήσει</dd>
+<dt><i>Χρόνος</i></dt>
+<dd>Το καινούριο χρονικό σημείο αναπαραγωγής σε χιλιοστά του δευτερολέπτου</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetMusicChannelPosition"></a>GetMusicChannelPosition(Κανάλι)</h3>
+<p>Ελέγχει το χρονικό σημείο αναπαραγωγής της μουσικής που παίζει αυτή τη στιγμή στο δοσμένο κανάλι.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Κανάλι</i></dt>
+<dd>Το κανάλι που θα χρησιμοποιήσει</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει το χρονικό σημείο αναπαραγωγής αυτής της στιγμής σε χιλιοστά του δευτερολέπτου.</p>
+
+<hr>
+<h3><a name="IsMusicChannelPlaying"></a>IsMusicChannelPlaying(Κανάλι)</h3>
+<p>Ελέγχει αν παίζει μουσική αυτή τη στιγμή στο δοσμένο κανάλι</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Κανάλι</i></dt>
+<dd>Το κανάλι που θα χρησιμοποιήσει</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μουσική παίζει επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetMusicChannel"></a>GetMusicChannel(Κανάλι)</h3>
+<p>Ελέγχει το όνομα του αρχείου την μουσικής που παίζει αυτή τη στιγμή στο δοσμένο κανάλι.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Κανάλι</i></dt>
+<dd>Το κανάλι που θα χρησιμοποιήσει</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει το όνομα του αρχείου της μουσικής ή <b>null</b> αν δεν παίζει μουσική.</p>
+
+<hr>
+<h3><a name="SetMusicChannelVolume"></a>SetMusicChannelVolume(Κανάλι, Ένταση)</h3>
+<p>Ορίζει την ένταση της μουσικής που παίζει αυτή τη στιγμή στο δοσμένο κανάλι.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Κανάλι</i></dt>
+<dd>Το κανάλι που θα χρησιμοποιήσει</dd>
+<dt><i>Ένταση</i></dt>
+<dd>Η ένταση της μουσικής σε ποσοστό επί τοις εκατό.</dd>
+</dl>
+
+<hr>
+<h3><a name="GetMusicChannelVolume"></a>GetMusicChannelVolume(Κανάλι)</h3>
+<p>Ελέγχει την ένταση της μουσικής που παίζει αυτή τη στιγμή στο δοσμένο κανάλι.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Κανάλι</i></dt>
+<dd>Το κανάλι που θα χρησιμοποιήσει</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Η ένταση της μουσικής σε ποσοστό επί τοις εκατό.</p>
+
+<hr>
+<h3><a name="AttachScript"></a>AttachScript(ΌνομαΑρχείου)</h3>
+<p>Τρέχει ένα script και το ορίζει στο αντικείμενο.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του αρχείου script που θα τρέξει</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν το script τρέξει επιτυχώς επιστρέφει <b>true</b>.</p>
+<h4>Παρατηρήσεις</h4>
+<p>Κάθε αντικείμενο της WME μπορεί να έχει ορισμένα πολλά scripts.</p>
+
+<hr>
+<h3><a name="DetachScript"></a>DetachScript(ΌνομαΑρχείου)</h3>
+<p>Σταματάει ένα συγκεκριμένο script και το χωρίζει από το αντικείμενο.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του script (που τρέχει αυτή τη στιγμή) που θα σταματήσει</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν το script σταματήσει επιτυχώς επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="IsScriptRunning"></a>IsScriptRunning(ΌνομαΑρχείου)</h3>
+<p>Ελέγχει αν ένα συγκεκριμένο script τρέχει αυτή τη στιγμή και αν είναι ορισμένο σε κάποιο αντικείμενο.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του script που θα ελεγχθεί</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν το script είναι ορισμένο σε κάποιο αντικείμενο επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="CanHandleMethod"></a>CanHandleMethod(ΌνομαΜεθόδου)</h3>
+<p>Ελέγχει αν το αντικείμενο υποστηρίζει τη δοσμένη μέθοδο.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΜεθόδου</i></dt>
+<dd>Το όνομα της μεθόδου που θα ελεγχθεί</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν το αντικείμενο υποστηρίζει τη δοσμένη μέθοδο επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetSoundLength"></a>GetSoundLength(ΌνομαΑρχείου)</h3>
+<p>Ελέγχει τη διάρκεια ενός αρχείου ήχου.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του αρχείου ήχου που θα ελεγχθεί</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει τη διάρκεια του αρχείου ήχου σε χιλιοστά του δευτερολέπτου.</p>
+
+<hr>
+<h3><a name="PlaySound"></a>PlaySound(ΌνομαΑρχείου, Βρόχος, ΑρχήΒρόχου)<br>PlaySound(Βρόχος, ΑρχήΒρόχου)</h3>
+<p>Παίζει έναν ήχο. Αν δεν δοθεί κάποιο όνομα αρχείου τότε παίζει τον προσδιορισμένο ήχο (αν υπάρχει).</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του αρχείου ήχου που θα παίξει.</dd>
+<dt><i>Looping</i></dt>
+<dd>Ορίζει αν ο ήχος θα επαναλαμβάνεται μετά το τέλος (προαιρετικό, προκαθορισμένη τιμή=false).</dd>
+<dt><i>LoopStart</i></dt>
+<dd>Η θέση από όπου θα παίζει το αρχείο στην επανάληψη σε χιλιοστά του δευτερολέπτου (προαιρετικό, προκαθορισμένη τιμή=0)</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="PlaySoundEvent"></a>PlaySoundEvent(ΌνομαΑρχείου, ΌνομαΓεγονότος)<br>PlaySoundEvent(ΌνομαΓεγονότος)</h3>
+<p>Παίζει έναν ήχο και ενεργοποιεί ένα γεγονός όταν τελειώσει. Αν δε δοθεί κάποιο όνομα αρχείου τότε παίζει τον προσδιορισμένο ήχο (αν υπάρχει).</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του αρχείου ήχου που θα παίξει.</dd>
+<dt><i>ΌνομαΓεγονότος</i></dt>
+<dd>Το όνομα του γεγονότος που θα ενεργοποιηθεί αφού τελειώσει ο ήχος.</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="StopSound"></a>StopSound()</h3>
+<p>Σταματάει τον ήχο που παίζει αυτή τη στιγμή (αν υπάρχει).</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="PauseSound"></a>PauseSound()</h3>
+<p>Διακόπτει τον ήχο που παίζει αυτή τη στιγμή.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="ResumeSound"></a>ResumeSound()</h3>
+<p>Συνεχίζει από το ίδιο σημείο τον ήχο που έχετε διακόψει.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="IsSoundPlaying"></a>IsSoundPlaying()</h3>
+<p>Ελέγχει αν παίζει κάποιος ήχος αυτή τη στιγμή.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν παίζει κάποιος ήχος επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="SetSoundPosition"></a>SetSoundPosition(Χρόνος)</h3>
+<p>Ορίζει καινούριο χρονικό σημείο αναπαραγωγής για τον ήχο.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Χρόνος</i></dt>
+<dd>Το καινούριο χρονικό σημείο αναπαραγωγής σε χιλιοστά του δευτερολέπτου</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetSoundPosition"></a>GetSoundPosition()</h3>
+<p>Ελέγχει το χρονικό σημείο αναπαραγωγής του ήχου που παίζει αυτή τη στιγμή.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει το χρονικό σημείο αναπαραγωγής αυτής της στιγμής σε χιλιοστά του δευτερολέπτου.</p>
+
+<hr>
+<h3><a name="SetSoundVolume"></a>SetSoundVolume(Ένταση)</h3>
+<p>Ορίζει την ένταση του ήχου που παίζει αυτή τη στιγμή.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Ένταση</i></dt>
+<dd>Η ένταση του ήχου σε ποσοστό επί τοις εκατό</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetSoundVolume"></a>GetSoundVolume()</h3>
+<p>Ελέγχει την ένταση του ήχου που παίζει αυτή τη στιγμή.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει την ένταση του ήχου που παίζει αυτή τη στιγμή σε ποσοστό επί τοις εκατό.</p>
+
+<hr>
+<h3><a name="LoadSound"></a>LoadSound(ΌνομαΑρχείου)</h3>
+<p>Φορτώνει τον ήχο από το δοσμένο αρχείο για να είναι έτοιμο να παίξει όταν χρειαστεί.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του αρχείου ήχου που θα φορτωθεί</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+<h4>Παρατηρήσεις</h4>
+<p>Χρησιμοποιήστε αυτή τη μέθοδο για να φορτώσετε στη μνήμη το αρχείο ήχου. Η διαδικασία αυτή παίρνει λίγο χρόνο και μερικές φορές είναι επιθυμητό να την μεταφέρετε για παράδειγμα στην αρχή της σκηνής ώστε συνεχόμενες κλίσεις σε αυτό να μην καθυστερούν το παιχνίδι. Για αυτό το λόγο υπάρχει η μέθοδος LoadSound. Για να παίξετε τον ήχο που έχει ήδη φορτωθεί απλώς καλέστε την μέθοδο PlaySound χωρίς να ορίσετε το αρχείο. Για παράδειγμα SomeObject.PlaySound(false);</p>
+
+<hr>
+<h3><a name="SoundFXNone"></a>SoundFXNone()</h3>
+<p>Αφαιρεί οποιοδήποτε εφέ είναι ενεργοποιημένο στο αντικείμενο αυτή τη στιγμή.</p>
+
+<hr>
+<h3><a name="SoundFXEcho"></a>SoundFXEcho(ΜίξηΉχου, ΈντασηΉχου, ΑριστερήΚαθυστέρηση, ΔεξιάΚαθυστέρηση)</h3>
+<p>Ενεργοποιεί το εφέ ηχώ στον ήχο που παίζει το αντικείμενο.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΜίξηΉχου</i></dt>
+<dd>Μίξη του αλλοιωμένου ήχου με τον αρχικό ήχο σε ποσοστό επί τοις εκατό. (0 έως 100).</dd>
+<dt><i>ΈντασηΉχου</i></dt>
+<dd>Η ένταση του επιστρεφόμενου ήχου σε ποσοστό επί τοις εκατό (0 έως 100).</dd>
+<dt><i>ΑριστερήΚαθυστέρηση</i></dt>
+<dd>H καθυστέρηση στο αριστερό κανάλι ήχου σε χιλιοστά του δευτερολέπτου (1 έως 2000).</dd>
+<dt><i>ΔεξιάΚαθυστέρηση</i></dt>
+<dd>H καθυστέρηση στο δεξιό κανάλι ήχου σε χιλιοστά του δευτερολέπτου (1 έως 2000).</dd>
+</dl>
+<h4>Παρατηρήσεις</h4>
+<p>Παράδειγμα: <b>actor.SoundFXEcho(50, 50);</b></p>
+
+<hr>
+<h3><a name="SoundFXReverb"></a>SoundFXReverb(ΈντασηΕισόδου, ΈντασηΕξόδου, ΧρόνοςΕπιστροφής, ΑπορρόφησηΣυχνοτήτων)</h3>
+<p>Ενεργοποιεί το εφέ αντανάκλαση στον ήχο που παίζει το αντικείμενο.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΈντασηΕισόδου</i></dt>
+<dd>Η ένταση του εισαχθέντος ήχου σε dB (-96 έως 0)</dd>
+<dt><i>ΈντασηΕξόδου</i></dt>
+<dd>Η ένταση του ήχου που θα παίξει σε dB (-96 έως 0)</dd>
+<dt><i>ΧρόνοςΕπιστροφής</i></dt>
+<dd>Ο χρόνος επιστροφής του ήχου σε χιλιοστά του δευτερολέπτου (0.001 έως 3000)</dd>
+<dt><i>ΑπορρόφησηΣυχνοτήτων</i></dt>
+<dd>Η ποσότητα της απορρόφησης των υψηλών συχνοτήτων (0.001 έως 0.999)</dd>
+</dl>
+<h4>Παρατηρήσεις</h4>
+<p>Παράδειγμα: <b>actor.SoundFXReverb(0, 0, 2000);</b></p>
+
+<hr>
+<h3><a name="ApplyEvent"></a>ApplyEvent(ΌνομαΓεγονότος)</h3>
+<p>Εφαρμογή του δοσμένου γεγονότος στο αντικείμενο.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΓεγονότος</i></dt>
+<dd>Το όνομα του γεγονότος που θα εφαρμοστεί στο αντικείμενο</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν το γεγονός εφαρμοστεί επιτυχώς επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="CanHandleEvent"></a>CanHandleEvent(ΌνομαΓεγονότος)</h3>
+<p>Ελέγχει αν το αντικείμενο έχει ορισμένο κάποιο χειριστή γεγονότος για το δοσμένο γεγονός.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΓεγονότος</i></dt>
+<dd>Το όνομα του γεγονότος που θα ελεγχθεί</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν το αντικείμενο μπορεί να χειριστεί το δοσμένο γεγονός επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="SkipTo"></a>SkipTo(X, Y)</h3>
+<p>Μετακινεί το αντικείμενο στη δοσμένη θέση.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>X</i></dt>
+<dd>Συντεταγμένη στον άξονα X</dd>
+<dt><i>Y</i></dt>
+<dd>Συντεταγμένη στον άξονα Y</dd>
+</dl>
+
+<hr>
+<h3><a name="SetMousePos"></a>SetMousePos(X, Y)</h3>
+<p>Ορίζει τη θέση του κέρσορα του ποντικιού.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>X</i></dt>
+<dd>Συντεταγμένη στον άξονα X.</dd>
+<dt><i>Y</i></dt>
+<dd>Συντεταγμένη στον άξονα Y.</dd>
+</dl>
+
+<hr>
+<h3><a name="QuitGame"></a>QuitGame()</h3>
+<p>Τερματίζει/κλείνει το παιχνίδι.</p>
+
+<hr>
+<h3><a name="FileExists"></a>FileExists(ΌνομαΑρχείου)</h3>
+<p>Ελέγχει αν υπάρχει το δοσμένο αρχείο.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του αρχείου που θα ελεγχθεί.</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν το αρχείο υπάρχει επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="Screenshot"></a>Screenshot(ΌνομαΑρχείου)</h3>
+<p>Παίρνει "φωτογραφία" το παιχνίδι και την αποθηκεύει σε ένα αρχείο BMP.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το βασικό όνομα που θα χρησιμοποιηθεί για τη δημιουργία του αρχείου BMP (προαιρετικό, προκαθορισμένο όνομα είναι το Game.Name).</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="ScreenshotEx"></a>ScreenshotEx(ΌνομαΑρχείου, Μήκος, Ύψος)</h3>
+<p>Παίρνει "φωτογραφία" το παιχνίδι και την αποθηκεύει σε ένα αρχείο BMP (με δυνατότητα ορισμού του μεγέθους της εικόνας).</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του αρχείου BMP που θα δημιουργηθεί.</dd>
+<dt><i>Μήκος</i></dt>
+<dd>Το μήκος της εικόνας.</dd>
+<dt><i>Ύψος</i></dt>
+<dd>Το ύψος της εικόνας.</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="LoadStringTable"></a>LoadStringTable(ΌνομαΑρχείου, ClearOld)</h3>
+<p>Φορτώνει τον πίνακα κειμένων από ένα αρχείο.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του αρχείου που περιέχει τον πίνακα κειμένων.</dd>
+<dt><i>ClearOld</i></dt>
+<dd>Αφαιρεί το παλιό string από τον πίνακα κειμένων (προαιρετικό, προκαθορισμένη τιμή=true)</dd>
+</dl>
+<h4>Παρατηρήσεις</h4>
+<p>Ο πίνακας κειμένων ΔΕΝ είναι τμήμα των αποθηκευμένων παιχνιδιών. Πρέπει κάθε φορά που ξεκινάει το παιχνίδι να ζητάτε από τον παίκτη να επιλέξει γλώσσα ή να αποθηκεύσετε την ρύθμιση αυτή στο μητρώο των windows.</p>
+
+<hr>
+<h3><a name="Reset"></a>Reset()</h3>
+<p>Σβήνει όλα τα μόνιμα δεδομένα του παιχνιδιού.</p>
+<h4>Παρατηρήσεις</h4>
+<p>Αυτή η μέθοδος σβήνει όλες τις καταστάσεις των σκηνών, τις επιλογές, επαναφέρει τον μετρητή χρόνου στο μηδέν και επιπλέον διαγράφει κάθε γενική μεταβλητή εκτός από αυτές που αναφέρονται σε αντικείμενα του παιχνιδιού (όπως παράθυρα ή entities). Χρησιμοποιήστε αυτή τη μέθοδο αν θέλετε να επανεκκινήσετε το παιχνίδι</p>
+
+<hr>
+<h3><a name="OpenDocument"></a>OpenDocument(ΌνομαΑρχείου)</h3>
+<p>Ανοίγει το δοσμένο αρχείο ή τη διεύθυνση του διαδικτύου στο αντίστοιχο πρόγραμμα.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του αρχείου που θέλετε να ανοίξει</dd>
+</dl>
+<h4>Παρατηρήσεις</h4>
+<p>Αυτή η μέθοδος χρησιμοποιεί τους συνδέσμους των Windows για τις προεκτάσεις των αρχείων για να ξεκινήσει το κατάλληλο πρόγραμμα. Σημειώστε ότι το αρχείο ΔΕΝ ΠΡΕΠΕΙ να είναι αποθηκευμένο μέσα στα πακέτα του παιχνιδιού. Αντίθετα πρέπει να είναι ένα συνηθισμένο αρχείο και πρέπει να το καλέσετε είτε με την πλήρη διαδρομή είτε με τη σχετική με τον φάκελο του παιχνιδιού διαδρομή.</p>
+
+<hr>
+<h3><a name="SetLoadingScreen"></a>SetLoadingScreen(ΌνομαΕικόνας, ΘέσηX, ΘέσηY)</h3>
+<p>Ορίζει μία εικόνα που θα εμφανίζεται κατά τη διάρκεια επαναφοράς ενός παιχνιδιού.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΕικόνας</i></dt>
+<dd>Το όνομα του αρχείου της εικόνας ή null</dd>
+<dt><i>PosX</i></dt>
+<dd>Συντεταγμένη στον άξονα X</dd>
+<dt><i>PosY</i></dt>
+<dd>Συντεταγμένη στον άξονα Y</dd>
+</dl>
+
+<hr>
+<h3><a name="SetSavingScreen"></a>SetSavingScreen(ΌνομαΕικόνας, ΘέσηX, ΘέσηY)</h3>
+<p>Ορίζει μία εικόνα που θα εμφανίζεται κατά τη διάρκεια αποθήκευσης ενός παιχνιδιού.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ImageFilename</i></dt>
+<dd>Το όνομα του αρχείου της εικόνας ή null</dd>
+<dt><i>PosX</i></dt>
+<dd>Συντεταγμένη στον άξονα X</dd>
+<dt><i>PosY</i></dt>
+<dd>Συντεταγμένη στον άξονα Y</dd>
+</dl>
+
+<hr>
+<h3><a name="ClearScriptCache"></a>ClearScriptCache()</h3>
+<p>Σβήνει τα περιεχόμενα του script cache της μηχανής.</p>
+<h4>Παρατηρήσεις</h4>
+<p>Συνήθως η μηχανή κρατά τα μεταγλωττισμένα scripts ώστε να μην χρειάζονται να μεταγλωττίζονται συνεχώς κατά τη διάρκεια του παιχνιδιού. Με αυτή τη μέθοδο μπορείτε να αδειάσετε τα περιεχόμενα του script cache, σε περίπτωση που δημιουργείτε scripts δυναμικά και χρειάζεστε να μεταγλωττίζονται συνεχώς.</p>
+
+<hr>
+<h3><a name="DisplayLoadingIcon"></a>DisplayLoadingIcon(Sprite, X, Y, Παραμονή)</h3>
+<p>Εμφανίζει γρήγορα ένα εικονίδιο φορτώματος/εργασίας.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Sprite</i></dt>
+<dd>Το όνομα του αρχείου του sprite που θα χρησιμοποιηθεί ως εικονίδιο</dd>
+<dt><i>X</i></dt>
+<dd>Συντεταγμένη στον άξονα X που θα εμφανιστεί το εικονίδιο</dd>
+<dt><i>Y</i></dt>
+<dd>Συντεταγμένη στον άξονα Y που θα εμφανιστεί το εικονίδιο</dd>
+<dt><i>Παραμονή</i></dt>
+<dd>Ορίζει αν το εικονίδιο θα μείνει στην οθόνη μέχρι να καλέσετε τη μέθοδο HideLoadingIcon() (προαιρετικό, προκαθορισμένη τιμή=false)</dd>
+</dl>
+<h4>Παρατηρήσεις</h4>
+<p>Χρησιμοποιήστε αυτή τη μέθοδο για να εμφανίσετε γρήγορα ένα σύμβολο που να δείχνει ότι κάποια εργασία γίνεται αυτή τη στιγμή. Για παράδειγμα καλέστε αυτή τη μέθοδο πριν από μία εντολή που διαρκεί αρκετή ώρα (φόρτωμα ενός παραθύρου, μεγάλα animations κ.λπ.). Το εικονίδιο παραμένει στην οθόνη μέχρι το script να επιστρέψει τον έλεγχο στη μηχανή, εκτός και αν έχετε ορίσει την παράμετρο Παραμονή σε true. Σε αυτή τη περίπτωση πρέπει να κρύψετε εσείς το εικονίδιο με τη μέθοδο <b>Game.HideLoadingIcon()</b>.</p>
+
+<hr>
+<h3><a name="HideLoadingIcon"></a>HideLoadingIcon()</h3>
+<p>Εξαφανίζει το εικονίδιο φορτώματος που έχει εμφανιστεί με τη μέθοδο DisplayLoadingIcon().</p>
+
+<hr>
+<h3><a name="PlayVideo"></a>PlayVideo(ΌνομαΑρχείου, ΕίδοςΠροβολής, X, Y, ΔιακοπήΜουσικής)</h3>
+<p>Παίζει το δοσμένο βίντεο AVI.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του αρχείου AVI που θα παίξει</dd>
+<dt><i>ΕίδοςΠροβολής</i></dt>
+<dd>Ο τρόπος που θα παίξει το βίντεο στην οθόνη. Οι τιμές που μπορεί να έχει είναι: 0=στις δωσμένες συντεταγμένες, 1=να μεγεθυνθεί ώστε να καταλαμβάνει όλη την οθόνη, 2=στο κέντρο της οθόνης (προαιρετικό, προκαθορισμένη τιμή=1)</dd>
+<dt><i>X</i></dt>
+<dd>Συντεταγμένη στον άξονα X. Χρησιμεύει μόνο σε περίπτωση που το ΕίδοςΠροβολής είναι μηδέν (προαιρετικό, προκαθορισμένη τιμή=0)</dd>
+<dt><i>Y</i></dt>
+<dd>Συντεταγμένη στον άξονα Y. Χρησιμεύει μόνο σε περίπτωση που το ΕίδοςΠροβολής είναι μηδέν (προαιρετικό, προκαθορισμένη τιμή=0)</dd>
+<dt><i>ΔιακοπήΜουσικής</i></dt>
+<dd>Ορίζει αν η μουσική θα πρέπει να σταματήσει προσωρινά όταν παίζει το βίντεο (προαιρετικό, προκαθορισμένη τιμή=true)</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="PlayTheora"></a>PlayTheora(ΌνομαΑρχείου, ΕίδοςΠροβολής, X, Y, ΔιακοπήΜουσικής, ΑπόρριψηΚαρέ)</h3>
+<p>Παίζει το δοσμένο βίντεο Theora.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του αρχείου Ogg Theora που θα παίξει.</dd>
+<dt><i>ΕίδοςΠροβολής</i></dt>
+<dd>Ο τρόπος που θα παίξει το βίντεο στην οθόνη. Οι τιμές που μπορεί να έχει είναι: 0=στις δοσμένες συντεταγμένες, 1=να μεγεθυνθεί ώστε να καταλαμβάνει όλη την οθόνη, 2=στο κέντρο της οθόνης (προαιρετικό, προκαθορισμένη τιμή=1)</dd>
+<dt><i>X</i></dt>
+<dd>Συντεταγμένη στον άξονα X. Χρησιμεύει μόνο σε περίπτωση που το ΕίδοςΠροβολής είναι μηδέν (προαιρετικό, προκαθορισμένη τιμή=0)</dd>
+<dt><i>Y</i></dt>
+<dd>Συντεταγμένη στον άξονα Y. Χρησιμεύει μόνο σε περίπτωση που το ΕίδοςΠροβολής είναι μηδέν (προαιρετικό, προκαθορισμένη τιμή=0)</dd>
+<dt><i>ΔιακοπήΜουσικής</i></dt>
+<dd>Ορίζει αν η μουσική θα πρέπει να σταματήσει προσωρινά όταν παίζει το βίντεο (προαιρετικό, προκαθορισμένη τιμή=true)</dd>
+<dt><i>ΑπόρριψηΚαρέ</i></dt>
+<dd>Ορίζει αν ο αποκωδικοποιητής θα απορρίπτει καρέ σε περίπτωση που ο υπολογιστής είναι αργός για να παίξει το βίντεο (προαιρετικό, προκαθορισμένη τιμή=true)</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="RegWriteNumber"></a>RegWriteNumber(Κλειδί, Τιμή)</h3>
+<p>Γράφει τη δοσμένη αριθμητική τιμή στο μητρώο των Windows.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Κλειδί</i></dt>
+<dd>Το όνομα κλειδί της θέσης όπου θα αποθηκευτεί η πληροφορία</dd>
+<dt><i>Τιμή</i></dt>
+<dd>Η τιμή που θα γραφεί στο μητρώο</dd>
+</dl>
+
+<hr>
+<h3><a name="RegWriteString"></a>RegWriteString(Κλειδί, Τιμή)</h3>
+<p>Γράφει τη δοσμένη γραμμή στο μητρώο των Windows.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Κλειδί</i></dt>
+<dd>Το όνομα κλειδί της θέσης όπου θα αποθηκευτεί η πληροφορία</dd>
+<dt><i>Τιμή</i></dt>
+<dd>Η γραμμή που θα γραφεί στο μητρώο</dd>
+</dl>
+
+<hr>
+<h3><a name="RegReadNumber"></a>RegReadNumber(Κλειδί, ΑρχικήΤιμή)</h3>
+<p>Διαβάζει μία αριθμητική τιμή από το μητρώο των Windows.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Κλειδί</i></dt>
+<dd>Το όνομα κλειδί της θέσης στο μητρώο από το οποίο θα διαβάσει την πληροφορία</dd>
+<dt><i>ΑρχικήΤιμή</i></dt>
+<dd>Η τιμή που θα επιστραφεί αν η θέση κλειδί δεν υπάρχει (προαιρετικό, προκαθορισμένη τιμή=null)</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει την τιμή που διάβασε από το μητρώο των windows.</p>
+
+<hr>
+<h3><a name="RegReadString"></a>RegReadString(Κλειδί, ΑρχικήΤιμή)</h3>
+<p>Διαβάζει μία γραμμή από το μητρώο των Widnows.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Κλειδί</i></dt>
+<dd>Το όνομα κλειδί της θέσης στο μητρώο από το οποίο θα διαβάσει την πληροφορία</dd>
+<dt><i>ΑρχικήΤιμή</i></dt>
+<dd>Η τιμή που θα επιστραφεί αν η θέση κλειδί δεν υπάρχει (προαιρετικό, προκαθορισμένη τιμή=null)</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει την γραμμή που διάβασε από το μητρώο των windows.</p>
+
+<hr>
+<h3><a name="SaveGame"></a>SaveGame(Θέση, Περιγραφή)</h3>
+<p>Αποθηκεύει το παιχνίδι στη δοσμένη θέση.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Θέση</i></dt>
+<dd>Ο αριθμός της θέση αποθήκευσης που θα χρησιμοποιήθει</dd>
+<dt><i>Περιγραφή</i></dt>
+<dd>Η περιγραφή του παιχνιδιού που θα αποθηκευτεί</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="LoadGame"></a>LoadGame(Θέση)</h3>
+<p>Φορτώνει το παιχνίδι από τη δοσμένη θέση.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Θέση</i></dt>
+<dd>Ο αριθμός της θέση αποθήκευσης που θα χρησιμοποιήθει</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος αποτύχει επιστρέφει <b>false</b>.</p>
+
+<hr>
+<h3><a name="IsSaveSlotUsed"></a>IsSaveSlotUsed(Θέση)</h3>
+<p>Ελέγχει αν η δοσμένη θέση για αποθήκευση είναι σε χρήση.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Θέση</i></dt>
+<dd>Ο αριθμός της θέση αποθήκευσης που θα ελεγχθεί</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η θέση αποθήκευση χρησιμοποιείται ήδη επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetSaveSlotDescription"></a>GetSaveSlotDescription(Θέση)</h3>
+<p>Ελέγχει την περιγραφή της δοσμένης θέσης για αποθήκευση.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Θέση</i></dt>
+<dd>Ο αριθμός της θέση αποθήκευσης που θα ελεγχθεί</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει την περιγραφή της δοσμένης θέσης αποθήκευσης.</p>
+
+<hr>
+<h3><a name="EmptySaveSlot"></a>EmptySaveSlot(Θέση)</h3>
+<p>Αδειάζει τη δοσμένη θέση αποθήκευσης.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Θέση</i></dt>
+<dd>Ο αριθμός της θέσης αποθήκευσης που θα αδειάσει</dd>
+</dl>
+
+<hr>
+<h3><a name="SetGlobalSFXVolume"></a>SetGlobalSFXVolume(Ποσοστό)</h3>
+<p>Ορίζει την ένταση για τα ηχητικά εφέ.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Ποσοστό</i></dt>
+<dd>Η ένταση των ηχητικών εφέ σε ποσοστό επί τοις εκατό</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="SetGlobalSpeechVolume"></a>SetGlobalSpeechVolume(Ποσοστό)</h3>
+<p>Ορίζει την ένταση για την ομιλία των χαρακτήρων.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Ποσοστό</i></dt>
+<dd>Η ένταση της ομιλίας των χαρακτήρων σε ποσοστό επί τοις εκατό</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="SetGlobalMusicVolume"></a>SetGlobalMusicVolume(Ποσοστό)</h3>
+<p>Ορίζει την ένταση της μουσικής.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Ποσοστό</i></dt>
+<dd>Η ένταση της μουσικής σε ποσοστό επί τοις εκατό</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="SetGlobalMasterVolume"></a>SetGlobalMasterVolume(Ποσοστό)</h3>
+<p>Ορίζει τη γενική ένταση του ήχου.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Ποσοστό</i></dt>
+<dd>Η γενική ένταση σε ποσοστό επί τοις εκατό</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetGlobalSFXVolume"></a>GetGlobalSFXVolume()</h3>
+<p>Ελέγχει την ένταση των ηχητικών εφέ.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει την ένταση των ηχητικών εφέ σε ποσοστό επί τοις εκατό.</p>
+
+<hr>
+<h3><a name="GetGlobalSpeechVolume"></a>GetGlobalSpeechVolume()</h3>
+<p>Ελέγχει την ένταση για την ομιλία.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει την ένταση της ομιλίας των χαρακτήρων σε ποσοστό επί τοις εκατό.</p>
+
+<hr>
+<h3><a name="GetGlobalMusicVolume"></a>GetGlobalMusicVolume()</h3>
+<p>Ελέγχει την ένταση της μουσικής.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει την ένταση της μουσικής σε ποσοστό επί τοις εκατό.</p>
+
+<hr>
+<h3><a name="GetGlobalMasterVolume"></a>GetGlobalMasterVolume()</h3>
+<p>Ελέγχει την γενική ένταση του ήχου.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει την γενική ένταση σε ποσοστό επί τοις εκατό.</p>
+
+<hr>
+<h3><a name="SetCursor"></a>SetCursor(ΌνομαΑρχείου)</h3>
+<p>Ορίζει τον κανονικό κέρσορα.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του sprite που θα χρησιμοποιηθεί ως κέρσορας.</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν ο κέρσορας ορισθεί επιτυχώς επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetCursor"></a>GetCursor()</h3>
+<p>Επιστρέφει το όνομα του sprite που χρησιμοποιείται ως κανονικός κέρσορας ή <b>null</b> αν δεν έχει οριστεί κανένα.</p>
+
+<hr>
+<h3><a name="GetCursorObject"></a>GetCursorObject()</h3>
+<p>Επιστρέφει αναφορά στο sprite του κανονικού κέρσορα ή <b>null</b> αν δεν έχει οριστεί κανένα.</p>
+
+<hr>
+<h3><a name="RemoveCursor"></a>RemoveCursor()</h3>
+<p>Αφαιρέι τον κανονικό κέρσορα.</p>
+
+<hr>
+<h3><a name="HasCursor"></a>HasCursor()</h3>
+<p>Ελέγχει αν ο κανονικός κέρσορας έχει ορισθεί.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν ο κανονικός κέρσορας του αντικειμένου έχει ορισθεί επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="SetActiveCursor"></a>SetActiveCursor(ΌνομαΑρχείου)</h3>
+<p>Ορίζει τον ενεργό κέρσορα.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του sprite που θα χρησιμοποιηθεί ως ενεργός κέρσορα</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν ο κέρσορας ορισθεί επιτυχώς επιστρέφει <b>true</b>.</p>
+<h4>Παρατηρήσεις</h4>
+<p>Ο ενεργός κέρσορας χρησιμοποιείται όταν το δείκτης του ποντικιού είναι πάνω από ένα διαδραστικό αντικείμενο.</p>
+
+<hr>
+<h3><a name="GetActiveCursor"></a>GetActiveCursor()</h3>
+<p>Επιστρέφει το όνομα του sprite που χρησιμοποιείται ως ενεργός κέρσορας ή <b>null</b> αν δεν έχει οριστεί κανένας κέρσορας.</p>
+
+<hr>
+<h3><a name="GetActiveCursorObject"></a>GetActiveCursorObject()</h3>
+<p>Επιστρέφει αναφορά στο sprite του ενεργού κέρσορα ή <b>null</b> αν δεν έχει οριστεί κανένα.</p>
+
+<hr>
+<h3><a name="RemoveActiveCursor"></a>RemoveActiveCursor()</h3>
+<p>Αφαιρεί τον ενεργό κέρσορα.</p>
+
+<hr>
+<h3><a name="HasActiveCursor"></a>HasActiveCursor()</h3>
+<p>Ελέγχει αν ο ενεργός κέρσορας έχει οριστεί.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν ο ενεργός κέρσορας του αντικειμένου έχει ορισθεί επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="SetWaitCursor"></a>SetWaitCursor(ΌνομαΑρχείου)</h3>
+<p>Ορίζει τον μη διαδραστικό κέρσορα.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του sprite που θα χρησιμοποιηθεί ως μη διαδραστικός κέρσορας.</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν ο κέρσορας ορισθεί επιτυχώς επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetWaitCursor"></a>GetWaitCursor()</h3>
+<p>Επιστρέφει το όνομα του sprite που χρησιμοποιείται ως μη διαδραστικός κέρσορας ή <b>null</b> αν δεν έχει οριστεί κανένας κέρσορας.</p>
+
+<hr>
+<h3><a name="GetWaitCursorObject"></a>GetWaitCursorObject()</h3>
+<p>Επιστρέφει αναφορά στο sprite του μη διαδραστικού κέρσορα ή <b>null</b> αν δεν έχει οριστεί κανένα.</p>
+
+<hr>
+<h3><a name="RemoveWaitCursor"></a>RemoveWaitCursor()</h3>
+<p>Αφαιρεί τον μη διαδραστικό κέρσορα.</p>
+
+<hr>
+<h3><a name="FadeOut"></a>FadeOut(Διάρκεια, Κόκκινο, Πράσινο, Μπλε, Διαφάνεια)<br>FadeOutAsync(Διάρκεια, Κόκκινο, Πράσινο, Μπλε, Διαφάνεια)<br>SystemFadeOut(Διάρκεια, Κόκκινο, Πράσινο, Μπλε, Διαφάνεια)<br>SystemFadeOutAsync(Διάρκεια, Κόκκινο, Πράσινο, Μπλε, Διαφάνεια)</h3>
+<p>Σβήνει τη σκηνή προς το δοσμένο χρώμα.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Διάρκεια</i></dt>
+<dd>Ορίζει τη διάρκεια της διαδικασίας σε χιλιοστά του δευτερολέπτου (προαιρετικό, προκαθορισμένη τιμή=500)</dd>
+<dt><i>Κόκκινο</i></dt>
+<dd>Ορίζει το κόκκινο συστατικό του τελικού χρώματος (προαιρετικό, προκαθορισμένη τιμή=0)</dd>
+<dt><i>Πράσινο</i></dt>
+<dd>Ορίζει το πράσινο συστατικό του τελικού χρώματος (προαιρετικό, προκαθορισμένη τιμή=0)</dd>
+<dt><i>Μπλε</i></dt>
+<dd>Ορίζει το μπλε συστατικό του τελικού χρώματος (προαιρετικό, προκαθορισμένη τιμή=0)</dd>
+<dt><i>Διαφάνεια</i></dt>
+<dd>Ορίζει τη διαφάνεια του τελικού χρώματος (προαιρετικό, προκαθορισμένη τιμή=255)</dd>
+</dl>
+<h4>Παρατηρήσεις</h4>
+<p>Η μέθοδος <b>FadeOut</b> διακόπτει την εκτέλεση του script εώς το τέλος της διαδικασίας, ενώ η μέθοδος <b>FadeOutAsync</b> επιστρέφει τον έλεγχο στο script αμέσως. Οι μέθοδοι <b>SystemFadeOut</b> και <b>SystemFadeOutAsync</b> συνεχίζουν τη διαδικασία ακόμα και όταν το παιχνίδι μπει στην αποκλειστική κατάσταση συστήματος.</p>
+
+<hr>
+<h3><a name="FadeIn"></a>FadeIn(Διάρκεια, Κόκκινο, Πράσινο, Μπλε, Διαφάνεια)<br>FadeInAsync(Διάρκεια, Κόκκινο, Πράσινο, Μπλε, Διαφάνεια)<br>SystemFadeIn(Διάρκεια, Κόκκινο, Πράσινο, Μπλε, Διαφάνεια)<br>SystemFadeInAsync(Διάρκεια, Κόκκινο, Πράσινο, Μπλε, Διαφάνεια)</h3>
+<p>Εμφανίζει τη σκηνή από το δοσμένο χρώμα.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Κόκκινο</i></dt>
+<dd>Ορίζει το κόκκινο συστατικό του αρχικού χρώματος (προαιρετικό, προκαθορισμένη τιμή=0)</dd>
+<dt><i>Πράσινο</i></dt>
+<dd>Ορίζει το πράσινο συστατικό του αρχικού χρώματος (προαιρετικό, προκαθορισμένη τιμή=0)</dd>
+<dt><i>Μπλε</i></dt>
+<dd>Ορίζει το μπλε συστατικό του αρχικού χρώματος (προαιρετικό, προκαθορισμένη τιμή=0)</dd>
+<dt><i>Διαφάνεια</i></dt>
+<dd>Ορίζει τη διαφάνεια του αρχικού χρώματος (προαιρετικό, προκαθορισμένη τιμή=255)</dd>
+</dl>
+<h4>Παρατηρήσεις</h4>
+<p>Η μέθοδος <b>FadeOut</b> διακόπτει την εκτέλεση του script εώς το τέλος της διαδικασίας, ενώ η μέθοδος <b>FadeOutAsync</b> επιστρέφει τον έλεγχο στο script αμέσως. Οι μέθοδοι <b>SystemFadeOut</b> και <b>SystemFadeOutAsync</b> συνεχίζουν τη διαδικασία ακόμα και όταν το παιχνίδι μπει στην αποκλειστική κατάσταση συστήματος.</p>
+
+<hr>
+<h3><a name="GetFadeColor"></a>GetFadeColor()</h3>
+<p>Διαβάζει το ορισμένο χρώμα διαβάθμισης των σκηνών.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει το ορισμένο χρώμα διαβάθμισης.</p>
+<h4>Παρατηρήσεις</h4>
+<p>Μπορείτε να χρησιμοποιήσετε τις μεθόδους GetRValue(), GetGValue(), GetBValue() και GetAValue() για να διαβάσετε κάθε συστατικό του χρώματος ξεχωριστά.</p>
+
+<hr>
+<h3><a name="ChangeScene"></a>ChangeScene(ΌνομαΑρχείου, Εξαφάνιση, Εμφάνιση)</h3>
+<p>Φορτώνει τη σκηνή από το δοσμένο αρχείο.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του αρχείου τη σκηνής που θα φορτώσει</dd>
+<dt><i>Εξαφάνιση</i></dt>
+<dd>Ορίζει αν η παλιά σκηνή θα σβήσει σταδιακά πριν την αλλαγή της σκηνής (προαιρετικό, προκαθορισμένη τιμή=true)</dd>
+<dt><i>Εμφάνιση</i></dt>
+<dd>Ορίζει αν η νέα σκηνή θα εμφανιστεί σταδιακά μετά την αλλαγή της σκηνής (προαιρετικό, προκαθορισμένη τιμή=true)</dd>
+</dl>
+
+<hr>
+<h3><a name="AddResponse"></a>AddResponse(Θέση, Απάντηση, ΑρχείοΕικονιδίου, ΕνεργόΑρχείοΕικονιδίου, ΠατημένοΑρχείοΕικονιδίου)</h3>
+<p>Προσθέτει μία απάντηση στο πλαίσιο διαλόγου.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Θέση</i></dt>
+<dd>Ο αριθμός της θέσης για αυτή την απάντηση</dd>
+<dt><i>Απάντηση</i></dt>
+<dd>Το κείμενο της απάντησης</dd>
+<dt><i>ΑρχείοΕικονιδίου</i></dt>
+<dd>Το όνομα του αρχείου του sprite για αυτή την απάντηση (προαιρετικό)</dd>
+<dt><i>ΕνεργόΑρχείοΕικονιδίου</i></dt>
+<dd>Το όνομα του αρχείου του sprite για αυτή την απάντηση όταν ο κέρσορας του ποντικιού είναι επάνω από αυτό (προαιρετικό)</dd>
+<dt><i>ΠατημένοΑρχείοΕικονιδίου</i></dt>
+<dd>Το όνομα του αρχείου του sprite για αυτή την απάντηση όταν είναι επιλεγμένο (προαιρετικό)</dd>
+</dl>
+
+<hr>
+<h3><a name="AddResponseOnce"></a>AddResponseOnce(Θέση, Απάντηση, ΑρχείοΕικονιδίου, ΕνεργόΑρχείοΕικονιδίου, ΠατημένοΑρχείοΕικονιδίου)</h3>
+<p>Προσθέτει μία απάντηση στο πλαίσιο διαλόγου μόνο μία φορά σε κάθε παρακλάδι διαλόγου.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Θέση</i></dt>
+<dd>Ο αριθμός της θέσης για αυτή την απάντηση</dd>
+<dt><i>Απάντηση</i></dt>
+<dd>Το κείμενο της απάντησης</dd>
+<dt><i>ΑρχείοΕικονιδίου</i></dt>
+<dd>Το όνομα του αρχείου του sprite για αυτή την απάντηση (προαιρετικό)</dd>
+<dt><i>ΕνεργόΑρχείοΕικονιδίου</i></dt>
+<dd>Το όνομα του αρχείου του sprite για αυτή την απάντηση όταν ο κέρσορας του ποντικιού είναι επάνω από αυτό (προαιρετικό)</dd>
+<dt><i>ΠατημένοΑρχείοΕικονιδίου</i></dt>
+<dd>Το όνομα του αρχείου του sprite για αυτή την απάντηση όταν είναι επιλεγμένο (προαιρετικό)</dd>
+</dl>
+<h4>Παρατηρήσεις</h4>
+<p>Η μηχανή θα προσθέσει την απάντηση στο πλαίσιο διαλόγου μόνο αν δεν έχει επιλεγεί προηγουμένως σε αυτό το παρακλάδι του διαλόγου. Πρέπει να οριοθετήσετε το παρακλάδι του διαλόγου με τις μεθόδους Game.StartDlgBranch() και Game.EntDlgBranch() για να δουλέψει αυτή η μέθοδος.</p>
+
+<hr>
+<h3><a name="AddResponseOnceGame"></a>AddResponseOnceGame(Θέση, Απάντηση, ΑρχείοΕικονιδίου, ΕνεργόΑρχείοΕικονιδίου, ΠατημένοΑρχείοΕικονιδίου)</h3>
+<p>Προσθέτει μία απάντηση στο πλαίσιο διαλόγου μόνο μία φορά σε κάθε παιχνίδι.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Θέση</i></dt>
+<dd>Ο αριθμός της θέσης για αυτή την απάντηση</dd>
+<dt><i>Απάντηση</i></dt>
+<dd>Το κείμενο της απάντησης</dd>
+<dt><i>ΑρχείοΕικονιδίου</i></dt>
+<dd>Το όνομα του αρχείου του sprite για αυτή την απάντηση (προαιρετικό)</dd>
+<dt><i>ΕνεργόΑρχείοΕικονιδίου</i></dt>
+<dd>Το όνομα του αρχείου του sprite για αυτή την απάντηση όταν ο κέρσορας του ποντικιού είναι επάνω από αυτό (προαιρετικό)</dd>
+<dt><i>ΠατημένοΑρχείοΕικονιδίου</i></dt>
+<dd>Το όνομα του αρχείου του sprite για αυτή την απάντηση όταν είναι επιλεγμένο (προαιρετικό)</dd>
+</dl>
+<h4>Παρατηρήσεις</h4>
+<p>Η μηχανή θα προσθέσει την απάντηση στο πλαίσιο διαλόγου μόνο αν δεν έχει επιλεγεί προηγουμένως. Για να δουλέψει αυτή η μέθοδος πρέπει να οριοθετήσετε το παρακλάδι του διαλόγου με τις μεθόδους Game.StartDlgBranch() και Game.EntDlgBranch().</p>
+
+<hr>
+<h3><a name="ResetResponse"></a>ResetResponse(Θέση)</h3>
+<p>Επαναφέρει μία απενεργοποιημένη επιλογή διαλόγου.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Θέση</i></dt>
+<dd>Ο αριθμός της θέσης διαλόγου που θα επαναφέρει</dd>
+</dl>
+<h4>Παρατηρήσεις</h4>
+<p>Αν προσθέσετε μία απάντηση με τις μεθόδους Game.AddResponseOnce() ή Game.AddResponseOnceGame() θα απενεργοποιηθεί μόλις ο παίκτης την επιλέξει. Αν θέλετε εν συνεχεία να την επαναφέρετε χρησιμοποιείστε τη μέθοδο ReserRespone(),</p>
+
+<hr>
+<h3><a name="GetResponse"></a>GetResponse(ΑυτόματηΕπιλογή)</h3>
+<p>Εμφανίζει το πλαίσιο διαλόγου και περιμένει τον παίκτη να κάνει μία επιλογή.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΑυτόματηΕπιλογή</i></dt>
+<dd>Ορίζει αν η απάντηση που μείνει τελευταία θα πρέπει να επιλεχτεί αυτόματα ή όχι (προαιρετικό, προκαθορισμένη τιμή=false)</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει τον αριθμό θέσης της επιλεγμένης απάντησης.</p>
+
+<hr>
+<h3><a name="GetNumResponses"></a>GetNumResponses()</h3>
+<p>Ελέγχει τον αριθμό των εναπομεινάντων απαντήσεων στο πλαίσιο διαλόγου.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>ΕΠιστρέφει τον αριθμό των εναπομεινάντων απαντήσεων στο πλαίσιο διαλόγου.</p>
+<h4>Παρατηρήσεις</h4>
+<p>Ορισμένες από τις απαντήσεις που έχουν προστεθεί από τις μεθόδους AddResponseOnce ή AddResponseOnceGame μπορεί να μην έχουν πραγματικά προστεθεί στο πλαίσιο διαλόγου. Με αυτή τη μέθοδο μπορείτε να μάθετε πόσες πιθανές επιλογές είναι διαθέσιμες σε αυτό.</p>
+
+<hr>
+<h3><a name="GetInventoryWindow"></a>GetInventoryWindow()</h3>
+<p>Επιστρέφει αναφορά στο αντικείμενο παράθυρο που χρησιμοποιείται από το πλαίσιο του inventory.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αναφορά στο αντικείμενο παράθυρο του inventory.</p>
+
+<hr>
+<h3><a name="GetResponsesWindow"></a>GetResponsesWindow()</h3>
+<p>Επιστρέφει αναφορά στο αντικείμενο παράθυρο που χρησιμοποιείται από το πλαίσιο διαλόγων.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αναφορά στο αντικείμενο παράθυρο του πλαισίου διαλόγων.</p>
+
+<hr>
+<h3><a name="StartDlgBranch"></a>StartDlgBranch(ΌνομαΔιαλόγου)</h3>
+<p>Δηλώνει την αρχή του παρακλαδιού του διαλόγου.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΔιαλόγου</i></dt>
+<dd>Το όνομα του παρακλαδιού του διαλόγου. Τα ονόματα των παρακλαδιών πρέπει να είναι μοναδικά σε κάθε αρχείο script (προαιρετικό αλλά προτείνεται).</dd>
+</dl>
+<h4>Παρατηρήσεις</h4>
+<p>Τα παρακλάδια των διαλόγων πρέπει να οριοθετηθούν μόνο αν θέλετε να χρησιμοποιήσετε τις μεθόδους Game.AddResponseOnce() ή Game.AddResponseOnceGame().</p>
+
+<hr>
+<h3><a name="EndDlgBranch"></a>EndDlgBranch(ΌνομαΔιαλόγου)</h3>
+<p>Δηλώνει το τέλος του παρακλαδιού του διαλόγου.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΔιαλόγου</i></dt>
+<dd>Το όνομα του παρακλαδιού του διαλόγου. Τα ονόματα των παρακλαδιών πρέπει να είναι μοναδικά σε κάθε αρχείο script (προαιρετικό αλλά αν δεν το ορίσετε το εσωτερικό παρακλάδι του διαλόγου τερματίζει)</dd>
+</dl>
+<h4>Παρατηρήσεις</h4>
+<p>Τα παρακλάδια των διαλόγων πρέπει να οριοθετηθούν μόνο να θέλετε να χρησιμοποιήσετε τις μεθόδους Game.AddResponseOnce() ή Game.AddResponseOnceGame().</p>
+
+<hr>
+<h3><a name="GetCurrentDlgBranch"></a>GetCurrentDlgBranch()</h3>
+<p>Ελέγχει το όνομα του παρακλαδιού του διαλόγου που είναι ενεργοποιημένο αυτή τη στιγμή.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει το όνομα του παρακλαδιού που είναι ενεργοποιημένο αυτή τη στιγμή (και ορισμένο από τη μέθοδο Game.StartDlgBranch) ή <b>null</b> αν δεν υπάρχει κανένα ενεργοποιημένο.</p>
+
+<hr>
+<h3><a name="LoadResponseBox"></a>LoadResponseBox(ΌνομαΑρχείου)</h3>
+<p>Ξαναφορτώνει το πλαίσιο διαλόγου από ένα αρχείο.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του αρχείου προσδιορισμού του πλαισίου διαλόγου που θα φορτώσει</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="LoadInventoryBox"></a>LoadInventoryBox(ΌνομαΑρχείου)</h3>
+<p>Ξαναφορτώνει το πλαίσιο του inventory από ένα αρχείο.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του αρχείου προσδιορισμού του πλαισίου του inventory που θα φορτώσει</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η μέθοδος είναι επιτυχής επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="LoadItems"></a>LoadItems(ΌνομαΑρχείου, Προσθήκη)</h3>
+<p>Φορτώνει αντικείμενα του inventory από ένα αρχείο προσδιορισμού.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του αρχείου προσδιορισμού των αντικειμένων που θα φορτώσει</dd>
+<dt><i>Προσθήκη</i></dt>
+<dd>Ορίζει αν τα νέα αντικείμενα θα προστεθούν σε αυτά που είδη υπάρχουν (προαιρετικό, προκαθορισμένη τιμή=false)</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν τα αντικείμενα φορτωθούν επιτυχώς επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="TakeItem"></a>TakeItem(ΌνομαΑντικειμένου, ΕισαγωγήΜετάΑπό)</h3>
+<p>Προσθέτει ένα αντικείμενο στο inventory.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑντικειμένου</i></dt>
+<dd>Το όνομα του αντικειμένου που θα προστεθεί στο inventory</dd>
+<dt><i>ΕισαγωγήΜετάΑπό</i></dt>
+<dd>Το όνομα του αντικειμένου μετά από το οποίο θα τοποθετηθεί το νέο αντικείμενο (προαιρετικό)</dd>
+</dl>
+
+<hr>
+<h3><a name="DropItem"></a>DropItem(ΌνομαΑντικειμένου)</h3>
+<p>Αφαιρεί ένα αντικείμενο από το inventory.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑντικειμένου</i></dt>
+<dd>Το όνομα του αντικειμένου που θα αφαιρεθεί από το inventory</dd>
+</dl>
+
+<hr>
+<h3><a name="GetItem"></a>GetItem(ΘέσηΑντικειμένου)<br>GetItem(ΌνομαΑντικειμένου)</h3>
+<p>Ελέγχει το δοσμένο αντικείμενο του inventory.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΘέσηΑντικειμένου</i></dt>
+<dd>Η αριθμητική θέση ενός αντικειμένου που <b>βρίσκεται στο inventory</b> για να ελέγξει</dd>
+<dt><i>ΌνομαΑντικειμένου</i></dt>
+<dd>Το όνομα του αντικειμένου του inventory που θα ελέγξει</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αναφορά στο αντικείμενο του δοσμένου ονόματος ή στη θέση αυτού στο inventory.</p>
+
+<hr>
+<h3><a name="HasItem"></a>HasItem(ΌνομαΑντικειμένου)<br>HasItem(ΑναφοράΑντικειμένου)</h3>
+<p>Ελέγχει αν το δοσμένο αντικείμενο βρίσκεται στο inventory του αντικειμένου (του παιχνιδιού).</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑντικειμένου</i></dt>
+<dd>Το όνομα του αντικειμένου που θα ελεγχθεί</dd>
+<dt><i>ΑναφοράΑντικειμένου</i></dt>
+<dd>Αναφορά στο αντικείμενο που θα ελεγχθεί</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν το δοσμένο αντικείμενο βρίσκεται στο inventory του αντικειμένου επιστρέφει <b>true</b>.</p>
+<h4>Παρατηρήσεις</h4>
+<p>Σημειώστε ότι αυτή η μέθοδος ψάχνει μόνο στο inventory του αντικειμένου που βρίσκεται σε χρήση. Αν θέλετε να ψάξετε τα inventory όλων των αντικειμένων χρησιμοποιείστε τη μέθοδο <b>Game.IsItemTaken()</b>.</p>
+
+<hr>
+<h3><a name="IsItemTaken"></a>IsItemTaken(ΌνομαΑντικειμένου)<br>IsItemTaken(ΑναφοράΑντικειμένου)</h3>
+<p>Ελέγχει αν το δοσμένο αντικείμενο βρίσκεται στο inventory κάποιου από τα αντικείμενα του παιχνιδιού.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑντικειμένου</i></dt>
+<dd>Το όνομα του αντικειμένου που θα ελεγχθεί</dd>
+<dt><i>ΑναφοράΑντικειμένου</i></dt>
+<dd>Αναφορά στο αντικείμενο που θα ελεγχθεί</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν το δοσμένο αντικείμενο βρίσκεται σε κάποιο inventory επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="CreateEntity"></a>CreateEntity(Όνομα)</h3>
+<p>Δημιουργεί ένα καινούριο αντικείμενο entity.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Όνομα</i></dt>
+<dd>Το όνομα του αντικειμένου entity (προαιρετικό)</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει αναφορά στο καινούριο αντικείμενο entity.</p>
+
+<hr>
+<h3><a name="DeleteEntity"></a>DeleteEntity(Entity)</h3>
+<p>Διαγράφει το δοσμένο αντικείμενο entity.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Entity</i></dt>
+<dd>Το αντικείμενο entity που θα διαγραφεί</dd>
+</dl>
+
+<hr>
+<h3><a name="CreateWindow"></a>CreateWindow(Όνομα)</h3>
+<p>Δημιουργεί ένα καινούριο αντικείμενο παράθυρο.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Όνομα</i></dt>
+<dd>Το όνομα του αντικειμένου παράθυρο (προαιρετικό)</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει αναφορά στο καινούριο αντικείμενο παράθυρο.</p>
+
+<hr>
+<h3><a name="DeleteWindow"></a>DeleteWindow(Παράθυρο)</h3>
+<p>Διαγράφει το δοσμένο αντικείμενο παράθυρο.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Παράθυρο</i></dt>
+<dd>Το αντικείμενο παράθυρο που θα διαγραφεί</dd>
+</dl>
+
+<hr>
+<h3><a name="CreateItem"></a>CreateItem(Όνομα)</h3>
+<p>Δημιουργεί ένα καινούριο αντικείμενο του intentory.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Όνομα</i></dt>
+<dd>Το όνομα του αντικειμένου του inventory (προαιρετικό)</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει αναφορά στο καινούριο αντικείμενο του inventory.</p>
+
+<hr>
+<h3><a name="DeleteItem"></a>DeleteItem(Αντικείμενο)</h3>
+<p>Διαγράφει το δοσμένο αντικείμενο του inventory.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Αντικείμενο</i></dt>
+<dd>Το αντικείμενο του inventory που θα διαγραφεί</dd>
+</dl>
+<h4>Παρατηρήσεις</h4>
+<p>Αυτή η μέθοδος διαγράφει μόνιμα το δοσμένο αντικείμενο του inventory. Αυτό σημαίνει ότι δεν θα μπορείτε να το καλέσετε από μεθόδους όπως TakeItem κ.λπ.</p>
+
+<hr>
+<h3><a name="SetShadowImage"></a>SetShadowImage(ΌνομαΑρχείου)</h3>
+<p>Ορίζει μία εικόνα για να χρησιμοποιηθεί ως απλή σκιά για τους 3D χαρακτήρες.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>ΌνομαΑρχείου</i></dt>
+<dd>Το όνομα του αρχείου της εικόνας που θα χρησιμοποιηθεί ως απλή σκιά</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν η εικόνα οριστεί επιτυχώς επιστρέφει <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetShadowImage"></a>GetShadowImage()</h3>
+<p>Ελέγχει την εικόνα που είναι ορισμένη να χρησιμοποιηθεί ως απλή σκιά για τους 3D χαρακτήρες.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει το όνομα του αρχείου της εικόνας που έχει ορισθεί ως απλή σκιά ή <b>null</b> αν δεν υπάρχει ορισμένη εικόνα.</p>
+
+
+</body>
+
+</html>

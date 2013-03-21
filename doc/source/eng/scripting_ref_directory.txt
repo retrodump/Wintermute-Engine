@@ -1,0 +1,58 @@
+*tit Directory object
+*des The Directory object allows you to access directories on disk. This object is always available in a form of predefined <b>Directory</b> global variable.
+*des <br><br>
+*des <table border="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" cellpadding="0" id="AutoNumber4">
+*des <tr>
+*des     <td class="code"><pre>
+*des // create directory structure
+*des Directory.Create("c:\somedir\otherdir");
+*des </pre></td>
+*des </tr>
+*des </table>
+*cls CSXDirectory
+
+
+*met Create(Path)
+*des Creates a new directory or directory tree.
+*par Path Specifies the path to be created.
+*ret Returns <b>true</b> if the directory tree has been successfuly created.
+
+*met Delete(Path)
+*des Deletes a directory.
+*par Path The directory to be deleted.
+*ret Returns <b>true</b> if the directory has been successfuly deleted.
+*rem This method only deletes one directory, not the entire directory tree specified in the Path parameter.
+
+*met GetFiles(Path, Mask)
+*des Returns list of files stored in a given directory.
+*par Path The directory to be searched
+*par Mask Mask for the filenames to be matched against (optional, default=*.*)
+*ret Returns an <b>Array</b> object containing filenames of all the files stored in a given directory.
+
+*met GetDirectories(Path, Mask)
+*des Returns list of sub-directories stored in a given directory.
+*par Path The directory to be searched
+*par Mask Mask for the sub-directories to be matched against (optional, default=*.*)
+*ret Returns an <b>Array</b> object containing names of all the sub-directories stored in a given directory.
+
+*met GetDrives()
+*des Returns list of present disk drives.
+*ret Returns an <b>Array</b> object containing names of all the disk drives, such as "c:\".
+
+
+*grp 
+
+*atr Type
+*des Returns always "directory"
+*ro
+
+*atr PathSeparator
+*des Returns the standard path separator character.
+*ro
+
+*atr CurrentDirectory
+*des Gets or sets the current working directory for an application.
+
+*atr TempDirectory
+*des Returns Windows temporary directory.
+*ro

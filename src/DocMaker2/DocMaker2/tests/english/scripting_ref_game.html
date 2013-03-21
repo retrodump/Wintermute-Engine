@@ -1,0 +1,2237 @@
+<html>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="WME DocMaker 2.0">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Game object</title>
+<link rel="stylesheet" type="text/css" href="../../styles.css">
+</head>
+
+<body>
+<!-- Generated on 7.11.2005 18:05:37, settings file: english -->
+
+<h3>Game object</h3>
+<p>
+The Game object allows you to access the properties of your game, and the engine itself. There is always one and only Game object available and it's stored in a predefined variable <b>Game</b>.
+</p>
+
+<br>
+
+<h4>Methods</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%"><b>Diagnostic functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#LOG">LOG</a></td>
+    <td>Writes a text string to the system log file.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#Msg">Msg</a></td>
+    <td>Writes a quick diagnostic message to the screen.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#DumpTextureStats">DumpTextureStats</a></td>
+    <td>Writes texture usage data to a text file in CSV format.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Object manipulation</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ValidObject">ValidObject</a></td>
+    <td>Queries whether a given object reference is valid.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#UnloadObject">UnloadObject</a></td>
+    <td>Removes an object from memory.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#LoadActor">LoadActor</a></td>
+    <td>Loads a new actor from a file.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#LoadActor3D">LoadActor3D</a></td>
+    <td>Loads a new 3D actor from a file.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#LoadEntity">LoadEntity</a></td>
+    <td>Loads a new entity from a file.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#LoadWindow">LoadWindow</a></td>
+    <td>Loads a new window from a file.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ExpandString">ExpandString</a></td>
+    <td>Expands a given string using the string table.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Music functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#MusicCrossfade">MusicCrossfade</a></td>
+    <td>Crossfades two music channels</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#PlayMusic">PlayMusic</a></td>
+    <td>Plays a music.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#StopMusic">StopMusic</a></td>
+    <td>Stops a music playback.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#PauseMusic">PauseMusic</a></td>
+    <td>Pauses a music playback.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ResumeMusic">ResumeMusic</a></td>
+    <td>Resumes a paused music playback.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetMusicPosition">SetMusicPosition</a></td>
+    <td>Sets the music's current playing position.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetMusicPosition">GetMusicPosition</a></td>
+    <td>Queries the music's current playing position</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#IsMusicPlaying">IsMusicPlaying</a></td>
+    <td>Queries whether the music is currently playing</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetMusic">GetMusic</a></td>
+    <td>Queries the filename of the current music</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetMusicVolume">SetMusicVolume</a></td>
+    <td>Sets the volume of currently playing music.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetMusicVolume">GetMusicVolume</a></td>
+    <td>Queries the music's current volume.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#PlayMusicChannel">PlayMusicChannel</a></td>
+    <td>Plays a music in a specified channel.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#StopMusicChannel">StopMusicChannel</a></td>
+    <td>Stops a music playback in a specified channel.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#PauseMusicChannel">PauseMusicChannel</a></td>
+    <td>Pauses a music playback in a specified channel.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ResumeMusicChannel">ResumeMusicChannel</a></td>
+    <td>Resumes a paused music playback in a specified channel.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetMusicChannelPosition">SetMusicChannelPosition</a></td>
+    <td>Sets the music's current playing position in a specified channel.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetMusicChannelPosition">GetMusicChannelPosition</a></td>
+    <td>Queries the music's current playing position in a specified channel.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#IsMusicChannelPlaying">IsMusicChannelPlaying</a></td>
+    <td>Queries whether the music is currently playing in a specified channel</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetMusicChannel">GetMusicChannel</a></td>
+    <td>Queries the filename of the current music in a specified channel</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetMusicChannelVolume">SetMusicChannelVolume</a></td>
+    <td>Sets the volume of currently playing music in a specified channel.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetMusicChannelVolume">GetMusicChannelVolume</a></td>
+    <td>Queries the music's current volume in a specified channel.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Script functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#AttachScript">AttachScript</a></td>
+    <td>Executes a script file and attaches it to the object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#DetachScript">DetachScript</a></td>
+    <td>Terminates a specified script file and detaches it from an object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#IsScriptRunning">IsScriptRunning</a></td>
+    <td>Queries whether a specified script file is running and attached to an object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#CanHandleMethod">CanHandleMethod</a></td>
+    <td>Queries whether the object supports a method of a specified name.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Sound functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetSoundLength">GetSoundLength</a></td>
+    <td>Queries length of a given sound file</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#PlaySound">PlaySound</a></td>
+    <td>Plays a sound. If the filename is omitted, the currently assigned sound is played (if any).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#PlaySoundEvent">PlaySoundEvent</a></td>
+    <td>Plays a sound and triggers an event when the sound is over. If the filename is omitted, the currently assigned sound is played (if any).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#StopSound">StopSound</a></td>
+    <td>Stops the currently playing sound (if any).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#PauseSound">PauseSound</a></td>
+    <td>Pauses the currently playing sound.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ResumeSound">ResumeSound</a></td>
+    <td>Resumes a paused sound playback.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#IsSoundPlaying">IsSoundPlaying</a></td>
+    <td>Queries whether a sound playback is in progress.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetSoundPosition">SetSoundPosition</a></td>
+    <td>Sets the sound's current playing position.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetSoundPosition">GetSoundPosition</a></td>
+    <td>Queries the sound's current playing position</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetSoundVolume">SetSoundVolume</a></td>
+    <td>Sets a volume of the currently playing sound.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetSoundVolume">GetSoundVolume</a></td>
+    <td>Gets a volume of the currently playing sound.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#LoadSound">LoadSound</a></td>
+    <td>Initializes a sound from file and makes it ready to be played.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Sound effects functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SoundFXNone">SoundFXNone</a></td>
+    <td>Removes any sound effect currently assigned to this object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SoundFXEcho">SoundFXEcho</a></td>
+    <td>Assigns an echo effect to the sounds played by this object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SoundFXReverb">SoundFXReverb</a></td>
+    <td>Assigns a reverb effect to the sounds played by this object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Event functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ApplyEvent">ApplyEvent</a></td>
+    <td>Applies a named event to the object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#CanHandleEvent">CanHandleEvent</a></td>
+    <td>Queries whether the object has an event handler for a specified event.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Miscelaneous functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SkipTo">SkipTo</a></td>
+    <td>Moves an object to a specified location.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetMousePos">SetMousePos</a></td>
+    <td>Sets the mouse cursor position.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#QuitGame">QuitGame</a></td>
+    <td>Quits the current game session.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#FileExists">FileExists</a></td>
+    <td>Queries whether a given file exists.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#Screenshot">Screenshot</a></td>
+    <td>Takes a screenshot of the current game and saves it into a BMP file.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ScreenshotEx">ScreenshotEx</a></td>
+    <td>Takes an (optionally resized) screenshot of the current game and saves it into a BMP file.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#LoadStringTable">LoadStringTable</a></td>
+    <td>Loads the string table from a file.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#AddSpeechDir">AddSpeechDir</a></td>
+    <td>Adds a directory to be used when WME automatically looks for speech files.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#RemoveSpeechDir">RemoveSpeechDir</a></td>
+    <td>Removes a directory from the list of dirs to look for speech files automatically.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#Reset">Reset</a></td>
+    <td>Resets the game's persistent data.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#OpenDocument">OpenDocument</a></td>
+    <td>Opens a specified document file or internet URL in an associated program.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetLoadingScreen">SetLoadingScreen</a></td>
+    <td>Sets an image to be displayed while loading a saved game.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetSavingScreen">SetSavingScreen</a></td>
+    <td>Sets an image to be displayed while saving the game.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ClearScriptCache">ClearScriptCache</a></td>
+    <td>Clears the content of the engine script cache.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#DisplayLoadingIcon">DisplayLoadingIcon</a></td>
+    <td>Briefly displays a "loading" icon.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#HideLoadingIcon">HideLoadingIcon</a></td>
+    <td>Hides a "loading" icon displayed by DisplayLoadingIcon()</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Video functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#PlayVideo">PlayVideo</a></td>
+    <td>Plays a given AVI video file</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#PlayTheora">PlayTheora</a></td>
+    <td>Plays a given Theora video file</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Registry functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#RegWriteNumber">RegWriteNumber</a></td>
+    <td>Writes a given number to the Windows Registry.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#RegWriteString">RegWriteString</a></td>
+    <td>Writes a given string to the Windows Registry.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#RegReadNumber">RegReadNumber</a></td>
+    <td>Reads a numeric value from the Windows Registry.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#RegReadString">RegReadString</a></td>
+    <td>Reads a string value from the Windows Registry.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Save/load functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SaveGame">SaveGame</a></td>
+    <td>Saves a game to the given save slot.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#LoadGame">LoadGame</a></td>
+    <td>Loads a game from the given save slot.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#IsSaveSlotUsed">IsSaveSlotUsed</a></td>
+    <td>Queries whether a given save slot is in use.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetSaveSlotDescription">GetSaveSlotDescription</a></td>
+    <td>Queries a description of a given save slot.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#EmptySaveSlot">EmptySaveSlot</a></td>
+    <td>Empties a given save slot.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Volume functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetGlobalSFXVolume">SetGlobalSFXVolume</a></td>
+    <td>Sets the volume of sound effects.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetGlobalSpeechVolume">SetGlobalSpeechVolume</a></td>
+    <td>Sets the volume of speech.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetGlobalMusicVolume">SetGlobalMusicVolume</a></td>
+    <td>Sets the volume of music.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetGlobalMasterVolume">SetGlobalMasterVolume</a></td>
+    <td>Sets the master volume.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetGlobalSFXVolume">GetGlobalSFXVolume</a></td>
+    <td>Gets the current sound effects volume.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetGlobalSpeechVolume">GetGlobalSpeechVolume</a></td>
+    <td>Gets the current speech volume.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetGlobalMusicVolume">GetGlobalMusicVolume</a></td>
+    <td>Gets the current music volume.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetGlobalMasterVolume">GetGlobalMasterVolume</a></td>
+    <td>Gets the current master volume.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Cursor functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetCursor">SetCursor</a></td>
+    <td>Sets the standard cursor.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetCursor">GetCursor</a></td>
+    <td>Returns the filename of the cursor sprite (or null if no cursor is set)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetCursorObject">GetCursorObject</a></td>
+    <td>Returns a reference to the cursor sprite (or null if no cursor is set)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#RemoveCursor">RemoveCursor</a></td>
+    <td>Removes the standard cursor.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#HasCursor">HasCursor</a></td>
+    <td>Queries whether the standard cursor is set.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetActiveCursor">SetActiveCursor</a></td>
+    <td>Sets the active cursor.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetActiveCursor">GetActiveCursor</a></td>
+    <td>Returns the filename of the active cursor sprite (or null if no cursor is set)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetActiveCursorObject">GetActiveCursorObject</a></td>
+    <td>Returns a reference to the active cursor sprite (or null if no cursor is set)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#RemoveActiveCursor">RemoveActiveCursor</a></td>
+    <td>Removes the active cursor.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#HasActiveCursor">HasActiveCursor</a></td>
+    <td>Queries whether the active cursor is set.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetWaitCursor">SetWaitCursor</a></td>
+    <td>Sets the non-interactive cursor.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetWaitCursor">GetWaitCursor</a></td>
+    <td>Returns the filename of the non-interactive cursor sprite (or null if no cursor is set)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetWaitCursorObject">GetWaitCursorObject</a></td>
+    <td>Returns a reference to the non-interactive cursor sprite (or null if no cursor is set)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#RemoveWaitCursor">RemoveWaitCursor</a></td>
+    <td>Removes the non-interactive cursor.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Fading functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#FadeOut">FadeOut</a></td>
+    <td>Fades the screen out to a specified color.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#FadeIn">FadeIn</a></td>
+    <td>Fades the screen in from a specified color.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetFadeColor">GetFadeColor</a></td>
+    <td>Gets the current fading color.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Scene functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ChangeScene">ChangeScene</a></td>
+    <td>Loads a specified scene file.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Responses/inventory</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#AddResponse">AddResponse</a></td>
+    <td>Adds a single response sentence to the response box.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#AddResponseOnce">AddResponseOnce</a></td>
+    <td>Adds a single response sentence to the response box. The response is only added once per a dialogue branch.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#AddResponseOnceGame">AddResponseOnceGame</a></td>
+    <td>Adds a single response sentence to the response box. The response is only added once per a game session.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ResetResponse">ResetResponse</a></td>
+    <td>Revives a previously disabled response.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetResponse">GetResponse</a></td>
+    <td>Displays a response box and waits for the player's choice.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetNumResponses">GetNumResponses</a></td>
+    <td>Queries the number of remaining responses in the response box.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetInventoryWindow">GetInventoryWindow</a></td>
+    <td>Returns a reference to the window object used by the inventory box.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetResponsesWindow">GetResponsesWindow</a></td>
+    <td>Returns a reference to the window object used by the responses box.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#StartDlgBranch">StartDlgBranch</a></td>
+    <td>Denotes a start of a dialogue branch.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#EndDlgBranch">EndDlgBranch</a></td>
+    <td>Denotes an end of a dialogue branch.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetCurrentDlgBranch">GetCurrentDlgBranch</a></td>
+    <td>Queries a current dialogue branch name.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#LoadResponseBox">LoadResponseBox</a></td>
+    <td>Reloads a response box from file.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#LoadInventoryBox">LoadInventoryBox</a></td>
+    <td>Reloads an inventory box from file.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#LoadItems">LoadItems</a></td>
+    <td>Loads inventory items from a definition file.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Item functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#TakeItem">TakeItem</a></td>
+    <td>Adds an item into the inventory.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#DropItem">DropItem</a></td>
+    <td>Removes an item from the inventory.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetItem">GetItem</a></td>
+    <td>Queries an inventory item.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#HasItem">HasItem</a></td>
+    <td>Queries whether a given item is in inventory of any of this object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#IsItemTaken">IsItemTaken</a></td>
+    <td>Queries whether a given item is in inventory of any of the game objects.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Dynamic object creation</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#CreateEntity">CreateEntity</a></td>
+    <td>Creates a new entity object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#DeleteEntity">DeleteEntity</a></td>
+    <td>Destroys a entity object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#CreateWindow">CreateWindow</a></td>
+    <td>Creates a new window object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#DeleteWindow">DeleteWindow</a></td>
+    <td>Destroys a window object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#CreateItem">CreateItem</a></td>
+    <td>Creates a new inventory item object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#DeleteItem">DeleteItem</a></td>
+    <td>Destroys an item object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>3D characters related</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetShadowImage">SetShadowImage</a></td>
+    <td>Sets and image to be used as a simple shadow for 3D characters</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetShadowImage">GetShadowImage</a></td>
+    <td>Gets the currently assigned image to be used as a simple shadow for 3D characters</td>
+  </tr>
+</table>
+
+<h4>Attributes</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%">Type (read only)</td>
+    <td>Returns always "game"</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Accelerated (read only)</td>
+    <td>Returns <b>true</b> if the game currently uses 3D acceleration to display graphics.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">CurrentTime (read only)</td>
+    <td>Returns the time elapsed since the game has started.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">WindowsTime (read only)</td>
+    <td>Returns the time elapsed since Windows has started.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">TextEncoding</td>
+    <td>Specifies text encoding used for in-game texts, 0..ANSI, 1..UTF8</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">TextRTL</td>
+    <td>Specifies if the game uses right-to-left reading order (for Henrew and Arabic). Only affects TrueType fonts!</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">MouseX</td>
+    <td>The current X position of the mouse cursor</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">MouseY</td>
+    <td>The current Y position of the mouse cursor</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">MainObject</td>
+    <td>The object which is used for the scene's auto scrolling, can be (set to) <b>null</b></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">ActiveObject (read only)</td>
+    <td>Returns the object which is currently under the mouse cursor (or <b>null</b> if there's none)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">InventoryObject</td>
+    <td>The object whose inventory is currently displayed.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">ScreenWidth (read only)</td>
+    <td>Returns the screen's width in pixels.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">ScreenHeight (read only)</td>
+    <td>Returns the screen's height in pixels.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">DebugMode (read only)</td>
+    <td>Returns whether the game runs in the debugging mode.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">SoundAvailable (read only)</td>
+    <td>Returns whether the sound is available and enabled.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Keyboard (read only)</td>
+    <td>Returns a reference to the Keyboard State object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Subtitles</td>
+    <td>Specifes whether the speech subtitles are enabled.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">VideoSubtitles</td>
+    <td>Specifes whether the AVI/Theora video subtitles are enabled.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">SubtitlesSpeed</td>
+    <td>Specifies the speech subtitles speed (in milliseconds per one character)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Scene (read only)</td>
+    <td>Returns a reference to the currently loaded scene object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">SelectedItem</td>
+    <td>Currently selected inventory item (or <b>null</b> for no item).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">NumItems (read only)</td>
+    <td>Returns the number of items in the player's inventory.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">InventoryVisible</td>
+    <td>Specifies whether the inventory box is currently visible.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">ResponsesVisible (read only)</td>
+    <td>Returns whether a response box is visible (i.e. the game awaits player's choice).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">WindowedMode (read only)</td>
+    <td>Returns <b>true</b> if the game runs in windowed mode.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Hwnd (read only)</td>
+    <td>Returns the window handle (HWND) of the game window (only useful for plugin development).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">PrevScene (read only)</td>
+    <td>Returns the name of the previous scene.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">PrevSceneFilename (read only)</td>
+    <td>Returns the filename of the previous scene.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">LastResponse (read only)</td>
+    <td>Returns the text of the most recently selected response.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">FPS (read only)</td>
+    <td>Returns the current framerate (in frames per second)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Shadows</td>
+    <td>Specifies if shadows are enabled for 3D characters</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">SimpleShadows</td>
+    <td>Specifies if simple shadows are to be used for 3D characters. This attribute has no effect if real-time shadows are unsupported</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">SupportsRealTimeShadows (read only)</td>
+    <td>Returns <b>true</b> if the videocard supports real-time shadows</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Direct3DDevice (read only)</td>
+    <td>Returns the pointer to the underlying IDirect3DDevice8 object (plugins only)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">DirectDrawInterface (read only)</td>
+    <td>Returns the pointer to the underlying IDirectDraw7 object (plugins only)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Frozen (read only)</td>
+    <td>Returns <b>true</b> if the game is currently in frozen state</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Name</td>
+    <td>The internal name of the object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Caption</td>
+    <td>The caption of the object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">X</td>
+    <td>The X position of the object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Y</td>
+    <td>The Y position of the object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Height (read only)</td>
+    <td>Returns the current height of the object. In case of actors and entities the scaling is taken into account.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Filename (read only)</td>
+    <td>Returns the filename.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Ready (read only)</td>
+    <td>Returns whether the object isn't currently performing any action.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Interactive</td>
+    <td>Specifies whether the object recieves user input.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">SoundPanning</td>
+    <td>Specifies whether the sounds played by this object are automatically panned depending on object's position on screen.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">NonIntMouseEvents</td>
+    <td>Specifies if the object can receive the <b>MouseEntry</b> and <b>MouseLeave</b> events even if the game is in non-interactive mode.</td>
+  </tr>
+</table>
+
+<h4>Low level events</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%">LeftClick</td>
+    <td>The left mouse button has been pressed.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">RightClick</td>
+    <td>The right mouse button has been pressed.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">MiddleClick</td>
+    <td>The middle mouse button has been pressed.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">LeftDoubleClick</td>
+    <td>The left mouse button has been double-clicked.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">LeftRelease</td>
+    <td>The left mouse button has been released.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">RightRelease</td>
+    <td>The right mouse button has been released.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">MiddleRelease</td>
+    <td>The middle mouse button has been released.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">MouseWheelUp</td>
+    <td>The mouse wheel has been rolled up.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">MouseWheelDown</td>
+    <td>The mouse wheel has been rolled down.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Keypress</td>
+    <td>Some key has been pressed. Use the <b>Keyboard</b> variable to find out the details.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">BeforeSave</td>
+    <td>The game is about to save its state.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">AfterLoad</td>
+    <td>The game just loaded its state.</td>
+  </tr>
+</table>
+
+<hr>
+<h3><a name="LOG"></a>LOG(Text)</h3>
+<p>Writes a text string to the system log file.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Text</i></dt>
+<dd>The text string to be written to the system log file.</dd>
+</dl>
+<h4>Remarks</h4>
+<p>When the game runs in debug mode, it generates a "wme.log" file in the same directory where the project file resides. Using this method you can add your own diagnostic messages to the log file.</p>
+
+<hr>
+<h3><a name="Msg"></a>Msg(Text)</h3>
+<p>Writes a quick diagnostic message to the screen.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Text</i></dt>
+<dd>The text string to de displayed on screen.</dd>
+</dl>
+<h4>Remarks</h4>
+<p>The quick message disappears after a few seconds.</p>
+
+<hr>
+<h3><a name="DumpTextureStats"></a>DumpTextureStats(Filename)</h3>
+<p>Writes texture usage data to a text file in CSV format.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The name of the export file.</dd>
+</dl>
+<h4>Remarks</h4>
+<p>This method is only available if the game runs in accelerated mode.</p>
+
+<hr>
+<h3><a name="ValidObject"></a>ValidObject(Object)</h3>
+<p>Queries whether a given object reference is valid.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Object</i></dt>
+<dd>An object reference to be tested for validity.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the object reference is valid, the return value is <b>true</b>.</p>
+<h4>Remarks</h4>
+<p>If you store an object reference in a variable, you can ensure this object is still valid using the ValidObject method. Objects become invalid after they are unloaded from memory (ether explicitly or for example by changing to a different scene).</p>
+
+<hr>
+<h3><a name="UnloadObject"></a>UnloadObject(Object)</h3>
+<p>Removes an object from memory.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Object</i></dt>
+<dd>The object to be removed from memory.</dd>
+</dl>
+<h4>Remarks</h4>
+<p>If you load an object using the Game.LoadActor, Game.LoadEntity and similar methods, you should unload those when you no longer need them to free memory. Otherwise those objects will be released when the game quits.</p>
+
+<hr>
+<h3><a name="LoadActor"></a>LoadActor(Filename)</h3>
+<p>Loads a new actor from a file.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the actor file to be loaded.</dd>
+</dl>
+<h4>Return value</h4>
+<p>A reference to the new Actor object. If the method fails, the return value is <b>null</b>.</p>
+
+<hr>
+<h3><a name="LoadActor3D"></a>LoadActor3D(Filename)</h3>
+<p>Loads a new 3D actor from a file.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the 3D actor file to be loaded.</dd>
+</dl>
+<h4>Return value</h4>
+<p>A reference to the new 3D actor object. If the method fails, the return value is <b>null</b>.</p>
+
+<hr>
+<h3><a name="LoadEntity"></a>LoadEntity(Filename)</h3>
+<p>Loads a new entity from a file.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the entity file to be loaded.</dd>
+</dl>
+<h4>Return value</h4>
+<p>A reference to the new Entity object. If the method fails, the return value is <b>null</b>.</p>
+
+<hr>
+<h3><a name="LoadWindow"></a>LoadWindow(Filename)</h3>
+<p>Loads a new window from a file.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>Filename of the window definition file to be loaded.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns a reference to a newly created window object or <b>null</b> if the loading fails.</p>
+
+<hr>
+<h3><a name="ExpandString"></a>ExpandString(String)</h3>
+<p>Expands a given string using the string table.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>String</i></dt>
+<dd>The text string to be expanded.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns the expanded string.</p>
+<h4>Remarks</h4>
+<p>Note that methods such as Actor.Talk() do expand strings automatically, you don't need to expand them yourself.</p>
+
+<hr>
+<h3><a name="MusicCrossfade"></a>MusicCrossfade(Channel1, Channel2, Time, SwapChannels)</h3>
+<p>Crossfades two music channels</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Channel1</i></dt>
+<dd>The channel which should fade out</dd>
+<dt><i>Channel2</i></dt>
+<dd>The channel which should fade int</dd>
+<dt><i>Time</i></dt>
+<dd>A time period in which the channels should be crossfading</dd>
+<dt><i>SwapChannels</i></dt>
+<dd>Specifies whether the two channels will be swapped after the crossfading finishes (optional, default=true)</dd>
+</dl>
+<h4>Remarks</h4>
+<p>There can be always only two channels crossfading at one moment.</p>
+
+<hr>
+<h3><a name="PlayMusic"></a>PlayMusic(Filename, Looping, LoopStart)</h3>
+<p>Plays a music.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the sound file to be played.</dd>
+<dt><i>Looping</i></dt>
+<dd>Whether the music should be looped (optional, default = true).</dd>
+<dt><i>LoopStart</i></dt>
+<dd>The position where to restart the music when looping, in milliseconds (optional, default = 0).</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="StopMusic"></a>StopMusic()</h3>
+<p>Stops a music playback.</p>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="PauseMusic"></a>PauseMusic()</h3>
+<p>Pauses a music playback.</p>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="ResumeMusic"></a>ResumeMusic()</h3>
+<p>Resumes a paused music playback.</p>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="SetMusicPosition"></a>SetMusicPosition(Time)</h3>
+<p>Sets the music's current playing position.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Time</i></dt>
+<dd>A new playing position (in milliseconds)</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetMusicPosition"></a>GetMusicPosition()</h3>
+<p>Queries the music's current playing position</p>
+<h4>Return value</h4>
+<p>Returns the current playing position (in milliseconds).</p>
+
+<hr>
+<h3><a name="IsMusicPlaying"></a>IsMusicPlaying()</h3>
+<p>Queries whether the music is currently playing</p>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if music is playing.</p>
+
+<hr>
+<h3><a name="GetMusic"></a>GetMusic()</h3>
+<p>Queries the filename of the current music</p>
+<h4>Return value</h4>
+<p>Returns the current music filename or <b>null</b> if music isn't playing.</p>
+
+<hr>
+<h3><a name="SetMusicVolume"></a>SetMusicVolume(Volume)</h3>
+<p>Sets the volume of currently playing music.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Volume</i></dt>
+<dd>Music volume in percent.</dd>
+</dl>
+
+<hr>
+<h3><a name="GetMusicVolume"></a>GetMusicVolume()</h3>
+<p>Queries the music's current volume.</p>
+<h4>Return value</h4>
+<p>The volume in percent.</p>
+
+<hr>
+<h3><a name="PlayMusicChannel"></a>PlayMusicChannel(Channel, Filename, Looping, LoopStart)</h3>
+<p>Plays a music in a specified channel.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Channel</i></dt>
+<dd>Which music channel to use</dd>
+<dt><i>Filename</i></dt>
+<dd>The filename of the sound file to be played.</dd>
+<dt><i>Looping</i></dt>
+<dd>Whether the music should be looped (optional, default = true).</dd>
+<dt><i>LoopStart</i></dt>
+<dd>The position where to restart the music when looping, in milliseconds (optional, default = 0).</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="StopMusicChannel"></a>StopMusicChannel(Channel)</h3>
+<p>Stops a music playback in a specified channel.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Channel</i></dt>
+<dd>Which music channel to use</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="PauseMusicChannel"></a>PauseMusicChannel(Channel)</h3>
+<p>Pauses a music playback in a specified channel.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Channel</i></dt>
+<dd>Which music channel to use</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="ResumeMusicChannel"></a>ResumeMusicChannel(Channel)</h3>
+<p>Resumes a paused music playback in a specified channel.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Channel</i></dt>
+<dd>Which music channel to use</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="SetMusicChannelPosition"></a>SetMusicChannelPosition(Channel, Time)</h3>
+<p>Sets the music's current playing position in a specified channel.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Channel</i></dt>
+<dd>Which music channel to use</dd>
+<dt><i>Time</i></dt>
+<dd>A new playing position (in milliseconds)</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetMusicChannelPosition"></a>GetMusicChannelPosition(Channel)</h3>
+<p>Queries the music's current playing position in a specified channel.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Channel</i></dt>
+<dd>Which music channel to use</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns the current playing position (in milliseconds).</p>
+
+<hr>
+<h3><a name="IsMusicChannelPlaying"></a>IsMusicChannelPlaying(Channel)</h3>
+<p>Queries whether the music is currently playing in a specified channel</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Channel</i></dt>
+<dd>Which music channel to use</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if music is playing.</p>
+
+<hr>
+<h3><a name="GetMusicChannel"></a>GetMusicChannel(Channel)</h3>
+<p>Queries the filename of the current music in a specified channel</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Channel</i></dt>
+<dd>Which music channel to use</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns the current music filename or <b>null</b> if music isn't playing.</p>
+
+<hr>
+<h3><a name="SetMusicChannelVolume"></a>SetMusicChannelVolume(Channel, Volume)</h3>
+<p>Sets the volume of currently playing music in a specified channel.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Channel</i></dt>
+<dd>Which music channel to use</dd>
+<dt><i>Volume</i></dt>
+<dd>Music volume in percent</dd>
+</dl>
+
+<hr>
+<h3><a name="GetMusicChannelVolume"></a>GetMusicChannelVolume(Channel)</h3>
+<p>Queries the music's current volume in a specified channel.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Channel</i></dt>
+<dd>Which music channel to use</dd>
+</dl>
+<h4>Return value</h4>
+<p>The volume in percent.</p>
+
+<hr>
+<h3><a name="AttachScript"></a>AttachScript(Filename)</h3>
+<p>Executes a script file and attaches it to the object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the script file to be executed.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the script hs been executed succesfuly.</p>
+<h4>Remarks</h4>
+<p>Each WME object can have multiple scripts attached.</p>
+
+<hr>
+<h3><a name="DetachScript"></a>DetachScript(Filename)</h3>
+<p>Terminates a specified script file and detaches it from an object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the (running) script to be terminated and detached.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the script has been detached succesfully.</p>
+
+<hr>
+<h3><a name="IsScriptRunning"></a>IsScriptRunning(Filename)</h3>
+<p>Queries whether a specified script file is running and attached to an object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the script to be queried.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if a specified script file is attached to an object.</p>
+
+<hr>
+<h3><a name="CanHandleMethod"></a>CanHandleMethod(MethodName)</h3>
+<p>Queries whether the object supports a method of a specified name.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>MethodName</i></dt>
+<dd>The name of the method to be checked.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the object is able to handle the specified method.</p>
+
+<hr>
+<h3><a name="GetSoundLength"></a>GetSoundLength(SoundFilename)</h3>
+<p>Queries length of a given sound file</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>SoundFilename</i></dt>
+<dd>Name of the sound file to be queried</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns length of the sound file (in milliseconds).</p>
+
+<hr>
+<h3><a name="PlaySound"></a>PlaySound(Filename, Looping, LoopStart)<br>PlaySound(Looping, LoopStart)</h3>
+<p>Plays a sound. If the filename is omitted, the currently assigned sound is played (if any).</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the sound file to be played</dd>
+<dt><i>Looping</i></dt>
+<dd>Whether the sound should be looped (optional, default = false).</dd>
+<dt><i>LoopStart</i></dt>
+<dd>The point from which the sound restarts when looping, in milliseconds (optional, default=0).</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="PlaySoundEvent"></a>PlaySoundEvent(Filename, EventName)<br>PlaySoundEvent(EventName)</h3>
+<p>Plays a sound and triggers an event when the sound is over. If the filename is omitted, the currently assigned sound is played (if any).</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the sound file to be played</dd>
+<dt><i>EventName</i></dt>
+<dd>The name of the event to be triggered after the sound finishes.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="StopSound"></a>StopSound()</h3>
+<p>Stops the currently playing sound (if any).</p>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="PauseSound"></a>PauseSound()</h3>
+<p>Pauses the currently playing sound.</p>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="ResumeSound"></a>ResumeSound()</h3>
+<p>Resumes a paused sound playback.</p>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="IsSoundPlaying"></a>IsSoundPlaying()</h3>
+<p>Queries whether a sound playback is in progress.</p>
+<h4>Return value</h4>
+<p>If the sound is playing, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="SetSoundPosition"></a>SetSoundPosition(Time)</h3>
+<p>Sets the sound's current playing position.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Time</i></dt>
+<dd>A new playing position (in milliseconds)</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetSoundPosition"></a>GetSoundPosition()</h3>
+<p>Queries the sound's current playing position</p>
+<h4>Return value</h4>
+<p>Returns the current playing position (in milliseconds).</p>
+
+<hr>
+<h3><a name="SetSoundVolume"></a>SetSoundVolume(Volume)</h3>
+<p>Sets a volume of the currently playing sound.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Volume</i></dt>
+<dd>A new sound volume (in percent).</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetSoundVolume"></a>GetSoundVolume()</h3>
+<p>Gets a volume of the currently playing sound.</p>
+<h4>Return value</h4>
+<p>Returns the volume of the currently playing sound (in percent).</p>
+
+<hr>
+<h3><a name="LoadSound"></a>LoadSound(Filename)</h3>
+<p>Initializes a sound from file and makes it ready to be played.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The sound file to be loaded</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+<h4>Remarks</h4>
+<p>Use this method to pre-cache a sound file. Initializing the sound takes some time and sometimes it's desirable to move all sound initialization to e.g. scene start so that the subsequent PlaySound calls don't slow the game down. That's what LoadSound is for. To play the pre-cached sound simply call PlaySound without specifying a filename, for example SomeObject.PlaySound(false);</p>
+
+<hr>
+<h3><a name="SoundFXNone"></a>SoundFXNone()</h3>
+<p>Removes any sound effect currently assigned to this object.</p>
+
+<hr>
+<h3><a name="SoundFXEcho"></a>SoundFXEcho(WetDryMix, Feedback, LeftDelay, RightDelay)</h3>
+<p>Assigns an echo effect to the sounds played by this object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>WetDryMix</i></dt>
+<dd>Wet/Dry Mix, in percent (0 to 100)</dd>
+<dt><i>Feedback</i></dt>
+<dd>Feedback, in percent (0 to 100)</dd>
+<dt><i>LeftDelay</i></dt>
+<dd>Left delay, in milliseconds (1 to 2000)</dd>
+<dt><i>RightDelay</i></dt>
+<dd>Right delay, in milliseconds (1 to 2000)</dd>
+</dl>
+<h4>Remarks</h4>
+<p>Example: <b>actor.SoundFXEcho(50, 50);</b></p>
+
+<hr>
+<h3><a name="SoundFXReverb"></a>SoundFXReverb(InGain, ReverbMix, ReverbTime, HighFreqRTRatio)</h3>
+<p>Assigns a reverb effect to the sounds played by this object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>InGain</i></dt>
+<dd>In gain, in dB (-96 to 0)</dd>
+<dt><i>ReverbMix</i></dt>
+<dd>Reverb mix, in dB (-96 to 0)</dd>
+<dt><i>ReverbTime</i></dt>
+<dd>Reverb time, in milliseconds (0.001 to 3000)</dd>
+<dt><i>HighFreqRTRatio</i></dt>
+<dd>HighFreq RT Ratio (0.001 to 0.999)</dd>
+</dl>
+<h4>Remarks</h4>
+<p>Example: <b>actor.SoundFXReverb(0, 0, 2000);</b></p>
+
+<hr>
+<h3><a name="ApplyEvent"></a>ApplyEvent(EventName)</h3>
+<p>Applies a named event to the object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>EventName</i></dt>
+<dd>A name of the event to be applied to the object.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> it the event has been applied succesfuly.</p>
+
+<hr>
+<h3><a name="CanHandleEvent"></a>CanHandleEvent(EventName)</h3>
+<p>Queries whether the object has an event handler for a specified event.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>EventName</i></dt>
+<dd>The name of the event to be checked.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the object is able to handle the specified event.</p>
+
+<hr>
+<h3><a name="SkipTo"></a>SkipTo(X, Y)</h3>
+<p>Moves an object to a specified location.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>X</i></dt>
+<dd>Destination X coordinate.</dd>
+<dt><i>Y</i></dt>
+<dd>Destination Y coordinate.</dd>
+</dl>
+
+<hr>
+<h3><a name="SetMousePos"></a>SetMousePos(X, Y)</h3>
+<p>Sets the mouse cursor position.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>X</i></dt>
+<dd>New X position of the mouse cursor. </dd>
+<dt><i>Y</i></dt>
+<dd>New Y position of the mouse cursor. </dd>
+</dl>
+
+<hr>
+<h3><a name="QuitGame"></a>QuitGame()</h3>
+<p>Quits the current game session.</p>
+
+<hr>
+<h3><a name="FileExists"></a>FileExists(Filename)</h3>
+<p>Queries whether a given file exists.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>Filename to be tested.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the specified file exists, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="Screenshot"></a>Screenshot(Name)</h3>
+<p>Takes a screenshot of the current game and saves it into a BMP file.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Name</i></dt>
+<dd>Base name to be used for the generated BMP file (optional, defaults to Game.Name)</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="ScreenshotEx"></a>ScreenshotEx(Filename, Width, Height)</h3>
+<p>Takes an (optionally resized) screenshot of the current game and saves it into a BMP file.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>Filename of the BMP file to be created</dd>
+<dt><i>Width</i></dt>
+<dd>The resuting width of the screenshot</dd>
+<dt><i>Height</i></dt>
+<dd>The resuting height of the screenshot</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="LoadStringTable"></a>LoadStringTable(Filename, ClearOld)</h3>
+<p>Loads the string table from a file.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>Name of the string table to be loaded</dd>
+<dt><i>ClearOld</i></dt>
+<dd>Remove the old string from the string table (optional, default=true)</dd>
+</dl>
+<h4>Remarks</h4>
+<p>The string table is NOT part of the saved game. You need either to ask user for language selection each time the game is started or store the setting in the registry.</p>
+
+<hr>
+<h3><a name="AddSpeechDir"></a>AddSpeechDir(Directory)</h3>
+<p>Adds a directory to be used when WME automatically looks for speech files.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Directory</i></dt>
+<dd>The directory name to look in</dd>
+</dl>
+<h4>Remarks</h4>
+<p>By default WME looks for speech files in a "speech" directory only.</p>
+
+<hr>
+<h3><a name="RemoveSpeechDir"></a>RemoveSpeechDir(Directory)</h3>
+<p>Removes a directory from the list of dirs to look for speech files automatically.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Directory</i></dt>
+<dd>The directory to be removed</dd>
+</dl>
+
+<hr>
+<h3><a name="Reset"></a>Reset()</h3>
+<p>Resets the game's persistent data.</p>
+<h4>Remarks</h4>
+<p>This method deletes all scene states, selected responses, sets timer to zero and also clears all global variables, except those holding game objects (such as windows or entities). Use this method if you want to start a new game.</p>
+
+<hr>
+<h3><a name="OpenDocument"></a>OpenDocument(Filename)</h3>
+<p>Opens a specified document file or internet URL in an associated program.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the document file to be opened</dd>
+</dl>
+<h4>Remarks</h4>
+<p>This method uses the Windows extension associations to run the right program. Note that the document file MUST NOT be stored inside the game packages. It must be a regular file and you must reference it either by full filename or a filename relative to the game directory.</p>
+
+<hr>
+<h3><a name="SetLoadingScreen"></a>SetLoadingScreen(ImageFilename, PosX, PosY)</h3>
+<p>Sets an image to be displayed while loading a saved game.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>ImageFilename</i></dt>
+<dd>The filename of the image to be used or null</dd>
+<dt><i>PosX</i></dt>
+<dd>The X position of the image</dd>
+<dt><i>PosY</i></dt>
+<dd>The Y position of the image</dd>
+</dl>
+
+<hr>
+<h3><a name="SetSavingScreen"></a>SetSavingScreen(ImageFilename, PosX, PosY)</h3>
+<p>Sets an image to be displayed while saving the game.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>ImageFilename</i></dt>
+<dd>The filename of the image to be used or null</dd>
+<dt><i>PosX</i></dt>
+<dd>The X position of the image</dd>
+<dt><i>PosY</i></dt>
+<dd>The Y position of the image</dd>
+</dl>
+
+<hr>
+<h3><a name="ClearScriptCache"></a>ClearScriptCache()</h3>
+<p>Clears the content of the engine script cache.</p>
+<h4>Remarks</h4>
+<p>Normally the engine caches compiled scripts so that they don't need to be compiled multiple times. This method allows you to flush the script cache, for example if you generate scripts dynamically and need them to be always re-compiled.</p>
+
+<hr>
+<h3><a name="DisplayLoadingIcon"></a>DisplayLoadingIcon(Sprite, X, Y, Persistent)</h3>
+<p>Briefly displays a "loading" icon.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Sprite</i></dt>
+<dd>The filename of a sprite to be displayed as a loading icon.</dd>
+<dt><i>X</i></dt>
+<dd>The X position of the loading icon.</dd>
+<dt><i>Y</i></dt>
+<dd>The Y position of the loading icon.</dd>
+<dt><i>Persistent</i></dt>
+<dd>Specifies if the icon should stay on screen until HideLoadingIcon() is called (optional, default=false)</dd>
+</dl>
+<h4>Remarks</h4>
+<p>You can use this function to briefly display a "work-in-progress" symbol; for example call this method before calling a command which takes a long time (loading a window, long animation etc.). The icon is displayed until the script returns control back to the engine, unless the Persistent parameter is set to true. In that case you have to manually hide the icon by calling the <b>Game.HideLoadingIcon()</b> method.</p>
+
+<hr>
+<h3><a name="HideLoadingIcon"></a>HideLoadingIcon()</h3>
+<p>Hides a "loading" icon displayed by DisplayLoadingIcon()</p>
+
+<hr>
+<h3><a name="PlayVideo"></a>PlayVideo(Filename, Type, X, Y, FreezeMusic)</h3>
+<p>Plays a given AVI video file</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the AVI file to be played.</dd>
+<dt><i>Type</i></dt>
+<dd>Type of display, 0=at a given position, 1=stretched, 2=centered (optional, default=1)</dd>
+<dt><i>X</i></dt>
+<dd>X position on screen. Only used when Type is 0 (optional, default=0)</dd>
+<dt><i>Y</i></dt>
+<dd>Y position on screen. Only used when Type is 0 (optional, default=0)</dd>
+<dt><i>FreezeMusic</i></dt>
+<dd>Specifies whether the background music should be suspended while video is playing (optional, default=true)</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="PlayTheora"></a>PlayTheora(Filename, Type, X, Y, FreezeMusic, DropFrames)</h3>
+<p>Plays a given Theora video file</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the Ogg Theora file to be played.</dd>
+<dt><i>Type</i></dt>
+<dd>Type of display, 0=at a given position, 1=stretched, 2=centered (optional, default=1)</dd>
+<dt><i>X</i></dt>
+<dd>X position on screen. Only used when Type is 0 (optional, default=0)</dd>
+<dt><i>Y</i></dt>
+<dd>Y position on screen. Only used when Type is 0 (optional, default=0)</dd>
+<dt><i>FreezeMusic</i></dt>
+<dd>Specifies whether the background music should be suspended while video is playing (optional, default=true)</dd>
+<dt><i>DropFrames</i></dt>
+<dd>Specifies whether the video playback should drop frames if the playback is too slow (optional, default=true)</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="RegWriteNumber"></a>RegWriteNumber(Key, Value)</h3>
+<p>Writes a given number to the Windows Registry.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Key</i></dt>
+<dd>Name of the key to be written</dd>
+<dt><i>Value</i></dt>
+<dd>The number to be written</dd>
+</dl>
+
+<hr>
+<h3><a name="RegWriteString"></a>RegWriteString(Key, Value)</h3>
+<p>Writes a given string to the Windows Registry.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Key</i></dt>
+<dd>Name of the key to be written</dd>
+<dt><i>Value</i></dt>
+<dd>The string to be written</dd>
+</dl>
+
+<hr>
+<h3><a name="RegReadNumber"></a>RegReadNumber(Key, InitValue)</h3>
+<p>Reads a numeric value from the Windows Registry.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Key</i></dt>
+<dd>Name of the key to be read from</dd>
+<dt><i>InitValue</i></dt>
+<dd>Initial value to be returned if the key doesn't exist (optional, default=null)</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns the number read from the Windows Registry.</p>
+
+<hr>
+<h3><a name="RegReadString"></a>RegReadString(Key, InitValue)</h3>
+<p>Reads a string value from the Windows Registry.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Key</i></dt>
+<dd>Name of the key to be read from</dd>
+<dt><i>InitValue</i></dt>
+<dd>Initial value to be returned if the key doesn't exist (optional, default=null)</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns the string read from the Windows Registry.</p>
+
+<hr>
+<h3><a name="SaveGame"></a>SaveGame(Slot, Description)</h3>
+<p>Saves a game to the given save slot.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Slot</i></dt>
+<dd>Number of the save slot to be used</dd>
+<dt><i>Description</i></dt>
+<dd>Description of the saved game</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="LoadGame"></a>LoadGame(Slot)</h3>
+<p>Loads a game from the given save slot.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Slot</i></dt>
+<dd>Number of the save slot to be used</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method fails, the return value is <b>false</b>.</p>
+
+<hr>
+<h3><a name="IsSaveSlotUsed"></a>IsSaveSlotUsed(Slot)</h3>
+<p>Queries whether a given save slot is in use.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Slot</i></dt>
+<dd>Number of the save slot to be tested.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the save slot is already in use, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetSaveSlotDescription"></a>GetSaveSlotDescription(Slot)</h3>
+<p>Queries a description of a given save slot.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Slot</i></dt>
+<dd>Number of the save slot to be queried</dd>
+</dl>
+<h4>Return value</h4>
+<p>The description of a given save slot.</p>
+
+<hr>
+<h3><a name="EmptySaveSlot"></a>EmptySaveSlot(Slot)</h3>
+<p>Empties a given save slot.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Slot</i></dt>
+<dd>Number of the save slot to be emptied.</dd>
+</dl>
+
+<hr>
+<h3><a name="SetGlobalSFXVolume"></a>SetGlobalSFXVolume(Percent)</h3>
+<p>Sets the volume of sound effects.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Percent</i></dt>
+<dd>A new sound volume (in percent)</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="SetGlobalSpeechVolume"></a>SetGlobalSpeechVolume(Percent)</h3>
+<p>Sets the volume of speech.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Percent</i></dt>
+<dd>A new speech volume (in percent)</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="SetGlobalMusicVolume"></a>SetGlobalMusicVolume(Percent)</h3>
+<p>Sets the volume of music.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Percent</i></dt>
+<dd>A new music volume (in percent)</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="SetGlobalMasterVolume"></a>SetGlobalMasterVolume(Percent)</h3>
+<p>Sets the master volume.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Percent</i></dt>
+<dd>A new sound volume (in percent)</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetGlobalSFXVolume"></a>GetGlobalSFXVolume()</h3>
+<p>Gets the current sound effects volume.</p>
+<h4>Return value</h4>
+<p>Returns the sound volume (in percent).</p>
+
+<hr>
+<h3><a name="GetGlobalSpeechVolume"></a>GetGlobalSpeechVolume()</h3>
+<p>Gets the current speech volume.</p>
+<h4>Return value</h4>
+<p>Returns the speech volume (in percent).</p>
+
+<hr>
+<h3><a name="GetGlobalMusicVolume"></a>GetGlobalMusicVolume()</h3>
+<p>Gets the current music volume.</p>
+<h4>Return value</h4>
+<p>Returns the music volume (in percent).</p>
+
+<hr>
+<h3><a name="GetGlobalMasterVolume"></a>GetGlobalMasterVolume()</h3>
+<p>Gets the current master volume.</p>
+<h4>Return value</h4>
+<p>Returns the master volume (in percent).</p>
+
+<hr>
+<h3><a name="SetCursor"></a>SetCursor(Filename)</h3>
+<p>Sets the standard cursor.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>Filename of a sprite file to be used as a cursor pointer.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the cursor has been set succesfuly.</p>
+
+<hr>
+<h3><a name="GetCursor"></a>GetCursor()</h3>
+<p>Returns the filename of the cursor sprite (or null if no cursor is set)</p>
+
+<hr>
+<h3><a name="GetCursorObject"></a>GetCursorObject()</h3>
+<p>Returns a reference to the cursor sprite (or null if no cursor is set)</p>
+
+<hr>
+<h3><a name="RemoveCursor"></a>RemoveCursor()</h3>
+<p>Removes the standard cursor.</p>
+
+<hr>
+<h3><a name="HasCursor"></a>HasCursor()</h3>
+<p>Queries whether the standard cursor is set.</p>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the object has a custom mouse pointer assigned.</p>
+
+<hr>
+<h3><a name="SetActiveCursor"></a>SetActiveCursor(Filename)</h3>
+<p>Sets the active cursor.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>Filename of a sprite file to be used as a cursor pointer.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the cursor has been set succesfuly.</p>
+<h4>Remarks</h4>
+<p>The "active" cursor is used when the mouse pointer is over an interactive object.</p>
+
+<hr>
+<h3><a name="GetActiveCursor"></a>GetActiveCursor()</h3>
+<p>Returns the filename of the active cursor sprite (or null if no cursor is set)</p>
+
+<hr>
+<h3><a name="GetActiveCursorObject"></a>GetActiveCursorObject()</h3>
+<p>Returns a reference to the active cursor sprite (or null if no cursor is set)</p>
+
+<hr>
+<h3><a name="RemoveActiveCursor"></a>RemoveActiveCursor()</h3>
+<p>Removes the active cursor.</p>
+
+<hr>
+<h3><a name="HasActiveCursor"></a>HasActiveCursor()</h3>
+<p>Queries whether the active cursor is set.</p>
+<h4>Return value</h4>
+<p>Returns <b>true</b> it the object has a custom mouse pointer assigned.</p>
+
+<hr>
+<h3><a name="SetWaitCursor"></a>SetWaitCursor(Filename)</h3>
+<p>Sets the non-interactive cursor.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>Filename of a sprite file to be used as a cursor pointer.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the cursor has been set succesfuly.</p>
+
+<hr>
+<h3><a name="GetWaitCursor"></a>GetWaitCursor()</h3>
+<p>Returns the filename of the non-interactive cursor sprite (or null if no cursor is set)</p>
+
+<hr>
+<h3><a name="GetWaitCursorObject"></a>GetWaitCursorObject()</h3>
+<p>Returns a reference to the non-interactive cursor sprite (or null if no cursor is set)</p>
+
+<hr>
+<h3><a name="RemoveWaitCursor"></a>RemoveWaitCursor()</h3>
+<p>Removes the non-interactive cursor.</p>
+
+<hr>
+<h3><a name="FadeOut"></a>FadeOut(Duration, TargetRed, TargetGreen, TargetBlue, TargetAlpha)<br>FadeOutAsync(Duration, TargetRed, TargetGreen, TargetBlue, TargetAlpha)<br>SystemFadeOut(Duration, TargetRed, TargetGreen, TargetBlue, TargetAlpha)<br>SystemFadeOutAsync(Duration, TargetRed, TargetGreen, TargetBlue, TargetAlpha)</h3>
+<p>Fades the screen out to a specified color.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Duration</i></dt>
+<dd>Specifies how long it will take to fade out, in milliseconds (optional, default=500)</dd>
+<dt><i>TargetRed</i></dt>
+<dd>The Red component of a target fade color (optional, default=0)</dd>
+<dt><i>TargetGreen</i></dt>
+<dd>The Green component of a target fade color (optional, default=0)</dd>
+<dt><i>TargetBlue</i></dt>
+<dd>The Blue component of a target fade color (optional, default=0)</dd>
+<dt><i>TargetAlpha</i></dt>
+<dd>The Alpha component (opacity) of a target fade color (optional, default=255)</dd>
+</dl>
+<h4>Remarks</h4>
+<p>The <b>FadeOut</b> method blocks the script execution until the fading is over, while the <b>FadeOutAsync</b> method returns immediately. The <b>SystemFadeOut</b> and <b>SystemFadeOutAsync</b> methods continue fading even after the game enters the system exclusive mode.</p>
+
+<hr>
+<h3><a name="FadeIn"></a>FadeIn(Duration, SourceRed, SourceGreen, SourceBlue, SourceAlpha)<br>FadeInAsync(Duration, SourceRed, SourceGreen, SourceBlue, SourceAlpha)<br>SystemFadeIn(Duration, SourceRed, SourceGreen, SourceBlue, SourceAlpha)<br>SystemFadeInAsync(Duration, SourceRed, SourceGreen, SourceBlue, SourceAlpha)</h3>
+<p>Fades the screen in from a specified color.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Duration</i></dt>
+<dd>Specifies how long it will take to fade in, in milliseconds (optional, default=500)</dd>
+<dt><i>SourceRed</i></dt>
+<dd>The Red component of the initial fade color (optional, default=0)</dd>
+<dt><i>SourceGreen</i></dt>
+<dd>The Green component of the initial fade color (optional, default=0)</dd>
+<dt><i>SourceBlue</i></dt>
+<dd>The Blue component of the initial fade color (optional, default=0)</dd>
+<dt><i>SourceAlpha</i></dt>
+<dd>The Alpha component (opacity) of the initial fade color (optional, default=255)</dd>
+</dl>
+<h4>Remarks</h4>
+<p>The <b>FadeIn</b> method blocks the script execution until the fading is over, while the <b>FadeInAsync</b> method returns immediately. The <b>SystemFadeIn</b> and <b>SystemFadeInAsync</b> methods continue fading even after the game enters the system exclusive mode.</p>
+
+<hr>
+<h3><a name="GetFadeColor"></a>GetFadeColor()</h3>
+<p>Gets the current fading color.</p>
+<h4>Return value</h4>
+<p>Returns the current fading color in the encoded color format.</p>
+<h4>Remarks</h4>
+<p>You can use the GetRValue(), GetGValue(), GetBValue() and GetAValue() functions to extract individual color components.</p>
+
+<hr>
+<h3><a name="ChangeScene"></a>ChangeScene(Filename, FadeOut, FadeIn)</h3>
+<p>Loads a specified scene file.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>Filename of the scene file to be loaded.</dd>
+<dt><i>FadeOut</i></dt>
+<dd>Whether the old scene should fade out before the scene change (optional, default = true)</dd>
+<dt><i>FadeIn</i></dt>
+<dd>Whether the new scene should fade in after the scene change (optional, default = true)</dd>
+</dl>
+
+<hr>
+<h3><a name="AddResponse"></a>AddResponse(ID, Response, IconFilename, HoverIconFilename, PressedIconFilename, FontFilename)</h3>
+<p>Adds a single response sentence to the response box.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>ID</i></dt>
+<dd>An ID number of this response.</dd>
+<dt><i>Response</i></dt>
+<dd>A text of this reponse.</dd>
+<dt><i>IconFilename</i></dt>
+<dd>A filename of a sprite for this response (optional).</dd>
+<dt><i>HoverIconFilename</i></dt>
+<dd>A filename of a hover sprite for this response (optional).</dd>
+<dt><i>PressedIconFilename</i></dt>
+<dd>A filename of a pressed sprite for this response (optional).</dd>
+<dt><i>FontFilename</i></dt>
+<dd>Filename of font to be used for this response (optional).</dd>
+</dl>
+
+<hr>
+<h3><a name="AddResponseOnce"></a>AddResponseOnce(ID, Response, IconFilename, HoverIconFilename, PressedIconFilename, FontFilename)</h3>
+<p>Adds a single response sentence to the response box. The response is only added once per a dialogue branch.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>ID</i></dt>
+<dd>An ID number of this response.</dd>
+<dt><i>Response</i></dt>
+<dd>A text of this reponse.</dd>
+<dt><i>IconFilename</i></dt>
+<dd>A filename of a sprite for this response (optional).</dd>
+<dt><i>HoverIconFilename</i></dt>
+<dd>A filename of a hover sprite for this response (optional).</dd>
+<dt><i>PressedIconFilename</i></dt>
+<dd>A filename of a pressed sprite for this response (optional).</dd>
+<dt><i>FontFilename</i></dt>
+<dd>Filename of font to be used for this response (optional).</dd>
+</dl>
+<h4>Remarks</h4>
+<p>The engine will only add the response to the response box if it wasn't selected before by the player in the current dialogue branch. You must denote the dialogue branch using the Game.StartDlgBranch() and Game.EntDlgBranch() to make this method work.</p>
+
+<hr>
+<h3><a name="AddResponseOnceGame"></a>AddResponseOnceGame(ID, Response, IconFilename, HoverIconFilename, PressedIconFilename, FontFilename)</h3>
+<p>Adds a single response sentence to the response box. The response is only added once per a game session.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>ID</i></dt>
+<dd>An ID number of this response.</dd>
+<dt><i>Response</i></dt>
+<dd>A text of this reponse.</dd>
+<dt><i>IconFilename</i></dt>
+<dd>A filename of a sprite for this response (optional).</dd>
+<dt><i>HoverIconFilename</i></dt>
+<dd>A filename of a hover sprite for this response (optional).</dd>
+<dt><i>PressedIconFilename</i></dt>
+<dd>A filename of a pressed sprite for this response (optional).</dd>
+<dt><i>FontFilename</i></dt>
+<dd>Filename of font to be used for this response (optional).</dd>
+</dl>
+<h4>Remarks</h4>
+<p>The engine will only add the response to the response box if it wasn't selected before by the player before. You must denote a dialogue branch using the Game.StartDlgBranch() and Game.EntDlgBranch() to make this method work.</p>
+
+<hr>
+<h3><a name="ResetResponse"></a>ResetResponse(ID)</h3>
+<p>Revives a previously disabled response.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>ID</i></dt>
+<dd>An ID number of response to be revived.</dd>
+</dl>
+<h4>Remarks</h4>
+<p>If you add a response using the Game.AddResponseOnce() or Game.AddResponseOnceGame() methods, it gets disabled once the player selects it. Use the ResetResponse method to make such response reappear.</p>
+
+<hr>
+<h3><a name="GetResponse"></a>GetResponse(AutoSelectLastResp)</h3>
+<p>Displays a response box and waits for the player's choice.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>AutoSelectLastResp</i></dt>
+<dd>Specifies whether the last remaining response should be automatically selected (optional, defaul=false)</dd>
+</dl>
+<h4>Return value</h4>
+<p>An ID number of the selected response.</p>
+
+<hr>
+<h3><a name="GetNumResponses"></a>GetNumResponses()</h3>
+<p>Queries the number of remaining responses in the response box.</p>
+<h4>Return value</h4>
+<p>Returns the number of responses remaining in the response box.</p>
+<h4>Remarks</h4>
+<p>Some of the responses added by the AddResponseOnce or AddResponseOnceGame methods may have not been actually added to the response box. Use this method to find out how many responses currently really are prepared in the response box.</p>
+
+<hr>
+<h3><a name="GetInventoryWindow"></a>GetInventoryWindow()</h3>
+<p>Returns a reference to the window object used by the inventory box.</p>
+<h4>Return value</h4>
+<p>A reference to the inventory window object.</p>
+
+<hr>
+<h3><a name="GetResponsesWindow"></a>GetResponsesWindow()</h3>
+<p>Returns a reference to the window object used by the responses box.</p>
+<h4>Return value</h4>
+<p>A reference to the responses window object.</p>
+
+<hr>
+<h3><a name="StartDlgBranch"></a>StartDlgBranch(DialogueName)</h3>
+<p>Denotes a start of a dialogue branch.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>DialogueName</i></dt>
+<dd>A name of the dialogue branch. Dialogue names should be unique within one script file. The parameter is optional but it's recommended to specify a name.</dd>
+</dl>
+<h4>Remarks</h4>
+<p>Dialogue branches only need to be explicitly denoted if you want to use the Game.AddResponseOnce() or Game.AddResponseOnceGame() methods.</p>
+
+<hr>
+<h3><a name="EndDlgBranch"></a>EndDlgBranch(DialogueName)</h3>
+<p>Denotes an end of a dialogue branch.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>DialogueName</i></dt>
+<dd>A name of the dialogue branch. Dialogue names should be unique within one script file. The parameter is optional; if you don't specify a name, the inner-most dialogue branch is ended.</dd>
+</dl>
+<h4>Remarks</h4>
+<p>Dialogue branches only need to be explicitly denoted if you want to use the Game.AddResponseOnce() or Game.AddResponseOnceGame() methods.</p>
+
+<hr>
+<h3><a name="GetCurrentDlgBranch"></a>GetCurrentDlgBranch()</h3>
+<p>Queries a current dialogue branch name.</p>
+<h4>Return value</h4>
+<p>Returns the name of the current dialogue branch (started by the Game.StartDlgBranch method) or returns <b>null</b> if no dialgue branch has been started.</p>
+
+<hr>
+<h3><a name="LoadResponseBox"></a>LoadResponseBox(Filename)</h3>
+<p>Reloads a response box from file.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The response-box definition file to be loaded.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the method succeeded.</p>
+
+<hr>
+<h3><a name="LoadInventoryBox"></a>LoadInventoryBox(Filename)</h3>
+<p>Reloads an inventory box from file.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The inventory-box definition file to be loaded.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the method succeeded.</p>
+
+<hr>
+<h3><a name="LoadItems"></a>LoadItems(Filename, Merge)</h3>
+<p>Loads inventory items from a definition file.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The items definition file to be loaded</dd>
+<dt><i>Merge</i></dt>
+<dd>The new items will be merged with existing ones (optional, default=false)</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the items were successfuly loaded.</p>
+
+<hr>
+<h3><a name="TakeItem"></a>TakeItem(ItemName, InsertAfter)</h3>
+<p>Adds an item into the inventory.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>ItemName</i></dt>
+<dd>A name of the item to be added to object's inventory.</dd>
+<dt><i>InsertAfter</i></dt>
+<dd>A name of the item which the new item should be inserted after (optional).</dd>
+</dl>
+
+<hr>
+<h3><a name="DropItem"></a>DropItem(ItemName)</h3>
+<p>Removes an item from the inventory.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>ItemName</i></dt>
+<dd>A name of the item to be removed from object's inventory.</dd>
+</dl>
+
+<hr>
+<h3><a name="GetItem"></a>GetItem(ItemIndex)<br>GetItem(ItemName)</h3>
+<p>Queries an inventory item.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>ItemIndex</i></dt>
+<dd>An index of a <b>taken item</b> to be queried.</dd>
+<dt><i>ItemName</i></dt>
+<dd>A name of an inventory item to be queried.</dd>
+</dl>
+<h4>Return value</h4>
+<p>A reference to the item object of a given name or at a given index in the inventory.</p>
+
+<hr>
+<h3><a name="HasItem"></a>HasItem(ItemName)<br>HasItem(ItemObject)</h3>
+<p>Queries whether a given item is in inventory of any of this object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>ItemName</i></dt>
+<dd>A name of the item to be queried.</dd>
+<dt><i>ItemObject</i></dt>
+<dd>Reference to the item object to be queried.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the specified item is in the inventory of this object, the return value is <b>true</b>.</p>
+<h4>Remarks</h4>
+<p>Note that this method only searches the current object, use the <b>Game.IsItemTaken()</b> method if you want to search all game objects.</p>
+
+<hr>
+<h3><a name="IsItemTaken"></a>IsItemTaken(ItemName)<br>IsItemTaken(ItemObject)</h3>
+<p>Queries whether a given item is in inventory of any of the game objects.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>ItemName</i></dt>
+<dd>A name of the item to be queried.</dd>
+<dt><i>ItemObject</i></dt>
+<dd>Reference to the item object to be queried.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the specified item is in the inventory, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="CreateEntity"></a>CreateEntity(Name)</h3>
+<p>Creates a new entity object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Name</i></dt>
+<dd>The name of the entity object (optional)</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns a reference to the newly created entity.</p>
+
+<hr>
+<h3><a name="DeleteEntity"></a>DeleteEntity(Entity)</h3>
+<p>Destroys a entity object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Entity</i></dt>
+<dd>The entity object to be destroyed</dd>
+</dl>
+
+<hr>
+<h3><a name="CreateWindow"></a>CreateWindow(Name)</h3>
+<p>Creates a new window object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Name</i></dt>
+<dd>The name of the window object (optional)</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns a reference to the newly created window.</p>
+
+<hr>
+<h3><a name="DeleteWindow"></a>DeleteWindow(Window)</h3>
+<p>Destroys a window object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Window</i></dt>
+<dd>The window object to be destroyed</dd>
+</dl>
+
+<hr>
+<h3><a name="CreateItem"></a>CreateItem(Name)</h3>
+<p>Creates a new inventory item object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Name</i></dt>
+<dd>The name of the item object (optional)</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns a reference to the newly created item.</p>
+
+<hr>
+<h3><a name="DeleteItem"></a>DeleteItem(Item)</h3>
+<p>Destroys an item object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Item</i></dt>
+<dd>The item object to be destroyed</dd>
+</dl>
+<h4>Remarks</h4>
+<p>This method permanently destroys the inventory item. You can no longer reference it in methods like TakeItem etc.</p>
+
+<hr>
+<h3><a name="SetShadowImage"></a>SetShadowImage(Filename)</h3>
+<p>Sets and image to be used as a simple shadow for 3D characters</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of an image to be used</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the image has been successfuly set.</p>
+
+<hr>
+<h3><a name="GetShadowImage"></a>GetShadowImage()</h3>
+<p>Gets the currently assigned image to be used as a simple shadow for 3D characters</p>
+<h4>Return value</h4>
+<p>Returns the filename of currently assigned shadow image or <b>null</b> if no image is set.</p>
+
+
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+FONT
+{
+  IMAGE = "fonts\franklin.bmp"
+  TRANSPARENT = 255,0,255
+  COLUMNS = 16
+  TILE_WIDTH = 32
+  TILE_HEIGHT = 32
+  AUTO_WIDTH = TRUE
+}

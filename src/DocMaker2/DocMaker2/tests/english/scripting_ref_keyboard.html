@@ -1,0 +1,75 @@
+<html>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="WME DocMaker 2.0">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Keyboard object</title>
+<link rel="stylesheet" type="text/css" href="../../styles.css">
+</head>
+
+<body>
+<!-- Generated on 7.11.2005 18:05:37, settings file: english -->
+
+<h3>Keyboard object</h3>
+<p>
+The Keyboard object represents the current state of the keyboard. There is always one and only Keyboard object available. It's accessible via the Game.Keyboard attribute. For the convenience the templates automatically store the keyboard object in a global variable named <b>Keboard</b>.
+</p>
+
+<br>
+
+<h4>Methods</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%"><a href="#IsKeyDown">IsKeyDown</a></td>
+    <td>Queries whether a specified key is pressed.</td>
+  </tr>
+</table>
+
+<h4>Attributes</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%">Type (read only)</td>
+    <td>Returns always "keyboard"</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Key (read only)</td>
+    <td>Returns a string with the name of the pressed key (if the key is a printable character)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Printable (read only)</td>
+    <td>Returns <b>true</b> if the pressed key is a printable character</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">KeyCode (read only)</td>
+    <td>Returns a numeric code of a pressed key.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">IsShift (read only)</td>
+    <td>Returns <b>true</b> if the SHIFT key has been hold down when the key was pressed</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">IsAlt (read only)</td>
+    <td>Returns <b>true</b> if the ALT key has been hold down when the key was pressed</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">IsControl (read only)</td>
+    <td>Returns <b>true</b> if the CONTROL key has been hold down when the key was pressed</td>
+  </tr>
+</table>
+
+<hr>
+<h3><a name="IsKeyDown"></a>IsKeyDown(Key)</h3>
+<p>Queries whether a specified key is pressed.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Key</i></dt>
+<dd>The key to be querried (either a string, such as "A", or a numeric constant)</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the key is pressed down.</p>
+<h4>Remarks</h4>
+<p>The available key names are defined as constants in the "scripts\keys.inc" file</p>
+
+
+</body>
+
+</html>

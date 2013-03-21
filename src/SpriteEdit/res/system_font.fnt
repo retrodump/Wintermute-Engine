@@ -1,0 +1,8 @@
+FONT {
+  IMAGE = "system_font.bmp"
+  TRANSPARENT = 255,0,255
+  COLUMNS = 32
+  TILE_WIDTH = 8
+  TILE_HEIGHT = 16
+  DEFAULT_WIDTH = 8
+}

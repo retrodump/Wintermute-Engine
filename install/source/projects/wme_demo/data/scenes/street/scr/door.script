@@ -1,0 +1,18 @@
+#include "scripts\base.inc"
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "LeftClick"
+{
+  actor.GoToObject(this);
+  Game.PlaySound("sounds\door_open.ogg");
+  Game.ChangeScene("scenes\room\room.scene");
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "LeftDoubleClick" {
+  actor.GoToObjectAsync(this);
+  Sleep(500);
+  Game.ChangeScene("scenes\room\room.scene");
+}

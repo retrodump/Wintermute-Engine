@@ -1,0 +1,12 @@
+#include "scripts\base.inc"
+
+on "footstep"
+{
+  this.PlaySound("sounds\footstep" + Random(1, 3) + ".ogg");
+  //this.PlaySound("sounds\footstep2.wav");
+}
+
+on "LeftClick"
+{
+  actor.PlayAnimChannelAsync(1, "hold");
+}

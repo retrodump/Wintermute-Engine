@@ -1,0 +1,18 @@
+; $EDITOR_PROJECT_ROOT_DIR$ ..\..\..\
+
+ENTITY
+{
+  NAME="oldguy"
+  CAPTION="Old guy"
+  ACTIVE=TRUE
+  X=200
+  Y=200
+  SCALABLE=TRUE
+  INTERACTIVE=TRUE
+  COLORABLE=TRUE
+  SPRITE="entities\oldguy\sprites\default.sprite"
+  TALK="entities\oldguy\sprites\talk.sprite"
+
+  SCRIPT="entities\oldguy\oldguy.script"
+  FONT = "fonts\outline_white.font"
+}

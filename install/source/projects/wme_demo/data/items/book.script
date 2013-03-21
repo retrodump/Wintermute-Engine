@@ -1,0 +1,24 @@
+#include "scripts\base.inc"
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "LookAt"
+{
+  actor.Talk("Guess I should read through this...");
+}
+
+////////////////////////////////////////////////////////////////////////////////
+on "Take"
+{
+  Game.SelectedItem = "book";
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "Money"
+{
+  Game.Interactive = false;
+  actor.Talk("I guess I *could* hide the money in the book...");
+  actor.Talk("But why would I want to do that?");
+  Game.Interactive = true;
+}

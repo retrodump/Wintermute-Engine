@@ -1,0 +1,40 @@
+#include "scripts\base.inc"
+
+var Caption = this.GetControl("credit");
+
+DoCredit("Wintermute Engine Technology Demo 1.2");
+DoCredit("Music by NaRCo, (c) 2004");
+DoCredit("(NaRCo appears courtesy of Nihilis Games)");
+DoCredit("Ugly graphics and scripting by Mnemonic");
+DoCredit("");
+
+this.Visible = false;
+
+
+////////////////////////////////////////////////////////////////////////////////
+function DoCredit(Text)
+{
+	var i;
+	
+	// hide old credit
+	for(i = 255; i>=0; i=i-10)
+	{
+		this.AlphaColor = RGB(255, 255, 255, i);
+		Sleep(80);
+	}
+	this.AlphaColor = RGB(255, 255, 255, 0);
+	
+	Caption.Text = Text;
+	Sleep(500);
+
+	// show new credit
+	for(i = 0; i<=255; i=i+10)
+	{
+		this.AlphaColor = RGB(255, 255, 255, i);
+		Sleep(80);
+	}
+	this.AlphaColor = RGB(255, 255, 255, 255);
+	
+	Sleep(5000);
+
+}

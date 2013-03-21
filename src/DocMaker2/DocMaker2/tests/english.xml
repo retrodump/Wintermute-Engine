@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<DocMakerSettings>
+  <TxtOutputXmlFile>E:\projects\dcgf\install\source\wme_docs_core_en.xml</TxtOutputXmlFile>
+  <CmbHtmlOutputCodepage>Central European (Windows)</CmbHtmlOutputCodepage>
+  <TxtHtmlOutputPath>E:\projects\dcgf\doc\html\wme\generated</TxtHtmlOutputPath>
+  <TxtExtensions>txt</TxtExtensions>
+  <CmbInputCodepage>Central European (Windows)</CmbInputCodepage>
+  <TxtInputPath>E:\projects\dcgf\doc\source\eng</TxtInputPath>
+  <TxtTermConstructors>Constructors</TxtTermConstructors>
+  <TxtTermReadOnly>read only</TxtTermReadOnly>
+  <TxtTermGlobalVariables>Global variables</TxtTermGlobalVariables>
+  <TxtTermGlobalFunctions>Global functions</TxtTermGlobalFunctions>
+  <TxtTermExample>Example</TxtTermExample>
+  <TxtTermRemarks>Remarks</TxtTermRemarks>
+  <TxtTermReturn>Return value</TxtTermReturn>
+  <TxtTermParameters>Parameters</TxtTermParameters>
+  <TxtTermEvents>Low level events</TxtTermEvents>
+  <TxtTermAttributes>Attributes</TxtTermAttributes>
+  <TxtTermMethods>Methods</TxtTermMethods>
+  <TxtTermLanguage>en-us</TxtTermLanguage>
+</DocMakerSettings>

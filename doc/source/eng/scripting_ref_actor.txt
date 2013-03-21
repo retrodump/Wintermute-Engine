@@ -1,0 +1,101 @@
+*tit Actor object
+*des The Actor object allows you to access the properties of your actors. Actor objects are created  by loading an actor definition file using the Game.LoadActor or Scene.LoadActor methods.
+*cls CAdActor
+
+*inc inc_adobject_methods_2D.inc
+*inc inc_object_misc.inc
+
+*grp Actions
+
+*met GoTo(X, Y)
+*mt2 GoToAsync(X, Y)
+*des Makes the actor walk to a given point.
+*par X The X coordinate of the target walking point
+*par Y The Y coordinate of the target walking point
+*rem The GoTo method blocks the script execution until the walking is over, while the GoToAsync method returns immediately.
+
+*met GoToObject(Entity)
+*mt2 GoToObjectAsync(Entity)
+*des Makes the actor walk to a specified entity.
+*par Entity The entity object the actor should walk and turn to
+*rem This method utilizes the WalkToX, WalkToY and WalkToDirection properties of the target entity. They can be set directly in SceneEdit.
+
+
+*met TurnTo(Direction)
+*mt2 TurnTo(Object)
+*mt2 TurnToAsync(Direction)
+*mt2 TurnToAsync(Object)
+*des Makes actor turn to the given direction or to a given object.
+*par Direction The direction to turn to
+*par Object The object to turn to
+*rem The TurnTo method blocks the script execution until the turning is over, while the TurnToAsync method returns immediately. The direction can be one of the following constants: DI_UP, DI_UPRIGHT, DI_RIGHT, DI_DOWNRIGHT, DI_DOWN, DI_DOWNLEFT, DI_LEFT or DI_UPLEFT (those equal to numbers 0 to 7).
+
+*met IsWalking()
+*des Queries whether the actor is currently walking.
+*ret Returns <b>true</b> if the actor is walking.
+
+
+*met SetSprite(Filename)
+*des Sets the sprite to be used instead of actor's standing animations.
+*par Filename The filename of the sprite file to be used.
+*ret If the method succeeds, the return value is <b>true</b>.
+*rem Use <b>null</b> as a parameter to reset the default behaviour.
+
+*met GetSprite()
+*des Queries a sprite set by SetSprite().
+*ret Returns filename of the currently assigned sprite or <b>null</b>.
+
+*met GetSpriteObject()
+*des Queries a sprite set by SetSprite().
+*ret Returns a reference to the currently assigned sprite object or <b>null</b>.
+
+*met MergeAnims(Filename)
+*des Loads one or more animation sets from a file
+*par Filename The name of the file containing animation sets
+*ret Returns <b>true</b> if the method succeeded.
+*rem The file should only contain one or more ANIMATION blocks, as described in the "Actors" chapter.
+
+*met UnloadAnim(AnimationName)
+*des Unloads a specified animation set from memory
+*par AnimationName The name of the animation set to be unloaded
+*ret Returns <b>true</b> if the method succeeded.
+
+*met HasAnim(AnimationName)
+*des Checks if the actor has an animation set with the specified name
+*par AnimationName The name of the animation set to be queried
+*ret Returns <b>true</b> if the actor has an animation set with the specified name.
+
+
+*inc inc_inventory.inc 
+
+*inc inc_object_cursor.inc
+*inc inc_object_script.inc
+*inc inc_object_sound.inc
+*inc inc_object_events.inc
+
+*grp 
+
+*atr Type
+*des Returns always "actor"
+*ro
+
+*atr Direction
+*des The direction the actor is currently facing
+
+*inc inc_adobject_attr.inc 
+*inc inc_object_attr_2D.inc
+
+*atr TalkAnimName
+*des The name of an animation set to be used for talking
+
+*atr WalkAnimName
+*des The name of an animation set to be used for walking
+
+*atr IdleAnimName
+*des The name of an animation set to be used for standing still
+
+*atr TurnLeftAnimName
+*des The name of an animation set to be used for turning left (counter clockwise)
+
+*atr TurnRightAnimName
+*des The name of an animation set to be used for turning right (clockwise)

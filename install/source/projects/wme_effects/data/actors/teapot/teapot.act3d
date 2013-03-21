@@ -1,0 +1,16 @@
+ACTOR3DX
+{
+  NAME = "teapot"
+  CAPTION = "Teapot"
+  INTERACTIVE = TRUE
+  ACTIVE = TRUE
+  SCRIPT = "actors\teapot\teapot.script"
+  LIGHT_POSITION { -40, 200, -40 }
+  SCALE = 180
+
+  ;--- external data
+  MODEL = "actors\teapot\teapot.x"
+
+
+  ANGULAR_VELOCITY = 400.0
+}

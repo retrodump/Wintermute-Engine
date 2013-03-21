@@ -1,0 +1,55 @@
+#include "scripts\base.inc"
+
+// this script runs in an endless loop and does all the user-interface work
+// that needs to be periodically updated
+// such as the floating items captions display and positioning
+// and the sliding inventory window handling
+
+
+global WinCaption;
+global WinMenu;
+
+// infinite loop
+while(true){
+
+  // save the active object for later
+  var ActObj = Game.ActiveObject;
+
+  // handle the standard foating caption
+  if(Game.Interactive && ActObj!=null)
+  {
+    if (Game.SelectedItem==null)
+    {
+      WinCaption.X = Game.MouseX;
+      WinCaption.Y = Game.MouseY + 20;
+      WinCaption.TextAlign = TAL_LEFT;
+      WinCaption.Text = ActObj.Caption;
+
+      // keep the caption on screen
+      WinCaption.SizeToFit();
+      if(WinCaption.X + WinCaption.Width > Game.ScreenWidth) WinCaption.X = Game.ScreenWidth - WinCaption.Width;
+      if(WinCaption.Y + WinCaption.Height > Game.ScreenHeight) WinCaption.Y = Game.ScreenHeight - WinCaption.Height;
+	  }
+    // handle the caption when you want to use an object with another
+    else {
+      var Item = Game.SelectedItem;
+
+      WinCaption.X = 0;
+      WinCaption.Y = 580;
+      WinCaption.Width = Game.ScreenWidth;
+      WinCaption.TextAlign = TAL_CENTER;
+      WinCaption.Text = "Use " + Item.Caption + " with " + ActObj.Caption;
+    }
+    WinCaption.Visible = true;
+    WinCaption.Focus();
+  }
+  else WinCaption.Visible = false;
+
+  // display the inventory window
+  if(Game.Interactive && Game.MouseY < 45 && !Game.ResponsesVisible && !WinMenu.Visible) Game.InventoryVisible = true;
+  else if(Game.MouseY > 100 || Game.ResponsesVisible || !Game.Interactive) Game.InventoryVisible = false;
+
+  // go to sleep for 20 miliseconds to allow the engine to perform other tasks
+  // it is important for the "endless" scripts to call the Sleep command, otherwise the game will get stuck
+  Sleep(20);
+}

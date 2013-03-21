@@ -1,0 +1,13 @@
+; $EDITOR_PROJECT_ROOT_DIR$ $$PROJECT_ROOT$$
+
+SPRITE
+{
+  LOOPING = TRUE
+
+  FRAME{
+    DELAY = 90
+    IMAGE = "$$BASE_PATH$$\ul\00.bmp"
+    HOTSPOT {75,227}
+    MOVE {-8,-8}
+  }
+}

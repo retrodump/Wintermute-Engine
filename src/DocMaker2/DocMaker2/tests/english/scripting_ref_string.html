@@ -1,0 +1,179 @@
+<html>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="WME DocMaker 2.0">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>String object</title>
+<link rel="stylesheet" type="text/css" href="../../styles.css">
+</head>
+
+<body>
+<!-- Generated on 7.11.2005 18:05:37, settings file: english -->
+
+<h3>String object</h3>
+<p>
+The String objects allow you to perform advanced string manipulations. The String object can be created using the one of the following syntaxes:
+<br><br>
+<table border="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" cellpadding="0" id="AutoNumber4">
+<tr>
+<td class="code"><pre>
+var StrObject = new String("Initial value");
+var FixedString = new String(256); // create an empty string, 256 characters long
+</pre></td>
+</tr>
+</table>
+<br>
+The second variation allows you to allocate a fixed text buffer which can be used to communicate with external DLL libraries.
+</p>
+
+<br>
+
+<h4>Constructors</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%"><a href="#String1">String</a></td>
+    <td>Creates an empty string object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#String2">String</a></td>
+    <td>Creates a new string object and assigns it a specified value.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#String3">String</a></td>
+    <td>Creates a new string buffer of a specified size</td>
+  </tr>
+</table>
+
+<h4>Methods</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%"><a href="#Substring">Substring</a></td>
+    <td>Extracts a substring by specifying the start and end positions within the original string </td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#Substr">Substr</a></td>
+    <td>Extracts a substring by specifying the start position and length of the fragment</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ToUpperCase">ToUpperCase</a></td>
+    <td>Converts the string to upper case</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ToLowerCase">ToLowerCase</a></td>
+    <td>Converts the string to lower case</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#IndexOf">IndexOf</a></td>
+    <td>Searches the string for a specified substring.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#Split">Split</a></td>
+    <td>Splits string into a list of values.</td>
+  </tr>
+</table>
+
+<h4>Attributes</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%">Type (read only)</td>
+    <td>Returns always "string"</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Length (read only)</td>
+    <td>Returns the length of the string (in characters)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Capacity</td>
+    <td>Specifies the current size of the underlying character buffer of this string object.</td>
+  </tr>
+</table>
+
+<hr>
+<h3><a name="String1"></a>String()</h3>
+<p>Creates an empty string object.</p>
+
+<hr>
+<h3><a name="String2"></a>String(StringValue)</h3>
+<p>Creates a new string object and assigns it a specified value.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>StringValue</i></dt>
+<dd>The string value to be assigned to the string object</dd>
+</dl>
+
+<hr>
+<h3><a name="String3"></a>String(BufferSize)</h3>
+<p>Creates a new string buffer of a specified size</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>BufferSize</i></dt>
+<dd>The size of the string buffer to be allocated</dd>
+</dl>
+<h4>Remarks</h4>
+<p>String objects created this way are intended for passing fixed string buffers to DLL libraries</p>
+
+<hr>
+<h3><a name="Substring3"></a>Substring(Start, End)</h3>
+<p>Extracts a substring by specifying the start and end positions within the original string </p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Start</i></dt>
+<dd>A start position of the substring to be extracted</dd>
+<dt><i>End</i></dt>
+<dd>An end position of the substring to be extracted</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns the extracted substring.</p>
+
+<hr>
+<h3><a name="Substr3"></a>Substr(Start, Length)</h3>
+<p>Extracts a substring by specifying the start position and length of the fragment</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Start</i></dt>
+<dd>A start position of the substring to be extracted</dd>
+<dt><i>Length</i></dt>
+<dd>A length of the substring to be extracted (optional, defaults to the end of the string)</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns the extracted substring.</p>
+
+<hr>
+<h3><a name="ToUpperCase3"></a>ToUpperCase()</h3>
+<p>Converts the string to upper case</p>
+<h4>Return value</h4>
+<p>Returns the string converted to upper case.</p>
+
+<hr>
+<h3><a name="ToLowerCase3"></a>ToLowerCase()</h3>
+<p>Converts the string to lower case</p>
+<h4>Return value</h4>
+<p>Returns the string converted to lower case.</p>
+
+<hr>
+<h3><a name="IndexOf3"></a>IndexOf(Substring, Starting)</h3>
+<p>Searches the string for a specified substring.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Substring</i></dt>
+<dd>A substring to search for</dd>
+<dt><i>Starting</i></dt>
+<dd>A position from which to start searching (optional, defaults to the beginning of the string)</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns the position of the substring within the searched string or -1 of the substring cannot be found.</p>
+
+<hr>
+<h3><a name="Split3"></a>Split(Separators)</h3>
+<p>Splits string into a list of values.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Separators</i></dt>
+<dd>Characters to be used as item separators (optional, default=",")</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns an <b>Array</b> object containing items of an original string.</p>
+
+
+</body>
+
+</html>

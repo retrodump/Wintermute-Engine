@@ -1,0 +1,45 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Wide screen support</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h2>Wide screen support</h2>
+<p>WME provides basic means of running games using normal screen aspect ratio on 
+wide screen monitors and vice versa, without image distortions.</p>
+<h3>Maintain aspect ratio</h3>
+<p>If the engine detects that the game aspect ratio is different from monitor 
+aspect ratio, the startup settings dialog will contain a check-box titled 
+&quot;Maintain aspect ratio&quot;. When checked, the game will not use the resolution 
+defined in ProjectMan, but a nearest higher &quot;aspect ratio friendly&quot; resolution. 
+The game viewport will be displayed in the center of the screen and the 
+remaining space will be filled with black.</p>
+<p>The whole point is to prevent image distortions caused by different aspect 
+ratios. Some people believe this should be handled entirely by video card 
+drivers, but since current drivers are far from perfect in this respect, this 
+feature is natively supported by the engine.</p>
+<p>Please note, that WME does not differentiate between different wide screen 
+aspect ratios. For example both 16:9 and 16:10 ratios are treated the same. This 
+feature is really only intended for compensating between normal aspect and wide 
+aspect scenarios. Also, the game viewport is never stretched or shrunk. It 
+remains exactly the same size as you defined in ProjectMan.</p>
+<h3>Use desktop resolution</h3>
+<p>There is one more related feature, requested by some WME users - the ability 
+to use desktop resolution. In this case, the game will use the same resolution 
+as user's desktop, the game viewport will be centered on screen, and the 
+remaining space will be filled with black. It's equivalent to running the game 
+in windowed mode, only in this case the window frame and other open windows are 
+hidden, which is preferred by some players. The reasoning behind this feature is 
+to allow the players to use native resolution of LCD monitors.</p>
+<p>The &quot;Use desktop resolution&quot; option is disabled by default. If you want to 
+make it available to your players, enable this option in project settings in 
+ProjectMan.</p>
+
+</body>
+
+</html>

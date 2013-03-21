@@ -1,0 +1,21 @@
+INVENTORY_BOX
+{
+  ITEM_WIDTH = 60
+  ITEM_HEIGHT = 60
+  SPACING = 10
+  SCROLL_BY = 1
+  HIDE_SELECTED = TRUE
+
+  AREA { 30, 5, 765, 65 }
+  EXCLUSIVE = FALSE
+;  ALWAYS_VISIBLE = TRUE
+
+  WINDOW
+  {
+    X = 0
+    Y = 0
+    WIDTH = 800
+    HEIGHT = 90
+    IMAGE = "interface\inventory.tga"  
+  }
+}

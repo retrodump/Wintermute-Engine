@@ -1,0 +1,55 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>WME architecture</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h1>WME architecture</h1>
+<p>WME design is strictly object oriented. 
+You build your game by creating several types of “objects” and connecting them together 
+using the application logic. You manage your game objects using the <i>ProjectMan</i> 
+tool. </p>
+<p>The most commonly used objects are:</p>
+<p><b>Scenes</b> 
+– Your game consists of several scenes, these are the “rooms”, the world, or the 
+environment where your game takes place. You create the scenes using the <i>SceneEdit</i> 
+tool.</p>
+<p><b>Actors</b> 
+– Actors are the characters appearing in your game. You’ll usually have one main 
+actor (the main hero, controlled by the player) and possibly several other actors 
+(NPC’s – non-player characters).</p>
+<p><b>Entities</b> 
+– Entities are generic interactive or non-interactive objects in your game world. 
+The scenes are built of entities (you can think of the entities as of the theatre 
+properties). You can also use entities to make simple characters, which don’t walk 
+(normally you’d use an actor object to create a game character, but as long as the 
+character doesn’t walk, it much simpler to use an entity instead). </p>
+<p><b>GUI objects</b> 
+– WME allows you to create simple graphical user interface elements, such as windows, 
+with buttons and fill-in fields. You can use those to design your game’s user interface, 
+like save/load windows, game settings, in-game menus etc.</p>
+<p><b>Fonts</b> – 
+WME uses either graphical (bitmap) fonts or TrueType fonts to display captions, subtitles, GUI elements etc. 
+You can create your own fonts matching your game’s graphical style.</p>
+<p><b>Sprites</b> 
+– A “sprite” is the basic graphical element used in WME. It can be either a static 
+image or an animation. The sprites are used to build up the other complex objects 
+such as actors and entities. You can create the sprites using the <i>SpriteEdit</i> 
+tool.</p>
+<p>But your game is really brought to life 
+by the <b>scripts</b>. The scripts are simple programs, which provide the actual 
+game logic. You can attach the scripts to the objects and those scripts can be than 
+executed when a certain event occurs. WME uses its own scripting language, which 
+is actually a simplified version of JavaScript. If you are already familiar with 
+JavaScript you shouldn’t have problems writing your own WME scripts.</p>
+
+</body>
+
+</html>

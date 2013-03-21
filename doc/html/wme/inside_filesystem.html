@@ -1,0 +1,106 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Packages and file system in WME</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h2>Packages and file system in WME</h2>
+<ul>
+  <li><a href="#files">Referencing project files</a></li>
+  <li><a href="#packages">Packages</a></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3><a name="files"></a>Referencing project files</h3>
+
+<p>Your game project typically consists of lots of various files, such as 
+images, animations, scripts, sounds etc. <a href="inside_projectman.html">WME 
+ProjectMan utility</a> helps you to keep track of your files and to navigate 
+easily.</p>
+
+<p>When developing the game, you often need to reference other project files, 
+for example when calling an animation from a script. In that case, you have to 
+specify the full path to the file, relative to <u>package root</u> (more on 
+packages <a href="#packages">later</a>). For example, to specify a path to a 
+certain scene from a script, the path will be something like this:</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td class="code">
+<pre>Game.ChangeScene(&quot;scenes\room\room.scene");
+</pre>    
+    </td>
+  </tr>
+</table>
+
+<p>If unsure, you can always use the &quot;Copy filename&quot; command in ProjectMan. To 
+do so, locate the file you want to reference in the project tree, right-click 
+it, and select &quot;Copy filename&quot;. This will place the path in correct format into 
+your clipboard. Now simply paste it into your script.</p>
+
+<p align="center"><img border="0" src="../img/filesystem-1.png" width="303" height="309"></p>
+
+<p align="left">&nbsp;</p>
+
+<h3 align="left"><a name="packages"></a>Packages</h3>
+
+<p align="left">WME introduces a distribution system based on so-called 
+packages. Packages are special files containing game resources in a compressed 
+form (similar to zip archives). Once you compile your game, you can choose to 
+store all the resources in one or more packages. Why to have multiple packages? 
+There are many reasons. Here are some basic uses for packages:</p>
+
+<p align="left"><b>Voice packs - </b>You can store all the speech sounds in a 
+separated package, creating a &quot;voice pack&quot; available separately for download, to 
+reduce size of the basic package.</p>
+
+<p align="left"><b>Localization packages</b> - If you are creating multilingual 
+game, you can divide game resources to normal and localizable. While the basic 
+package remains intact, you can safely translate the localization package to 
+other languages. Then, simply by replacing a single file your game can be 
+switched to other language. The localization package can contain not only a 
+translated string table, but also fonts with different codepage, localized 
+graphics, or even localized sounds/speech.</p>
+
+<p align="left"><b>Patches</b> - The packages can have a certain &quot;priority&quot;. If 
+multiple packages contain the same file, WME will select the right one based on 
+the priority of each package. It means you can create patch packages, with a 
+higher priority than the basic game packages. Those patches can contain fixed 
+files and WME will use them instead the original ones.</p>
+
+<p align="left">There can be other uses for packages, such as bonus content, 
+individual game episodes distributed as separate packages etc.</p>
+
+<p align="left">&nbsp;</p>
+
+<p align="left">After you create a new project in ProjectMan, there is only one 
+package, called &quot;data&quot;. To create a new package, right click the project tree 
+pane somewhere outside the tree and select the &quot;Create folder...&quot; command.</p>
+
+<p align="center"><img border="0" src="../img/filesystem-2.png" width="268" height="174"></p>
+
+<p align="left">This will create a new folder at the same level as the &quot;data&quot; 
+folder. Now, right-click the new folder and select the &quot;Promote to package&quot; 
+command. From now on, the folder will act as a new package.</p>
+
+<p align="center"><img border="0" src="../img/filesystem-3.png" width="232" height="191"></p>
+
+<p align="left">The new package can contain subfolders, files etc. After you 
+compile the game, you'll see there are two packages created, the basic &quot;data&quot; 
+packages, and the new one.</p>
+
+<p align="left">If you select a package in the project tree, you can set its 
+properties in the properties pane, including the priority, as discussed above.</p>
+
+<p align="center"><img border="0" src="../img/filesystem-4.png" width="305" height="120"></p>
+
+</body>
+
+</html>

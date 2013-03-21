@@ -1,0 +1,127 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C3E156C3-F039-4104-90F7-651CB406EACF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DeadCode.WME.Debugger</RootNamespace>
+    <AssemblyName>DeadCode.WME.Debugger</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DebugClient.cs" />
+    <Compile Include="DebugWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DebugWindow.Designer.cs">
+      <DependentUpon>DebugWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormWatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormWatch.Designer.cs">
+      <DependentUpon>FormWatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\IDebugServer.cs" />
+    <Compile Include="Interfaces\IWmeObject.cs" />
+    <Compile Include="Interfaces\IWmeScript.cs" />
+    <Compile Include="Interfaces\IWmeValue.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Script.cs" />
+    <Compile Include="ScriptScope.cs" />
+    <Compile Include="ScriptVariableProvider.cs" />
+    <Compile Include="ScriptViewer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ScriptViewer.Designer.cs">
+      <DependentUpon>ScriptViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Variable.cs" />
+    <Compile Include="WatchProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DebugWindow.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DebugWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormWatch.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormWatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScriptViewer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ScriptViewer.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\asm\DocMaker\DocMaker\DocMaker.csproj">
+      <Project>{472A4C7D-EAA0-4549-B06B-7539C98F8AA4}</Project>
+      <Name>DocMaker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\asm\Global\Global\Global.csproj">
+      <Project>{DA8FF13F-661C-48CE-8060-0CEB05033923}</Project>
+      <Name>Global</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\pin.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\breakpoint.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\step.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icons\continue.bmp" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

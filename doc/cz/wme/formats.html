@@ -1,0 +1,149 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Podporované formáty souborů</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h1>Podporované formáty souborů</h1>
+<p>Herní <i>objekty</i> a další data (jako například grafika a zvuky) jsou
+uloženy normálně jako soubory na vašem počítači. V této kapitole se dozvíte,
+jaké formáty souborů erní engine podporuje. Pokud máte vaše data v jiném
+formátu, budete je muset nejprve překonvertovat do jednoho z podporovaných.</p>
+
+<p>&nbsp;</p>
+
+<h2><a name="gfx_formats"></a>Formáty souborů pro uložení grafiky</h2>
+<p>Pro uložení grafiky používá WME následující čtyři formáty:</p>
+<p><b>BMP soubory</b> - Formát BMP (bitmapa) je velice běžný a lze jej vytvořit
+téměř v jakémkoli grafickém editoru (včetně programu Malování, který
+ke součástí Windows). WME podporuje bitmapy s barevnou hloubkou 8, 16, 24 a
+32 bitů. Nevýhodou souborů BMP je, že nejsou nijak komprimovány a zabírají
+hodně místa. Nicméně výsledné datvé soubory hry ve WME jsou stejně
+komprimovány, takže na tom až tak moc nezáleží.</p>
+<p><b>TGA soubory</b> - Formát TGA (Targa) je podobný formátu BMP. Oproti němu
+mohou být TGA soubory komprimovány, tudíž jsou o něco menší. Ovšem hlavním
+rozdílem oproti BMP je podpora pro takzvaný alfa-kanál (alpha channel).
+Alfa-kanál je neviditelná vrstva, uložená uvnitř obrázku, která udává
+stupeň průhlednosti v jednotlivých bodech obrázku. To je pro herní grafiku
+velice velice užitečné. Dejte si ovšem pozor na to, že WME podporuje
+alfa-kanál jen pokud běží v &quot;akcelerovaném&quot; módu. WME podporuje
+TGA soubory s barevnou hloubkou 8, 16, 24 a 32 bitů s alfa-kanálem i bez něj.</p>
+
+<p><b>PNG soubory</b> - PNG (Portable Network Graphics) je moderní grafický
+formát. Používá efektivní bezztrátovou kompresi a stejně jako TGA soubory
+podporuje alfa-kanál. WME podporuje PNG soubory s barevnou hloubkou 8, 16, 24 a
+32 bitů s alfa-kanálem i bez něj.&nbsp;</p>
+
+<p><b>JPG soubory</b> - Formát JPG byl navržen pro fotorealistické obrázky.
+Používá ztrátovou kompresi, proto jsou výsledné obrázky obvykle mnohem
+menší, než u ostatních formátů, ovšem za cenu ztráty kvality. Formát
+JPG je použitelný pouze pro obrázky bez žádných průhledných míst, to v
+praxi znamená, že jej můžete použít pro jednolitá pozadí scén, ale
+NIKDY je nepoužívejte pro sprity a či částečně průhledné obrázky
+(postavy atd.), průhlednost u nich nebude fungovat.&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<h2><a name="sfx_formats"></a>Formáty souborů pro uložení zvuků</h2>
+<p>WME podporuje dva formáty pro uložení zvuků a hudby:</p>
+
+<p><b>WAV soubory</b> – Formát WAV je běžně používán na platformě
+Windows a proto jej podporuje většina nástrojů pro editaci zvuků. WME
+podporuje pouze nekomprimované (PCM kódované) soubory WAV.</p>
+
+<p><b>OGG soubory</b> – Soubory formátu Ogg Vorbis jsou komprimované, podobně
+jako populární MP3. Narozdíl od MP3 není Ogg Vorbis patentovaný a poskytuje
+lepší kvalitu zvuku. Proto se stále více rozšiřuje a je podporován mnoha
+programy pro editaci zvuků. Nejrůznější nástroje s podporou
+editace/konverze souborů OGG najdete na <a target="_blank" href="http://www.vorbis.com">této
+stránce</a>.</p>
+
+<p>WME nepodporuje soubory MP3.</p>
+
+<p>&nbsp;</p>
+
+<h2><a name="video_formats"></a>Formáty souborů pro uložení videa</h2>
+<p>Pro přehrávání videa používá WME formát AVI. Obrazová složka může
+být komprimována jakýmkoliv kodekem, ale musíte zajistit, že uživatel vaší
+hry bude mít daný kodek nainstalován. Proto je nejvhodnější použít některý
+z kodeků, které jsou součástí standardní instalace Windows. Zvuková složka
+musí být nekomprimovaná (PCM kódovaná). WME momentálně nepodporuje
+komprimovaný zvuk v AVI souborech.</p>
+<p>WME dokáže během přehrávání videa automaticky zobrazovat titulky. Pro
+tento účel je podporován formát SUB, původně zavedený v programu MicroDVD
+Player.</p>
+
+<p>&nbsp;</p>
+
+<h2><a name="native_formats"></a>Vlastní formáty souborů, zavedené ve WME</h2>
+<p>Kromě standarních formátů souborů, popsaných výše, používá WME několik
+typů souborů pro definici herních objektů (postavy, scény atd.). Jde se o
+jednoduché textové soubory, které lze upravovat jakýmkoliv textovým
+editorem. Jelikož některé herní objekty ve WME jsou natolik složité, že
+by bylo obtížné upravovat je &quot;ručně&quot;, WME nabízí specializované
+editory pro některé typy souborů. Konkrétně jsou to <i>SceneEdit</i>, pro
+editaci scén a <i>SpriteEdit</i> pro editaci spritů. Další nástroje patrně
+přibydou v budoucnu (například nástroj pro editaci postav atd.).</p>
+
+<p>Všechny ostatní typy souborů je nutno editovat ručně pomocí textového
+editoru (jako je Poznámkový blok v systému Windows). Nyní si stručně popíšeme
+obecný formát, jaký tyto definiční soubory použvají.&nbsp;</p>
+
+<p>Například toto je ukázka definice objektu typu <b>okno</b>:</p>
+
+<p>For example this is a definition of a <b>
+window </b>object:</p>
+
+<pre><font color="#800000">WINDOW
+{
+  NAME = &quot;testovaci_okno&quot;
+  TITLE = &quot;Moje testovací ono&quot;
+  X = 100
+  Y = 100
+  WIDTH = 210
+  HEIGHT = 160
+  FONT = &quot;fonts\outline_white.font&quot;
+  
+  BUTTON
+  {
+    NAME = &quot;tlacitko1&quot;
+    TEXT = &quot;Testovací tlačítko&quot;
+    X = 80
+    Y = 60
+    WIDTH = 50
+    HEIGHT = 30    
+    ; tento řádek je komentář
+  }
+}</font>
+</pre>
+
+<p>&nbsp;&nbsp;</p>
+<p>Tato definice popisuje objekt &quot;okno&quot; (window). Okno je umístěno
+na pozici 100, 100 a má velikost 210x160 pixelů. Jeho interní název je
+&quot;testovaci_okno&quot; a jeho titulek je &quot;Moje testovací okno&quot;.
+Okno dále obsahuje jedno tlačítko na pozici 80, 60 a tak dále. Jak vidíte,
+tato definice je velice snadná k pochopení. Skládá se z bloku popisujícího
+objekt&nbsp; (WINDOW { ... }), a tento blok obsahuje definice pro jednotlivé
+vlastnosti objektu a jejich hodnoty (např. X = 100). Jak dále vidíte, blok s
+popisem objektu může obsahovat další vnořené bloky, jako je v tomto případě
+tlačítko (BUTTON { ... }).</p>
+<p>Všechny další objekty, používané ve WME, jsou definovány podovným způsobem,
+a jsou popsány dále v této dokumentaci. Mnoho dalších příkladů naleznete
+v projektu WME demo.</p>
+
+<p>Poznámky:</p>
+<ul type="disc" style="margin-bottom: 0cm">
+  <li>Pokud hodnota vlastnosti obsahuje mezery, musí být uvedena v uvozovkách.</li>
+  <li>Pokud potřebujete zakomentovat řádek, napište na jeho začátek středník.</li>
+</ul>
+
+</body>
+
+</html>

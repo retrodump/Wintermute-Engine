@@ -1,0 +1,8 @@
+#include "scripts\base.inc"
+
+actor.Reset();
+actor.Active=false;
+
+global win = Game.LoadWindow("tutorial\tut_menu.window");
+win.Center();
+win.GoExclusive();

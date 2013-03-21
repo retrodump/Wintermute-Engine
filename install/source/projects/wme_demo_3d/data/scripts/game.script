@@ -1,0 +1,195 @@
+#include "scripts\base.inc"
+#include "scripts\keys.inc"
+
+global ClickStarted;
+global ClickStartTime;
+global ClickObject;
+
+
+// store some of the game's attributes in global variables for convenience
+Keyboard = Game.Keyboard;
+Scene = Game.Scene;
+
+
+// load the right-click menu
+global WinMenu = Game.LoadWindow("interface\actions\actions.window");
+WinMenu.Visible = false;
+
+// load the "caption" window
+var win = Game.LoadWindow("interface\system\caption.window");
+global WinCaption = win.GetControl("caption");
+
+
+global MenuObject = null;
+
+
+// load our main actor
+actor = Game.LoadActor3D("actors\trinity\trinity.act3d");
+Game.MainObject = actor;
+
+// run the "game loop" script
+Game.AttachScript("scripts\game_loop.script");
+
+
+// which scene to load first?
+Game.ChangeScene(Game.StartupScene);
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "LeftClick"
+{
+  // no object selected, apply click to scene
+  if(Game.ActiveObject==null)
+  {
+    Scene.ApplyEvent("LeftClick");
+    return;
+  }
+
+  // perform click start
+  ClickObject = Game.ActiveObject;
+
+
+  // do we need to show the verb window at all?    
+  if(!ClickObject.CanHandleEvent("LookAt") &&
+     !ClickObject.CanHandleEvent("Talk") &&
+     !ClickObject.CanHandleEvent("Take") )
+  {
+    // nah, just click it
+    ClickObject.ApplyEvent("LeftClick");
+    ClickStarted = false;
+    ClickObject = null;
+  }
+  else
+  {
+    // mark click start and remember the time
+    ClickStarted = true;
+    ClickStartTime = Game.CurrentTime;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+on "LeftRelease"
+{
+  // 'obj' is actually the verb button the mouse was over when we released the left button
+  var obj = Game.ActiveObject;
+  ClickStarted = false;
+  
+  // we are leaving the verbs window, handle the selected verb
+  if(WinMenu.Visible)
+  {
+    // hide the window
+    WinMenu.Visible = false;
+    
+    // this is necessary, because we can left-click earlier than this stuff finishes
+    var TempClickObj = ClickObject;
+    ClickObject = null;
+
+    // apply the verb if the object can handle it
+    if(TempClickObj.CanHandleEvent(obj.Name)) TempClickObj.ApplyEvent(obj.Name);
+    else
+    {
+      // otherwise use default event handling
+      if(obj.Name=="LookAt")
+      {
+        actor.Talk("Looks nice.");
+      }
+      else if(obj.Name=="Talk")
+      {
+        actor.Talk("Hello...");
+      }
+      else if (obj.Name=="Take")
+      {
+         actor.Talk("I won't pick that up.");
+      }
+    }
+  }
+  
+  // verbcoin is NOT visible, i.e. we go for a normal click
+  else if(Game.ValidObject(ClickObject))
+  {
+    // did we click using an inventory item?
+    if(Game.SelectedItem != null && Game.SelectedItem!=ClickObject)
+    {
+      var item = Game.SelectedItem;
+      if(ClickObject.CanHandleEvent(item.Name)) ClickObject.ApplyEvent(item.Name);
+      else
+      {
+        // default use handlers, same as in WME demo
+        if(item.CanHandleEvent("default-use")) item.ApplyEvent("default-use");
+        else if (ClickObject.CanHandleEvent("default-use")) ClickObject.ApplyEvent("default-use");
+        else
+        {
+          ClickObject = null;
+          actor.Talk("I can't use these things together.");
+        }
+      }
+    }
+    // perform normal click
+    else ClickObject.ApplyEvent("LeftClick");
+    ClickObject = null;
+  } 
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "RightClick"
+{
+  var ActObj = Game.ActiveObject;
+  if(Game.SelectedItem != null) Game.SelectedItem = null;
+  else if(ActObj!=null) ActObj.ApplyEvent("RightClick");
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "Keypress"
+{
+  // ignore keypresses in the intro screen
+  if(Scene.Name=="intro") return;
+
+  // on Esc or F1 key
+  if(Keyboard.KeyCode==VK_ESCAPE)
+  {
+    // load and display the main menu window
+    WinCaption.Visible = false;
+    var WinMainMenu = Game.LoadWindow("interface\system\mainmenu.window");
+    WinMainMenu.Center();
+    WinMainMenu.GoSystemExclusive();
+    Game.UnloadObject(WinMainMenu);
+  }
+  else if(Keyboard.KeyCode==VK_F1)
+  {
+  	Scene.ShowGeometry = !Scene.ShowGeometry;
+  }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "QuitGame"
+{
+  // on Alt+F4 (window close)
+  // load and display the quit confirmation window
+  if(QuestionBox("Do you really want to quit?")) Game.QuitGame();
+
+}
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+method QuestionBox(Message, SystemExclusive)
+{
+	if(SystemExclusive==null) SystemExclusive = true;
+	
+	var Window = Game.LoadWindow("interface\system\question.window");
+	Window.Center();
+	Window.xMessage = Game.ExpandString(Message);
+	
+	if(SystemExclusive) Window.GoSystemExclusive();
+	else Window.GoExclusive();
+	
+	var Result = Window.xResult;
+	Game.UnloadObject(Window);
+	
+	return Result;
+}

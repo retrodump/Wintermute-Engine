@@ -1,0 +1,7 @@
+SPRITE {
+  FRAME {
+    IMAGE = "entity_sound.bmp"
+    HOTSPOT {15, 15}
+    ALPHA = 128
+  }
+}

@@ -1,0 +1,44 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Plugin basics</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h2>The basics</h2>
+
+<p>WME plugin support is designed to fit the object-oriented nature of WME 
+scripting. That means each plugin can provide one or more scripting &quot;classes&quot;, 
+which can be then used from scripts. Scripts can create objects of these 
+classes, call their methods and set/get their attributes, similarly to the 
+built-in WME classes, such as <a href="generated/scripting_ref_file.html">File</a> 
+or <a href="generated/scripting_ref_string.html">String</a>.</p>
+
+<p>For example, the sample &quot;wme_snow.dll&quot; plugin provides a new scripting class 
+called &quot;Snow&quot;. Whenever this plugin is present in the WME directory, the scripts can create objects 
+of the &quot;Snow&quot; class and access their methods and properties, like this:</p>
+
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td class="code">
+<pre>var SnowGen = new Snow(100);
+SnowGen.Run();
+</pre>    
+
+</table>
+<p>Internally, both the constructor and the method call are routed to the plugin 
+DLL. WME only manages the interface between the scripts and the plugins.</p>
+<p>The following chapters describe the interface each plugin has to provide to 
+be usable that way. Be sure to check the <a href="plugins_samples.html">samples</a> 
+as well, they should help you to better understand the principles.</p>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

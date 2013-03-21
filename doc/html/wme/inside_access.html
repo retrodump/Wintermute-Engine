@@ -1,0 +1,91 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Accessibility</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h2>Accessibility</h2>
+
+<h3>General information</h3>
+
+<p>WME provides several options to improve accessibility for vision-impaired 
+players. Firstly it's possible to send most of the written text to 
+text-to-speech synthesizer, so that the players don't have to read captions, 
+which are often too small or disappear too fast to be comfortable to read. 
+Secondly it's possible to manually highlight active areas on screen using keyboard 
+shortcuts, because normally it can be hard to spot them for people with visual 
+disabilities. Thirdly the player can pause the game at any time (using the 
+Ctrl+Space keyboard shortcut) to be able to read any text or examine the scene 
+without rush.</p>
+
+<p>These options are integrated directly into the game engine and once enabled, 
+they will work automatically in any game. Of course, given the generic nature of 
+these options, they may not always work ideally, depending on the design of each 
+concrete game. If the accessibility options for whatever reason conflict with 
+your game features, you can disable them altogether in ProjectMan by setting the 
+&quot;Allow accessibility&quot; option to &quot;No&quot;. But it's always a better solution to try 
+to make your game compatible with accessibility instead of turning it off.</p>
+
+<p>Individual accessibility options can be enabled or disabled in the WME 
+startup settings window:</p>
+
+<p>
+<img border="0" src="../img/access.png" width="453" height="359" alt="Accessibility options"></p>
+
+<p>The options should be pretty self-explanatory. A text-to-speech synthesizer 
+needs to be installed for the TTS options to work. It's installed by default in 
+Windows XP, and a localized synthesizer is likely to be installed on computers 
+of visually-impaired players.</p>
+
+<p>Reading of a speech line is automatically disabled if voice-over sound exists 
+for the line.</p>
+
+<p>The manual highlighting of active items it controlled by the Ctrl+Tab 
+shortcut. It cycles through all active areas in scene or in a focused GUI 
+window. Alternatively, Ctrl+Shift+Tab shortcut can be used to cycle backwards. 
+The highlight rectangle is displayed as long as the Ctrl key is held down.</p>
+
+<p>
+<img border="0" src="../img/access2.png" alt="Manual highlighting of active items (Dead City)" width="376" height="426"></p>
+
+<h3>Scripting support</h3>
+
+<p>In addition to the general accessibility functionality, WME also provides a 
+couple of scripting methods and attributes in case a game developer needs to 
+hook some game-specific functionality to the accessibility options.</p>
+
+<p>To query if certain accessibility option is enabled, use the <b>Game.Acc*</b> 
+attributes (see the <a href="generated/scripting_ref_game.html">scripting 
+reference</a> for a complete list).</p>
+
+<p>All game objects provide a special <b>AccCaption</b> attribute. It is a text 
+caption attribute used for accessibility purposes. If the &quot;Read item captions&quot; 
+option is enabled, WME uses primarily the <b>AccCaption</b>&nbsp;attribute for 
+this. If it's not set, the ordinary <b>Caption</b> attribute is used instead. 
+That way you can use different captions to be displayed on screen, and different 
+(perhaps more descriptive) captions to be send to text-to-speech output.</p>
+
+<p>To explicitly output some text to the text-to-speech output, use the <b>
+<a href="generated/scripting_ref_game.html#AccOutputText">Game.AccOutputText()</a></b> 
+method. For example, you could include a code that will announce a room 
+description upon entering each scene.</p>
+
+<p>You should consider providing an alternate <b>AccCaption</b> string for any 
+text that only appears in graphics to make your game compatible with 
+screen-readers.</p>
+
+<p>&nbsp;</p>
+
+<p><b>Note:</b> Text-to-speech output is in no way intended to replace or 
+simulate voice-overs.</p>
+
+</body>
+
+</html>

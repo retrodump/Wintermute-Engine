@@ -1,0 +1,9 @@
+#include "scripts\base.inc"
+
+
+actor.SkipTo(314, 505);
+actor.Direction = DI_DOWNRIGHT;
+actor.Active = true;
+
+// point the "camera" at the actor
+Scene.SkipTo(actor);

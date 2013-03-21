@@ -1,0 +1,416 @@
+<html>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="WME DocMaker 2.0">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>File object</title>
+<link rel="stylesheet" type="text/css" href="../../styles.css">
+</head>
+
+<body>
+<!-- Generated on 7.11.2005 18:05:37, settings file: english -->
+
+<h3>File object</h3>
+<p>
+The File objects allow you to work with files. You can read from and write to both text and binary files. Reading is also supported from files stored in your game packages (DCP files). The File object can be created using the following syntax:
+<br><br>
+<table border="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" cellpadding="0" id="AutoNumber4">
+<tr>
+<td class="code"><pre>
+var SomeFile = new File("c:\path\filename.txt");
+</pre></td>
+</tr>
+</table>
+</p>
+
+<br>
+
+<h4>Constructors</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%"><a href="#File1">File</a></td>
+    <td>Creates a new file object for a specified filename.</td>
+  </tr>
+</table>
+
+<h4>Methods</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%"><b>Operations</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetFilename">SetFilename</a></td>
+    <td>Sets the filename the File object operates on.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#OpenAsText">OpenAsText</a></td>
+    <td>Opens file for text reading or writing.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#OpenAsBinary">OpenAsBinary</a></td>
+    <td>Opens file for binary reading or writing.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#Close">Close</a></td>
+    <td>Closes the file.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetPosition">SetPosition</a></td>
+    <td>Sets a new reading/writing point for a currently open file.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#Delete">Delete</a></td>
+    <td>Deletes the file accosiated with this File object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#Copy">Copy</a></td>
+    <td>Copies the file to a new location.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Text file access</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ReadLine">ReadLine</a></td>
+    <td>Reads a line from a text file open for reading.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ReadText">ReadText</a></td>
+    <td>Reads text from a text file open for reading.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#WriteLine">WriteLine</a></td>
+    <td>Writes a line to a text file open for writing/appending.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#WriteText">WriteText</a></td>
+    <td>Writes text to a text file open for writing/appending.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Binary file access</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ReadBool">ReadBool</a></td>
+    <td>Reads a boolean value (1 byte) from a binary file open for reading.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ReadByte">ReadByte</a></td>
+    <td>Reads an 8-bit integer value from a binary file open for reading.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ReadShort">ReadShort</a></td>
+    <td>Reads a 16-bit integer value from a binary file open for reading.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ReadInt">ReadInt</a></td>
+    <td>Reads a 32-bit integer value from a binary file open for reading.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ReadFloat">ReadFloat</a></td>
+    <td>Reads a 16-bit floating point value from a binary file open for reading.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ReadDouble">ReadDouble</a></td>
+    <td>Reads a 32-bit floating point value from a binary file open for reading.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ReadString">ReadString</a></td>
+    <td>Reads a zero-terminated string value from a binary file open for reading.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#WriteBool">WriteBool</a></td>
+    <td>Writes a boolean value (1 byte) to a binary file open for writing/appending.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#WriteByte">WriteByte</a></td>
+    <td>Writes an 8-bit integer value to a binary file open for writing/appending.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#WriteShort">WriteShort</a></td>
+    <td>Writes a 16-bit integer value to a binary file open for writing/appending.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#WriteInt">WriteInt</a></td>
+    <td>Writes a 32-bit integer value to a binary file open for writing/appending.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#WriteFloat">WriteFloat</a></td>
+    <td>Writes a 16-bit floating point value to a binary file open for writing/appending.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#WriteDouble">WriteDouble</a></td>
+    <td>Writes a 32-bit floating point value to a binary file open for writing/appending.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#WriteString">WriteString</a></td>
+    <td>Writes a zero-terminated string value to a binary file open for writing/appending.</td>
+  </tr>
+</table>
+
+<h4>Attributes</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%">Type (read only)</td>
+    <td>Returns always "file"</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Filename (read only)</td>
+    <td>Returns the filename currently assigned to this object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Position (read only)</td>
+    <td>Returns current reading/writing position within the file.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Length (read only)</td>
+    <td>Returns length of file.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">TextMode (read only)</td>
+    <td>Returns <b>true</b> if the file is open in text mode.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">AccessMode (read only)</td>
+    <td>Returns the access mode the file is open in (0 - not open, 1 - reading, 2 - writing, 3 - appending)</td>
+  </tr>
+</table>
+
+<hr>
+<h3><a name="File1"></a>File(Filename)</h3>
+<p>Creates a new file object for a specified filename.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The file this File object should operate on</dd>
+</dl>
+
+<hr>
+<h3><a name="SetFilename1"></a>SetFilename(Filename)</h3>
+<p>Sets the filename the File object operates on.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The file to be used by this File object</dd>
+</dl>
+
+<hr>
+<h3><a name="OpenAsText1"></a>OpenAsText(AccessMode)</h3>
+<p>Opens file for text reading or writing.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>AccessMode</i></dt>
+<dd>Specifies the desired file access, 1 - reading, 2 - writing, 3 - appending</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> is the file was successfuly open.</p>
+
+<hr>
+<h3><a name="OpenAsBinary1"></a>OpenAsBinary(AccessMode)</h3>
+<p>Opens file for binary reading or writing.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>AccessMode</i></dt>
+<dd>Specifies the desired file access, 1 - reading, 2 - writing, 3 - appending</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> is the file was successfuly open.</p>
+
+<hr>
+<h3><a name="Close1"></a>Close()</h3>
+<p>Closes the file.</p>
+<h4>Remarks</h4>
+<p>Files are closed automatically when their File objects are destroyed but it's a good idea to close the file explicitly immediately after you're done with working with it.</p>
+
+<hr>
+<h3><a name="SetPosition1"></a>SetPosition(Position)</h3>
+<p>Sets a new reading/writing point for a currently open file.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Position</i></dt>
+<dd>The desired reading/writing position</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the position has been successfuly set.</p>
+
+<hr>
+<h3><a name="Delete1"></a>Delete()</h3>
+<p>Deletes the file accosiated with this File object.</p>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the file has been successfuly deleted.</p>
+
+<hr>
+<h3><a name="Copy1"></a>Copy(DestinationFilename, Overwrite)</h3>
+<p>Copies the file to a new location.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>DestinationFilename</i></dt>
+<dd>The new location to copy the file to.</dd>
+<dt><i>Overwrite</i></dt>
+<dd>Specifies if the file should overwrite any existing file with the same name (optional, default=true)</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the file has been successfuly copied.</p>
+
+<hr>
+<h3><a name="ReadLine1"></a>ReadLine()</h3>
+<p>Reads a line from a text file open for reading.</p>
+<h4>Return value</h4>
+<p>Returns a string value containing the line or <b>null</b> if file cannot be read / position is at the end of file.</p>
+
+<hr>
+<h3><a name="ReadText1"></a>ReadText(Length)</h3>
+<p>Reads text from a text file open for reading.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Length</i></dt>
+<dd>Number of characters to be read from the file.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns a string value containing the text or <b>null</b> if file cannot be read / position is at the end of file.</p>
+
+<hr>
+<h3><a name="WriteLine1"></a>WriteLine(Line)</h3>
+<p>Writes a line to a text file open for writing/appending.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Line</i></dt>
+<dd>The text line to be written to the file</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the value has been successfuly written.</p>
+
+<hr>
+<h3><a name="WriteText1"></a>WriteText(Text)</h3>
+<p>Writes text to a text file open for writing/appending.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Text</i></dt>
+<dd>The text to be written to the file</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the value has been successfuly written.</p>
+
+<hr>
+<h3><a name="ReadBool1"></a>ReadBool()</h3>
+<p>Reads a boolean value (1 byte) from a binary file open for reading.</p>
+<h4>Return value</h4>
+<p>Returns the value or <b>null</b> if file cannot be read / position is at the end of file.</p>
+
+<hr>
+<h3><a name="ReadByte1"></a>ReadByte()</h3>
+<p>Reads an 8-bit integer value from a binary file open for reading.</p>
+<h4>Return value</h4>
+<p>Returns the value or <b>null</b> if file cannot be read / position is at the end of file.</p>
+
+<hr>
+<h3><a name="ReadShort1"></a>ReadShort()</h3>
+<p>Reads a 16-bit integer value from a binary file open for reading.</p>
+<h4>Return value</h4>
+<p>Returns the value or <b>null</b> if file cannot be read / position is at the end of file.</p>
+
+<hr>
+<h3><a name="ReadInt1"></a>ReadInt()<br>ReadLong()</h3>
+<p>Reads a 32-bit integer value from a binary file open for reading.</p>
+<h4>Return value</h4>
+<p>Returns the value or <b>null</b> if file cannot be read / position is at the end of file.</p>
+
+<hr>
+<h3><a name="ReadFloat1"></a>ReadFloat()</h3>
+<p>Reads a 16-bit floating point value from a binary file open for reading.</p>
+<h4>Return value</h4>
+<p>Returns the value or <b>null</b> if file cannot be read / position is at the end of file.</p>
+
+<hr>
+<h3><a name="ReadDouble1"></a>ReadDouble()</h3>
+<p>Reads a 32-bit floating point value from a binary file open for reading.</p>
+<h4>Return value</h4>
+<p>Returns the value or <b>null</b> if file cannot be read / position is at the end of file.</p>
+
+<hr>
+<h3><a name="ReadString1"></a>ReadString()</h3>
+<p>Reads a zero-terminated string value from a binary file open for reading.</p>
+<h4>Return value</h4>
+<p>Returns the value or <b>null</b> if file cannot be read / position is at the end of file.</p>
+
+<hr>
+<h3><a name="WriteBool1"></a>WriteBool(Value)</h3>
+<p>Writes a boolean value (1 byte) to a binary file open for writing/appending.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Value</i></dt>
+<dd>The value to be written to the file.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the value has been successfuly written.</p>
+
+<hr>
+<h3><a name="WriteByte1"></a>WriteByte(Value)</h3>
+<p>Writes an 8-bit integer value to a binary file open for writing/appending.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Value</i></dt>
+<dd>The value to be written to the file.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the value has been successfuly written.</p>
+
+<hr>
+<h3><a name="WriteShort1"></a>WriteShort(Value)</h3>
+<p>Writes a 16-bit integer value to a binary file open for writing/appending.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Value</i></dt>
+<dd>The value to be written to the file.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the value has been successfuly written.</p>
+
+<hr>
+<h3><a name="WriteInt1"></a>WriteInt(Value)<br>WriteLong(Value)</h3>
+<p>Writes a 32-bit integer value to a binary file open for writing/appending.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Value</i></dt>
+<dd>The value to be written to the file.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the value has been successfuly written.</p>
+
+<hr>
+<h3><a name="WriteFloat1"></a>WriteFloat(Value)</h3>
+<p>Writes a 16-bit floating point value to a binary file open for writing/appending.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Value</i></dt>
+<dd>The value to be written to the file.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the value has been successfuly written.</p>
+
+<hr>
+<h3><a name="WriteDouble1"></a>WriteDouble(Value)</h3>
+<p>Writes a 32-bit floating point value to a binary file open for writing/appending.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Value</i></dt>
+<dd>The value to be written to the file.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the value has been successfuly written.</p>
+
+<hr>
+<h3><a name="WriteString1"></a>WriteString(Value)</h3>
+<p>Writes a zero-terminated string value to a binary file open for writing/appending.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Value</i></dt>
+<dd>The value to be written to the file.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the value has been successfuly written.</p>
+
+
+</body>
+
+</html>

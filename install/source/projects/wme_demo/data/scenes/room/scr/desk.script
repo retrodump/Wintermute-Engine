@@ -1,0 +1,49 @@
+#include "scripts\base.inc"
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "book"
+{
+  Game.Interactive = false;
+  actor.Talk("OK, I'll put the book back.");
+
+  // walk to the desk
+  actor.GoTo(782, 645);
+  actor.TurnTo(DI_UPLEFT);
+
+  // play "take" animation
+  actor.PlayAnim("actors\molly\ul\take1.sprite");
+
+  // show the book entity again and remove "book" item from the inventory
+  Game.DropItem("book");
+  var EntBook = Scene.GetNode("book");
+  EntBook.Active = true;
+
+  // play the second "take" animation
+  actor.PlayAnim("actors\molly\ul\take2.sprite");
+  Game.Interactive = true;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "LookAt"
+{
+  actor.GoToObject(this);
+  actor.Talk("It's a sturdy looking desk.");
+  if(!Game.IsItemTaken("book")) actor.Talk("There's a book lying on it.");
+}
+
+////////////////////////////////////////////////////////////////////////////////
+on "Take"
+{
+  actor.GoToObject(this);
+  actor.Talk("The desk is a bit too heavy for a poor little me...");
+}
+
+////////////////////////////////////////////////////////////////////////////////
+on "LeftClick"
+{
+  // just walk to the desk
+  actor.GoToObject(this);
+}
+

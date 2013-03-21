@@ -1,0 +1,11 @@
+; $EDITOR_PROJECT_ROOT_DIR$ $$PROJECT_ROOT$$
+
+SPRITE
+{
+  LOOPING = FALSE
+
+  FRAME{
+    IMAGE = "$$BASE_PATH$$\dr\00.bmp"
+    HOTSPOT {64,229}
+  }
+}

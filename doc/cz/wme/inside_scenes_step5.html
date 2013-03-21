@@ -1,0 +1,163 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="cs">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Krok 5: Navigační body</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3>Krok 5: Navigační body</h3>
+<p>Navigační body (waypoint) pomáhají postavám, aby byly schopny se
+pohybovat po scéně. Postavy dovedou přejít z jednoho místa na druhé, pakliže
+jim v cestě nestojí blokovaný region. Pokud je ve scéně umístěno několik
+navigačních bodů a vy řeknete postavě, že se má přesunout na určité místo,
+ona pak využije navigačních bodů k tomu, aby nalezla nekratší možnou
+cestu ze své aktuální pozice do požadovaného cílového bodu.</p>
+<p>V naší testovací scéně nedokáže postava obejít stůl, a proto ji teď
+naučíme, jak na to.</p>
+
+<p>Otevřete scénu &quot;MyScene.scene&quot; v programu SceneEdit. Vlevo v
+seznamu vrstev vyberte položku &quot;Waypoint groups&quot; (Skupiny navigačních
+bodů). Navigační body jsou sdruženy do skupin, proto ten název.</p>
+
+<p align="center">
+<img border="0" src="../img/tut5-1.gif" width="224" height="167"></p>
+
+<p align="center">&nbsp;</p>
+<p>Spodní seznam prvků se změnil. Nyní zobrazuje seznam skupin navigačních
+bodů. Klikněte na tlačítko &quot;Add waypoint group&quot; (Přidat skupinu
+navigačních bodů).</p>
+
+<p align="center">
+<img border="0" src="../img/tut5-2.gif" width="222" height="250"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Byla vytvořena nová položka s názvem &quot;new aypoints&quot;. Změňte
+její jméno například na &quot;wpt_default&quot;. Do skupiny bodů můžete přidávat
+nové, či odstraňovat stávající body. Postup je naprosto stejný, jako když
+se přidávají/odstraňují vrcholy regionu, tj. použijte tlačítka &quot;Add
+point&quot; (Přidat bod) a &quot;Remove point&quot; (Odstranit bod).</p>
+
+<p align="center">
+<img border="0" src="../img/tut5-3.gif" width="56" height="30"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Přidáme čtyři navigační body, každý k jednom z vrcholů blokovaného
+regionu:</p>
+
+<p align="center">
+<img border="0" src="../img/tut5-4.gif" width="496" height="266"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Mějte na paměti, že postava je schopna najít cestu k dalšímu navigačnímu
+bodu, jen pokud do tohoto bodu vede přímá, ničím neblokovaná cesta.</p>
+
+<p>Tyto čtyři navigační body umožní postavě, aby bez problémů obešla
+stůl. Zkuste si to. Uložte scénu, přepněte se do ProjectManu a spusťte
+hru. Jako vždy vyberte položku &quot;MyScene&quot; a otestujte scénu. Pokud
+kliknete někam za stůl, postava tam dojde a přitom překážku inteligentně
+obejde.</p>
+
+<p>Ukončete hru (dvakrát stiskněte Esc) a přepněte se zpět do SceneEditu.
+Věnujeme naší scéně ještě trochu práce.</p>
+
+<p>Nechceme, aby postava zacházela až do skříně, proto skříň zablokujeme
+přidáním dalšího blokovaného regionu.</p>
+<p>V seznamu vrstev vyberte položku &quot;main&quot; a poté klikněte na tlačítko
+&quot;Add region&quot; (Přidat region). Změňte jméno regionu na
+&quot;block_closet&quot; a přepněte rádiové tlačítko do polohy
+&quot;Blocked&quot;. Nyní už jen změňte tvar regionu tak, aby se rozprostíral
+kolem skříně:</p>
+
+<p align="center">
+<img border="0" src="../img/tut5-5.gif" width="364" height="177"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Jak vidíte, tři vrcholy regionu leží mimo oblast, dostupnou pro postavy,
+ale levý spodní vrchol leží uvnitř. Proto musíme přidat jeden navigační
+bod, aby byla postava schopna obejít roh skříně.</p>
+<p>V seznamu vrstev zvolte položku &quot;Waypoint groups&quot; a v seznamů
+prvků poté vyberte skupinu, kterou jsme pojmenovali &quot;wpt_default&quot;.
+Klikněte na tlačítko &quot;Add point&quot; (Přidat bod) a umístěte nový
+navigační bod poblíž vrcholu regionu, blokujícího skříň (viz obrázek).&nbsp;</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut5-6.gif" width="221" height="160"></p>
+
+
+<p align="center">&nbsp;</p>
+
+
+<p>Postava bude nyní využívat tento navigační bod, aby byla schopna obejít
+skříň.</p>
+
+<p>Ve scéně můžete najít ještě další dva &quot;výčnělky&quot; (ostré
+úhly), které postava nebude schopna obejít. Jsou poblíž dveří. Přidejme
+další dva navigační body:</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut5-7.gif" width="233" height="265"></p>
+
+
+<p align="center">&nbsp;</p>
+
+
+<p>Na závěr přidám ještě jeden příklad, který by vám měl lépe
+objasnit, jak navigační body fungují. Představte si následující situaci:
+Postava stojí někde ve scéne (bod A) a hráč kliknul na podlahu (bod C):</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut5-8.gif" width="336" height="217"></p>
+
+
+<p align="center">&nbsp;</p>
+
+
+<p>Přímá spojnice z bodu A do bodu C neexistuje, protože v ceste stojí
+blokovaný region. Pokud by ve scéně nebyl navigační bod, postava by nedokázala
+najít cestu do bodu C:</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut5-9.gif" width="336" height="217"></p>
+
+
+<p align="center">&nbsp;</p>
+
+<p>Nicméně po přidání navigačního bodu dojde postava nejprve do něj a
+poté už &quot;vidí&quot; přímou cestu do bodu C:</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut5-10.gif" width="336" height="217"></p>
+
+
+<p align="center">&nbsp;</p>
+
+
+<p>A to je o navigačních bodech vše. Uložte scénu a ukončete SceneEdit.
+Pokud scénu otestujete, uvidíte, že postava už nebude mít problém dojít
+do kteréhokoliv místa. Navíc by vždy měla volit nejkratší možnou
+cestu.&nbsp;</p>
+
+<p>Ovšem stále nám postava chodí po židli a ani její velikost příliš
+neodpovídá měřítku scény. Pokračovat budeme v kapitole <a href="inside_scenes_step6.html">Krok
+6: Volné entity, úrovně zvětšení a dekorační regiony</a>.</p>
+
+<p>&nbsp;</p>
+
+</body>
+
+</html>

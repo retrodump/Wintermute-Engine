@@ -1,0 +1,267 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Using effect files</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+<style type="text/css">
+.style1 {
+	background-color: #FFFFFF;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Using effect files</h2>
+<p>WME allows you to apply so-called &quot;effect files&quot; to 3D objects. Effect files 
+(files with the .fx extension) are standard DirectX text files, describing 
+advanced materials. You are probably familiar with applying textures to 3D 
+objects. Effect works similarly, to certain degree, but instead of just 
+textures, they define rendering instructions for a specific 3D object. Those 
+include vertex and pixel shaders to be used, as well as various render states. 
+Additionally, one effect file can contain multiple &quot;techniques&quot;, i.e. multiple 
+ways of achieving the effect, depending on available hardware capabilities. The 
+most appropriate technique is then selected at runtime. Each technique can 
+define one or more rendering passes (i.e. you may need to render the 3D object 
+multiple times, with various shaders applied, to achieve various effects).</p>
+<p>The effect files are a complex topic, which requires some knowledge about 3D 
+graphics programming and about the HLSL shader language. Please refer to
+<a href="http://msdn.microsoft.com/en-us/library/bb173329(VS.85).aspx" target="_blank">
+Microsoft DirectX documentation</a> for details on effect files and HLSL.</p>
+<p><strong>Note:</strong> Effect files are only available in the Direct3D 9 
+version of Wintermute Engine. All functions related to effects are ignored in 
+the Direct3D 8 version.</p>
+<p>&nbsp;</p>
+<h3>Applying effects to 3D actors in WME</h3>
+<p>In WME, you can apply effects to individual sub-meshes of your 3D model. The 
+sub-meshes are defined by material, i.e. if your actor model uses three 
+different textures, three sub-meshes are created. Each sub-mesh is named after 
+its original texture (as assigned in 3D modeling software). For example, if the 
+head of your actor model uses texture called &quot;textures\joe_head.png&quot;, the 
+sub-mesh is internally called &quot;joe_head&quot;. This is important to remember, because 
+you use sub-mesh name while working with effects.</p>
+<p>There are two ways of assigning effect to sub-meshes. Either you specify 
+effect file(s) directly in actor definition file, or you can assign or remove 
+effect using script commands.</p>
+<p>To assign effect file to a sub-mesh in <a href="3D_actors_x.html">actor definition file</a>, the file would 
+contain something like this:</p>
+<pre><font color="#800000">  EFFECT
+  {
+    MATERIAL = "chrome_buckle"
+    EFFECT_FILE = "effects\shine.fx"
+  }
+</font></pre>
+<p>This tells the engine, you want to apply the effect file &quot;effects\shine.fx&quot; to a 
+sub-mesh called &quot;chrome_buckle&quot;. You can of course add several such sections to 
+your actor definition file, for each sub-mesh/material you want to assign effect 
+to. Please note that effect assignment must be placed AFTER the &quot;MODEL =&quot; lines 
+in the definition file, because the engine needs to be aware of the existing 
+sub-meshes before applying effects.</p>
+<p>Assigning effects from scripts is similar. There are two methods available, 
+<a href="generated/scripting_ref_actor3d.html#SetEffect"><strong>actor.SetEffect()</strong></a> and
+<a href="generated/scripting_ref_actor3d.html#RemoveEffect"><strong>actor.RemoveEffect()</strong></a>:</p>
+<pre><font color="#800000">  actor.SetEffect("chrome_buckle", "effects\shine.fx");
+  actor.RemoveEffect("chrome_buckle");
+</font></pre>
+<p>The first line applies the effect file called &quot;effects\shine.fx&quot; to a 
+sub-mesh called &quot;chrome_buckle&quot;. The second line removes any effect from the 
+sub-mesh. The <strong>actor.SetEffect()</strong> method returns true or false, depending on whether the 
+effect file has been successfully compiled and applied. If the compilation 
+fails, you can find the list of errors in wme.log file in your project 
+directory, or in the <a href="inside_console.html">debugging console</a>.</p>
+<p>&nbsp;</p>
+<h3>Setting effect parameters from a script</h3>
+<p>Sometimes it can be useful to set effect parameters dynamically. WME provides 
+the following script methods for setting effect parameters.</p>
+<p><strong><a href="generated/scripting_ref_actor3d.html#SetEffectParam">
+actor.SetEffectParam()</a></strong> - This method allows you to set a parameter 
+of types <em>string</em>, <em>logical</em>, <em>integer number</em> and <em>floating point</em> number. For 
+example, to change the &quot;BorderWidth&quot; parameter of the sample effect &quot;outer_glow.fx&quot;, 
+you would call something like this from a script:</p>
+<pre><font color="#800000">actor.SetEffectParam("chrome_buckle", "BorderWidth", ToFloat(20));</font></pre>
+<p>Just like in the above examples, &quot;chrome_buckle&quot; is the name of the submesh, 
+whose effect you are working with. &quot;BorderWidth&quot; is the name of the parameter 
+you are setting. The third parameter is the value to be assigned.</p>
+<p><strong><a href="generated/scripting_ref_actor3d.html#SetEffectParamVector">
+actor.SetEffectParamVector()</a></strong> - This method works similarly to 
+SetEffectParam(), but it allows you to assign a 4D vector to a parameter. For 
+example, to change the &quot;BorderColor&quot; parameter of the sample effect &quot;outer_glow.fx&quot;, 
+you would call something like this:</p>
+<pre><font color="#800000">actor.SetEffectParamVector("chrome_buckle", "BorderColor", ToFloat(1), ToFloat(0), ToFloat(0), ToFloat(1));</font></pre>
+<p>Notice that you are sending 4 floating point numbers, the 4 components of the 
+4D vector (1, 0, 0, 1).</p>
+<p><strong><a href="generated/scripting_ref_actor3d.html#SetEffectParamColor">
+actor.SetEffectParamColor()</a></strong> - This method is a simplified version 
+of SetEffectParamVector(), specifically designed for passing color values, 
+created using the <strong>
+<a href="generated/scripting_ref_functions.html#MakeRGBA">MakeRGBA()</a></strong> 
+function. The usage is:</p>
+<pre><font color="#800000">var ColorRed = MakeRGBA(255, 0, 0);
+actor.SetEffectParamColor("chrome_buckle", "BorderColor", ColorRed);</font></pre>
+<p>Internally this method extracts the R, G, B and alpha components of the 
+color, converts them to a 4D vector and passes them to the effect.</p>
+<p>In addition to these script methods, WME can fill some parameters 
+automatically, if they are marked with known semantics. It's described in the 
+next chapter.</p>
+<p>&nbsp;</p>
+<h3>Supported semantics</h3>
+<p>As you can learn from the effect file documentation, global parameters can be 
+augmented with so-called semantics, which define the meaning of the parameter. 
+The engine then uses these semantics to automatically fill some shader 
+parameters. For example, if you define a parameter like this:</p>
+<pre><font color="#800000">float4x4 worldViewProjMatrix : WorldViewProjection;</font></pre>
+<p>you are defining a matrix variable called &quot;worldViewProjMatrix&quot; (you can use 
+any name), with semantics &quot;WorldViewProjection&quot;. The engine will detect that you 
+are using known semantics, and it will automatically fill the variable with 
+current world-view-projection matrix before rendering the mesh.</p>
+<p>The following table contains all semantics currently supported by WME:</p>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+<tr><td><strong>Semantics</strong></td><td><strong>Type</strong></td><td>
+	<strong>Description</strong></td></tr>
+<tr><td>World</td><td>float4x4</td><td>World matrix</td></tr>
+<tr><td>View</td><td>float4x4</td><td>View matrix</td></tr>
+<tr><td>Projection</td><td>float4x4</td><td>Projection matrix</td></tr>
+<tr><td>WorldTranspose</td><td>float4x4</td><td>Transposed world matrix</td></tr>
+<tr><td>ViewTranspose</td><td>float4x4</td><td>Transposed view matrix</td></tr>
+<tr><td>ProjectionTranspose</td><td>float4x4</td><td>Transposed projection 
+		matrix</td></tr>
+<tr><td>WorldView</td><td>float4x4</td><td>World-view matrix</td></tr>
+<tr><td>WorldViewProjection</td><td>float4x4</td><td>World-view-projection 
+		matrix</td></tr>
+<tr><td>WorldInverse</td><td>float4x4</td><td>Inverse world matrix</td></tr>
+<tr><td>ViewInverse</td><td>float4x4</td><td>Inverse view matrix</td></tr>
+<tr><td>ProjectionInverse</td><td>float4x4</td><td>Inverse projection matrix</td></tr>
+<tr><td>WorldInverseTranspose</td><td>float4x4</td><td>Transposed inverse world 
+		matrix</td></tr>
+<tr><td>ViewInverseTranspose</td><td>float4x4</td><td>Transposed inverse view 
+		matrix</td></tr>
+<tr><td>ProjectionInverseTranspose</td><td>float4x4</td><td>Transposed inverse 
+		projection matrix</td></tr>
+<tr><td>WorldViewInverse</td><td>float4x4</td><td>Inverse world-view matrix</td></tr>
+<tr><td>WorldViewTranspose</td><td>float4x4</td><td>Transposed world-view matrix</td></tr>
+<tr><td>WorldViewInverseTranspose</td><td>float4x4</td><td>Transposed inverse 
+		world-view matrix</td></tr>
+<tr><td>WorldViewProjectionInverse</td><td>float4x4</td><td>Inverse 
+		world-view-projection matrix</td></tr>
+<tr><td>WorldViewProjectionTranspose</td><td>float4x4</td><td>Transposed 
+		world-view-projection matrix</td></tr>
+<tr><td>WorldViewProjectionInverseTranspose</td><td>float4x4</td><td>Transposed inverse world-view-projection matrix</td></tr>
+<tr><td>ViewProjection</td><td>float4x4</td><td>View-projection matrix</td></tr>
+<tr><td>ViewProjectionTranspose</td><td>float4x4</td><td>Transposed view-projection matrix</td></tr>
+<tr><td>ViewProjectionInverse</td><td>float4x4</td><td>Inverse view-projection 
+		matrix</td></tr>
+<tr><td>ViewProjectionInverseTranspose</td><td>float4x4</td><td>Transposed inverse view-projection matrix</td></tr>
+<tr><td>ViewPosition</td><td>float4</td><td>Camera position</td></tr>
+<tr><td>ViewDirection</td><td>float4</td><td>Camera direction</td></tr>
+<tr><td>DiffuseMap</td><td>texture</td><td>Current mesh texture</td></tr>
+<tr><td>Ambient</td><td>float4</td><td>Material ambient color</td></tr>
+<tr><td>Diffuse</td><td>float4</td><td>Material diffuse color</td></tr>
+<tr><td>Specular</td><td>float4</td><td>Material specular color</td></tr>
+<tr><td>Emissive</td><td>float4</td><td>Material emissive color</td></tr>
+<tr><td>Power</td><td>float</td><td>Material specular power</td></tr>
+<tr><td>Time</td><td>float</td><td>Current time (in seconds)</td></tr>
+<tr><td>ElapsedTime</td><td>float</td><td>Time elapsed since last frame (in 
+		seconds)</td></tr>
+<tr><td>ActorLightPos</td><td>float4</td><td>Position of actor's shadow light</td></tr>
+<tr><td>LightPosX (where X is 0..7)</td><td>float4</td><td>Light position</td></tr>
+<tr><td>LightDirX (where X is 0..7)</td><td>float4</td><td>Light direction</td></tr>
+<tr><td>LightDiffuseX (where X is 0..7)</td><td>float4</td><td>Light diffuse 
+		color</td></tr>
+<tr><td>LightAmbientX (where X is 0..7)</td><td>float4</td><td>Light ambient 
+		color</td></tr>
+<tr><td>LightSpecularX (where X is 0..7)</td><td>float4</td><td>Light specular 
+		color</td></tr>
+</table>
+	<p>&nbsp;</p>
+<h3>Supported annotations</h3>
+<p>In addition to semantics, global parameters and effect passes can be 
+augmented by annotations. Annotations specify additional processing of effect 
+file elements. WME supports the following annotations:</p>
+<h4>Texture definition</h4>
+<p>Texture annotations can contain path to image file to be loaded into a 
+texture, using the ResourceName annotation:</p>
+<pre><font color="#800000">texture SomeTexture
+<
+    string ResourceName = "path\\filename.png";
+>;</font></pre>
+<p><span class="style1">Please note that you can reference the texture currently 
+assigned to the model using the DiffuseMap semantic, like this:</span></p>
+<pre><font color="#800000">texture ModelTexture : DiffuseMap;</font></pre>
+&nbsp;<h4>Render target definition</h4>
+<p>WME allows you to define render color targets and render depth targets using 
+the following annotations:</p>
+<pre><font color="#800000">texture RT_Tex : RenderColorTarget
+<
+    float2 Dimensions = { 1024, 1024 };
+    string Format = "D3DFMT_A8R8G8B8";
+    float  ClearDepth = 1.000000;
+    int    ClearColor = 0x00000000;
+    int    MipLevels = 1;
+>;
+
+texture RT_Depth : RenderDepthStencilTarget
+<
+    float2 Dimensions = { 1024, 1024 };
+    string Format = "D3DFMT_D24S8";
+    float  ClearDepth = 1.000000;
+>;</font></pre>
+	<h4>Pass scripting</h4>
+<p>WME supports simple scripting of render passes. Pass scripts allow you to 
+switch render targets and to render a screen-aligned quad. The annotation syntax 
+is:</p>
+<pre><font color="#800000">pass P0
+<
+    string Script = "RenderColorTarget0 = RT_Tex;"
+                    "RenderDepthStencilTarget = RT_Depth;"
+                    "Draw=Buffer;"
+                    "Draw=Geometry;"
+                    ;
+>
+{
+    // pass code here
+}</font></pre>
+<p>Supported script commands are:</p>
+<ul>
+	<li><strong>RenderColorTarget0=</strong> This command is followed by texture 
+	name (created with RenderColorTarget semantics). If you don't specify any 
+	name, the default render color target is restored.</li>
+	<li><strong>RenderDepthStencilTarget=</strong> This command is followed by 
+	texture name (created with RenderDepthStencilTarget). If you don't specify 
+	any name, the default render depth target is restored.</li>
+	<li><strong>Draw=</strong> This command is followed either by <strong>
+	Geometry</strong>, which renders the mesh, or by <strong>Buffer</strong>, 
+	which renders a screen-aligned quad.</li>
+</ul>
+<p>If no Draw command is specified, the mesh is rendered.</p>
+<p>WME only support pass scripts, not technique scripts.</p>
+<p>&nbsp;</p>
+<h3>Shader prototyping tools</h3>
+<p>There are tools allowing you designing and prototyping shaders. The most 
+common tools are:</p>
+<ul>
+	<li>
+	<a href="http://developer.amd.com/GPU/RENDERMONKEY/Pages/default.aspx" target="_blank">
+	AMD RenderMonkey</a></li>
+	<li>
+	<a href="http://developer.nvidia.com/object/fx_composer_home.html" target="_blank">
+	NVIDIA FX Composer</a></li>
+</ul>
+<p>While these tools are useful for quick prototyping and previewing of shader 
+effects, you shouldn't expect the effect files generated by these tools to be 
+directly usable by game engines.</p>
+<p>&nbsp;</p>
+<h3>Shader preview tool</h3>
+<p>There is a simple shader preview tool included with WME Development Kit. It's 
+a WME project and you will find it in the <strong>projects\wme_effects\</strong> 
+directory. To use the tool, place your .fx files into the &quot;effects&quot; subdirectory 
+of the project directory. Run the project from ProjectMan. It displays a teapot 
+model and lets you choose / reload / remove an effect file. You can also change 
+background image (those are loaded from scenes\Room directory, you can add 
+custom .png files there).</p>
+<p><img src="../img/shader_preview.png" ><br></p>
+
+</body>
+
+</html>

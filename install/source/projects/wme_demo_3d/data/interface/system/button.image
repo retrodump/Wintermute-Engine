@@ -1,0 +1,6 @@
+TILED_IMAGE
+{
+  IMAGE="interface\system\button.tga"
+  VERTICAL_TILES {20, 20, 20}
+  HORIZONTAL_TILES {20, 20, 20}
+}

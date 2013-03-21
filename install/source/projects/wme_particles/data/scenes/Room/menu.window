@@ -1,0 +1,85 @@
+WINDOW
+{
+  X = 0
+  Y = 0
+  WIDTH = 800
+  HEIGHT = 600
+  NAME = "menu"
+
+  SCRIPT = "scenes\room\menu.script"
+
+
+  BUTTON
+  {
+    NAME = "snow"
+    TEXT = "Make snow"
+    X = 0
+    Y = 100
+    WIDTH = 800
+    HEIGHT = 20
+    TEXT_ALIGN = left
+    PARENT_NOTIFY = TRUE
+  }
+
+  BUTTON
+  {
+    NAME = "rain"
+    TEXT = "Make rain"
+    X = 0
+    Y = 120
+    WIDTH = 800
+    HEIGHT = 20
+    TEXT_ALIGN = left
+    PARENT_NOTIFY = TRUE
+  }
+
+  BUTTON
+  {
+    NAME = "smoke"
+    TEXT = "Make smoke"
+    X = 0
+    Y = 140
+    WIDTH = 800
+    HEIGHT = 20
+    TEXT_ALIGN = left
+    PARENT_NOTIFY = TRUE
+  }
+
+  BUTTON
+  {
+    NAME = "fireworks"
+    TEXT = "Make fireworks"
+    X = 0
+    Y = 160
+    WIDTH = 800
+    HEIGHT = 20
+    TEXT_ALIGN = left
+    PARENT_NOTIFY = TRUE
+  }
+
+  BUTTON
+  {
+    NAME = "starfield"
+    TEXT = "Make starfield"
+    X = 0
+    Y = 180
+    WIDTH = 800
+    HEIGHT = 20
+    TEXT_ALIGN = left
+    PARENT_NOTIFY = TRUE
+  }
+
+
+  BUTTON
+  {
+    NAME = "quit"
+    TEXT = "Quit"
+    X = 0
+    Y = 210
+    WIDTH = 800
+    HEIGHT = 20
+    TEXT_ALIGN = left
+    PARENT_NOTIFY = TRUE
+  }
+
+}

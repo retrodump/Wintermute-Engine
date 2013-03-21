@@ -1,0 +1,213 @@
+#include "scripts\base.inc"
+
+
+////////////////////////////////////////////////////////////////////////////////
+method MakeStarfield()
+{
+  this.DeleteParticleEmitter();
+  this.CreateParticleEmitter();
+  
+  var Emit = this.ParticleEmitter;
+    
+  Emit.AddSprite("particles\snowflake.sprite");
+  Emit.X = Scene.Width / 2;
+  Emit.Y = Scene.Height / 2;
+  Emit.Width = 10;
+  Emit.Height = 10;
+  
+  Emit.SetBorder(0, 0, Scene.Width, Scene.Height);
+  
+  Emit.LifeTime1 = -1;
+  Emit.LifeTime2 = -1;
+  
+  Emit.Velocity1 = 400;
+  Emit.Velocity2 = 500;
+  
+  Emit.Scale1 = 10;
+  Emit.Scale2 = 100;
+  
+  Emit.Angle1 = 0;
+  Emit.Angle2 = 360;
+  
+  Emit.MaxParticles = 300;
+  
+  
+  Emit.GenerationInterval = 50;
+  Emit.GenerationAmount = 5;
+        
+  Emit.Start(20000);
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+method MakeFireworks()
+{
+  this.DeleteParticleEmitter();
+  this.CreateParticleEmitter();
+  
+  var Emit = this.ParticleEmitter;
+    
+  Emit.AddSprite("particles\snowflake.sprite");
+  Emit.X = Scene.Width / 2;
+  Emit.Y = Scene.Height / 2;
+  Emit.Width = 0;
+  Emit.Height = 0;
+      
+  Emit.LifeTime1 = 1000;
+  Emit.LifeTime2 = 1000;
+  
+  Emit.Velocity1 = 10;
+  Emit.Velocity2 = 200;
+  
+  Emit.Scale1 = 50;
+  Emit.Scale2 = 100;
+  
+  Emit.Angle1 = 0;
+  Emit.Angle2 = 360;
+  
+  Emit.MaxParticles = 200;
+  
+  
+  Emit.GenerationInterval = 2000;
+  Emit.GenerationAmount = 200;
+
+  Emit.Alpha1 = 255;  
+  Emit.Alpha2 = 0;
+  Emit.AlphaTimeBased = true;
+      
+  
+  Emit.Start();
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+method MakeSmoke()
+{
+  this.DeleteParticleEmitter();
+  this.CreateParticleEmitter();
+  
+  var Emit = this.ParticleEmitter;
+    
+  Emit.AddSprite("particles\cloud.tga");
+  Emit.X = Scene.Width / 2;
+  Emit.Y = Scene.Height / 2;
+  Emit.Width = 0;
+  Emit.Height = 0;
+  
+  Emit.LifeTime1 = 4000;
+  Emit.LifeTime2 = 5000;
+  
+  Emit.Velocity1 = 50;
+  Emit.Velocity2 = 70;
+  
+  Emit.Scale1 = 20;
+  Emit.Scale2 = 90;
+
+  
+  Emit.Angle1 = 0;
+  Emit.Angle2 = 20;
+  
+  Emit.MaxParticles = 300;
+
+  Emit.Alpha1 = 255;  
+  Emit.Alpha2 = 0;
+  Emit.AlphaTimeBased = true;
+  
+  Emit.GenerationInterval = 0;
+  Emit.GenerationAmount = 30;
+
+  Emit.AddPointForce("wind", Emit.X - 100, Emit.Y - 100, 90, 10);  
+      
+  Emit.Start(30000);
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+method MakeRain()
+{
+  this.DeleteParticleEmitter();
+  this.CreateParticleEmitter();
+  
+  var Emit = this.ParticleEmitter;
+    
+  Emit.AddSprite("particles\drop_right.png");
+  Emit.X = -200;
+  Emit.Y = 0;
+  Emit.Width = Scene.Width + 200;
+
+  Emit.SetBorder(-200, 0, Scene.Width + 200, Scene.Height);
+  Emit.SetBorderThickness(0, 0, 0, 100);
+
+  Emit.Alpha1 = 255;
+  Emit.Alpha2 = 100;
+  
+  Emit.LifeTime1 = -1;
+  Emit.LifeTime2 = -1;
+  Emit.LifeTimeZBased = true;
+  
+  Emit.Velocity1 = 250;
+  Emit.Velocity2 = 400;
+  Emit.VelocityZBased = true;
+  
+  Emit.Scale1 = 10;
+  Emit.Scale2 = 100;
+  Emit.ScaleZBased = true;
+  
+  Emit.Angle1 = 155;
+  Emit.Angle2 = 160;
+  
+  Emit.MaxParticles = 300;
+  
+  
+  Emit.GenerationInterval = 200;
+  Emit.GenerationAmount = 40;
+    
+    
+  Emit.Start(20000);
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+method MakeSnow()
+{
+  this.DeleteParticleEmitter();
+  this.CreateParticleEmitter();
+  
+  var Emit = this.ParticleEmitter;
+    
+  Emit.AddSprite("particles\snowflake.sprite");
+  Emit.X = 0;
+  Emit.Y = 0;
+  Emit.Width = Scene.Width;
+  
+  Emit.SetBorder(0, 0, Scene.Width, Scene.Height);
+  Emit.SetBorderThickness(0, 0, 0, 100);
+  
+  Emit.LifeTime1 = -1;
+  Emit.LifeTime2 = -1;
+  Emit.LifeTimeZBased = true;
+  
+  Emit.Velocity1 = 20;
+  Emit.Velocity2 = 50;
+  Emit.VelocityZBased = true;
+  
+  Emit.Scale1 = 10;
+  Emit.Scale2 = 100;
+  Emit.ScaleZBased = true;
+  
+  Emit.Angle1 = 175;
+  Emit.Angle2 = 185;
+  
+  Emit.MaxParticles = 300;
+  
+  
+  Emit.GenerationInterval = 1000;
+  Emit.GenerationAmount = 30;
+      
+  Emit.FadeOutTime = 1000;
+  
+  Emit.Start(20000);
+}

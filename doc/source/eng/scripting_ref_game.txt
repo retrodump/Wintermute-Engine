@@ -1,0 +1,892 @@
+*tit Game object
+*des The Game object allows you to access the properties of your game, and the engine itself. There is always one and only Game object available and it's stored in a predefined variable <b>Game</b>.
+*cls CAdGame
+
+*grp Diagnostic functions
+
+*met LOG(Text)
+*des Writes a text string to the system log file.
+*par Text The text string to be written to the system log file.
+*rem When the game runs in debug mode, it generates a "wme.log" file in the same directory where the project file resides. Using this method you can add your own diagnostic messages to the log file.
+
+*met Msg(Text)
+*des Writes a quick diagnostic message to the screen.
+*par Text The text string to de displayed on screen.
+*rem The quick message disappears after a few seconds.
+
+*met DumpTextureStats(Filename)
+*des Writes texture usage data to a text file in CSV format.
+*par Filename The name of the export file.
+*rem This method is only available if the game runs in accelerated mode.
+
+*met EnableScriptProfiling()
+*des Starts gathering statistic information on script execution times.
+
+*met DisableScriptProfiling()
+*des Stops gathering statistic information on script execution times and writes the results to wme.log and to the debugging console.
+
+
+*grp Object manipulation
+
+*met ValidObject(Object)
+*des Queries whether a given object reference is valid.
+*par Object An object reference to be tested for validity.
+*ret If the object reference is valid, the return value is <b>true</b>.
+*rem If you store an object reference in a variable, you can ensure this object is still valid using the ValidObject method. Objects become invalid after they are unloaded from memory (ether explicitly or for example by changing to a different scene).
+
+*met UnloadObject(Object)
+*des Removes an object from memory.
+*par Object The object to be removed from memory.
+*rem If you load an object using the Game.LoadActor, Game.LoadEntity and similar methods, you should unload those when you no longer need them to free memory. Otherwise those objects will be released when the game quits.
+
+*met LoadActor(Filename)
+*des Loads a new actor from a file.
+*par Filename The filename of the actor file to be loaded.
+*ret A reference to the new Actor object. If the method fails, the return value is <b>null</b>.
+
+*met LoadActor3D(Filename)
+*des Loads a new 3D actor from a file.
+*par Filename The filename of the 3D actor file to be loaded.
+*ret A reference to the new 3D actor object. If the method fails, the return value is <b>null</b>.
+
+
+*met LoadEntity(Filename)
+*des Loads a new entity from a file.
+*par Filename The filename of the entity file to be loaded.
+*ret A reference to the new Entity object. If the method fails, the return value is <b>null</b>.
+
+
+*met LoadWindow(Filename)
+*des Loads a new window from a file.
+*par Filename Filename of the window definition file to be loaded.
+*ret Returns a reference to a newly created window object or <b>null</b> if the loading fails.
+
+*met ExpandString(String)
+*des Expands a given string using the string table.
+*par String The text string to be expanded.
+*ret Returns the expanded string.
+*rem Note that methods such as Actor.Talk() do expand strings automatically, you don't need to expand them yourself.
+
+
+*grp Music functions
+
+*met MusicCrossfade(Channel1, Channel2, Time, SwapChannels)
+*des Crossfades two music channels
+*par Channel1 The channel which should fade out
+*par Channel2 The channel which should fade int
+*par Time A time period in which the channels should be crossfading
+*par SwapChannels Specifies whether the two channels will be swapped after the crossfading finishes (optional, default=true)
+*rem There can be always only two channels crossfading at one moment.
+
+*met PlayMusic(Filename, Looping, LoopStart)
+*des Plays a music.
+*par Filename The filename of the sound file to be played.
+*par Looping Whether the music should be looped (optional, default = true).
+*par LoopStart The position where to restart the music when looping, in milliseconds (optional, default = 0).
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met StopMusic()
+*des Stops a music playback.
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met PauseMusic()
+*des Pauses a music playback.
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met ResumeMusic()
+*des Resumes a paused music playback.
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met SetMusicPosition(Time)
+*des Sets the music's current playing position.
+*par Time A new playing position (in milliseconds)
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met GetMusicPosition()
+*des Queries the music's current playing position
+*ret Returns the current playing position (in milliseconds).
+
+*met IsMusicPlaying()
+*des Queries whether the music is currently playing
+*ret Returns <b>true</b> if music is playing.
+
+*met GetMusic()
+*des Queries the filename of the current music
+*ret Returns the current music filename or <b>null</b> if music isn't playing.
+
+*met SetMusicVolume(Volume)
+*des Sets the volume of currently playing music.
+*par Volume Music volume in percent.
+
+*met GetMusicVolume()
+*des Queries the music's current volume.
+*ret The volume in percent.
+
+
+*met PlayMusicChannel(Channel, Filename, Looping, LoopStart)
+*des Plays a music in a specified channel.
+*par Channel Which music channel to use
+*par Filename The filename of the sound file to be played.
+*par Looping Whether the music should be looped (optional, default = true).
+*par LoopStart The position where to restart the music when looping, in milliseconds (optional, default = 0).
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met StopMusicChannel(Channel)
+*des Stops a music playback in a specified channel.
+*par Channel Which music channel to use
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met PauseMusicChannel(Channel)
+*des Pauses a music playback in a specified channel.
+*par Channel Which music channel to use
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met ResumeMusicChannel(Channel)
+*des Resumes a paused music playback in a specified channel.
+*par Channel Which music channel to use
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met SetMusicChannelPosition(Channel, Time)
+*des Sets the music's current playing position in a specified channel.
+*par Channel Which music channel to use
+*par Time A new playing position (in milliseconds)
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met GetMusicChannelPosition(Channel)
+*des Queries the music's current playing position in a specified channel.
+*par Channel Which music channel to use
+*ret Returns the current playing position (in milliseconds).
+
+*met IsMusicChannelPlaying(Channel)
+*des Queries whether the music is currently playing in a specified channel
+*par Channel Which music channel to use
+*ret Returns <b>true</b> if music is playing.
+
+*met GetMusicChannel(Channel)
+*des Queries the filename of the current music in a specified channel
+*par Channel Which music channel to use
+*ret Returns the current music filename or <b>null</b> if music isn't playing.
+
+*met SetMusicChannelVolume(Channel, Volume)
+*des Sets the volume of currently playing music in a specified channel.
+*par Channel Which music channel to use
+*par Volume Music volume in percent
+
+*met GetMusicChannelVolume(Channel)
+*des Queries the music's current volume in a specified channel.
+*par Channel Which music channel to use
+*ret The volume in percent.
+
+
+
+*inc inc_object_script.inc
+
+
+*grp Sound functions
+
+*met GetSoundLength(SoundFilename)
+*des Queries length of a given sound file
+*par SoundFilename Name of the sound file to be queried
+*ret Returns length of the sound file (in milliseconds).
+
+
+*inc inc_object_sound.inc
+
+
+*inc inc_object_events.inc
+
+*grp Miscelaneous functions
+*inc inc_object_misc.inc
+
+
+*met SetMousePos(X, Y)
+*des Sets the mouse cursor position.
+*par X New X position of the mouse cursor. 
+*par Y New Y position of the mouse cursor. 
+
+*met LockMouseRect(Left, Top, Right, Bottom)
+*des Limits the mouse pointer movement to the specified rectangle
+*par Left Left edge of the mouse-lock rectangle.
+*par Top Top edge of the mouse-lock rectangle.
+*par Right Right edge of the mouse-lock rectangle.
+*par Bottom Bottom edge of the mouse-lock rectangle.
+*rem Call this method with no parameters (or with four zeros) to unlock the mouse pointer.
+
+*met QuitGame()
+*des Quits the current game session.
+
+*met FileExists(Filename)
+*des Queries whether a given file exists.
+*par Filename Filename to be tested.
+*ret If the specified file exists, the return value is <b>true</b>.
+
+*met GetFileChecksum(Filename, AsHexString)
+*des Computes a CRC32 value of a given file
+*par Filename The file for which the CRC is computed
+*par AsHexString Specifies whether the checksum value should be returned as a string representing a hexadecimal number (optional, default=false)
+*ret Returns the CRC32 value of a file either as a number or a string with hexadecimal representation of the value. Returns <b>null</b> if the file doesn't exist.
+
+*met Screenshot(Name)
+*des Takes a screenshot of the current game and saves it into a BMP file.
+*par Name Base name to be used for the generated BMP file (optional, defaults to Game.Name)
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met ScreenshotEx(Filename, Width, Height)
+*des Takes an (optionally resized) screenshot of the current game and saves it into a BMP file.
+*par Filename Filename of the BMP file to be created
+*par Width The resuting width of the screenshot
+*par Height The resuting height of the screenshot
+*ret If the method succeeds, the return value is <b>true</b>.
+
+
+*met LoadStringTable(Filename, ClearOld)
+*des Loads the string table from a file.
+*par Filename Name of the string table to be loaded
+*par ClearOld Remove the old string from the string table (optional, default=true)
+*rem The string table is NOT part of the saved game. You need either to ask user for language selection each time the game is started or store the setting in the registry.
+
+*met AddSpeechDir(Directory)
+*des Adds a directory to be used when WME automatically looks for speech files.
+*par Directory The directory name to look in
+*rem By default WME looks for speech files in a "speech" directory only.
+
+*met RemoveSpeechDir(Directory)
+*des Removes a directory from the list of dirs to look for speech files automatically.
+*par Directory The directory to be removed
+
+*met Reset()
+*des Resets the game's persistent data.
+*rem This method deletes all scene states, selected responses, sets timer to zero and also clears all global variables, except those holding game objects (such as windows or entities). Use this method if you want to start a new game.
+
+*met OpenDocument(Filename)
+*des Opens a specified document file or internet URL in an associated program.
+*par Filename The filename of the document file to be opened
+*rem This method uses the Windows extension associations to run the right program. Note that the document file MUST NOT be stored inside the game packages. It must be a regular file and you must reference it either by full filename or a filename relative to the game directory.
+
+*met SetLoadingScreen(ImageFilename, PosX, PosY)
+*des Sets an image to be displayed while loading a saved game.
+*par ImageFilename The filename of the image to be used or null
+*par PosX The X position of the image
+*par PosY The Y position of the image
+
+*met SetSavingScreen(ImageFilename, PosX, PosY)
+*des Sets an image to be displayed while saving the game.
+*par ImageFilename The filename of the image to be used or null
+*par PosX The X position of the image
+*par PosY The Y position of the image
+
+*met ClearScriptCache()
+*des Clears the content of the engine script cache.
+*rem Normally the engine caches compiled scripts so that they don't need to be compiled multiple times. This method allows you to flush the script cache, for example if you generate scripts dynamically and need them to be always re-compiled.
+
+*met DisplayLoadingIcon(Sprite, X, Y, Persistent)
+*des Briefly displays a "loading" icon.
+*par Sprite The filename of a sprite to be displayed as a loading icon.
+*par X The X position of the loading icon.
+*par Y The Y position of the loading icon.
+*par Persistent Specifies if the icon should stay on screen until HideLoadingIcon() is called (optional, default=false)
+*rem You can use this function to briefly display a "work-in-progress" symbol; for example call this method before calling a command which takes a long time (loading a window, long animation etc.). The icon is displayed until the script returns control back to the engine, unless the Persistent parameter is set to true. In that case you have to manually hide the icon by calling the <b>Game.HideLoadingIcon()</b> method.
+
+*met HideLoadingIcon()
+*des Hides a "loading" icon displayed by DisplayLoadingIcon()
+
+*met StoreSaveThumbnail()
+*des Stores the current screen content to be used as a saved game thumbnail.
+*ret Returns <b>true</b> if the method succeeded.
+*rem Normally, the game takes a screenshot immediately before saving the game. Sometimes this might be undesirable. Using this method you can control the exact moment when the saved game thumbnail should be generated. It is then used in the nearest subsequent Game.SaveGame() call.
+
+*met DeleteSaveThumbnail()
+*des Releases a stored saved game thumbnail.
+*ret Returns <b>true</b> if the method succeeded.
+*rem This method releases any stored saved game thumbnail previously generated using the Game.StoreSaveThumbnail() method.
+
+*grp Video functions
+
+*met PlayVideo(Filename, Type, X, Y, FreezeMusic, SubtitleFile)
+*des Plays a given AVI video file
+*par Filename The filename of the AVI file to be played.
+*par Type Type of display, 0=at a given position, 1=stretched, 2=centered (optional, default=1)
+*par X X position on screen. Only used when Type is 0 (optional, default=0)
+*par Y Y position on screen. Only used when Type is 0 (optional, default=0)
+*par FreezeMusic Specifies whether the background music should be suspended while video is playing (optional, default=true)
+*par SubtitleFile The .SUB file with subtitles (optional, defaults to [video name].sub)
+*ret If the method succeeds, the return value is <b>true</b>.
+*rem This method is now <b>deprecated</b>. Use PlayTheora() instead whenever possible.
+
+*met PlayTheora(Filename, Type, X, Y, FreezeMusic, DropFrames, SubtitleFile)
+*des Plays a given Theora video file
+*par Filename The filename of the Ogg Theora file to be played.
+*par Type Type of display, 0=at a given position, 1=stretched, 2=centered (optional, default=1)
+*par X X position on screen. Only used when Type is 0 (optional, default=0)
+*par Y Y position on screen. Only used when Type is 0 (optional, default=0)
+*par FreezeMusic Specifies whether the background music should be suspended while video is playing (optional, default=true)
+*par DropFrames Specifies whether the video playback should drop frames if the playback is too slow (optional, default=true)
+*par SubtitleFile The .SUB file with subtitles (optional, defaults to [video name].sub)
+*ret If the method succeeds, the return value is <b>true</b>.
+
+
+*grp Registry functions
+
+*met RegWriteNumber(Key, Value)
+*des Writes a given number to the Windows Registry.
+*par Key Name of the key to be written
+*par Value The number to be written
+
+*met RegWriteString(Key, Value)
+*des Writes a given string to the Windows Registry.
+*par Key Name of the key to be written
+*par Value The string to be written
+
+*met RegReadNumber(Key, InitValue)
+*des Reads a numeric value from the Windows Registry.
+*par Key Name of the key to be read from
+*par InitValue Initial value to be returned if the key doesn't exist (optional, default=null)
+*ret Returns the number read from the Windows Registry.
+
+*met RegReadString(Key, InitValue)
+*des Reads a string value from the Windows Registry.
+*par Key Name of the key to be read from
+*par InitValue Initial value to be returned if the key doesn't exist (optional, default=null)
+*ret Returns the string read from the Windows Registry.
+
+
+*grp Save/load functions
+
+*met SaveGame(Slot, Description, QuickSave)
+*des Saves a game to the given save slot.
+*par Slot Number of the save slot to be used
+*par Description Description of the saved game
+*par QuickSave Saves game without displaying the progress indicator (optional, default=false)
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met LoadGame(Slot)
+*des Loads a game from the given save slot.
+*par Slot Number of the save slot to be used
+*ret If the method fails, the return value is <b>false</b>.
+
+*met IsSaveSlotUsed(Slot)
+*des Queries whether a given save slot is in use.
+*par Slot Number of the save slot to be tested.
+*ret If the save slot is already in use, the return value is <b>true</b>.
+
+*met GetSaveSlotDescription(Slot)
+*des Queries a description of a given save slot.
+*par Slot Number of the save slot to be queried
+*ret The description of a given save slot.
+
+*met EmptySaveSlot(Slot)
+*des Empties a given save slot.
+*par Slot Number of the save slot to be emptied.
+
+
+*grp Volume functions
+
+*met SetGlobalSFXVolume(Percent)
+*des Sets the volume of sound effects.
+*par Percent A new sound volume (in percent)
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met SetGlobalSpeechVolume(Percent)
+*des Sets the volume of speech.
+*par Percent A new speech volume (in percent)
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met SetGlobalMusicVolume(Percent)
+*des Sets the volume of music.
+*par Percent A new music volume (in percent)
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met SetGlobalMasterVolume(Percent)
+*des Sets the master volume.
+*par Percent A new sound volume (in percent)
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met GetGlobalSFXVolume()
+*des Gets the current sound effects volume.
+*ret Returns the sound volume (in percent).
+
+*met GetGlobalSpeechVolume()
+*des Gets the current speech volume.
+*ret Returns the speech volume (in percent).
+
+*met GetGlobalMusicVolume()
+*des Gets the current music volume.
+*ret Returns the music volume (in percent).
+
+*met GetGlobalMasterVolume()
+*des Gets the current master volume.
+*ret Returns the master volume (in percent).
+
+
+*grp Cursor functions
+
+*inc inc_object_cursor.inc
+
+*met SetActiveCursor(Filename)
+*des Sets the active cursor.
+*par Filename Filename of a sprite file to be used as a cursor pointer.
+*ret Returns <b>true</b> if the cursor has been set succesfuly.
+*rem The "active" cursor is used when the mouse pointer is over an interactive object.
+
+*met GetActiveCursor()
+*des Returns the filename of the active cursor sprite (or null if no cursor is set)
+
+*met GetActiveCursorObject()
+*des Returns a reference to the active cursor sprite (or null if no cursor is set)
+
+*met RemoveActiveCursor()
+*des Removes the active cursor.
+
+*met HasActiveCursor()
+*des Queries whether the active cursor is set.
+*ret Returns <b>true</b> it the object has a custom mouse pointer assigned.
+
+*met SetWaitCursor(Filename)
+*des Sets the non-interactive cursor.
+*par Filename Filename of a sprite file to be used as a cursor pointer.
+*ret Returns <b>true</b> if the cursor has been set succesfuly.
+
+*met GetWaitCursor()
+*des Returns the filename of the non-interactive cursor sprite (or null if no cursor is set)
+
+*met GetWaitCursorObject()
+*des Returns a reference to the non-interactive cursor sprite (or null if no cursor is set)
+
+*met RemoveWaitCursor()
+*des Removes the non-interactive cursor.
+
+
+
+*grp Fading functions
+
+*met FadeOut(Duration, TargetRed, TargetGreen, TargetBlue, TargetAlpha)
+*mt2 FadeOutAsync(Duration, TargetRed, TargetGreen, TargetBlue, TargetAlpha)
+*mt2 SystemFadeOut(Duration, TargetRed, TargetGreen, TargetBlue, TargetAlpha)
+*mt2 SystemFadeOutAsync(Duration, TargetRed, TargetGreen, TargetBlue, TargetAlpha)
+*des Fades the screen out to a specified color.
+*par Duration Specifies how long it will take to fade out, in milliseconds (optional, default=500)
+*par TargetRed The Red component of a target fade color (optional, default=0)
+*par TargetGreen The Green component of a target fade color (optional, default=0)
+*par TargetBlue The Blue component of a target fade color (optional, default=0)
+*par TargetAlpha The Alpha component (opacity) of a target fade color (optional, default=255)
+*rem The <b>FadeOut</b> method blocks the script execution until the fading is over, while the <b>FadeOutAsync</b> method returns immediately. The <b>SystemFadeOut</b> and <b>SystemFadeOutAsync</b> methods continue fading even after the game enters the system exclusive mode.
+
+*met FadeIn(Duration, SourceRed, SourceGreen, SourceBlue, SourceAlpha)
+*mt2 FadeInAsync(Duration, SourceRed, SourceGreen, SourceBlue, SourceAlpha)
+*mt2 SystemFadeIn(Duration, SourceRed, SourceGreen, SourceBlue, SourceAlpha)
+*mt2 SystemFadeInAsync(Duration, SourceRed, SourceGreen, SourceBlue, SourceAlpha)
+*des Fades the screen in from a specified color.
+*par Duration Specifies how long it will take to fade in, in milliseconds (optional, default=500)
+*par SourceRed The Red component of the initial fade color (optional, default=0)
+*par SourceGreen The Green component of the initial fade color (optional, default=0)
+*par SourceBlue The Blue component of the initial fade color (optional, default=0)
+*par SourceAlpha The Alpha component (opacity) of the initial fade color (optional, default=255)
+*rem The <b>FadeIn</b> method blocks the script execution until the fading is over, while the <b>FadeInAsync</b> method returns immediately. The <b>SystemFadeIn</b> and <b>SystemFadeInAsync</b> methods continue fading even after the game enters the system exclusive mode.
+
+*met GetFadeColor()
+*des Gets the current fading color.
+*ret Returns the current fading color in the encoded color format.
+*rem You can use the GetRValue(), GetGValue(), GetBValue() and GetAValue() functions to extract individual color components.
+
+
+*grp Scene functions
+
+*met ChangeScene(Filename, FadeOut, FadeIn)
+*des Loads a specified scene file.
+*par Filename Filename of the scene file to be loaded.
+*par FadeOut Whether the old scene should fade out before the scene change (optional, default = true)
+*par FadeIn Whether the new scene should fade in after the scene change (optional, default = true)
+
+*met SetSceneViewport(X, Y, Width, Height)
+*des Sets scene viewport to specified values.
+*par X Viewport X position on screen
+*par Y Viewport Y position on screen
+*par Width Viewport width
+*par Height Viewport width
+*rem This method affects all scenes (unlike Scene.SetViewport).
+*rem Call this method without any parameters to set viewport to full screen.
+
+
+*grp Responses/inventory
+
+*met AddResponse(ID, Response, IconFilename, HoverIconFilename, PressedIconFilename, FontFilename)
+*des Adds a single response sentence to the response box.
+*par ID An ID number of this response.
+*par Response A text of this reponse.
+*par IconFilename A filename of a sprite for this response (optional).
+*par HoverIconFilename A filename of a hover sprite for this response (optional).
+*par PressedIconFilename A filename of a pressed sprite for this response (optional).
+*par FontFilename Filename of font to be used for this response (optional).
+
+*met AddResponseOnce(ID, Response, IconFilename, HoverIconFilename, PressedIconFilename, FontFilename)
+*des Adds a single response sentence to the response box. The response is only added once per a dialogue branch.
+*par ID An ID number of this response.
+*par Response A text of this reponse.
+*par IconFilename A filename of a sprite for this response (optional).
+*par HoverIconFilename A filename of a hover sprite for this response (optional).
+*par PressedIconFilename A filename of a pressed sprite for this response (optional).
+*par FontFilename Filename of font to be used for this response (optional).
+*rem The engine will only add the response to the response box if it wasn't selected before by the player in the current dialogue branch. You must denote the dialogue branch using the Game.StartDlgBranch() and Game.EntDlgBranch() to make this method work.
+
+*met AddResponseOnceGame(ID, Response, IconFilename, HoverIconFilename, PressedIconFilename, FontFilename)
+*des Adds a single response sentence to the response box. The response is only added once per a game session.
+*par ID An ID number of this response.
+*par Response A text of this reponse.
+*par IconFilename A filename of a sprite for this response (optional).
+*par HoverIconFilename A filename of a hover sprite for this response (optional).
+*par PressedIconFilename A filename of a pressed sprite for this response (optional).
+*par FontFilename Filename of font to be used for this response (optional).
+*rem The engine will only add the response to the response box if it wasn't selected before by the player before. You must denote a dialogue branch using the Game.StartDlgBranch() and Game.EntDlgBranch() to make this method work.
+
+*met ResetResponse(ID)
+*des Revives a previously disabled response.
+*par ID An ID number of response to be revived.
+*rem If you add a response using the Game.AddResponseOnce() or Game.AddResponseOnceGame() methods, it gets disabled once the player selects it. Use the ResetResponse method to make such response reappear.
+
+*met GetResponse(AutoSelectLastResp)
+*des Displays a response box and waits for the player's choice.
+*par AutoSelectLastResp Specifies whether the last remaining response should be automatically selected (optional, defaul=false)
+*ret An ID number of the selected response.
+
+*met GetNumResponses()
+*des Queries the number of remaining responses in the response box.
+*ret Returns the number of responses remaining in the response box.
+*rem Some of the responses added by the AddResponseOnce or AddResponseOnceGame methods may have not been actually added to the response box. Use this method to find out how many responses currently really are prepared in the response box.
+
+*met ClearResponses()
+*des Removes any responses previously added to the response box.
+
+*met GetInventoryWindow()
+*des Returns a reference to the window object used by the inventory box.
+*ret A reference to the inventory window object.
+
+*met GetResponsesWindow()
+*des Returns a reference to the window object used by the responses box.
+*ret A reference to the responses window object.
+
+
+*met StartDlgBranch(DialogueName)
+*des Denotes a start of a dialogue branch.
+*par DialogueName A name of the dialogue branch. Dialogue names should be unique within one script file. The parameter is optional but it's recommended to specify a name.
+*rem Dialogue branches only need to be explicitly denoted if you want to use the Game.AddResponseOnce() or Game.AddResponseOnceGame() methods.
+
+*met EndDlgBranch(DialogueName)
+*des Denotes an end of a dialogue branch.
+*par DialogueName A name of the dialogue branch. Dialogue names should be unique within one script file. The parameter is optional; if you don't specify a name, the inner-most dialogue branch is ended.
+*rem Dialogue branches only need to be explicitly denoted if you want to use the Game.AddResponseOnce() or Game.AddResponseOnceGame() methods.
+
+*met GetCurrentDlgBranch()
+*des Queries a current dialogue branch name.
+*ret Returns the name of the current dialogue branch (started by the Game.StartDlgBranch method) or returns <b>null</b> if no dialgue branch has been started.
+
+*met LoadResponseBox(Filename)
+*des Reloads a response box from file.
+*par Filename The response-box definition file to be loaded.
+*ret Returns <b>true</b> if the method succeeded.
+
+*met LoadInventoryBox(Filename)
+*des Reloads an inventory box from file.
+*par Filename The inventory-box definition file to be loaded.
+*ret Returns <b>true</b> if the method succeeded.
+
+*met LoadItems(Filename, Merge)
+*des Loads inventory items from a definition file.
+*par Filename The items definition file to be loaded
+*par Merge The new items will be merged with existing ones (optional, default=false)
+*ret Returns <b>true</b> if the items were successfuly loaded.
+
+*inc inc_inventory.inc 
+
+*met IsItemTaken(ItemName)
+*mt2 IsItemTaken(ItemObject)
+*des Queries whether a given item is in inventory of any of the game objects.
+*par ItemName A name of the item to be queried.
+*par ItemObject Reference to the item object to be queried.
+*ret If the specified item is in the inventory, the return value is <b>true</b>.
+
+*met QueryItem(ItemName)
+*mt2 QueryItem(ItemIndex)
+*des Queries a specified inventory item of all inventory items currently defined in game
+*par ItemName The name of the item to be queried
+*par ItemIndex The index of the item to be queried
+*ret Returns a reference to the specified item or <b>null</b> if the item name/index is invalid.
+*rem To query all available inventory items, create a loop from 0 to <b>Game.TotalNumItems</b> - 1.
+
+
+*inc inc_dynamic.inc
+
+*met CreateWindow(Name)
+*des Creates a new window object.
+*par Name The name of the window object (optional)
+*ret Returns a reference to the newly created window.
+
+*met DeleteWindow(Window)
+*des Destroys a window object.
+*par Window The window object to be destroyed
+
+
+*met CreateItem(Name)
+*des Creates a new inventory item object.
+*par Name The name of the item object (optional)
+*ret Returns a reference to the newly created item.
+
+*met DeleteItem(Item)
+*des Destroys an item object.
+*par Item The item object to be destroyed
+*rem This method permanently destroys the inventory item. You can no longer reference it in methods like TakeItem etc.
+
+
+*grp 3D characters related
+
+*met SetShadowImage(Filename)
+*des Sets and image to be used as a simple shadow for 3D characters
+*par Filename The filename of an image to be used
+*ret Returns <b>true</b> if the image has been successfuly set.
+
+*met GetShadowImage()
+*des Gets the currently assigned image to be used as a simple shadow for 3D characters
+*ret Returns the filename of currently assigned shadow image or <b>null</b> if no image is set.
+
+*met IsShadowTypeSupported(ShadowType)
+*des Checks the availability of specified shadow type on current computer configuration.
+*par ShadowType The shadow type to be queried (0..none, 1..simple, 2..flat, 3..stencil shadows)
+*ret Returns <b>true</b> if the specified shadow type is supported by player's video card.
+*rem None and simple shadows are always available.
+
+
+*grp Accessibility
+
+*met AccOutputText(Text, Type)
+*des Sends the text to text-to-speech synthesizer
+*par Text The text to be converted to speech
+*par Type Text type (0..caption, 1..speech, 2..keypress)
+*rem For this method to work, text-to-speech output must be enabled in the accessibility tab of the WME startup settings window.
+
+
+*grp 
+*atr Type
+*des Returns always "game"
+*ro
+
+*atr Accelerated
+*des Returns <b>true</b> if the game currently uses 3D acceleration to display graphics.
+*ro
+
+*atr CurrentTime
+*des Returns the time elapsed since the game has started.
+*ro
+
+*atr WindowsTime
+*des Returns the time elapsed since Windows has started.
+*ro
+
+*atr TextEncoding
+*des Specifies text encoding used for in-game texts, 0..ANSI, 1..UTF8
+
+*atr TextRTL
+*des Specifies if the game uses right-to-left reading order (for Hebrew and Arabic). Only affects TrueType fonts!
+
+*atr MouseX
+*des The current X position of the mouse cursor
+
+
+*atr MouseY
+*des The current Y position of the mouse cursor
+
+
+*atr MainObject
+*des The object which is used for the scene's auto scrolling, can be (set to) <b>null</b>
+
+*atr ActiveObject
+*des Returns the object which is currently under the mouse cursor (or <b>null</b> if there's none)
+*ro
+
+*atr InventoryObject
+*des The object whose inventory is currently displayed.
+
+
+*atr ScreenWidth
+*des Returns the screen's width in pixels.
+*ro
+
+*atr ScreenHeight
+*des Returns the screen's height in pixels.
+*ro
+
+*atr DebugMode
+*des Returns whether the game runs in the debugging mode.
+*ro
+
+*atr SoundAvailable
+*des Returns whether the sound is available and enabled.
+*ro
+
+*atr Keyboard
+*des Returns a reference to the Keyboard State object.
+*ro
+
+*atr Subtitles
+*des Specifes whether the speech subtitles are enabled.
+
+*atr VideoSubtitles
+*des Specifes whether the AVI/Theora video subtitles are enabled.
+
+*atr SubtitlesSpeed
+*des Specifies the speech subtitles speed (in milliseconds per one character)
+
+*atr Scene
+*des Returns a reference to the currently loaded scene object.
+*ro
+
+*atr SelectedItem
+*des Currently selected inventory item (or <b>null</b> for no item).
+
+*atr NumItems
+*des Returns the number of items in the player's inventory.
+*ro
+
+*atr TotalNumItems
+*des Returns the number of all inventory items currently defined in the game.
+*ro
+
+*atr SmartItemCursor
+*des Specifies whether the mouse cursor with selected item only highlights if the object under mouse can handle the selected item.
+
+*atr TalkSkipButton
+*des Specifies which mouse button is used to skip talk lines (0-left button, 1-right button, 2-both buttons, 3-skipping is disabled)
+
+*atr InventoryVisible
+*des Specifies whether the inventory box is currently visible.
+
+*atr InventoryScrollOffset
+*des Specifies the current scrolling offset of inventory items in the inventory box.
+
+*atr ResponsesVisible
+*des Returns whether a response box is visible (i.e. the game awaits player's choice).
+*ro
+
+*atr WindowedMode
+*des Returns <b>true</b> if the game runs in windowed mode.
+*ro
+
+*atr Hwnd
+*des Returns the window handle (HWND) of the game window (only useful for plugin development).
+*ro
+
+*atr StartupScene
+*des The filename of the scene to be loaded when the game starts.
+
+*atr PrevScene
+*des Returns the name of the previous scene.
+*ro
+
+*atr PrevSceneFilename
+*des Returns the filename of the previous scene.
+*ro
+
+
+*atr LastResponse
+*des Returns the text of the most recently selected response.
+*ro
+
+*atr LastResponseOrig
+*des Returns the text of the most recently selected response in its orignal (non-localized) form.
+*ro
+
+*atr FPS
+*des Returns the current framerate (in frames per second)
+*ro
+
+*atr MaxShadowType
+*des Specifies the maximum shadow detail to be used throughout the game (0..none, 1..simple, 2..flat, 3..stencil shadows)
+
+*atr Shadows
+*des Specifies if shadows are enabled for 3D characters (obsolete, use MaxShadowType)
+
+*atr SimpleShadows
+*des Specifies if simple shadows are to be used for 3D characters. This attribute has no effect if real-time shadows are unsupported (obsolete, use MaxShadowType)
+
+*atr SupportsRealTimeShadows
+*des Returns <b>true</b> if the videocard supports real-time shadows (obsolete, use IsShadowTypeSupported())
+*ro
+
+*atr MaxActiveLights
+*des Returns the maximum number of active lights supported by video card.
+*ro
+
+*atr HardwareTL
+*des Returns <b>true</b> if the game is taking advantage of hardware transform and lighting.
+*ro
+
+*atr Direct3DDevice
+*des Returns the pointer to the underlying IDirect3DDevice8/IDirect3DDevice9 object (plugins only)
+*ro
+
+*atr DirectDrawInterface
+*des Returns the pointer to the underlying IDirectDraw7 object (plugins only)
+*ro
+
+*atr SaveDirectory
+*des Returns the path where saved games are stored
+*ro
+
+*atr Frozen
+*des Returns <b>true</b> if the game is currently in frozen state
+*ro
+
+*atr SoundBufferSize
+*des Specifies size of a sound buffer for streaming sounds (such as music), in seconds
+
+*atr SuspendedRendering
+*des Specifies whether the game updates screen. Use with caution.
+
+*inc inc_object_attr.inc
+
+*atr AccTTSEnabled
+*ro
+*des Accessibility: text-to-speech output is enabled
+
+*atr AccTTSCaptions
+*ro
+*des Accessibility: text-to-speech output of item captions is enabled
+
+*atr AccTTSTalk
+*ro
+*des Accessibility: text-to-speech output of spoken lines is enabled
+
+*atr AccTTSKeypress
+*ro
+*des Accessibility: text-to-speech output of typed keys is enabled
+
+*atr AccKeyboardEnabled
+*ro
+*des Accessibility: manual highlighting of active items is enabled
+
+*atr AccKeyboardCursorSkip
+*ro
+*des Accessibility: manual highlighting of active items moves the mouse pointer to the active item
+
+*atr AccKeyboardPause
+*ro
+*des Accessibility: pausing game using Ctrl+Space is enabled
+
+*atr SuppressScriptErrors
+*des Specifies whether WME should display a warning on screen when encountering script runtime error
+
+*atr ChangingScene
+*des Specifies whether scene change is currently in progress
+*ro
+
+*atr AutorunDisabled
+*des Specifies whether the engine blocks Windows AutoRun feature
+
+*atr MostRecentSaveSlot
+*des The number of the most recently used saved game slot (or -1 if there isn't any)
+
+*inc inc_mouse_events.inc
+
+*evn BeforeSave
+*des The game is about to save its state.
+
+*evn AfterLoad
+*des The game just loaded its state.

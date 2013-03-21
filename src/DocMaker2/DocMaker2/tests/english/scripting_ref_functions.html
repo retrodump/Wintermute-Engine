@@ -1,0 +1,219 @@
+<html>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="WME DocMaker 2.0">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Global functions and variables</title>
+<link rel="stylesheet" type="text/css" href="../../styles.css">
+</head>
+
+<body>
+<!-- Generated on 7.11.2005 18:05:37, settings file: english -->
+
+<h3>Global functions and variables</h3>
+<p>
+These global functions and variables are available in all scripts.
+</p>
+
+<br>
+
+<h4>Global functions</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%"><a href="#Sleep">Sleep</a></td>
+    <td>Suspends the script for a specified number of milliseconds </td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#WaitFor">WaitFor</a></td>
+    <td>Suspends the script until the specified object is "ready"</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#Random">Random</a></td>
+    <td>Returns a pseudo-random number from a specified range </td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetScriptTimeSlice">SetScriptTimeSlice</a></td>
+    <td>The script will be automatically suspended after a specified time interval </td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#MakeRGBA">MakeRGBA</a></td>
+    <td>Packs the Red, Green, Blue and Alpha color values into one number</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetRValue">GetRValue</a></td>
+    <td>Extracts a Red portion of a color</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetGValue">GetGValue</a></td>
+    <td>Extracts a Green portion of a color</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetBValue">GetBValue</a></td>
+    <td>Extracts a Blue portion of a color</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetAValue">GetAValue</a></td>
+    <td>Extracts an Alpha portion of a color</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ToString">ToString</a></td>
+    <td>Converts a specified value to a string</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ToInt">ToInt</a></td>
+    <td>Converts a specified value to an integer number</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ToBool">ToBool</a></td>
+    <td>Converts a specified value to a boolean (logical) value</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ToFloat">ToFloat</a></td>
+    <td>Converts a specified value to a floating point number</td>
+  </tr>
+</table>
+
+<h4>Global variables</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%">Game (read only)</td>
+    <td>The one and only game object reference</td>
+  </tr>
+</table>
+
+<hr>
+<h3><a name="Sleep"></a>Sleep (Milliseconds)</h3>
+<p>Suspends the script for a specified number of milliseconds </p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Milliseconds</i></dt>
+<dd>Number of milliseconds to suspend the script for</dd>
+</dl>
+<h4>Remarks</h4>
+<p>The <b>Sleep</b> function suspends the script and returns control back to the engine. If you have a script that runs for a very long time, you should periodically call the <b>Sleep</b> function, otherwise the game will seem to be "stuck" until the script finishes.</p>
+
+<hr>
+<h3><a name="WaitFor"></a>WaitFor (Object)</h3>
+<p>Suspends the script until the specified object is "ready"</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Object</i></dt>
+<dd>The object to wait for</dd>
+</dl>
+<h4>Remarks</h4>
+<p>The object is "ready", when it doesn't perform any action (like talking, walking etc.).</p>
+
+<hr>
+<h3><a name="Random"></a>Random (From, To)</h3>
+<p>Returns a pseudo-random number from a specified range </p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>From</i></dt>
+<dd>The lower bound of the range</dd>
+<dt><i>To</i></dt>
+<dd>The higher bound of the range</dd>
+</dl>
+
+<hr>
+<h3><a name="SetScriptTimeSlice"></a>SetScriptTimeSlice (Milliseconds)</h3>
+<p>The script will be automatically suspended after a specified time interval </p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Milliseconds</i></dt>
+<dd>The time interval after which the script will be suspended</dd>
+</dl>
+<h4>Remarks</h4>
+<p>If you have a script that runs for a very long time, you should return control to the engine from time to time. You can do it either manually by calling the <b>Sleep</b> function, or you can set the time-slice interval. In that case, the engine will suspend the script automatically, perform other tasks, and return to the script again.</p>
+
+<hr>
+<h3><a name="MakeRGBA"></a>MakeRGBA (R, G, B, A)</h3>
+<p>Packs the Red, Green, Blue and Alpha color values into one number</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>R</i></dt>
+<dd>The Red component of the requested color</dd>
+<dt><i>G</i></dt>
+<dd>The Green component of the requested color</dd>
+<dt><i>B</i></dt>
+<dd>The Blue component of the requested color</dd>
+<dt><i>A</i></dt>
+<dd>The Alpha component of the requested color (optional, defaults to 255)</dd>
+</dl>
+<h4>Remarks</h4>
+<p>All the color components range from 0 to 255. The alpha component specifies the transparency of the resulting color. It ranges from 0 (completely transparent) to 255 (opaque).</p>
+
+<hr>
+<h3><a name="GetRValue"></a>GetRValue (Color)</h3>
+<p>Extracts a Red portion of a color</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Color</i></dt>
+<dd>A packed RGBA color</dd>
+</dl>
+
+<hr>
+<h3><a name="GetGValue"></a>GetGValue (Color)</h3>
+<p>Extracts a Green portion of a color</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Color</i></dt>
+<dd>A packed RGBA color</dd>
+</dl>
+
+<hr>
+<h3><a name="GetBValue"></a>GetBValue (Color)</h3>
+<p>Extracts a Blue portion of a color</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Color</i></dt>
+<dd>A packed RGBA color</dd>
+</dl>
+
+<hr>
+<h3><a name="GetAValue"></a>GetAValue (Color)</h3>
+<p>Extracts an Alpha portion of a color</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Color</i></dt>
+<dd>A packed RGBA color</dd>
+</dl>
+
+<hr>
+<h3><a name="ToString"></a>ToString (Value)</h3>
+<p>Converts a specified value to a string</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Value</i></dt>
+<dd>The value to be converted</dd>
+</dl>
+
+<hr>
+<h3><a name="ToInt"></a>ToInt (Value)</h3>
+<p>Converts a specified value to an integer number</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Value</i></dt>
+<dd>The value to be converted</dd>
+</dl>
+
+<hr>
+<h3><a name="ToBool"></a>ToBool (Value)</h3>
+<p>Converts a specified value to a boolean (logical) value</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Value</i></dt>
+<dd>The value to be converted</dd>
+</dl>
+
+<hr>
+<h3><a name="ToFloat"></a>ToFloat (Value)</h3>
+<p>Converts a specified value to a floating point number</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Value</i></dt>
+<dd>The value to be converted</dd>
+</dl>
+
+
+</body>
+
+</html>

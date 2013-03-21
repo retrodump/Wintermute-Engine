@@ -1,0 +1,57 @@
+#include "scripts\base.inc"
+
+
+////////////////////////////////////////////////////////////////////////////////
+// load the old guy person
+global OldGuy = Scene.LoadEntity("entities\oldguy\oldguy.entity");
+OldGuy.SkipTo(505, 330);
+
+////////////////////////////////////////////////////////////////////////////////
+// setup actor's initial position depending on where he came from
+if(Game.PrevScene=="street")
+{
+  actor.SkipTo(139, 428);
+  actor.Direction = DI_DOWNRIGHT;
+}
+else
+{
+  actor.SkipTo(314, 505);
+  actor.Direction = DI_DOWNRIGHT;
+}
+
+// point the "camera" at the actor
+Scene.SkipTo(actor);
+
+
+////////////////////////////////////////////////////////////////////////////////
+// scene state
+global StateRoom;
+
+// default values
+if(StateRoom==null)
+{
+  StateRoom.Visited = false;
+  StateRoom.TalkedToOldGuy = false;
+  StateRoom.FanSpeed = 1;
+}
+
+
+if(StateRoom.Visited==false)
+{
+  Game.Interactive = false;
+
+  actor.GoTo(461, 685);
+  actor.TurnTo(DI_DOWN);
+  actor.Talk("Welcome to the Wintermute Engine demo!");
+  actor.Talk("Click the hint icons to learn more.");
+
+  StateRoom.Visited = true;
+  Game.Interactive = true;
+}
+
+// display the demo hints
+global WinHints;
+WinHints.Init();
+
+// and start the music
+if(!Game.IsMusicPlaying()) Game.PlayMusic("music\narco - postmortusica.ogg");

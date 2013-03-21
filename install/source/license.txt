@@ -1,0 +1,36 @@
+Wintermute Engine Development Kit License Agreement
+
+This License Agreement is a legal agreement between you, the end-user, and Jan Nedoma (the "Author").
+You agree to be bound by the terms of this license agreement by installing, copying, or otherwise using the product. If you do not agree, do not install or use the product.
+
+The enclosed software that includes the engine runtime (the "Runtime"), supporting tools, templates, demonstrational data and documentation (hereinafter the "Software") is licensed to you by the Author only under the terms of this License. You own the media on which the Software is recorded or fixed, but the Author retains ownership of the Software itself.
+
+
+1. LICENSE.
+
+The Author grants to you the license that allows you to use the Software on any number of computers at any one time. You are not required to pay any royalty fees for the Software.
+
+
+Under the terms of this license you may:
+
+* Use the Software to create a standalone product (the "Product")
+* Include the Runtime with the Product.
+* Modify and use the sample data and templates in the Product.
+* Distribute the Product, both for free and for commercial purposes.
+* Modify and/or distribute parts of the Software if it's allowed by their individual licenses.
+
+
+You shall not:
+
+* Distribute or publish any part of the Software (original or modified) other than the Runtime and parts released under different licenses, unless you have received a written permission from the Author.
+* You may not lend, give, rent, lease, sub-license and transfer the Software and related materials, other than the Runtime and parts released under different licenses, to other parties without the written permission of the Author.
+
+
+2. COPYRIGHT.
+
+The Software is owned by the Author and is protected by International copyright laws and treaty provisions. Portions of the code may be owned by other authors, as specified in the documentation or in source files. 
+
+
+3. LIMITED WARRANTY/LIMITATION OF LIABILITY.
+
+This Software is licensed "AS IS". If for any reason you are dissatisfied with the Software, remove it from your computer system and destroy all copies of it. These warranties are in lieu of any other warranties, expressed or implied, including the implied warranties of merchantability and fitness for a particular purpose. In no event will the Author be liable to you for damages, including any loss of profits, lost savings, or other incidental or consequential damages arising out of your use of or inability to use the Software, even if the Author has been advised of the possibility of such damages.

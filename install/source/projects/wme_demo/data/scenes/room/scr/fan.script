@@ -1,0 +1,60 @@
+#include "scripts\base.inc"
+
+global StateRoom;
+
+////////////////////////////////////////////////////////////////////////////////
+on "LookAt"
+{
+  actor.GoToObject(this);
+  actor.Talk("It's a fan. I can change its spinning speed.");
+}
+
+////////////////////////////////////////////////////////////////////////////////
+on "Take"
+{
+  actor.GoToObject(this);
+  Game.Interactive = false;
+
+  // get the fan entity
+  var EntFan = Scene.GetNode("fan");
+
+  // set the fan etity sprite depending on the state variable
+  // (0-off, 1-normal, 2-false)
+  if(StateRoom.FanSpeed==0)
+  {
+    actor.Talk("It's turned off. I'll turn it on...");
+    actor.PlayAnim("actors\molly\ur\take1.sprite");
+    EntFan.PlaySound("sounds\fan_start.ogg");
+    actor.PlayAnim("actors\molly\ur\take2.sprite");
+    Sleep(1400);
+    EntFan.SetSprite("scenes\room\sprites\fan.sprite");
+    StateRoom.FanSpeed = 1; // save the new fan state
+  }
+
+  else if(StateRoom.FanSpeed==1)
+  {
+    actor.Talk("It's running at normal speed. Let's make it spin faster...");
+    actor.PlayAnim("actors\molly\ur\take1.sprite");
+    EntFan.SetSprite("scenes\room\sprites\fan_fast.sprite");
+    actor.PlayAnim("actors\molly\ur\take2.sprite");
+    StateRoom.FanSpeed = 2;
+  }
+
+  else if(StateRoom.FanSpeed==2)
+  {
+    actor.Talk("OK, I'll turn it off.");
+    actor.PlayAnim("actors\molly\ur\take1.sprite");
+    EntFan.PlaySound("sounds\fan_stop.ogg");
+    EntFan.SetSprite("scenes\room\sprites\fan_off.sprite");
+    actor.PlayAnim("actors\molly\ur\take2.sprite");
+    StateRoom.FanSpeed = 0;
+  }
+
+  Game.Interactive = true;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+on "LeftClick"
+{
+  actor.GoToObject(this);
+}

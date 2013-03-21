@@ -1,0 +1,17 @@
+; $EDITOR_PROJECT_ROOT_DIR$ $$PROJECT_ROOT$$
+
+ENTITY
+{
+  NAME="$$NAME$$"
+  ACTIVE=TRUE
+  X=200
+  Y=200
+  SCALABLE=TRUE
+  INTERACTIVE=TRUE
+  COLORABLE=TRUE
+  SPRITE="$$BASE_PATH$$\sprites\default.sprite"
+  TALK="$$BASE_PATH$$\sprites\default.sprite"
+
+  SCRIPT="$$BASE_PATH$$\$$NAME$$.script"
+  FONT = "fonts\outline_red.font"
+}

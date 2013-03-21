@@ -1,0 +1,15 @@
+BUTTON
+{
+  FONT = "fonts\big_grey.font"
+  FONT_HOVER = "fonts\big_white.font"
+
+  BACK = "interface\system\button.image"
+
+  PARENT_NOTIFY = TRUE
+
+  WIDTH = 60
+  HEIGHT = 60
+
+  TEXT_ALIGN = CENTER
+  CENTER_IMAGE = TRUE
+}

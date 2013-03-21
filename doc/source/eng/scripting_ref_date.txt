@@ -1,0 +1,68 @@
+*tit Date object
+*des The Date objects allow you to perform advanced time and date manipulations. The Date object can be created using the following syntax:
+*des <br><br>
+*des <table border="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" cellpadding="0" id="AutoNumber4">
+*des <tr>
+*des     <td class="code"><pre>
+*des var CurrentTime = new Date();
+*des var DateObject = new Date(2003, 12, 31, 13, 30, 25); // December 31, 2003, 13:30:25
+*des </pre></td>
+*des </tr>
+*des </table>
+*cls CSXDate
+
+*con Date()
+*des Creates a new date object and assigns it current date and time.
+
+*con Date(Year, Month, Day, Hours, Minutes, Seconds)
+*des Creates a new date object and assigns it specified date and time.
+
+
+*met GetYear()
+*des Returns a year stored in this Date object
+
+*met GetMonth()
+*des Returns a month stored in this Date object
+
+*met GetDate()
+*des Returns a day of the month stored in this Date object
+
+*met GetHours()
+*des Returns hours stored in this Date object
+
+*met GetMinutes()
+*des Returns minutes stored in this Date object
+
+*met GetSeconds()
+*des Returns seconds stored in this Date object
+
+*met GetWeekday()
+*des Returns a weekday of the date stored in this Date object
+
+*met SetYear(Year)
+*des Sets a year of this Date object 
+
+*met SetMonth(Month)
+*des Sets a month of this Date object 
+
+*met SetDate(Day)
+*des Sets a day of the month of this Date object 
+
+*met SetHours(Hours)
+*des Sets hours of this Date object 
+
+*met SetMinutes(Minutes)
+*des Sets minutes of this Date object 
+
+*met SetSeconds(Seconds)
+*des Sets seconds of this Date object 
+
+*met SetCurrentTime()
+*des Sets this Date object to the current system date and time 
+
+
+*grp 
+
+*atr Type
+*des Returns always "date"
+*ro

@@ -1,0 +1,60 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Samples</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h2>Samples</h2>
+<p>Since this documentation barely scratches the surface, and since the best way 
+of learning is by studying examples :) there are three sample plugins prepared for 
+you. You can use them to learn more about the structure of the plugins and about 
+the techniques used. You can also use them as a starting point for your own plugins.</p>
+<p>You can find the plugin sources in the &quot;Plugin&quot; subdirectory of the WME 
+installation directory. The sample plugins are:</p>
+<p><b>wme_sample</b> - A very simple plugin providing two classes (&quot;Sample&quot; and 
+&quot;AnotherSample&quot;). The &quot;Sample&quot; class simply maintains one member variable, 
+allows setting/getting it and modifying it using a script method. The member 
+variable is serialized. The &quot;AnotherSample&quot; class is more interesting. It 
+subscribes the update and scene-init events. The plugin uses the update event to 
+display current time every 10 seconds. The scene-init event is used to display a 
+welcome message whenever the player enters a new scene.</p>
+<p><b>wme_snow</b> - This is a more advanced plugin. It's basically a recreation 
+of Jerrot's
+<a target="_blank" href="http://forum.dead-code.org/index.php?topic=368.0">
+WeatherGod</a> snow-generating script. This plugin dynamically generates a bunch 
+of WME entities to represent the snowflakes and animates them on the update 
+event. It provides a couple of scripting methods and properties, it can 
+serialize its state. Also notice that the plugin contains the default flake 
+image in resources.</p>
+
+<p><b>wme_sample_pixel</b> - This plugin demonstrates pixel operations on WME 
+sprite subframes. It handles the update event and on each update it updates all 
+the pixels of a subframe.</p>
+
+<p>&nbsp;</p>
+
+<p>WME directory also contains one WME project called &quot;wme_plugins_demo&quot;. This 
+simple project demonstrates the usage of snow and pixel plugins.</p>
+
+<p>&nbsp;</p>
+
+<h2>Helper functions library</h2>
+
+<p>The &quot;Plugin&quot; directory also contains a library of several convenience helper 
+functions. They can be found in the &quot;src&quot; subfolder and they are contained as 
+static methods of CWmeUtils class. Currently there are functions for returning a 
+random number, for working with RGBA color values and for serializing string 
+variables. This library might be farther expanded in the future.</p>
+
+<p>&nbsp;</p>
+
+</body>
+
+</html>

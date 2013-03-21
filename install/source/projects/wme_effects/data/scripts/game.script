@@ -1,0 +1,166 @@
+#include "scripts\base.inc"
+#include "scripts\keys.inc"
+
+// store some of the game's attributes in global variables for convenience
+Keyboard = Game.Keyboard;
+Scene = Game.Scene;
+
+
+// load the right-click menu
+global WinMenu = Game.LoadWindow("interface\menu\menu.window");
+WinMenu.Visible = false;
+
+// load the "caption" window
+var win = Game.LoadWindow("interface\system\caption.window");
+global WinCaption = win.GetControl("caption");
+
+
+Game.LoadWindow("interface\system\overlay.window");
+
+
+
+
+global MenuObject = null;
+
+
+// load our main actor
+actor = Game.LoadActor3D("actors\teapot\teapot.act3d");
+Game.MainObject = actor;
+
+// run the "game loop" script
+Game.AttachScript("scripts\game_loop.script");
+
+
+// which scene to load?
+Game.ChangeScene(Game.StartupScene);
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "LeftClick"
+{
+  // what did we click?
+  var ActObj = Game.ActiveObject;
+  if(ActObj!=null)
+  {
+    // clicking an inventory item
+    if(ActObj.Type=="item" && Game.SelectedItem==null)
+    {
+      Game.SelectedItem = ActObj;
+    }
+    // using an inventory item on another object
+    else if(Game.SelectedItem != null && Game.SelectedItem!=ActObj)
+    {
+      var Item = Game.SelectedItem;
+      if(ActObj.CanHandleEvent(Item.Name)) ActObj.ApplyEvent(Item.Name);
+      else if(Item.CanHandleEvent("default-use")) Item.ApplyEvent("default-use");
+      else if(ActObj.CanHandleEvent("default-use")) ActObj.ApplyEvent("default-use");
+      else actor.Talk("I can't use these things together.");
+    }
+    // just a simple click
+    else ActObj.ApplyEvent("LeftClick");
+  }
+  // else propagate the LeftClick event to a scene
+  else
+  {
+    Scene.ApplyEvent("LeftClick");
+  }
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "RightClick"
+{
+  // if inventory item selected? deselect it
+  if (Game.SelectedItem != null){
+    Game.SelectedItem = null;
+    return;
+  }
+
+  var ActObj = Game.ActiveObject;
+
+  // is the righ-click menu visible? hide it
+  if(WinMenu.Visible == true) WinMenu.Visible = false;
+  else if(ActObj!=null)
+  {
+    // if the clicked object can handle any of the "verbs", display the right-click menu
+    if(ActObj.CanHandleEvent("Take") || ActObj.CanHandleEvent("Talk") || ActObj.CanHandleEvent("LookAt"))
+    {
+      // store the clicked object in a global variable MenuObject
+      MenuObject = Game.ActiveObject;
+      var Caption = WinMenu.GetControl("caption");
+      Caption.Text = MenuObject.Caption;
+
+      // adjust menu's position
+      WinMenu.X = Game.MouseX - WinMenu.Width / 2;
+      if(WinMenu.X < 0) WinMenu.X = 0;
+      if(WinMenu.X+WinMenu.Width>Game.ScreenWidth) WinMenu.X = Game.ScreenWidth-WinMenu.Width;
+
+      WinMenu.Y = Game.MouseY - WinMenu.Height / 2;
+      if(WinMenu.Y<0) WinMenu.Y = 0;
+      if(WinMenu.Y+WinMenu.Height>Game.ScreenHeight) WinMenu.Y = Game.ScreenHeight-WinMenu.Height;
+
+      // and show the right-click menu
+      WinMenu.Visible = true;
+
+      // stop the actor from whatever he was going to do
+      actor.Reset();
+    }
+    // no verbs supported, no menu is needed; just send the RightClick event to the object
+    else ActObj.ApplyEvent("RightClick");
+  }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "Keypress"
+{
+  // on Esc or F1 key
+  if(Keyboard.KeyCode==VK_ESCAPE || Keyboard.KeyCode==VK_F1)
+  {
+    // load and display the main menu window
+    WinCaption.Visible = false;
+    var WinMainMenu = Game.LoadWindow("interface\system\mainmenu.window");
+    WinMainMenu.Center();
+    WinMainMenu.GoSystemExclusive();
+    Game.UnloadObject(WinMainMenu);
+  }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "QuitGame"
+{
+  // on Alt+F4 (window close)
+  // load and display the quit confirmation window
+  WinCaption.Visible = false;
+  var WinQuit = Game.LoadWindow("interface\system\quit.window");
+  WinQuit.Center();
+  WinQuit.GoSystemExclusive();
+
+  // and if the user selected Yes
+  if(WinQuit.xResult)
+  {
+    // quit the game
+    Game.QuitGame();
+  }
+  // otherwise just unload the quit window from memory
+  else Game.UnloadObject(WinQuit);
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+method GetFile(Dir, Mask)
+{
+  var Win = Game.LoadWindow("interface\system\file.window");
+  Win.xDir = Dir;
+  Win.xMask = Mask;
+  Win.Center();
+  Win.GoExclusive();
+  
+  var Res = Win.xResult;
+  Game.UnloadObject(Win);
+  
+  return Res;  
+}

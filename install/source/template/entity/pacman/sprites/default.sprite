@@ -1,0 +1,34 @@
+; $EDITOR_PROJECT_ROOT_DIR$ $$PROJECT_ROOT$$
+
+SPRITE {
+  NAME="default"
+  LOOPING=TRUE
+  CONTINUOUS=FALSE
+  PRECISE=TRUE
+
+  FRAME {
+    DELAY = 200
+    IMAGE = "$$BASE_PATH$$\sprites\01.bmp"
+    HOTSPOT {22, 35}
+    EDITOR_SELECTED=TRUE
+  }
+
+  FRAME {
+    DELAY = 100
+    IMAGE = "$$BASE_PATH$$\sprites\02.bmp"
+    HOTSPOT {22, 35}
+  }
+
+  FRAME {
+    DELAY = 500
+    IMAGE = "$$BASE_PATH$$\sprites\03.bmp"
+    HOTSPOT {22, 35}    
+  }
+
+  FRAME {
+    DELAY = 100
+    IMAGE = "$$BASE_PATH$$\sprites\02.bmp"
+    HOTSPOT {22, 35}
+  }
+}
+

@@ -1,0 +1,218 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Working with the inventory</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h2>Working with the inventory</h2>
+<p>Most adventure games use so-called inventory, i.e. the place where the player 
+character stores all the item he has in his possession. Creating and 
+manipulating the inventory in WME takes several steps, which we will describe in 
+this chapter.</p>
+
+<ul>
+  <li><a href="#inventory_box">Inventory box</a></li>
+	<li><a href="#items">Items definition</a></li>
+  <li><a href="#scripting">Using the inventory from scripts</a></li>
+</ul>
+
+<p>&nbsp;</p>
+<h3><a name="inventory_box"></a>Inventory box</h3>
+<p>The inventory box defines the design of your inventory window. It can be 
+edited interactively using the <a href="windowedit.html">WindowEdit</a> tool.</p>
+<p>&nbsp;</p>
+
+<h3><a name="items"></a>Items definition</h3>
+<p>All the inventory items must be defined in a definition file (by default it's 
+called &quot;items.items&quot;). This file has contain a section for each item you'll ever 
+use in your game. The definition looks like this:</p>
+<pre><font color="#800000">ITEM
+{   
+   CAPTION = "Item caption"
+   NAME = "item_name"
+
+   SPRITE = "items\normal_image.bmp"
+   SPRITE_HOVER = "items\hover_image.bmp"
+
+   CURSOR = "items\normal_cursor.bmp"
+   CURSOR_HOVER = "items\hover_cursor.bmp"
+   CURSOR_COMBINED = TRUE
+
+   ALPHA = 255
+   ALPHA_COLOR { 255, 255, 255 }
+
+   TALK = "items\item_talking.sprite"
+   FONT = "fonts\some.font"
+
+   SCRIPT = "items\item.script"
+
+   AMOUNT = 100
+   DISPLAY_AMOUNT = FALSE
+   AMOUNT_ALIGN = right
+   AMOUNT_OFFSET_X = 5
+   AMOUNT_OFFSET_Y = 47
+}</font>
+</pre>
+Description:
+<ul>
+  <li>CAPTION - a description of the item</li>
+  <li>NAME - internal name of the item, you reference the item in scripts by 
+  this name</li>
+  <li>SPRITE - the image/animation representing the item</li>
+  <li>SPRITE_HOVER - image/anbimation to be displayed then the player moves 
+  mouse pointer above the item</li>
+  <li>CURSOR - an image to be used as mouse cursor when the item is selected</li>
+  <li>CURSOR_HOVER - an image to be used as mouse cursor when the item is 
+  selected and is over an active object</li>
+  <li>CURSOR_COMBINED - specifies it the item cursor should be displayed 
+  together with standard cursor</li>
+  <li>ALPHA - specifies the transparency of the item image (0 - completely 
+  transparent, 255 - opaque)</li>
+  <li>ALPHA_COLOR - specifies the RGB color of the item image</li>
+  <li>TALK - the talking animation for this item</li>
+  <li>FONT - which font should be used for talk subtitles and amount display</li>
+  <li>SCRIPT - a script file defining the item behavior</li>
+  <li>AMOUNT - current amount of items</li>
+  <li>DISPLAY_AMOUNT - should the current amount be displayed?</li>
+  <li>AMOUNT_ALIGN - the alignment of the amount label (&quot;left&quot;, &quot;right&quot; or 
+  &quot;center&quot;)</li>
+  <li>AMOUNT_OFFSET_X - the X offset of the amount label relative to item's 
+  position</li>
+  <li>AMOUNT_OFFSET_Y - the Y offset of the amount label relative to item's 
+  position</li>
+</ul>
+<p>Most of the above attributes are optional. Basically you only need to define 
+NAME and SPRITE, possibly also CAPTION and SCRIPT.</p>
+<p>You will need to add a similar section for each of your inventory items to 
+the items definition file.</p>
+<p>As you can see, items can hold the information about the amount. This is 
+useful for items like &quot;money&quot;, which can use the amount property for storing how 
+much money the player has, or for RPG-style games.</p>
+<p>&nbsp;</p>
+<h3><a name="scripting"></a>Using the inventory from scripts</h3>
+<p>Once we have our inventory box and items defined, we can start using them 
+throughout the game, i.e. in the scripts. Note that all the script methods and 
+attributes discussed in this chapter are described in detail in the
+<a href="scripting_ref.html">Script langue reference</a>.</p>
+<p>&nbsp;</p>
+<p><b>Taking, dropping, destroying and querying items</b></p>
+<p>You generally reference inventory items by their name. If you want to take an 
+item into inventory, use the <b>
+<a href="generated/scripting_ref_game.html#TakeItem">Game.TakeItem()</a></b>, for example:</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td class="code">
+<pre>Game.TakeItem("book");
+</pre>    
+    </td>
+  </tr>
+</table>
+<p>This will add the &quot;book&quot; item into inventory. If you are using multiple 
+inventories, you'll need to call the TakeItem method on the actual object you 
+want to take the item, for example OldGuy.TakeItem(&quot;book&quot;);</p>
+<p>Removing item from inventory works in a similar fashion. Only use the <b>
+<a href="generated/scripting_ref_game.html#DropItem">Game.DropItem()</a></b> method instead:</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber3">
+  <tr>
+    <td class="code">
+<pre>Game.DropItem("book");
+</pre>    
+    </td>
+  </tr>
+</table>
+<p>This command will remove the item from inventory. Although the inventory item 
+is no longer displayed in the inventory, it may be reused later. If you want to 
+remove the item from the game permanently, use the <b>
+<a href="generated/scripting_ref_game.html#DropItem">Game.DeleteItem()</a></b> 
+method.</p>
+<p>You can query a taken item using the <b>
+<a href="generated/scripting_ref_game.html#GetItem">Game.GetItem()</a></b> method. It will return 
+an item object which can be used to set item's attributes.</p>
+<p>To query if a certain object is taken by some game object, use the <b>
+<a href="generated/scripting_ref_game.html#IsItemTaken">Game.IsItemTaken()</a></b> method. It will search the inventories of all game 
+objects to see if one of them has the item taken. On the other hand, the game 
+objects provide a <b><a href="generated/scripting_ref_actor.html#HasItem">HasItem()</a></b> method, which you can use to ask one concrete 
+object if he has the item.</p>
+<p>Example:</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber4">
+  <tr>
+    <td class="code">
+<pre>// has anyone the book?
+var IsBookTaken = Game.IsItemTaken("book");
+
+// has OldGuy the book?
+var OldGuyHasBook = OldGuy.HasItem("book");
+</pre>    
+    </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p><b>Assigning inventory items to scene objects</b></p>
+<p>It is very common that there are object within the scene, which can be taken. 
+Once taken, they disappear from the scene. It is very easy in WME to connect an 
+inventory item with a scene object. Let's assume we have a scene entity 
+representing book, and an inventory item named &quot;book&quot;. Once the item is taken, 
+we want the scene entity to disappear. In SceneEdit, select the entity 
+representing item and look at the properties pane. You'll see an &quot;Item&quot; field 
+there. Simply fill-in the name of the inventory item you want to assign to this 
+entity:</p>
+<p align="center"><img border="0" src="../img/item_assignment.png" width="260" height="243"></p>
+<p>The &quot;book&quot; entity is now assigned to the &quot;book&quot; inventory item. It means that 
+once you call <b>Game.TakeItem(&quot;book&quot;);</b> from a script, the entity will 
+automatically disappear. Analogically, once you drop the item using <b>
+Game.DropItem(&quot;book&quot;);</b> the entity will automatically reappear. If you want 
+to permanently remove the item and the entity, just call <b>
+Game.DeleteItem(&quot;book&quot;);</b></p>
+<p>&nbsp;</p>
+<p><b>Selecting items</b></p>
+<p>If the player selects an inventory item, the mouse pointer will change 
+appropriately. If the item pointer is moved over an interactive object, the 
+item's &quot;hover cursor&quot; is painted, otherwise the &quot;normal cursor&quot; is used (see 
+above). To make an inventory item selected, use the <b>Game.SelectedItem</b> 
+property. To deselect an item, set this attribute to <b>null</b>.</p>
+<p>If you don't want the hover effects to be displayed when the mouse pointer is 
+over an object which cannot respond to a currently selected item, set the <b>
+Game.SmartItemCursor</b> property to <b>true</b>. This property simply checks if 
+the object under mouse can handle an event with the name of the currently 
+selected item. Note that this property only affects the mouse pointer 
+appearance, it doesn't prevent the player from actually using the item on the 
+scene object. This needs to be handled in your game scripts.</p>
+<p>&nbsp;</p>
+<p><b>Multiple inventories</b></p>
+<p>In WME each object (game, actors, entities) can have its own private 
+inventory. It's mainly useful for games with multiple main characters. In that 
+case you can control whose inventory is currently displayed on screen. This is 
+done by setting the <b>Game.InventoryObject</b> attribute. By default this 
+attribute is set to the Game object, which is just fine for single-inventory 
+games. If you have multiple switching actors you'll want to set this attribute 
+to the current actor.</p>
+<p>&nbsp;</p>
+<p><b>Querying available inventory items</b></p>
+<p>Sometimes it's useful to be able to traverse through all the inventory items 
+defined in game. The <b>Game.TotalNumItems</b> attribute returns the number of 
+all inventory items (taken or otherwise) and the <b>
+<a href="generated/scripting_ref_game.html#QueryItem">Game.QueryItem()</a></b> 
+method allows you to query one specific item. The following code sample 
+traverses through all defined inventory items and displays their name on screen:</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber5">
+  <tr>
+    <td class="code">
+<pre>for(var i=0; i&lt;Game.TotalNumItems; i=i+1)
+{
+  var Item = Game.QueryItem(i);
+  Game.Msg(Item.Name);
+}
+</pre>    
+    </td>
+  </tr>
+</table>
+</body>
+
+</html>

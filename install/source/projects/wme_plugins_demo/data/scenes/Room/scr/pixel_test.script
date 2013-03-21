@@ -1,0 +1,18 @@
+#include "scripts\base.inc"
+
+global PixelPluginObject;
+////////////////////////////////////////////////////////////////////////////////
+on "LeftClick"
+{
+	if(PixelPluginObject!=null) return;
+	
+	// get the subframe
+  var Spr = this.GetSpriteObject();
+  var Fra = Spr.GetFrame(0);
+  var Sub = Fra.GetSubframe(0);
+
+  // create the SamplePixel object and pass it the subframe reference
+  PixelPluginObject = new SamplePixel(Sub);
+  
+  this.Caption = "";
+}

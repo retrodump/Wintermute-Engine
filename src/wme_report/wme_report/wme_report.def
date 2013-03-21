@@ -1,0 +1,6 @@
+; wme_report.def : Declares the module parameters for the DLL.
+
+LIBRARY      "wme_report"
+
+EXPORTS
+    ; Explicit exports can go here

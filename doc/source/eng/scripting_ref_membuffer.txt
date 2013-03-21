@@ -1,0 +1,134 @@
+*tit MemBuffer object
+*des The MemBuffer objects allow you to create a reserved memory space which can contain various binary values. MemBuffers are intended to be used in conjunction with external DLL libraries. Using MemBuffers you can define a structure with several values and pass the entire structure to and from a DLL function. The MemBuffer object can be created using the following syntax:
+*des <br><br>
+*des <table border="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" cellpadding="0" id="AutoNumber4">
+*des <tr>
+*des     <td class="code"><pre>
+*des var Buffer = new MemBuffer(256); // create a memory buffer 256 bytes large
+*des </pre></td>
+*des </tr>
+*des </table>
+*cls CSXMemBuffer
+
+*con MemBuffer(Size)
+*des Creates a new memory buffer of a specified size.
+*par Size The size of memory to be allocated for this buffer, in bytes
+
+
+*grp Operations
+
+*met SetSize(Size)
+*des Resizes the memory buffer to the desired size.
+*par Size Desired buffer size in bytes.
+*ret Returns <b>true</b> if the buffer has been successfuly resized.
+*rem Resizing buffer to zero will free all memory associated with the buffer.
+
+*grp Reading values
+
+*met GetBool(Position)
+*des Reads a boolean value (1 byte) from memory buffer.
+*par Position A position within the buffer from which the value is read
+*ret Returns the value or <b>null</b> if Position is outside the buffer.
+
+*met GetByte(Position)
+*des Reads an 8-bit integer value from memory buffer.
+*par Position A position within the buffer from which the value is read
+*ret Returns the value or <b>null</b> if Position is outside the buffer.
+
+*met GetShort(Position)
+*des Reads a 16-bit integer value from memory buffer.
+*par Position A position within the buffer from which the value is read
+*ret Returns the value or <b>null</b> if Position is outside the buffer.
+
+*met GetInt(Position)
+*mt2 GetLong(Position)
+*des Reads a 32-bit integer value from memory buffer.
+*par Position A position within the buffer from which the value is read
+*ret Returns the value or <b>null</b> if Position is outside the buffer.
+
+*met GetFloat(Position)
+*des Reads a 16-bit floating point value from memory buffer.
+*par Position A position within the buffer from which the value is read
+*ret Returns the value or <b>null</b> if Position is outside the buffer.
+
+*met GetDouble(Position)
+*des Reads a 32-bit floating point value from memory buffer.
+*par Position A position within the buffer from which the value is read
+*ret Returns the value or <b>null</b> if Position is outside the buffer.
+
+*met GetString(Position, Length)
+*des Reads a string value from memory buffer.
+*par Position A position within the buffer from which the value is read
+*par Length Number of characters to read (optional)
+*ret Returns the value or <b>null</b> if Position is outside the buffer.
+*rem If you don't specify the Length parameter the string is read until terminating zero or end of buffer is encountered (whichever comes first).
+
+*met GetPointer(Position)
+*des Reads a 32-bit memory-pointer value from memory buffer.
+*par Position A position within the buffer from which the value is read
+*ret Returns a new MemBuffer object encapsulating the memory pointer or <b>null</b> if Position is outside the buffer.
+*rem MemBuffer objects created by this method cannot be bound-checked, resized or saved. Be very careful when working with them.
+
+*grp Storing values
+
+*met SetBool(Position, Value)
+*des Writes a boolean value (1 byte) to a memory buffer.
+*par Position A position within the buffer to which the value should be written
+*par Value The value to be written to the buffer
+*ret Returns <b>true</b> if the value has been successfuly written.
+
+*met SetByte(Position, Value)
+*des Writes an 8-bit integer value to a memory buffer.
+*par Position A position within the buffer to which the value should be written
+*par Value The value to be written to the buffer
+*ret Returns <b>true</b> if the value has been successfuly written.
+
+*met SetShort(Position, Value)
+*des Writes a 16-bit integer value to a memory buffer.
+*par Position A position within the buffer to which the value should be written
+*par Value The value to be written to the buffer
+*ret Returns <b>true</b> if the value has been successfuly written.
+
+*met SetInt(Position, Value)
+*mt2 SetLong(Position, Value)
+*des Writes a 32-bit integer value to a memory buffer.
+*par Position A position within the buffer to which the value should be written
+*par Value The value to be written to the buffer
+*ret Returns <b>true</b> if the value has been successfuly written.
+
+*met SetFloat(Position, Value)
+*des Writes a 16-bit floating point value to a memory buffer.
+*par Position A position within the buffer to which the value should be written
+*par Value The value to be written to the buffer
+*ret Returns <b>true</b> if the value has been successfuly written.
+
+*met SetDouble(Position, Value)
+*des Writes a 32-bit floating point value to a memory buffer.
+*par Position A position within the buffer to which the value should be written
+*par Value The value to be written to the buffer
+*ret Returns <b>true</b> if the value has been successfuly written.
+
+*met SetString(Position, Value)
+*des Writes a string value to a memory buffer.
+*par Position A position within the buffer to which the value should be written
+*par Value The value to be written to the buffer
+*ret Returns <b>true</b> if the value has been successfuly written.
+*rem The string is copied to the buffer including its zero terminating character.
+
+*met SetPointer(Position, Value)
+*des Writes a 32-bit memory pointer to a memory buffer.
+*par Position A position within the buffer to which the value should be written
+*par Value A MemBuffer object whose address should be written to the buffer
+*ret Returns <b>true</b> if the value has been successfuly written.
+
+
+
+*grp 
+
+*atr Type
+*des Returns always "membuffer"
+*ro
+
+*atr Length
+*des Returns the current length of the associated memory space.
+*ro

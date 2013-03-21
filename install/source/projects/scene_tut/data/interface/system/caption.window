@@ -1,0 +1,14 @@
+WINDOW
+{
+  STATIC
+  {
+    TEXT = ""
+    TEXT_ALIGN = "center"
+    NAME = "caption"
+    FONT = "fonts\outline_white.font"
+    X = 0
+    Y = 0
+    WIDTH = 0
+    HEIGHT = 20
+  }
+}

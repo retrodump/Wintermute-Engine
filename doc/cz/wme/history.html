@@ -1,0 +1,565 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="cs">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Historie verzí</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h1>Historie verzí</h1>
+
+<p>&nbsp;</p>
+
+<h3>Verze 1.6 (13. května, 2005)</h3>
+
+<ul>
+  <li><b>3D postavy nyní využívají modely ve formátu Microsoft X.</b> Formát 
+  definice 3D postav a jejich skriptovací podpora se změnila. Starý formát je 
+  stále podporován kvůli zpětné kompatibilitě, ale je nyní považován za 
+  zastaralý. Pro více informací o změnách a o přechodu na nový formát si 
+  přečtěte kapitolu &quot;3D characters support&quot; v dokumentaci. Mezi nejvýznamnější 
+  vylepšení nového formátu pro 3D postavy patří:<ul><li>Plynulé přechody mezi 
+    animacemi.</li><li>Možnost měnit textury modelu za běhu, jako texturu můžete 
+    použít i animovaný sprite.</li><li>Předměty, které lze připojit k modelu (attachments) 
+    jsou nyní samostatné skriptovatelné objekty.</li><li>
+    Nové standardní animace <b>TurnLeft</b> a <b>TurnRight</b>.</li><li>3D scény 
+    mohou být nyní navrhovány ve SceneEditu ve 2D, tj. můžete pro 3D postavy 
+    definovat blokované oblasti a navigační body úplně stejně, jako byste to 
+    dělali pro 2D postavy. Více informací naleznete v dokumentaci v kapitole &quot;Additional 3D options&quot;.</li><li>
+    Nový atribut <b>DrawBackfaces</b>, který udává, zda má 3D model vykreslovat 
+    polygony, odvrácené od kamery.</li></ul></li>
+  <li><b>Nový systém částicových efektů.</b> Podrobné informace naleznete v 
+  dokumentaci v kapitole &quot;Particle effects&quot;. Součástí instalace WME je 
+  nyní také demonstrační projekt &quot;wme_particles&quot;, který obsahuje 
+  několik předdefinovaných částicových efektů.</li>
+  <li><b>Podpora usnadnění.</b> WME nyní poskytuje několik možností usnadnění 
+  pro zrakově postižené hráče. Mezi tyto možnosti patří přesměrování psaného 
+  textu do hlasového syntezátoru, možnost zvýraznit aktivní místa na obrazovce 
+  pomocí klávesových zkratek, a možnost kdykoliv pozastavit hru. Vývojářům 
+  poskytuje WME několik nových skriptovacích metod a atributů pro podporu 
+  usnadnění. Více informací je v dokumentaci v kapitole &quot;Accessibility&quot;.</li>
+  <li><b>Vylepšená podpora pro více monitorů.</b> Okno WME se nyní otvírá na 
+  správném monitoru jak v režimu běhu přes celou obrazovku, tak v režimu běhu v 
+  okně. V režimu celé obrazovky je ukazatel myši uzamčen na správném monitoru. 
+  WME nástroje nyní používají správnou videokartu podle toho, na kterém monitoru 
+  jsou právě zobrazeny.</li>
+  <li><b>WME je nyní odolnější vůči nejčastějším chybám vývojářů.</b> Některé z 
+  častých pádů WME z důvodu chyby vývojáře byly obslouženy (syntaktické chyby v 
+  definičních souborech atd.). Chybějící obrázky jsou nyní nahrazeny zástupným 
+  obrázkem &quot;invalid image&quot;, takže jsou při běhu hry hned patrné. WME vypisuje do 
+  logu varování, pokud se hra odkazuje na nějaký soubor plnou cestou, což 
+  způsobuje problémy po kompilaci hry jejím spuštění na jiném počítači.</li>
+  <li>Okno s nastavením při spuštění hry bylo přepracováno, byly do něj doplněny 
+  nové volby. <b>Poznámka:</b> Standardní tabulka řetězců k překladu byla 
+  doplněna o nové texty. Doplňte si, prosím, tabulku vaší hry o tyto nové texty.</li>
+  <li>Nový atribut&nbsp; <b>BlendMode</b> pro postavy, entity a generátory 
+  částic. Atribut umožňuje měnit způsob vykreslování (normální, additive blending, 
+  subtractive blending).</li>
+  <li>Nový atribut <b>Game.LastResponseOrig</b>, který vrací poslední vybranou 
+  odpověď v rozhovoru, a to v její původní formě, tj. předtím, než byl text 
+  lokalizován (to je užitečné pro hry, které používají automatické přiřazení 
+  dabingu k textům).</li>
+  <li>Nová událost <b>RightDoubleClick</b>.</li>
+  <li>Pokud používáte více inventářů, každý inventář si nyní pamatuje svůj 
+  aktuální posun, takže při přepínání mezi inventáři je posun korektně obnoven.</li>
+  <li>Nový atribut <b>Game.InventoryScrollOffset</b> pro zjištění a změnu 
+  aktuálního posunu v inventáři.</li>
+  <li>Všechny předměty inventáře, které hra zná, jsou nyní dostupné pomocí 
+  nového atributu <b>Game.TotalNumItems</b> a metody <b>Game.QueryItem()</b>.</li>
+  <li>Nový atribut <b>Game.SmartItemCursor</b>, který způsobí, že je aktuálně 
+  vybraný předmět zvýrazněn jen nad takovým objektem, který je schopen na 
+  předmět reagovat.</li>
+  <li>Nové metody <b>Game.SetSceneViewport()</b> a <b>Scene.SetViewport()</b> 
+  pro změnu viewportu za běhu hry.</li>
+  <li>Nový atribut&nbsp; <b>Game.SoundBufferSize</b> pro nastavení velikosti 
+  bufferu pro streamované zvuky/hudbu.</li>
+  <li>Nový atribut <b>Game.SuspendedRendering</b>, který dočasně zakáže 
+  obnovování obrazovky. To je užitečné, pokud potřebujete nechat zpracovat 
+  skripty vícekrát za jeden snímek.</li>
+  <li>Metoda <b>Entity.PlayTheora()</b> nyní zohledňuje měřítko entity (Entity.Scale), 
+  takže je video odpovídajícím způsobem zvětšeno či zmenšeno.</li>
+  <li>ProjectMan se nepokouší zjistit novou verzi WME, pokud není aktivní 
+  připojení k internetu.</li>
+  <li>Soubor s nastavením pro ladění, který se dříve jmenoval dcgf.ini, byl 
+  přejmenován na wme.ini.</li>
+  <li>Instalační složka WME nyní obsahuje popis všech skriptovacích metod a 
+  atributů v XML formátu. To může být užitečné pro vývojáře podpůrných nástrojů.</li>
+  <li>BUGFIX: Uživatelsky zadaná FOV kamery je korektně obnovena po nahrání hry.</li>
+  <li>BUGFIX: Změny v ukládání/načítání, které zamezí úniku paměti, který v 
+  některých případech způsoboval extrémně dlouhou dobu nahrávání.</li>
+  <li>BUGFIX: Tlačítka na oknech nyní nezobrazují efekty po najetí myší, pokud 
+  hra právě není v interaktivním režimu.</li>
+  <li>BUGFIX: Animace u předmětů v inventáři nefungovaly korektně, pokud se 
+  uložila hra, restartovaly Windows, a nahrála hra.</li>
+  <li>BUGFIX: Úhel natočení u 3D postav vracel nesmysly, pokud byla postava 
+  natočena pomocí klávesnice.</li>
+  <li>BUGFIX: Metody Item.GetHoverSprite() a Item.GetSprite() nefungovaly 
+  správně.</li>
+  <li>BUGFIX: Při dělení desetinným číslem menším než 1.0 byla nesprávně hlášena 
+  chyba dělení nulou.</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3>Version 1.5.2 (October 9, 2005)</h3>
+
+<ul>
+  <li>The <b>Game.AddResponse*()</b> methods now accept an optional font 
+  filename to be used for a given response.</li>
+  <li>WME now automatically uses speech sounds if their filename matches the 
+  string table ID of a given speech line, no need to explicitly reference speech 
+  files in scripts. New <b>Game.AddSpeechDir()</b> and <b>Game.RemoveSpeechDir()</b> 
+  for setting directories to look for speech files in.</li>
+  <li><b>Improvements to the plugins API</b>; New IWmeSubFrame class which 
+  allows plugins to modify sprites on pixel level. New methods for creating 
+  scripting objects from within plugins and for easier setting value properties.</li>
+  <li>BUGFIX: Crash on exit when using custom TTF fonts.</li>
+  <li>Many, many mistakes in the documentation have been fixed (thanks to odnorf).</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3>Version 1.5 (July 23, 2005)</h3>
+
+<ul>
+  <li><b>Support for Theora video.</b> WME can now play videos in
+  <a target="_blank" href="http://www.theora.org/">Ogg Theora</a> format which 
+  brings many advantages over the AVI video playback. There is a new <b>
+  Game.PlayTheora()</b> method, and additionally the scene entities are also 
+  able to play Theora videos, which means you can easily incorporate streaming 
+  video elements directly into game scenes. Please see the &quot;Using Theora&quot; 
+  chapter in the documentation for more details. Special thanks to #wme channel 
+  regulars for their help with Theora testing and encoding.</li>
+  <li><b>Support for advanced plugins.</b> In addition to simple DLL library 
+  calls from scripts WME now provides a standardized programming interface for 
+  plugin development. This allows experienced programmers to develop extension 
+  modules for the engine. Please see the &quot;Plugin development&quot; section in the 
+  documentation for more details.</li>
+  <li><b>Additional options for 3D scenes.</b> SceneEdit now offers several 
+  additional options when designing scenes with hidden 3D geometry. Developers 
+  are now able to set clipping planes and waypoints placement, which should help 
+  to troubleshoot common problems with 3D characters.</li>
+  <li>The <b>Game.PlayVideo()</b> and <b>Game.PlayTheora()</b> methods now offer 
+  an optional parameter specifying whether the background music should be muted 
+  while the video is playing.</li>
+  <li>New <b>Game.Frozen</b> attribute for checking current game state.</li>
+  <li>New <b>Game.TextRTL</b> attribute which should allow displaying 
+  bi-directional text (Hebrew and Arabic) while using TrueType fonts.</li>
+  <li>New <b>Game.Direct3DDevice</b> and <b>Game.DirectDrawInterface</b> 
+  attributes to allow plugins accessing directly the underlying DirectX 
+  interfaces used by WME.</li>
+  <li>The project settings in ProjectMan now include the ability to set which 
+  plugins should be distributed with the game.</li>
+  <li>BUGFIX: Occasional crashes when using TrueType fonts.</li>
+  <li>BUGFIX: Incorrect text wrapping and alpha color when using TrueType fonts.</li>
+  <li>BUGFIX: The &quot;ActorLeave&quot; events were sometimes incorrectly triggered when 
+  entering a new scene.</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3>Version 1.4.1 (May 23, 2005) - hotfix</h3>
+
+<ul>
+  <li>New <b>LoadSound()</b> method which allows to pre-cache a sound file so 
+  that any subsequent PlaySound calls don't slow the game down (useful for 
+  frequent playing of the same sound).</li>
+  <li>FIX: The engine didn't play short sounds (bug introduced in version 1.4).</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3>Version 1.4 (May 17, 2005)</h3>
+
+<ul>
+  <li>Support for advanced sound effects (echo and reverb). All the game objects 
+  now provide three methods, <b>SoundFXNone()</b>, <b>SoundFXEcho()</b> and <b>
+  SoundFXReverb()</b>. These methods affect any sounds played by the object.</li>
+  <li>Support for TrueType fonts. WME can now render any in-game texts using 
+  TrueType fonts. See the &quot;Fonts&quot; chapter in the documentation for a detailed 
+  description of this functionality.</li>
+  <li>Support for Unicode string tables. WME can now read string tables with 
+  Unicode characters (encoded in UTF8 format). This allows games to be 
+  translated to a wide variety of languages, including Asian languages. Note 
+  that you have to use TrueType fonts to display texts in these languages. See 
+  the &quot;Localization&quot; chapter in the documentation for further details.</li>
+  <li>New <b>Actor.SetSprite()</b> method which allows you to temporarily change 
+  actor's appearance.</li>
+  <li>The <b>PlaySound()</b> method now accepts an optional parameter specifying 
+  a loop-start point for looping sounds (similarly to loop-start for music).</li>
+  <li>The <b>Game.Reset()</b> method now reloads inventory items definitions, 
+  which means even deleted items get restored after resetting the game. There is 
+  also a new <b>Game.LoadItems()</b> method for loading/merging a new item set.</li>
+  <li>Entity container controls now provide a <b>Freezable</b> attribute which 
+  specifies if the contained entity is frozen when game enters a frozen state.</li>
+  <li>The <b>Game.DisplayLoadingIcon()</b> now provides an optional parameter 
+  which specifies if the loading icon should stay on screen until <b>
+  Game.HideLoadingIcon()</b> is called. This allows you to display a loading 
+  icon even on scene transitions.</li>
+  <li>New diagnostic method <b>Game.DumpTextureStats()</b> which writes texture 
+  memory usage status to a text file.</li>
+  <li>Wme.exe now exports two external functions to allow StarForce copy 
+  protection to be attached (experimental).</li>
+  <li>FIX: Several mistakes and broken links in documentation were removed.</li>
+  <li>FIX: Some MS3D animations weren't properly animated.</li>
+  <li>FIX: The tools crashed on startup if DirectX 8.0 or later wasn't installed 
+  (they still crash but now they display an error message before)</li>
+  <li>FIX: The Game.MusicCrossfade() method uses the current music volume as its 
+  target volume, not 100%.</li>
+  <li>FIX: Reloading actor from file didn't invalidate the Game.MainObject 
+  attribute which caused crashes on Win9x systems.</li>
+  <li>FIX: Actor.RemoveMesh() no longer crashes the engine.</li>
+  <li>FIX: The engine occasionally crashed after loading a saved game if save 
+  thumbnails were enabled.</li>
+  <li>FIX: Streaming animations didn't work correctly with JPG images.</li>
+  <li>FIX: The .Length attribute was returning nonsensical values under certain 
+  conditions.</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3>Version 1.3.2 (December 27, 2004)</h3>
+<ul>
+  <li>The startup settings window is now always displayed, until the player 
+  checks &quot;don't show this window again&quot;</li>
+  <li>settings.exe file is now copied to the output directory; it allows players 
+  to re-enable the settings window</li>
+  <li>WME now displays user-friendly error messages if the target computer 
+  doesn't meet game requirements (outdated DirectX version or a missing 3D 
+  accelerator)</li>
+  <li>SceneEdit allows to manually override camera field-of-view for scenes with 
+  3D geometry (necessary for Cinema 4D generated 3ds files)</li>
+  <li>new methods for direct keyboard control for 3D characters; see the 3D 
+  actor scripting reference for details, also the 3D characters demo has been 
+  updated to demonstrate keyboard control</li>
+  <li>string-table items can now reference other string-table entries; it's 
+  useful if you need multiple entries to reference the same text</li>
+  <li>the name for the savegame directory can now be configured in ProjectMan</li>
+  <li>if the savegame directory isn't writable WME automatically switches to 
+  player's &quot;Documents and settings&quot; directory</li>
+  <li>scripts with infinite loops can now also receive events; you no longer 
+  need to divide them in two scripts</li>
+  <li>new <b>File</b> and <b>Directory</b> scripting objects allowing scripts to 
+  work with files and directories (see the docs for details)</li>
+  <li>new <b>MemBuffer</b> scripting object allowing scripts to pass complex 
+  structures to and from DLL plugins</li>
+  <li>game objects no-longer receive the MouseEntry and MouseLeave events when 
+  the game is in non-interactive mode (this behavior can be overridden using the
+  <b>NonIntMouseEvents</b> attribute</li>
+  <li>new <b>Game.Accelerated</b> attribute which allows scripts to determine if 
+  the game takes advantage of 3D acceleration</li>
+  <li>new <b>Game.LoadResponseBox()</b> and <b>Game.LoadInventoryBox()</b> 
+  methods which allow you to change response/inventory box design at runtime</li>
+  <li>entities stored in entity containers can be scaled</li>
+  <li>new <b>Game.DisplayLoadingIcon()</b> method to display a 
+  &quot;work-in-progress&quot; icon while some long-time operation is in progress</li>
+  <li>new <b>Game.ClearScriptCache()</b> method useful when you generate scripts 
+  at runtime</li>
+  <li>new <b>String.Split()</b> method for working with lists</li>
+  <li>BUGFIX: characters should no longer get stuck in place while walking</li>
+  <li>BUGFIX: SceneEdit no longer crashes when you select a 3ds file without any 
+  cameras</li>
+  <li>several other bugs introduced in 1.3 were fixed</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3>Version 1.3 (November 30, 2004)</h3>
+<ul>
+  <li><b>experimental support for real-time 3D characters</b>; this new 
+  functionality is too complex to be described here so please take a look at the 
+  &quot;3D characters support&quot; chapter in the documentation; if you have any comments 
+  or suggestions, post them
+  <a href="http://forum.dead-code.org/index.php?topic=740.0">here</a></li>
+  <li>new technology demo demonstrating the 3D characters</li>
+  <li>new <b>Game.SetWaitCursor()</b> method and other methods for querying and 
+  setting the non-interactive cursor</li>
+  <li>new <b>GetImage()</b> family of methods for GUI controls</li>
+  <li>the tools no longer change global volume at startup</li>
+  <li>several bugfixes</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3>Version 1.2, build 044 (July 7, 2004)</h3>
+<ul>
+  <li>loading/saving screen - can be defined in ProjectMan or using the <b>
+  Game.SetLoadingScreen()</b> and <b>Game.SetSavingScreen()</b> methods</li>
+  <li>new <b>Game.ScreenshotEx()</b> method which allows to save scaled 
+  screenshot with a fixed filename</li>
+  <li>new <b>const</b> keyword for defining constant variables - similar to <b>
+  global</b>, but constant variables are not affected by resetting the game</li>
+  <li>new <b>Item.AmountString</b> attribute which allows you to display any 
+  text label beside the inventory item</li>
+  <li>added a &quot;none&quot; option when setting the walk-to direction in SceneEdit</li>
+  <li>FIX: mouse pointer no longer goes off-screen when running the game in a 
+  dual-monitor environment</li>
+  <li>FIX: occasional crash when changing scene after loading a saved game</li>
+  <li>FIX: fixed several mistakes in the documentation</li>
+  <li>FIX: WME no longer checks for removable drives at startup which caused 
+  problems with network-mapped volumes</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3>Version 1.2, build 043 (April 25, 2004)</h3>
+<ul>
+  <li>The <b>Game.PlayMusic()</b> now has an optional parameter specifying the 
+  start point for music looping.</li>
+  <li>New <b>Game.GetMusic()</b> method which returns the filename of currently 
+  playing music.</li>
+  <li>New <b>Actor.IsWalking()</b> method.</li>
+  <li>Dynamic object creation. Game, Scene and Window objects now allow dynamic 
+  creation of entities, inventory items and controls.</li>
+  <li>New <b>AlphaColor</b> attribute for Windows. You can set color and 
+  transparency for the entire window and its content.</li>
+  <li><b>Scriptable sprites</b>. Sprites now can have a script attached, 
+  controlling sprite, frame and sub-frame attributes and animation flow at 
+  runtime.</li>
+  <li><b>Multi-channel music</b>. WME now supports up to five music channels. 
+  including cross-fading between two playing channels.</li>
+  <li><b>Animated fonts</b>. Font image is no longer limited to a static bitmap, 
+  now it also accepts sprites.</li>
+  <li>The inventory items are now fully scriptable objects, they can even talk 
+  (yes! you can now create a talking frog in the inventory ;)</li>
+  <li>The inventory items now can display an amount.</li>
+  <li>New <b>Game.PrevSceneFilename</b> attribute.</li>
+  <li>Actors and entities now can have their own private inventories.</li>
+  <li>New <b>Game.DeleteItem()</b> method, which removes an inventory item from 
+  the game permanently.</li>
+  <li>New <b>Scene.IsScolling()</b> method.</li>
+  <li>Save/load progress indicator (configurable in ProjectMan)</li>
+  <li>Regions are now receiving <b>ActorEntry</b> and <b>ActorLeave</b> events.</li>
+  <li>New <b>Game.Reset()</b> method which clears global variables, scene and 
+  response states and inventories.</li>
+  <li>New <b>Window.PauseMusic</b> attribute which specifies if a system 
+  exclusive window pauses music playback.</li>
+  <li>New <b>Game.OpenDocument()</b> method which opens a document file in an 
+  associated Windows program.</li>
+  <li>New <b>Game.WindowedMode</b> attribute.</li>
+  <li>New <b>Game.GetResponsesWindow()</b> method.</li>
+  <li>You can now define a &quot;walk to&quot; point for scene objects in SceneEdit. This 
+  point works in conjunction with the new <b>Actor.GoToObject()</b> method.</li>
+  <li>SceneEdit now automatically generates scripts for newly added scene 
+  objects.</li>
+  <li>Scene states now include last sprites, cursors and alpha color of scene 
+  objects between two scene visits.</li>
+  <li>New <b>Game.SystemFadeOut()</b> and <b>Game.SystemFadeIn()</b> methods, 
+  working even in system exclusive mode.</li>
+  <li>Some other new attributes, methods and lots of minor changes, see the 
+  documentation for further details.</li>
+  <li>Updated documentation.</li>
+  <li>Updated WME demo.</li>
+  <li>BUGFIX: Compiling multiple packages sometimes didn't work correctly.</li>
+  <li>BUGFIX: Scaled actors didn't correctly adjust vertical speed according to 
+  scene scaling.</li>
+  <li>BUGFIX: Paused sounds are now correctly restored when the game leaves 
+  system exclusive mode.</li>
+  <li>BUGFIX: The FadeOut method starts from a current fade value, not from 
+  zero.</li>
+  <li>BUGFIX: Crash bug in iconic responses.</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3>Version 1.1, build 039 (January 18, 2004)</h3>
+<ul>
+  <li>New methods and attributes for actors and entities: <b>
+  SetFont()</b>, <b>GetFont()</b>, <b>ScaleX</b>, <b>ScaleY</b>, <b>Rotate</b>,
+  <b>RelativeRotate</b></li>
+  <li><span lang="cs">New attributes for scene: <b>OffsetX</b>, <b>OffsetY</b></span></li>
+  <li><span lang="cs">New <b>Game.LoadStringTable()</b> method for reloading the 
+  string table at runtime</span></li>
+  <li><span lang="cs">New methods for window controls: <b>MoveToTop()</b>, <b>
+  MoveToBottom()</b>; <b>HeightToFit()</b> for static controls</span></li>
+  <li><span lang="cs">(see the scripting reference for detailed description of 
+  the new methods and attributes)</span></li>
+  <li><span lang="cs">New low level game events <b>BeforeSave</b> and <b>
+  AfterLoad</b></span></li>
+  <li><span lang="cs">The ability to display save thumbnails in grayscale</span></li>
+  <li><span lang="cs">The ability to bind one package file directly to the game 
+  runtime</span></li>
+  <li><span lang="cs">Very basic support for alpha transparency in the 
+  compatibility mode</span></li>
+  <li><span lang="cs">Script execution is now faster</span></li>
+  <li><span lang="cs">BUGFIX: storing objects in arrays didn't work correctly</span></li>
+  <li><span lang="cs">BUGFIX: running methods were not terminated correctly 
+  after the object has been destroyed</span></li>
+  <li><span lang="cs">BUGFIX: the Math object is now correctly restored when 
+  loading game</span></li>
+  <li><span lang="cs">...and other minor changes and bugfixes</span></li>
+</ul>
+
+<h3>Version 1.1, build 037 (November 16, 2003)</h3>
+<ul>
+  <li>Support for JPG file format</li>
+  <li>Support for thumbnails for saved games</li>
+  <li>New <b>Game.Screenshot()</b> method for taking a screenshot of the current 
+  game</li>
+  <li>User defined methods can now override the built-in method provided by the 
+  engine</li>
+  <li>New <b>object.CanHandleMethod() </b>method</li>
+  <li>New <b>window.LoadFromFile()</b> method for dynamic changing of window 
+  contents</li>
+  <li>It's now possible to set vertical alignment for the static controls</li>
+  <li>Support for .talk files for synchronizing speech and animations + .talk 
+  file preview in ProjectMan</li>
+  <li>Support for font files created using the
+  <a target="_blank" href="http://www.zen28085.zen.co.uk/playerfactory/fontext/">
+  FONText utility</a></li>
+  <li>Updated the WME demo to support save thumbnails</li>
+  <li>BUGFIX: compiled game can now handle mixed slashed in filenames</li>
+  <li>BUGFIX: entity.SetSprite immediately followed by entity.Talk sometimes 
+  crashed the engine</li>
+  <li>BUGFIX: 32bit BMP files were sometimes handled incorrectly</li>
+</ul>
+
+<h3>Version 1.1, build 035 (September 16, 2003)</h3>
+<ul>
+  <li>significant scripting language enhancement: you can now define custom 
+  methods for engine objects and also your own custom objects (see the &quot;Custom 
+  methods and objects&quot; chapter in the documentation for details)</li>
+  <li>Jerrot's math plug-in is now integral part of the engine (see the Math 
+  object description in the documentation for details)</li>
+  <li>the ability to set startup scene in ProjectMan - either select a scene in 
+  the properties pane, or right-click a scene file in the project tree and 
+  select &quot;Set as startup scene&quot;; this setting will override first 
+  Game.ChangeScene call and will load the specified scene instead (only works if 
+  debug mode is enabled)</li>
+  <li>new <b>Game.IsMusicPlaying()</b> method</li>
+  <li>new <b>StickToRegion()</b> method for actors/entities</li>
+  <li>new scrolling modifying attributes for scenes</li>
+  <li>new <b>RelativeScale</b> attribute for actors/entities</li>
+  <li>new <b>SubtitlesPosRelative</b>, <b>SubtitlesPosX</b> and <b>SubtitlesPosY</b> 
+  attributes for actors/entities</li>
+  <li>(see the documentation for detailed description of the new attributes and 
+  methods)</li>
+  <li>bugfix: the inventory item / scene entity bindings sometimes didn't work 
+  correctly</li>
+  <li>bugfix: event triggering from animations sometimes didn't work correctly</li>
+</ul>
+
+<h3>Version 1.1, build 033 (August 17, 2003)</h3>
+<ul>
+  <li>new <b>Scale</b> attribute for actors and entities</li>
+  <li>the ability to associate scene entities and inventory items (entities are 
+  automatically shown/hidden when the item is taken/dropped)</li>
+  <li>new IMAGE_HOVER component for inventory items (the image to be displayed 
+  when mouse cursor is over the item)</li>
+  <li>new &quot;Check for updates&quot; function in ProjectMan (either manual or 
+  automatic)</li>
+  <li>when generating packages, ProjectMan optionally copies the engine runtime 
+  to the packages folder</li>
+  <li>ProjectMan is now able to import a custom icon into the engine runtime 
+  (not available on Windows 95/98/Me)</li>
+  <li>Numpad+ and Numpad- keyboard shortcuts to add/remove region vertices and 
+  waypoints in SceneEdit</li>
+  <li>total animation time is shown in SpriteEdit</li>
+  <li>vast internal changes to allow the new editor scheme</li>
+  <li>updated documentation released (still not complete though...)</li>
+</ul>
+
+
+
+<h3>Version 1.0, build 031 (July 10, 2003)</h3>
+<ul>
+  <li>fixed several bugs introduced in build 030 ;-)</li>
+</ul>
+
+
+
+<h3>Version 1.0, build 030 (July 06, 2003)</h3>
+<ul>
+  <li>bugfix: window.GoSystemExclusive() has been incorrectly freezing window's own controls</li>
+  <li>bugfix: nested <b>switch</b> commands were resulting in an infinite loop (thus hanging the engine)</li>
+  <li>bugfix: Scene.SkipTo(actor) method has been setting the vertical scene scrolling position incorrectly when called from a scene init script</li>
+  <li>new <b>Game.GetSoundLength(SoundFilename)</b> method which returns a length of a given sound in milliseconds</li>
+  <li>new <b>Game.FPS</b> attribute (read-only) which returns the current framerate (in frames per second)</li>
+</ul>
+
+
+
+<h3>Version 1.0, build 028 (June 08, 2003)</h3>
+<ul>
+  <li>support for PNG graphics format</li>
+  <li>new <b>PlaySoundEvent(SoundFilename, EventName)</b> method which triggers an event after the sound finishes</li>
+  <li>new <b>Game.GetNumResponses()</b> which queries the number of responses left in the response box</li>
+  <li>new <b>Game.GetCurrentDlgBranch()</b> which returns the name of the dialogue branch currently executing (or null)</li>
+  <li>new <b>AlphaColor</b> attribute for actors and entities which overrides the scene shading color</li>
+  <li>new <b>CloseUp</b> attribute for scene layers; close-up layers make all underlying scene layers non-interactive</li>
+  <li>the engine displays names of the current and previous scene when running in debug mode</li>
+  <li>the help file can be called directly from the tools</li>
+  <li>SpriteEdit: now it's possible to copy alpha color and transparent color to all frames</li>
+  <li>some of the ProjectMan dialog windows were redesigned to allow for an easier localization</li>
+  <li>bugfix: SpriteEdit offers a correct folder when adding new frames</li>
+  <li>bugfix: some template files were referencing wrong fonts</li>
+  <li>bugfix: it wasn't possible to delete currently playing sound files in ProjectMan</li>
+  <li>bugfix: automatic sound panning wasn't working for the "sound-only" entities</li>
+  <li>bugfix: speech subtitles were misplaced in case of a very long string table ID</li>
+</ul>
+
+
+<h3>Version 1.0, build 025 (April 21, 2003)</h3>
+<ul>
+  <li>(experimental) localization support for ProjectMan and the engine runtime</li>
+  <li>bugfix: the initial settings window was always displayed</li>
+  <li>bugfix: Game.PrevScene now returns an empty string if it's a first scene</li>
+  <li>bugfix: corrected the alphabet misspellings in ProjectMan :-)</li>
+  <li>bugfix: Scene:GetRegionAt now searches the regions from top to bottom</li>
+  <li>bugfix: SceneEdit now preserves the scene viewport correctly</li>
+</ul>
+
+
+<h3>Version 1.0, build 024 (April 11, 2003) - bugfix release</h3>
+<ul>
+  <li>fixed bug in the script compiler; if there were nested loops, the <b>break</b> command was sometimes exiting a wrong loop</li>
+  <li>added the ability to set subtitles speed (either in ProjectMan or in script using the <b>Game.SubtitlesSpeed</b> attribute</li>
+  <li>(experimental support for sprite rotation)</li>
+</ul>
+
+<h3>Version 1.0, build 022 (April 05, 2003)</h3>
+<ul>
+  <li>dialogue system enhancements</li>
+  <li>simple DLL library interface for scripts</li>
+  <li>scripting language enhancements (<b>switch</b> statement and <b>Array</b> class, both similar to JavaScript)</li>
+  <li>several buxfixes</li>
+</ul>
+<h3>Version 1.0, build 020 (March 22, 2003)</h3>
+<ul>
+  <li>you can define a rectangular area on screen where the scene will be displayed - the scene viewport (i.e. scenes no longer need to cover the whole screen); it's useful for fixed interface elements</li>
+  <li>the engine is now able to remember which scene nodes were active/inactive when the player leaves the scene and this state will be restored automatically after revisiting the scene (i.e. you no longer need to script this behavior manually); just check the "Remember nodes state" check-box in SceneEdit</li>
+  <li>scene entities have a new "Ignore items" property (in SceneEdit); if you set this property, the entities will act as non-interactive when the player attemts to use an inventory item on them - it's useful for example for the scene exits</li>
+  <li>the GUI windows now can contain entites; this makes the whole GUI subsystem much more flexible; it allows you to create "intelligent" windows, such as items close-ups or a Runaway style 
+  inventory</li>
+</ul>
+<h3>
+<br>
+Version 1.0, build 019 (March 11, 2003)</h3>
+<ul>
+  <li>fixed fatal bug in script compiler</li>
+  <li>fixed the "Basic project" template</li>
+  <li>new troubleshooting options</li>
+  <li>the ability to load a background image in SpriteEdit</li>
+  <li>new script methods: Game.FadeOut, Game.FadeIn, Scene.FadeOut, Scene.FadeIn</li>
+  <li>accelerated renderer optimizations</li>
+  <li>improved pathfinding</li>
+</ul>
+<p>
+<br>
+</p>
+<h3>Version 1.0, build 012 (February 24, 2003)</h3>
+<ul>
+  <li>improved compatibility with certain video cards (including the 3dfx Voodoo adapters) in both accelerated and compatibility mode</li>
+  <li>support for TGA graphics format (the TGA files can contain an alpha channel)</li>
+  <li>new low level events "MouseEntry" and "MouseLeave", supported by actors, entities and GUI elements</li>
+  <li>*LOTS* of bugfixes (many thanks to everyone reporting bugs and incompatibilities)</li>
+</ul>
+
+</body>
+
+</html>

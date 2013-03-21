@@ -1,0 +1,45 @@
+*tit Editor object
+*des The Editor object allows you to access the properties of the single line editor controls contained in the game windows. Editor objects can be queried using the Window.GetControl method.
+*cls CUIEdit
+
+*inc inc_uiobject_methods.inc
+*inc inc_object_misc.inc
+
+*grp Actions
+
+*met SetSelectedFont(Filename)
+*des Sets a font for displaying the selected text within the editor control.
+*par Filename A filename of a font file to be used.
+*ret If the method succeeds, the return value is <b>true</b>.
+
+
+*inc inc_object_cursor.inc
+*inc inc_object_script.inc
+*inc inc_object_sound.inc
+*inc inc_object_events.inc
+
+*grp 
+
+*atr Type
+*des Returns always "editor"
+*ro
+
+*atr SelStart
+*des Specifies an index of a first selected character in the editor.
+
+*atr SelEnd
+*des Specifies an index of a last selected character in the editor.
+
+*atr CursorBlinkRate
+*des Specifies a blinking rate of the editor's cursor (in milliseconds)
+
+*atr CursorChar
+*des Specifies a character to be used as a blinking cursor.
+
+*atr FrameWidth
+*des Specifies an offset of the text from the editor's position (in pixels)
+
+*atr MaxLength
+*des Specifies a maximum allowed lenght of the text contained in the editor (in characters)
+
+*inc inc_object_attr_2D.inc

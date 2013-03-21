@@ -1,0 +1,67 @@
+TTFONT
+{
+  SIZE = 13
+
+; ----- this is the typeface of the font
+; ----- use the Windows Font Viewer to find the correct typeface name
+  FACE = "Verdana"
+
+; ----- this is the path to the ttf file
+; ----- you don't need to specify this for system fonts (such as Arial)
+; ----- otherwise uncomment the following line and change the path
+;  FILENAME = "fonts\verdana.ttf"
+
+  BOLD = TRUE
+  ITALIC = FALSE
+  UNDERLINE = FALSE
+  STRIKE = FALSE
+
+; ----- see the WME documentation for the list of available character sets
+  CHARSET = 1
+
+; ----- if you don't want an outline/shadow, all you need is this:
+  COLOR { 255, 0, 0 }
+  ALPHA = 255
+
+; ----- otherwise you need to define "layers" of the font (see the docs for details) 
+  LAYER
+  {
+    OFFSET_X = 1
+    OFFSET_Y = 1
+    COLOR { 0, 0, 0 }
+    ALPHA = 255
+  }
+
+  LAYER
+  {
+    OFFSET_X = -1
+    OFFSET_Y = -1
+    COLOR { 0, 0, 0 }
+    ALPHA = 255
+  }
+
+  LAYER
+  {
+    OFFSET_X = -1
+    OFFSET_Y = 1
+    COLOR { 0, 0, 0 }
+    ALPHA = 255
+  }
+
+  LAYER
+  {
+    OFFSET_X = 1
+    OFFSET_Y = -1
+    COLOR { 0, 0, 0 }
+    ALPHA = 255
+  }
+
+
+  LAYER
+  {
+    OFFSET_X = 0
+    OFFSET_Y = 0
+    COLOR { 255, 0, 0 }
+    ALPHA = 255
+  }
+}

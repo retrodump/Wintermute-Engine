@@ -1,0 +1,76 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="cs">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Krok 4: Blokované regiony</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3>Krok 4: Blokované regiony</h3>
+<p>Už jsme si řekli, že ve scéně může být více regionů, a že regiony
+ovlivňují pořadí vykreslování scény. To jsou takzvané &quot;layout
+regiony&quot;, tj. regiony, ovlivňující rozložení (layout) scény. Ale
+existuje ještě jeden typ regionů, blokované regiony. Jak už název napovídá,
+blokované regiony vymezují určitou oblast ve scéně, do které postavy
+nemohou vstoupit. V naší scéně kupríkladu postava klidně projde skrz stůl.
+Pokud tomu chceme zamezit, musíme kolem stolu položit blokovaný region.&nbsp;</p>
+
+<p>Tak jdeme na to. Otevřete svou scénu &quot;MyScene.scene&quot; v programu
+SceneEdit. Ujistěte se, že v seznamu vrstev máte vybránu vrstvu
+&quot;main&quot; a klikněte na tlačítko &quot;Add region&quot; (Přidat
+region). Do scény bude přidán nový region (stejný postup už jsme použili
+v <a href="inside_scenes_step3.html">Kroku 3</a>, vzpomínáte?).</p>
+
+<p align="center">
+<img border="0" src="../img/tut4-1.gif" width="215" height="99"></p>
+
+<p>&nbsp;</p>
+
+<p>Nyní se podívejme na okno vlastností. Změňte jméno regionu na něco výstižnějšího,
+jako třeba &quot;block_desk&quot; a potom překlikněte rádiové tlačítko z
+polohy &quot;Layout&quot; (Rozvržení) do polohy &quot;Blocked&quot; (Blokováno).</p>
+
+<p align="center">
+<img border="0" src="../img/tut4-2.gif" width="222" height="172"></p>
+
+<p align="center">&nbsp;</p>
+<p>Dobrá, region je nyní blokován, postavy do něj nemohou vstoupit. Teď už
+stačí jen změnit tvar regionu tak, aby se rozprostíral kolem stolu. Změňte
+tvar regionu podle následujícího obrázku:</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut4-3.gif" width="515" height="301"></p>
+
+
+<p align="center">&nbsp;</p>
+
+
+<p>Tak a je to. Možná se teď obáváte o pořadí prvků scény, ale vězte,
+že blokované regiony nevlivňují pořadí vykreslování, takže je v seznamu
+prvků můžete posunout prakticky kamkoliv. Nicméně bývá dobrým zvykem přesunout
+všechny na konec seznamu. Není to vyžadováno, ale usnadňuje to vaši
+orientaci při návrhu rozvržení scény.</p>
+<p>Posuňte region &quot;block_desk&quot; na konec seznamu prvků pomocí tlačítka
+&quot;Node down&quot; (Prvek dolů).</p>
+
+<p align="center">
+<img border="0" src="../img/tut4-4.gif" width="210" height="154"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Uložte scénu, ukončete SceneEdit a spusťe hru. Vyberte položku
+&quot;MyScene&quot; a vyzkoušejte naši novou scénu. Jak vidíte, postava už
+nemůže projít skrz stůl. Ale bohužel také není schopna stůl obejít. Aby
+toho schopna byla, k tomu slouží takzvané navigační body. Pokračujme v
+kapitole 
+<a href="inside_scenes_step5.html">Krok 5: Navigační body</a>.</p>
+
+</body>
+
+</html>

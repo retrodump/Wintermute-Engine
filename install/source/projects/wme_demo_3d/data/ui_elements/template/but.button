@@ -1,0 +1,19 @@
+BUTTON
+{
+  FONT = "fonts\outline_white.font"
+  FONT_DISABLE = "fonts\outline_disabled.font"
+
+  BACK = "ui_elements\but_normal.image"
+  BACK_HOVER = "ui_elements\but_hover.image"
+  BACK_PRESS = "ui_elements\but_pressed.image"
+  BACK_DISABLE = "ui_elements\but_disabled.image"
+  BACK_FOCUS = "ui_elements\but_focus.image"
+
+  PARENT_NOTIFY = TRUE
+
+  WIDTH = 30
+  HEIGHT = 30
+
+  TEXT_ALIGN = CENTER
+  CENTER_IMAGE = TRUE
+}

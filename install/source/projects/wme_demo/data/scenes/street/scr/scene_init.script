@@ -1,0 +1,25 @@
+#include "scripts\base.inc"
+
+// scene state
+global StateStreet;
+
+// default values
+if(StateStreet==null)
+{
+  StateStreet.Visited = false;
+}
+
+
+actor.SkipTo(1027, 266);
+actor.Direction = DI_DOWNRIGHT;
+Scene.SkipTo(actor.X, actor.Y);
+
+
+
+if(!StateStreet.Visited)
+{
+  StateStreet.Visited = true;
+}
+
+global WinHints;
+WinHints.Init();

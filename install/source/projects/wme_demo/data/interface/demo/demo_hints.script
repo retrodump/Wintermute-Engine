@@ -1,0 +1,100 @@
+#include "scripts\base.inc"
+
+
+////////////////////////////////////////////////////////////////////////////////
+method Init()
+{
+  var FirstScene = true;
+  if(Scene.Name=="street") FirstScene = false;
+
+  var Btn;
+
+  Btn = this.GetControl("door");
+  Btn.Visible = FirstScene;
+
+  Btn = this.GetControl("oldguy");
+  Btn.Visible = FirstScene;
+
+  Btn = this.GetControl("fan");
+  Btn.Visible = FirstScene;
+
+  Btn = this.GetControl("drawer");
+  Btn.Visible = FirstScene;
+
+  Btn = this.GetControl("book");
+  Btn.Visible = FirstScene;
+
+  Btn = this.GetControl("sign");
+  Btn.Visible = !FirstScene;
+
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "door"
+{
+  Game.Interactive = false;
+  actor.TurnTo(DI_DOWN);
+  actor.Talk("Clicking on door will load another scene.");
+  actor.Talk("Double-click the door to skip directly to the other scene.");
+  Game.Interactive = true;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "drawer"
+{
+  Game.Interactive = false;
+  actor.TurnTo(DI_DOWN);
+  actor.Talk("I can open or close the drawer.");
+  actor.Talk("This scene will remember the drawer state until my next visit.");
+  Game.Interactive = true;
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "book"
+{
+  Game.Interactive = false;
+  actor.TurnTo(DI_DOWN);
+  actor.Talk("I can take the book from the desk.");
+  actor.Talk("Notice that the book will appear in my inventory.");
+  actor.Talk("I can put the book back, if you select it from the inventory");
+  actor.Talk("and use it on the desk.");
+  Game.Interactive = true;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "oldguy"
+{
+  Game.Interactive = false;
+  actor.TurnTo(DI_DOWN);
+  actor.Talk("This old guy demonstrates a conversation.");
+  actor.Talk("You will be given a set of responses and he will answer.");
+  actor.Talk("Ask him about the Wintermute Engine to display a new dialogue branch.");
+  Game.Interactive = true;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "fan"
+{
+  Game.Interactive = false;
+  actor.TurnTo(DI_DOWN);
+  actor.Talk("This fan can be set to three different states (slow, fast, off).");
+  actor.Talk("Current state is stored in a global variable.");
+  Game.Interactive = true;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+on "sign"
+{
+  Game.Interactive = false;
+  actor.TurnTo(DI_DOWN);
+  actor.Talk("This neon sign demonstrates event triggering from an animation.");
+  actor.Talk("The animation directly affects my lighting.");
+  actor.Talk("Try sending me near the sign and you'll see.");
+  Game.Interactive = true;
+}

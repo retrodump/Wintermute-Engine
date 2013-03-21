@@ -1,0 +1,62 @@
+#include "scripts\base.inc"
+#include "scripts\keys.inc"
+
+this.xResult = false;
+if(this.xDescription!=null)
+{
+  var Editor = this.GetControl("desc");
+  Editor.Text = this.xDescription;
+  Editor.SelStart = 0;
+  Editor.SelEnd = 1000;
+}
+this.xDescription = "";
+
+SetState();
+
+////////////////////////////////////////////////////////////////////////////////
+on "close"
+{
+  this.Close();
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "desc"
+{
+  SetState();
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "ok"
+{
+  var Editor = this.GetControl("desc");
+  this.xDescription = Editor.Text;
+  this.xResult = true;
+  this.Close();
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "Keypress"
+{
+  var button;
+
+  if(Keyboard.KeyCode==VK_ESCAPE){
+    button = this.GetControl("close");
+    button.Press();
+  }
+  else if(Keyboard.KeyCode==VK_RETURN){
+    button = this.GetControl("ok");
+    button.Press();
+  }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+function SetState()
+{
+  var Editor = this.GetControl("desc");
+  var BtnOK = this.GetControl("ok");
+  BtnOK.Disabled = (Editor.Text=="");
+}

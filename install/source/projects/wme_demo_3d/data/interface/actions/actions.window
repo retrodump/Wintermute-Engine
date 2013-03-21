@@ -1,0 +1,54 @@
+WINDOW
+{
+  NAME = ""
+  IMAGE = "interface\actions\back.tga"
+  SCRIPT = "interface\actions\actions.script"
+  MENU = TRUE
+
+  BUTTON
+  {
+    NAME = "LookAt"
+    X = 46
+    Y = 10
+    IMAGE = "interface\actions\eye_down.sprite"
+    IMAGE_HOVER = "interface\actions\eye_up.sprite"    
+
+    PARENT_NOTIFY = TRUE
+  }
+
+  BUTTON
+  {
+    NAME = "Talk"
+    X = 27
+    Y = 42
+    IMAGE = "interface\actions\mouth_down.sprite"
+    IMAGE_HOVER = "interface\actions\mouth_up.sprite"    
+
+    PARENT_NOTIFY = TRUE
+  }
+
+  BUTTON
+  {
+    NAME = "Take"
+    X = 7
+    Y = 10
+    WIDTH = 28
+    IMAGE = "interface\actions\hand_down.sprite"
+    IMAGE_HOVER = "interface\actions\hand_up.sprite"    
+
+
+    PARENT_NOTIFY = TRUE
+  }
+  
+  STATIC
+  {
+    NAME = "caption"
+    TEXT = "Caption"
+    TEXT_ALIGN = "center"
+    FONT = "fonts\outline_white.font"
+    X = -59
+    Y = 84
+    WIDTH = 200
+    HEIGHT = 20
+  }
+}

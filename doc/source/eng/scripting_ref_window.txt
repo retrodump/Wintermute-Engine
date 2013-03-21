@@ -1,0 +1,160 @@
+*tit Window object
+*des The Window object allows you to access the properties of your game's windows. Window objects are created  by loading a window definition file using the Game.LoadWindow metod. A special case is the window used for the inventory. It can be queried using the Game.GetInventoryWindow method.
+*cls CUIWindow
+
+*inc inc_uiobject_methods.inc
+*inc inc_object_misc.inc
+
+*grp Actions
+
+
+*met GetControl(ControlIndex)
+*mt2 GetControl(ControlName)
+*des Get a reference to a given object contained in this window
+*par ControlIndex A nuber specifying an index of a control to be returned
+*par ControlName Name of a control to be returned
+*ret Returns a reference to a requested control or <b>null</b> if such a control doesn't exist
+*rem This method has been previously called "GetWidget" and this name is still valid for backwards compatibility.
+
+
+*met SetInactiveFont(Filename)
+*des Sets a font to be used when the window is inactive.
+*par Filename A filename of a font file to be used.
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met SetInactiveImage(Filename)
+*des Sets a background image (sprite) to be used when this window is inactive.
+*par Filename A filename of a sprite file to be used.
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met GetInactiveImage()
+*des Returns the filename of the inactive background sprite (or null if no sprite is set)
+
+*met GetInactiveImageObject()
+*des Returns a reference to the inactive background sprite (or null if no sprite is set)
+
+
+*met Close()
+*des Closes the window.
+*ret If the method succeeds, the return value is <b>true</b>.
+*rem Note that this method only removes window from screen but it stays loaded in memory. If you no longer need the window, you should unload it using the Game.UnloadObject method.
+
+*met GoExclusive()
+*des Makes the window an exclusive object on screen.
+*rem The user cannot interact with any other object while the window is in exclusive state. Use the Window.Close() method to cancel the exclusive state.
+
+*met GoSystemExclusive()
+*des Pauses the game and makes the window an exclusive object on screen.
+*rem This method is intended for system windows, such as save/load dialogs, because the entire game is frozen while the window is in system exclusive state. Use the Window.Close() method to cancel the exclusive state.
+
+*met Center()
+*des Centers the window on screen.
+
+*met LoadFromFile(Filename)
+*des Loads the window definition from a specified file.
+*par Filename A filename of a window file to be loaded.
+*ret If the method succeeds, the return value is <b>true</b>.
+
+
+*met CreateButton(Name)
+*des Dynamically creates a new button control
+*par Name The name of the button (optional)
+*ret Returns the newly created button object
+*rem Use the <b>DeleteButton</b> method to remove the button.
+
+
+*met CreateStatic(Name)
+*des Dynamically creates a new static control
+*par Name The name of the control (optional)
+*ret Returns the newly created static control object
+*rem Use the <b>DeleteStatic</b> method to remove the control.
+
+*met CreateEditor(Name)
+*des Dynamically creates a new editor control
+*par Name The name of the editor (optional)
+*ret Returns the newly created editor object
+*rem Use the <b>DeleteEditor</b> method to remove the editor.
+
+*met CreateWindow(Name)
+*des Dynamically creates a new sub-window control
+*par Name The name of the window (optional)
+*ret Returns the newly created window object
+*rem Use the <b>DeleteWindow</b> method to remove the window.
+
+*met CreateEntityContainer(Name)
+*des Dynamically creates a new entity container control
+*par Name The name of the container (optional)
+*ret Returns the newly created entity container object
+*rem Use the <b>DeleteControl</b> method to remove the entity container.
+
+
+*met DeleteButton(Button)
+*des Deletes a button object
+*par Button The button to be deleted
+
+*met DeleteStatic(Static)
+*des Deletes a static control object
+*par Static The static control to be deleted
+
+*met DeleteEditor(Editor)
+*des Deletes an editor object
+*par Editor The editor control to be deleted
+
+*met DeleteWindow(Window)
+*des Deletes a window object
+*par Window The window control to be deleted
+
+*met DeleteControl(Control)
+*des Deletes a child control object (button, static, etc.)
+*par Control The control to be deleted
+
+
+*inc inc_object_cursor.inc
+*inc inc_object_script.inc
+*inc inc_object_sound.inc
+*inc inc_object_events.inc
+
+
+
+*grp 
+
+*atr Type
+*des Returns always "window"
+*ro
+
+*atr NumControls
+*des Returns a number of controls contained in this window.
+*ro
+
+*atr Exclusive
+*des Specifies if the window is in exclusive mode.
+
+
+*atr SystemExclusive
+*des Specifies if the window is in system exclusive mode.
+
+*atr Menu
+*des Specifies whether this is a "menu" type window (it's closed when the user clicks anywhere outside the window).
+
+*atr InGame
+*des Specifies whether this is an "in-game" type window (it's always displayed before the inventory window).
+
+*atr ClipContents
+*des Specifies whether the contained controls are clipped when they lie partially outside the window.
+
+*atr Transparent
+*des Specifies whether the window receives click events. All the mouse clicks go through for transparent windows.
+
+*inc inc_object_attr_2D.inc
+
+*atr FadeColor
+*des Specifies an alpha color which the background is faded to when this window is being displayed.
+
+*atr AlphaColor
+*des Specifies an alpha color which is applied to the entire window.
+
+*atr PauseMusic
+*des Specifies whether the music is paused when this window is running in system-exclusive mode.
+
+
+*inc inc_mouse_events.inc

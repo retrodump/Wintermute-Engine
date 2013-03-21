@@ -1,0 +1,11 @@
+BUTTON
+{
+  IMAGE = "ui_elements\but_cls_normal.bmp"
+  IMAGE_HOVER = "ui_elements\but_cls_hover.bmp"
+  IMAGE_PRESS = "ui_elements\but_cls_pressed.bmp"
+  IMAGE_DISABLE = "ui_elements\but_cls_disabled.bmp"
+  PARENT_NOTIFY = TRUE
+  WIDTH = 18
+  HEIGHT = 18
+  NAME = "close"
+}

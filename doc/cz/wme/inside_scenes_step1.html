@@ -1,0 +1,164 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="cs">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Krok 1: Vytvoření nové scény; popis nástroje SceneEdit</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3>Krok 1: Vytvoření nové scény; popis nástroje SceneEdit</h3>
+<p>Spusťte program ProjectMan a otevřete projekt &quot;scene_tut.wpr&quot; (najdete ho v 
+adresáři, do kterého jste nainstalovali WME Development Kit, v podadresáři &quot;scene_tut&quot;). 
+Tento projekt už obsahuje připravené hotové scény pro každý z kroků této výukové 
+kapitoly.&nbsp; Můžete si tyto scény prohlédnout (jsou v adresáři &quot;scenes&quot;) 
+pomocí nástroje SceneEdit. A pokud spustíte hru (příkazem &quot;Run game&quot; - spustit 
+hru), můžete si prohlédnout výsledný efekt.</p>
+
+<p>Naši výuku začneme vytvořením úplně nové scény. Klepněte pravým tlačítkem 
+myši na složce &quot;scenes&quot; a z nabídky vyberte příkaz &quot;Add scene...&quot; (přidat 
+scénu).</p>
+
+<p align="center">
+<img border="0" src="../img/tut1-1.gif" width="274" height="347"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Objeví se okno &quot;Template selection&quot; (vývěr šablony). Zvolte položku &quot;Empty 
+scene 800x600&quot; (prázdná scéna 800x600) a změňte jméno (Name) na <b>MyScene</b>.</p>
+
+<p>(Poznámka: v tomto případě musíte scénu pojmenovat MyScene, protože na to 
+připravený projekt spoléhá, jinak samozřejmě můžete scénu pojmenovat jak chcete)</p>
+
+<p align="center">
+<img border="0" src="../img/tut1-2.gif" width="563" height="412"></p>
+
+<p>Klikněte na tlačítko OK a ProjectMan vytvoří novou scénu.</p>
+
+<p>Nyní potřebujeme naimportovat pro naši scénu obrázek pozadí. Je doporučeno 
+ukládat všechnu grafiku pro jednu scénu do jejího adresáře. Grafika pro tuto 
+výukovou scénu byla připravena předem. Naleznete ji v adresáři &quot;tutorial\gfx&quot;. 
+Klikněte pravým tlačítkem myši na složce &quot;MyScene&quot; a vyberte v nabídce příkaz &quot;Iport-&gt;Import 
+file...&quot; (Import-&gt;Import souboru). V okně pro výběr souboru přejděte do adresáře 
+&quot;scene_tut\data\tutorial\gfx&quot; a vyberte soubor &quot;background.bmp&quot;. ProjectMan nyní 
+překopíruje obrázek do složky s vaší novou scénou. (Poznámka: pro nakopírování 
+souboru můžete zrovna tak použít Průzkumníka, Windows Commander nebo jiného 
+správce souborů).</p>
+
+<p align="center">
+<img border="0" src="../img/tut1-3.gif" width="374" height="276"></p>
+
+<p>Výborně, nyní máme novou scénu se správným obrázkem pozadí.</p>
+
+<p>Výslednou scénu si můžete vyzkoušet. Na panelu nástrojů stiskněte tlačítko 
+&quot;Run game&quot; (spustit hru). Je to tlačítko s červeným vykřičníkem. Tím se spustí 
+herní engine a nahraje náš výukový projekt. Svou scénu zobrazíte kliknutím na 
+položku &quot;My Scene&quot;. Výsledek zatím není příliš ohromující, že? Postava může 
+vkročit kamkoliv, nemění se její velikost podle vzdálenosti od kamery a scéna 
+neskroluje.</p>
+
+<p>Ukončete herní engine (stiskněte klávesu Escape pro návrat na obrazovku s 
+výběrem scény a potom znovu Escape pro ukončení).</p>
+
+<p>V ProjectManu klepněte pravým tlačítkem myši na souboru &quot;MyScene.scene&quot; a z 
+nabídky vyberte příkaz &quot;Edit...&quot; (také můžete spustit editor, pokud poklepáte 
+(double-click) na názvu souboru). ProjectMan otevře naši scénu v programu 
+SceneEdit.</p>
+
+<p align="center">
+<img border="0" src="../img/tut1-4.gif" width="1024" height="742"></p>
+
+<p>Teď si můžeme zběžně prohlédnout nástroj <b>SceneEdit</b>: SceneEdit je určen 
+k editaci scén pro WME (soubory s příponou .scene). Na pravé straně je náhled 
+scény, kde můžete manipulovat s jejími jednotlivými součástmi. Na levé straně je 
+panel nástrojů. Ten zobrazuje seznam vrstev (vrstvy si popíšeme později), seznam 
+prvků scény a vlastnosti vybraného prvku.</p>
+
+<p>Zkuste kliknout na různé položky v seznamu prvků (momentálně jsou tam dva 
+prvky: &quot;background&quot; (pozadí) a &quot;floor&quot; (podlaha). Všimněte si, že náhled scény 
+se mění podle vašeho výběru a zvolené prvky jsou zvýrazněny (buďto pozadí, nebo 
+obdélníková oblast na podlaze). Také okno vlastností (&quot;Properties&quot;) se mění 
+podle toho, který prvek vyberete.</p>
+
+<p>Dobře, když jsme testovali naši scénu, tak se neposouvala podle pozice 
+postavy, že? Teď to napravíme. Náš obrázek pozadí má velikost 1000x716 pixelů, 
+ale rozměry scény jsou přednastaveny na 800x600. Změníme rozměry tak, aby 
+odpovídaly našemu obrázku pozadí. Vyberte položku &quot;main&quot; v nahoře seznamu vrstev 
+a potom klikněte na tlačítko &quot;Layer properties&quot; (vlastnosti vrstvy). Objeví se 
+dialogové okno &quot;Layer properties&quot; (vlastnosti vrstvy). Změňte rozměry na 
+1000x716 a stiskněte OK.</p>
+
+<p align="center">
+<img border="0" src="../img/tut1-5.gif" width="214" height="120"></p>
+
+<p align="center">
+<img border="0" src="../img/tut1-6.gif" width="276" height="163"></p>
+<p>Tak, jelikož naše hra běží v rozlišení 800x600 a scéna má rozměry 1000x716, 
+herní engine už sám pozná, že musí scénu patřičně posouvat.</p>
+
+<p>Poslední věc, kterou uděláme v tomto kroku je, že naučíme naši postavu, kam 
+může vstoupit a kam ne. V seznamu prvků vyberte položku &quot;floor&quot; (podlaha). Tento 
+region ohraničuje oblast ve scéně, ve které se mohou postavy pohybovat. Změníme 
+tvar regionu &quot;floor&quot; tak, aby zhruba kopíroval půdorys naší místnosti. Díky tomu 
+nebude moct postava například vcházet do zdí.</p>
+<p>Regiony ve WME mohou mít prakticky libovolný tvar. Můžete přidávat i ubírat 
+vrcholy a přesunovat myší vrcholy na jiné místo. Tak dosáhnete požadovaného 
+tvaru.</p>
+
+<p>Nový vrchol přidáte regionu pomocí tlačítka &quot;Add point&quot; (přidat bod). 
+Stiskněte tlačítko a potom klikněte myší ve scéně na místě, kde chcete nový 
+vrchol vytvořit. SceneEdit přidá vrchol do regionu (pokusí se odhadnout, mezi 
+které dva stávající vrcholy má ten nový vložit). Všimněte si, že při vkládání 
+nového vrcholu se změní kurzor myši. Pokud chcete vkládání vrcholu stornovat, 
+stiskněte pravé tlačítko myši.</p>
+
+<p align="center">
+<img border="0" src="../img/tut1-7.gif" width="213" height="155"></p>
+
+<p>Podobně můžete vrcholy odstraňovat pomocí tlačítka &quot;Remove point&quot; (odebrat 
+bod). Stiskněte tlačítko a potom klikněte myší na vrchol, který chcete 
+odstranit.</p>
+
+<p>Poznámka: Každý region musí mít minimálně tři vrcholy.</p>
+
+<p align="center">
+<img border="0" src="../img/tut1-8.gif" width="210" height="130"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Vrcholy regionu můžete přetahovat myší na jiné místo. Najeďte kurzorem myši 
+nad vrchol (kurzor změní tvar) a potom stiskněte a držte levé tlačítko myši a 
+přesuňte vrchol na požadovanou pozici. Potom tlačítko myši pusťte.</p>
+
+<table border="1" cellspacing="0" cellpadding="3" style="border-collapse: collapse" bordercolor="#111111">
+<tr>
+  <td>
+    <p align="center"><img src="../img/hint.gif" width="23" height="30"><br><b>
+    Rada</b>
+  </td>
+  <td>
+    Pokud neúmyslně chytíte myší špatný objekt, můžete přetahování stornovat 
+    stisknutím pravého tlačítka myši. Objekt se pak vrátí na své původní místo. 
+    Stejně tak samozřejmě můžete použít také příkaz &quot;Undo&quot; (zpět).
+  </td>
+</table>
+
+<p>Dobře, teď si to zkusme. Pokuste se změnit tvar regionu &quot;floor&quot; tak, aby 
+zhruba odpovídal následujícímu obrázku.</p>
+
+<p align="center">
+<img border="0" src="../img/tut1-9.gif" width="815" height="379"></p>
+
+<p>Uložte svou scénu a ukončete program SceneEdit. Zkuste znovu spustit hru. 
+Scéna by se teď měla správně posunovat podle pozice postavy a postava by nikdy 
+neměla opustit podlahu.</p>
+
+<p>Pokračujme na <a href="inside_scenes_step2.html">Krok 2: Entity ve scéně</a>.</p>
+
+</body>
+
+</html>

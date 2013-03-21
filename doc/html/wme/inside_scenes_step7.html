@@ -1,0 +1,393 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Step 7: Region entities, cursors, scripts</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+<style type="text/css">
+.style1 {
+	text-align: left;
+}
+</style>
+</head>
+
+<body>
+
+<h3>Step 7: Region entities, cursors, scripts</h3>
+
+<h4>&nbsp;</h4>
+
+<h4><a name="region_entities"></a>Region entities</h4>
+<p>If you test our scene, you will see that 
+the desk and the chair appear to be “interactive”. If you move the mouse cursor 
+over them, the pointer will change shape and a caption is displayed. That’s 
+because both the desk and the chair are entities and they have the “Interactive” 
+property set to true. But what if we wanted to make interactive a part of the 
+background image? Do we need to create extra entities for all objects we need to 
+be interactive? Well, yes and no. SceneEdit allows you to define so called 
+“region entities”. They act just like the regular entities, but they don’t need 
+a graphics representation (i.e. you don’t have to paint a special image for 
+them). They are simply defined by a region within the scene.</p>
+
+<p>We will make a few more objects 
+interactive in our scene, namely the door, the closet and the window.</p>
+
+<p>Open our “MyScene.scene” file in 
+SceneEdit.</p>
+<p>To add a region entity, press the “Add 
+entity” button and then select the “Add region entity” command.</p>
+
+<p align="center">
+<img border="0" src="../img/tut7-1.png" width="213" height="169"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>A new entity will be created. And from 
+now it’s easy. You can change its name and caption in the properties window and 
+you can edit the entity’s region exactly the same way as you edit the regular 
+regions.</p>
+
+<p>Add three region entities into the 
+scene: “door”, “closet” and “window”:</p>
+
+
+
+<p align="center">
+<img border="0" src="../img/tut7-2.png" width="164" height="335">&nbsp;&nbsp;&nbsp;
+<img border="0" src="../img/tut7-3.png" width="275" height="386">&nbsp;&nbsp;&nbsp;
+<img border="0" src="../img/tut7-4.png" width="211" height="236"></p>
+
+
+
+
+<p align="center">
+&nbsp;</p>
+
+
+
+
+<p>Note that the order of the entities and 
+regions is important! We already learned why it’s important for scene layout, 
+but it’s also important for the user interaction. When the engine determines 
+which object is the mouse pointer over, it scans through all the scene nodes 
+from the top most ones to the bottom ones.</p>
+<p>In our scene the ordering of entities 
+doesn’t really matter, because they don’t overlap but you should keep this in 
+your mind.</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut7-5.png" width="185" height="212"></p>
+
+
+<p align="center">&nbsp;</p>
+
+
+<p>If you run the game and test the scene, 
+the door, the closet and the window should become “interactive” objects.</p>
+
+
+<p>&nbsp;</p>
+
+
+<h4><a name="cursors"></a>Cursors</h4>
+<p>You have noticed that the mouse cursor 
+changes when it’s over an interactive object. Those are the two predefined mouse 
+cursors – standard and active (you can change them in ProjectMan in game 
+properties). But you can also assign special mouse cursors to certain objects. 
+Let’s say we want the mouse cursor to change its shape when it’s over the door 
+in our scene. It’s very simple. All the cursors are actually sprites and you can 
+assign them to scene entities using the SceneEdit.</p>
+<p>Switch to SceneEdit and select the 
+“door” entity.</p>
+
+<table border="1" cellspacing="0" cellpadding="3" style="border-collapse: collapse" bordercolor="#111111">
+<tr>
+  <td>
+    <p align="center"><img src="../img/hint.png" width="23" height="30"><br><b>Hint</b>
+  </td>
+  <td>
+    You can quickly select an entity in SceneEdit by double clicking it directly in the scene view.
+  </td>
+</table>
+
+<p>Look at the “Entity properties” window, 
+there is a “Cursor” property. Click the “…” button near the cursor property and 
+SceneEdit will ask you to specify a sprite file to be used as a mouse pointer. 
+It the tutorial project, there are a few mouse pointers prepared in a 
+“data\sprites\system” folder. Browse to this folder, select an 
+“arrow_left.sprite” file and click OK. The cursor property will change its 
+value. Now it points to the selected sprite file.</p>
+
+<table border="1" cellspacing="0" cellpadding="3" style="border-collapse: collapse" bordercolor="#111111">
+<tr>
+  <td>
+    <p align="center"><img src="../img/hint.png" width="23" height="30"><br><b>Hint</b>
+  </td>
+  <td>
+    If you need to remove an assigned 
+    cursor or sprite file, just click the “…” button and then press the “Cancel” 
+    button in the file selection dialog. SceneEdit will ask you whether a currently 
+    assigned file should be removed.
+  </td>
+</table>
+
+
+<p>Save the scene and run the game. Now if 
+you move the mouse pointer over the door, the pointer should change its shape to 
+an orange arrow.</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut7-6.png" width="184" height="216"></p>
+
+
+<p align="center">&nbsp;</p>
+
+
+<h4><a name="scripts"></a>Scripts</h4>
+<p>Our scene objects now appear to be 
+interactive. But if you click them nothing happens. We need to assign some kind 
+of logic to them. And the game logic is represented by the scripts. The scripts 
+are text files, containing a piece of a simple program. The scripts are 
+described in depth in <a href="scripting_about.html">another chapter</a> of this documentation. In this tutorial we 
+will only learn the basics.</p>
+
+<p>We will add a script to the “desk” 
+entity. We must create the script first. The easiest way of creating the script 
+is using the template facility of the ProjectMan tool. We used it several times 
+before and we will do exactly the same for the script. In ProjectMan, go to the 
+“MyScene” folder and expand its branch in the project tree. The “MyScene” folder 
+should have one sub-folder, called “scr”. That’s where the scripts for the scene 
+are stored. Right-click the “scr” folder and then select the “Add script” 
+command.</p>
+
+<p align="center">
+<img border="0" src="../img/tut7-7.png" width="258" height="249"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>In the template selection dialog, select 
+the “scene object” template and change the name to “desk”, then click OK. A new 
+script will be generated in the “scr” folder.</p>
+
+<p align="center">
+<img border="0" src="../img/tut7-8.png" width="563" height="412"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Open our “MyScene.scene” file in 
+SceneEdit. We want to modify the “desk” entity so select it. You can either 
+select it by highlighting the “desk” item in the node list or by double-clicking 
+the desk in the scene view window. Look at the properties window, there’s a 
+“Scripts…” button. Press it and a script assignment dialog will appear. In this 
+window you can assign one or more script to the selected object. Press the “Add 
+script” button.</p>
+
+<p align="center">
+<img border="0" src="../img/tut7-9.png" width="224" height="209">&nbsp;&nbsp;&nbsp;
+<img border="0" src="../img/tut7-10.png" width="330" height="262"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>SceneEdit will ask you to specify a 
+script file to assign. Browse to our “desk.script” file, select it and click OK.</p>
+
+<p align="center">
+<img border="0" src="../img/tut7-11.png" width="330" height="122"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>We will now edit the script. You can 
+edit it either by pressing the “Edit script” button or by double clicking the 
+script filename. SceneEdit will open the script in your associated text editor 
+(by default it’s the Windows Notepad, learn more about
+<a href="scripting_editor.html">setting up a text editor</a> for the scripts).</p>
+
+<table border="1" cellspacing="0" cellpadding="3" style="border-collapse: collapse" bordercolor="#111111">
+<tr>
+  <td>
+    <p align="center"><img src="../img/hint.png" width="23" height="30"><br><b>Hint</b>
+  </td>
+  <td>
+    If there is no script attached to a scene object yet, SceneEdit will prompt 
+    you to add a new script automatically after clicking the &quot;Scripts...&quot; 
+    button. You don't have to create it explicitly using ProjectMan. But I 
+	described the &quot;hard way&quot; here as well, so that you learn how to add new 
+	files to your project.</td>
+</table>
+
+<p>&nbsp;</p>
+
+<p>The new script should look like this:</p>
+
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber1">
+  <tr>
+    <td class="code">
+<pre>#include "scripts\base.inc"
+ 
+////////////////////////////////////////////////////////////////////////////////
+on "LookAt"
+{
+  actor.GoToObject(this);
+  actor.Talk("Blah");
+}
+ 
+////////////////////////////////////////////////////////////////////////////////
+on "Take"
+{
+  actor.GoToObject(this);
+  actor.Talk("Blah");
+}
+ 
+.
+.
+.
+ 
+</pre>
+</table>
+
+
+
+<p>The “on “xxx” {}” blocks are the “event 
+handlers”. Those blocks of code are executed when a certain event is applied to 
+the object. For example, when the user opens a menu on the desk entity and he 
+select the “Look at” icon, a “LookAt” event is applied to the desk and the event 
+handler is executed. There are high level events, such as the “LookAt” or “Talk” 
+events, and those are fully customizable by the developer. Then there are low 
+level events, such as “LeftClick”. The low level events are triggered by the 
+engine itself and their names are hard-coded in the engine code.</p>
+<p>Let’s have a look at the “LookAt” 
+handler:</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td class="code">
+<pre>  actor.GoToObject(this);
+  actor.Talk("Blah");</pre>    
+    </td>
+  </tr>
+</table>
+<p>
+
+<p>This piece of code tells the engine to 
+call actor's “GoToObject” method and then make the actor to say “Blah”. The GoToObject 
+method receives a parameter called 'this'. The 'this' word in any script 
+represents the object the script is attached to. In this case, we're editing a 
+script attached to desk, therefore 'this' represents the desk. So the command
+<strong>actor.GoToObject(this);</strong> translates to &quot;tell the actor to go to 
+the desk&quot;.</p>
+<p>Now, that's great, but how does the engine know where exactly should the 
+actor walk and from which side should he approach the desk? Well, it doesn't, 
+you have to say that. All the entities in your scenes provide a &quot;walk to point&quot;. 
+You can see it down in the entity properties:</p>
+<p><img src="../img/tut9-3.png"></p>
+<p>Now, you can either manually fill-in the requested walk-to point and actor's 
+target direction, or you can use the <strong>actor placement tool</strong> (it’s 
+described in 
+<a href="inside_scenes_step6.html#actor_placement">step 6</a> of this tutorial) 
+and position the actor interactively. Then simply press the &quot;&lt;&quot; button and the 
+position will be assigned to the entity. Similarly, if you press the &quot;&gt;&quot; button, 
+the actor will be positioned within scene accordingly to the entered values.</p>
+<p>Try it. Return 
+back to the SceneEdit and close the script dialog (by clicking OK). Press the 
+“Place actor” and select the “molly.actor” file. Now setup the actor to the 
+position where you want him to walk when looking at the desk (remember: you can 
+move the actor by moving your mouse, you can change his direction by pressing 
+the right mouse button and you finally anchor the actor in place by pressing the 
+left mouse button).</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut7-12.png" width="410" height="512"></p>
+<p class="style1">
+Now press the &quot;&lt;&quot; button in the entity properties window (make sure the &quot;desk&quot; 
+entity is still selected) and you're all set.</p>
+
+
+<p>Sometimes it's useful to copy the literal actor's position to some script. 
+Once again, the actor placement tool comes in handy. Place the actor to the 
+desired position and use the “Actor-&gt;Copy actor placement” function or press 
+the Ctrl+C hotkey.</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut7-13.png" width="354" height="154"></p>
+
+
+<p align="center">&nbsp;</p>
+
+
+<p>The following fragment of code will be copied to the 
+clipboard:</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber5">
+  <tr>
+    <td class="code">
+<pre>actor.GoTo(544, 638);
+actor.TurnTo(DI_UPRIGHT);</pre>
+</td>
+  </tr>
+</table>
+
+
+<p>This code mimics the actor’s placement 
+we just set in SceneEdit.</p>
+
+
+<p>You can change the “Take” handler as 
+well. The actor could say something “funny” when the player tries to pick up a 
+desk.</p>
+
+
+
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber7">
+  <tr>
+    <td class="code">
+<pre>on "Take"
+{
+  actor.GoToObject(this);
+  actor.Talk("The desk is a bit too heavy for a poor little me...");
+}
+</pre>
+    
+    </td>
+  </tr>
+</table>
+
+
+
+<p>Since you can’t talk to the desk, you 
+can delete the “Talk” handler altogether. A default “Talk” handler will be used 
+when no other handler is found.</p>
+
+<p>The “LeftClick” handler simply calls the 
+GoToObject method. It means when the player clicks the desk, the actor will just 
+walk to it.</p>
+
+<p>OK, the script is complete. Save it, 
+save the scene, quit the SceneEdit and switch back to ProjectMan.</p>
+
+<p>Run the game and test the “MyScene” 
+scene. Right click the desk and a menu will appear. Try clicking various icons. 
+The actor should walk to the desk, turn to it and say an appropriate sentence.</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut7-14.png" width="417" height="414"></p>
+
+
+<p align="center">&nbsp;</p>
+
+
+<p>You can add the scripts to the other 
+scene objects exactly the same way. See the finished scripts in the 
+“step7.scene” file.</p>
+
+<p>OK, enough programming, let’s move to 
+the next step of this tutorial, <a href="inside_scenes_step8.html">Step 8: Layers</a>.</p>
+
+</body>
+
+</html>

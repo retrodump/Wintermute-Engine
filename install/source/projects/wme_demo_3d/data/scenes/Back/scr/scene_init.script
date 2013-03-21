@@ -1,0 +1,10 @@
+#include "scripts\base.inc"
+
+// here comes the stuff which initializes the scene
+
+//Sleep();
+//actor.SkipTo(430, 580);
+//actor.Direction = DI_UP;
+actor.Active = true;
+
+//Scene.ShowGeometry = true;

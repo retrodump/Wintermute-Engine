@@ -1,0 +1,32 @@
+WINDOW
+{
+  WIDTH = 800
+  HEIGHT = 600
+  NAME = "mainmenu"
+
+  IMAGE = "interface\system\back.png"
+  FONT = "fonts\big_white.font"  
+
+  STATIC
+  {
+    IMAGE = "interface\system\wme_logo.png"
+    NAME = "logo"
+    X = 622
+    Y = 500
+  }
+
+  BUTTON
+  {
+    NAME = "website"
+    TEXT = "www.dead-code.org"
+    FONT = "fonts\big_blue.font"
+    SCRIPT = "interface\system\url.script"
+    CURSOR = "sprites\system\cur_arrow_h.sprite"
+    X = 570
+    Y = 570
+    WIDTH = 250
+    HEIGHT = 32
+  }
+
+
+}

@@ -1,0 +1,810 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+#include "bcgbarres.h"
+#include "dcgf.rc"
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1250)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,10,2,0
+ PRODUCTVERSION 1,10,2,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x21L
+#else
+ FILEFLAGS 0x20L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "Dead:Code Software"
+            VALUE "FileDescription", "SpriteEdit - Sprite editor for Wintermute Engine"
+            VALUE "FileVersion", "1.10.2"
+            VALUE "InternalName", "SpriteEdit"
+            VALUE "LegalCopyright", "Copyright (c) 2013 Dead:Code"
+            VALUE "OriginalFilename", "SpriteEdit.exe"
+            VALUE "ProductName", "Wintermute Engine"
+            VALUE "ProductVersion", "1.10.2"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Czech resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CSY)
+#ifdef _WIN32
+LANGUAGE LANG_CZECH, SUBLANG_DEFAULT
+#pragma code_page(1250)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "#include ""bcgbarres.h""\r\n"
+    "#include ""dcgf.rc\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\SpriteEdit.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#include ""bcgcontrolbar.rc""                          // BCG ControlBar resources\r\n"
+    "#endif\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PROJECT_ROOT DIALOGEX 0, 0, 207, 158
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Root folder"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "Please specify the root folder of your project:",IDC_STATIC,7,7,193,8
+    CONTROL         "Previously specified folders:",IDC_PREVIOUS,"Button",BS_AUTORADIOBUTTON | WS_GROUP,7,25,193,10
+    LISTBOX         IDC_PREV_LIST,20,39,167,27,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Other folder:",IDC_CUSTOM,"Button",BS_AUTORADIOBUTTON,7,80,193,10
+    EDITTEXT        IDC_CUSTOM_NAME,20,94,151,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE,171,94,16,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,130,193,1
+    DEFPUSHBUTTON   "OK",IDOK,50,137,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,106,137,50,14
+END
+
+IDD_BACKGROUND DIALOGEX 0, 0, 226, 84
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Background image"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    RTEXT           "Image:",IDC_STATIC,17,9,29,8
+    EDITTEXT        IDC_FILENAME,48,7,146,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "...",IDC_BROWSE,195,7,14,14
+    RTEXT           "Offset X:",IDC_STATIC,7,25,39,8
+    EDITTEXT        IDC_OFFSET_X,48,23,40,14,ES_AUTOHSCROLL
+    RTEXT           "Offset Y:",IDC_STATIC,88,25,35,8
+    EDITTEXT        IDC_OFFSET_Y,125,23,40,14,ES_AUTOHSCROLL
+    RTEXT           "Opacity:",IDC_STATIC,15,41,31,8
+    EDITTEXT        IDC_ALPHA,48,39,40,14,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",IDC_ALPHA_SPIN,"msctls_updown32",UDS_WRAP | UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS,88,39,11,14
+    PUSHBUTTON      "No image",IDC_NO_IMAGE,115,39,50,14
+    DEFPUSHBUTTON   "OK",IDOK,60,63,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,115,63,50,14
+END
+
+IDD_SCRIPTS DIALOGEX 0, 0, 216, 144
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Scripts"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "",IDC_SCRIPT_UP,3,3,14,13,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_SCRIPT_DOWN,18,3,14,13,NOT WS_TABSTOP
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT,36,2,1,15
+    PUSHBUTTON      "",IDC_ADD_SCRIPT,40,3,14,13,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_EDIT,54,3,14,13,NOT WS_TABSTOP
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT,72,3,1,14
+    PUSHBUTTON      "",IDC_REMOVE_SCRIPT,76,3,14,13,NOT WS_TABSTOP
+    LISTBOX         IDC_SCRIPTS,3,20,210,102,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,56,127,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,109,127,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_PROJECT_ROOT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 200
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 151
+    END
+
+    IDD_BACKGROUND, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 219
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 77
+    END
+
+    IDD_SCRIPTS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        TOPMARGIN, 7
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_PROPERTIES          BITMAP                  "res\\bitmap1.bmp"
+#endif    // Czech resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_SPRITE_PAGE DIALOGEX 0, 0, 125, 143
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "",IDC_FIRST_FRAME,0,0,15,15,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_PREV_FRAME,15,0,15,15,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_PLAY_STOP,30,0,15,15,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_NEXT_FRAME,45,0,15,15,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_LAST_FRAME,60,0,15,15,NOT WS_TABSTOP
+    CONTROL         "Looping",IDC_LOOPING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,82,3,40,10
+    PUSHBUTTON      "",IDC_FRAME_UP,0,16,15,15,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_FRAME_DOWN,15,16,15,15,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_SUBFRAME_UP,35,16,15,15,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_SUBFRAME_DOWN,50,16,15,15,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_ADD_FRAME,70,16,15,15,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_ADD_SUBFRAME,85,16,15,15,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_REMOVE_FRAME,100,16,15,15,NOT WS_TABSTOP
+    CONTROL         "Tree1",IDC_SPRITE,"SysTreeView32",TVS_HASBUTTONS | TVS_LINESATROOT | TVS_DISABLEDRAGDROP | TVS_SHOWSELALWAYS | TVS_FULLROWSELECT | WS_BORDER | WS_TABSTOP,0,32,115,111
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT,33,16,1,15
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT,67,16,1,15
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT,78,0,1,15
+END
+
+IDD_EMPTY_PAGE DIALOGEX 0, 0, 131, 105
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "No properties available",IDC_EMPTY_NOTE,29,49,73,8
+END
+
+IDD_FRAME_PAGE DIALOGEX 0, 0, 167, 205
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    RTEXT           "Delay:",IDC_STATIC,20,4,21,8
+    EDITTEXT        IDC_DELAY,44,2,36,12,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "ms",IDC_STATIC,84,4,10,8
+    PUSHBUTTON      "",IDC_COPY_DELAY,100,2,15,12,NOT WS_TABSTOP
+    RTEXT           "Move by:",IDC_STATIC,11,17,30,8
+    EDITTEXT        IDC_MOVE_X,44,15,28,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MOVE_Y,72,15,28,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "",IDC_COPY_MOVE,100,15,15,12,NOT WS_TABSTOP
+    RTEXT           "Sound:",IDC_STATIC,17,30,24,8
+    EDITTEXT        IDC_SOUND,44,28,72,12,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "...",IDC_BROWSE_SOUND,116,28,15,12
+    RTEXT           "Event:",IDC_STATIC,19,43,22,8
+    EDITTEXT        IDC_EVENT,44,41,72,12,ES_AUTOHSCROLL
+    CONTROL         "Keyframe",IDC_KEYFRAME,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,11,56,45,10
+    CONTROL         "Kill sounds",IDC_KILL_SOUND,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,69,56,49,10
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,4,67,140,1
+    CONTROL         "Mirror X",IDC_MIRROR_X,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,11,71,41,10
+    CONTROL         "Mirror Y",IDC_MIRROR_Y,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,69,71,41,10
+	PUSHBUTTON      "",IDC_COPY_MIRROR,116,68,15,12,NOT WS_TABSTOP
+    RTEXT           "Image:",IDC_STATIC,0,83,41,8
+    EDITTEXT        IDC_IMAGE,44,81,72,12,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "...",IDC_BROWSE_IMAGE,116,81,15,12
+    RTEXT           "Hot spot:",IDC_STATIC,0,96,41,8
+    EDITTEXT        IDC_HOTSPOT_X,44,94,28,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_HOTSPOT_Y,72,94,28,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "",IDC_COPY_HOTSPOT,100,94,15,12,NOT WS_TABSTOP
+    RTEXT           "Transparent:",IDC_STATIC,0,112,41,8
+    PUSHBUTTON      "transparent",IDC_TRANSPARENT,44,109,56,14
+    PUSHBUTTON      "",IDC_COPY_TRANS,100,109,15,12,NOT WS_TABSTOP
+    LTEXT           "(255,255,255)",IDC_TRANS_RGB,118,112,49,8
+    CONTROL         "3D Only",IDC_3D_ONLY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,11,125,41,10
+    CONTROL         "2D Only",IDC_2D_ONLY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,60,125,41,10
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,136,139,1
+    RTEXT           "Alpha color:",IDC_STATIC,3,142,38,8
+    PUSHBUTTON      "alpha color",IDC_ALPHA_COLOR,44,139,56,14
+    LTEXT           "(255,255,255)",IDC_ALPHA_RGB,118,142,49,8
+    RTEXT           "Opacity:",IDC_STATIC,6,157,35,8
+    EDITTEXT        IDC_ALPHA,44,155,32,12,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",IDC_ALPHA_SPIN,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | UDS_HOTTRACK,76,155,11,12
+    CONTROL         "Decoration subframe",IDC_DECORATION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,11,171,81,10
+    PUSHBUTTON      "",IDC_COPY_ALPHA,100,139,15,12,NOT WS_TABSTOP
+    EDITTEXT        IDC_TOTAL_TIME,44,184,32,12,ES_AUTOHSCROLL | ES_READONLY
+    RTEXT           "Total time:",IDC_STATIC,7,186,36,8
+    LTEXT           "ms",IDC_STATIC,78,186,10,8
+END
+
+IDD_OPTIONS DIALOGEX 0, 0, 175, 167
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Engine settings"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    CONTROL         "Use hardware acceleration (if available)",IDC_ACCELERATION,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,7,140,10
+    DEFPUSHBUTTON   "&OK",IDOK,35,146,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,90,146,50,14
+    CONTROL         "Force 16bit textures",IDC_FORCE_16BIT_TEXTURES,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,18,78,10
+    CONTROL         "Force texture subdivision",IDC_FORCE_TEXTURE_SUBDIVISION,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,29,94,10
+    LTEXT           "Custom resource paths:",IDC_STATIC,7,51,89,8
+    PUSHBUTTON      "&Edit ""dcgf.ini"" file",IDC_EDIT_INI,100,46,68,14
+    CONTROL         "",IDC_CUSTOM_PATHS,"Static",SS_BLACKFRAME,7,61,161,81
+END
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 243, 97
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About SpriteEdit"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,7,7,21,20
+    LTEXT           "SpriteEdit",IDC_PRODUCT,40,7,119,8,SS_NOPREFIX
+    DEFPUSHBUTTON   "OK",IDOK,186,7,50,14,WS_GROUP
+    PUSHBUTTON      "wme@wintermute-engine.org",IDC_COMPANY_URL,40,54,88,8
+    LTEXT           "Wintermute Engine Tool",IDC_STATIC,40,17,77,8
+    LTEXT           "Copyright (c) 2008 Dead:Code",IDC_STATIC,40,33,102,8
+    LTEXT           "(See the documentation for the list of third party libraries used in this product)",IDC_STATIC,40,71,142,16
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,39,67,144,1
+    PUSHBUTTON      "http://www.wintermute-engine.org/",IDC_COMPANY_WEB,40,43,88,8
+END
+
+IDD_SPRITE_PROP_PAGE DIALOGEX 0, 0, 130, 165
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "Name:",IDC_STATIC,7,10,22,8
+    EDITTEXT        IDC_NAME,31,7,58,14,ES_AUTOHSCROLL
+    CONTROL         "Looping",IDC_LOOPING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,27,41,10
+    CONTROL         "Continuous",IDC_CONTINUOS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,38,51,10
+    CONTROL         "Pixel precise",IDC_PRECISE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,49,55,10
+    CONTROL         "Mute sounds",IDC_MUTED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,91,57,10
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,88,86,1
+    CONTROL         "Streaming animation",IDC_STREAMED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,61,79,10
+	CONTROL         "Keep loaded in memory",IDC_STREAMED_KEEP_LOADED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,73,100,10
+    PUSHBUTTON      "Scripts...",IDC_SCRIPTS,31,112,50,14    
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_SPRITE_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 118
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 136
+    END
+
+    IDD_EMPTY_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 124
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 98
+    END
+
+    IDD_OPTIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 160
+    END
+
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 236
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 87
+    END
+
+    IDD_SPRITE_PROP_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 94
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 123
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_COPY_ALL            BITMAP                  "res\\copy_all.bmp"
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+IDB_WORKSPACE           BITMAP                  "res\\workspace.bmp"
+IDB_MOVE_DOWN           BITMAP                  "res\\move_dow.bmp"
+IDB_MOVE_UP             BITMAP                  "res\\move_up.bmp"
+IDB_SUB_DOWN            BITMAP                  "res\\sub_down.bmp"
+IDB_SUB_UP              BITMAP                  "res\\sub_up.bmp"
+IDB_NEW_FRAME           BITMAP                  "res\\new_fram.bmp"
+IDB_NEW_SUBFRAME        BITMAP                  "res\\new_subf.bmp"
+IDB_FIRST_FRAME         BITMAP                  "res\\first_fr.bmp"
+IDB_LAST_FRAME          BITMAP                  "res\\last_fra.bmp"
+IDB_PREV_FRAME          BITMAP                  "res\\prev_fra.bmp"
+IDB_NEXT_FRAME          BITMAP                  "res\\next_fra.bmp"
+IDB_PLAY                BITMAP                  "res\\play.bmp"
+IDB_STOP                BITMAP                  "res\\stop.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\SpriteEdit.ico"
+IDR_SPRITETYPE          ICON                    "res\\SpriteDoc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_TOOLS_REFRESH
+    SEPARATOR
+    BUTTON      ID_EDIT_UNDO
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&View"
+    BEGIN
+        POPUP "&Toolbars"
+        BEGIN
+            MENUITEM "",                            ID_VIEW_TOOLBARS
+        END
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+    END
+    POPUP "&Tools"
+    BEGIN
+        MENUITEM "&<User-defined tools",        ID_TOOLS_ENTRY
+        MENUITEM SEPARATOR
+        MENUITEM "&Engine settings...",         ID_TOOLS_OPTIONS
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&WME Documentation",          ID_HELP_DOCS
+        MENUITEM SEPARATOR
+        MENUITEM "&About SpriteEdit...",        ID_APP_ABOUT
+    END
+END
+
+IDR_SPRITETYPE MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Close",                      ID_FILE_CLOSE
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+    END
+    POPUP "&View"
+    BEGIN
+        POPUP "&Toolbars"
+        BEGIN
+            MENUITEM "",                            ID_VIEW_TOOLBARS
+        END
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+        MENUITEM SEPARATOR
+        MENUITEM "Background image...",         ID_VIEW_BACKGROUND
+    END
+    POPUP "&Tools"
+    BEGIN
+        MENUITEM "&<User-defined tools",        ID_TOOLS_ENTRY
+        MENUITEM SEPARATOR
+        MENUITEM "&Engine settings...",         ID_TOOLS_OPTIONS
+        MENUITEM SEPARATOR
+        MENUITEM "Reload graphics",             ID_TOOLS_REFRESH
+    END
+    POPUP "&Window"
+    BEGIN
+        MENUITEM "&Cascade",                    ID_WINDOW_CASCADE
+        MENUITEM "&Tile",                       ID_WINDOW_TILE_HORZ
+        MENUITEM "&Arrange Icons",              ID_WINDOW_ARRANGE
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&WME Documentation",          ID_HELP_DOCS
+        MENUITEM SEPARATOR
+        MENUITEM "&About SpriteEdit...",        ID_APP_ABOUT
+    END
+END
+
+IDR_CONTEXT_MENU MENU 
+BEGIN
+    POPUP "_POPUP_"
+    BEGIN
+        MENUITEM "Cu&t",                        ID_EDIT_CUT
+        MENUITEM "&Copy",                       ID_EDIT_COPY
+        MENUITEM "&Paste",                      ID_EDIT_PASTE
+    END
+END
+
+IDR_POPUP_TOOLBAR MENU 
+BEGIN
+    POPUP "DUMMY"
+    BEGIN
+        MENUITEM "Standard Toolbar",            ID_VIEW_TOOLBAR
+        MENUITEM "&Sprite",                     ID_VIEW_WORKSPACE
+        MENUITEM "&Output",                     ID_VIEW_OUTPUT
+        MENUITEM "Properties",                  ID_VIEW_PROPERTY
+        MENUITEM "<User Toolbar>",              ID_VIEW_USER_TOOLBAR1
+        MENUITEM "<User Toolbar>",              ID_VIEW_USER_TOOLBAR2
+        MENUITEM "<User Toolbar>",              ID_VIEW_USER_TOOLBAR3
+        MENUITEM "<User Toolbar>",              ID_VIEW_USER_TOOLBAR4
+        MENUITEM "<User Toolbar>",              ID_VIEW_USER_TOOLBAR5
+        MENUITEM "<User Toolbar>",              ID_VIEW_USER_TOOLBAR6
+        MENUITEM "<User Toolbar>",              ID_VIEW_USER_TOOLBAR7
+        MENUITEM "<User Toolbar>",              ID_VIEW_USER_TOOLBAR8
+        MENUITEM "<User Toolbar>",              ID_VIEW_USER_TOOLBAR9
+        MENUITEM "<User Toolbar>",              ID_VIEW_USER_TOOLBAR10
+        MENUITEM SEPARATOR
+        MENUITEM "&Customize...",               ID_VIEW_CUSTOMIZE
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS 
+BEGIN
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY 
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "SpriteEdit"
+    IDR_SPRITETYPE          "\nSprite\nSprite\nSprite Files (*.sprite)\n.sprite\nSpriteEdit.Document\nWintermute Sprite"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "SpriteEdit"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+    ID_INDICATOR_FPS        "FPS: 0000"
+    ID_INDICATOR_MODE       "Window: 1000x1000 (accelerated)"
+    ID_INDICATOR_CURSOR     "0000, 0000"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_USER_TOOLBAR8   "Show or hide the user toolbar\nToggle User ToolBar"
+    ID_VIEW_USER_TOOLBAR9   "Show or hide the user toolbar\nToggle User ToolBar"
+    ID_VIEW_USER_TOOLBAR10  "Show or hide the user toolbar\nToggle User ToolBar"
+    ID_VIEW_WORKSPACE       "Show or hide the sprite bar\nToggle Sprite"
+    ID_VIEW_OUTPUT          "Show or hide the output bar\nToggle Output"
+    ID_TOOLS_ENTRY          "User-defined tools\nUser Tools"
+    ID_USER_TOOL1           "Activates user-defined tool\nUser Tool"
+    ID_USER_TOOL2           "Activates user-defined tool\nUser Tool"
+    ID_USER_TOOL3           "Activates user-defined tool\nUser Tool"
+    ID_USER_TOOL4           "Activates user-defined tool\nUser Tool"
+    ID_USER_TOOL5           "Activates user-defined tool\nUser Tool"
+    ID_USER_TOOL6           "Activates user-defined tool\nUser Tool"
+    ID_USER_TOOL7           "Activates user-defined tool\nUser Tool"
+    ID_USER_TOOL8           "Activates user-defined tool\nUser Tool"
+    ID_USER_TOOL9           "Activates user-defined tool\nUser Tool"
+    ID_USER_TOOL10          "Activates user-defined tool\nUser Tool"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_WINDOW_NEW           "Open another window for the active document\nNew Window"
+    ID_WINDOW_ARRANGE       "Arrange icons at the bottom of the window\nArrange Icons"
+    ID_WINDOW_CASCADE       "Arrange windows so they overlap\nCascade Windows"
+    ID_WINDOW_TILE_HORZ     "Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_TILE_VERT     "Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_WINDOW_MANAGER       "Manages the currently opened window\nWindow List"
+    ID_VIEW_PROPERTY        "Show or hide the property bar\nToggle properties"
+    ID_TOOLS_REFRESH        "Reload all graphics\nReload"
+    ID_TOOLS_OPTIONS        "Change engine settings\nEngine settings"
+    ID_HELP_DOCS            "Display the WME help file"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+    AFX_IDS_MDICHILD        "Activate this window"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_CUSTOMIZE       "Customize toolbars ane menus.\nCustomize"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_MAIN_TOOLBAR        "Standard"
+    IDS_WINDOWS_MANAGER     "&Windows..."
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_USER_TOOLBAR1   "Show or hide the user toolbar\nToggle User ToolBar"
+    ID_VIEW_USER_TOOLBAR2   "Show or hide the user toolbar\nToggle User ToolBar"
+    ID_VIEW_USER_TOOLBAR3   "Show or hide the user toolbar\nToggle User ToolBar"
+    ID_VIEW_USER_TOOLBAR4   "Show or hide the user toolbar\nToggle User ToolBar"
+    ID_VIEW_USER_TOOLBAR5   "Show or hide the user toolbar\nToggle User ToolBar"
+    ID_VIEW_USER_TOOLBAR6   "Show or hide the user toolbar\nToggle User ToolBar"
+    ID_VIEW_USER_TOOLBAR7   "Show or hide the user toolbar\nToggle User ToolBar"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\SpriteEdit.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#include "bcgcontrolbar.rc"                          // BCG ControlBar resources
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

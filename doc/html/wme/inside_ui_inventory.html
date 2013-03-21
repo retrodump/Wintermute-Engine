@@ -1,0 +1,98 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Inventory box</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3><a name="inventory_box"></a>Inventory box</h3>
+
+<p>The inventory box is the graphical representation of your inventory window. 
+It defines the placement of the items, some controls (such as the close and/or 
+scrolling buttons) and mainly the design of the background of the inventory.</p>
+
+<p>Inventory box is defined in a simple text file which as a structure similar 
+to this:</p>
+
+<pre><font color="#FF00FF">INVENTORY_BOX
+{
+  ITEM_WIDTH = 65
+  ITEM_HEIGHT = 65
+  SPACING = 10
+  SCROLL_BY = 1
+  HIDE_SELECTED = TRUE
+
+  AREA { 30, 12, 770, 77 }
+  EXCLUSIVE = FALSE
+</font>
+<font color="#808080">  WINDOW
+  {
+    X = 0
+    Y = 0
+    WIDTH = 800
+    HEIGHT = 90
+    IMAGE = "interface\inventory.bmp"
+  
+    BUTTON
+    {
+      TEMPLATE = "ui_elements\template\but.button"
+      NAME = "prev"
+      TEXT = "&lt;"
+      X = 0
+      Y = 0
+      WIDTH = 30
+      HEIGHT = 90
+    }
+
+    BUTTON
+    {
+      TEMPLATE = "ui_elements\template\but.button"
+      NAME = "next"
+      TEXT = ">"
+      X = 770
+      Y = 0
+      WIDTH = 30
+      HEIGHT = 90
+    }
+  }
+</font><font color="#FF00FF">}</font>
+</pre>
+
+&nbsp;<p>As you see, the first part (purple) defines some inventory specific 
+attributes, while the second part (gray) defines the design. The second part is 
+a casual window, as described in the <a href="inside_ui_windows.html">Windows 
+and controls</a> chapter. The inventory window can contain any GUI elements you 
+want, please see the mentioned chapter for more details about GUI definitions.</p>
+<p>Let's take a closer look at the first section. It contains the following 
+attributes:</p>
+<ul>
+  <li>ITEM_WIDTH / ITEM_HEIGHT - the dimensions of one cell reserved for each 
+  inventory item</li>
+  <li>SPACING - the space between two inventory items</li>
+  <li>SCROLL_BY - how many items to skip when scrolling the inventory</li>
+  <li>HIDE_SELECTED - if player selects an inventory item, it will disappear 
+  from the inventory box</li>
+  <li>AREA - defines a rectangle within the background window, where the items 
+  will be displayed. The four numbers represent the X, Y coordinates of the 
+  upper left and bottom right points of the rectangle. Note that the area is 
+  defined relative to the inventory window, NOT relative to screen.</li>
+  <li>EXCLUSIVE - if the inventory is displayed in exclusive mode, all the other 
+  on-screen objects become inactive</li>
+</ul>
+<p>Based on this setting, WME will automatically populate the defined rectangle 
+with items.</p>
+<p>&nbsp;</p>
+<p>As for the second part, i.e. the window definitions, it's a normal window 
+definition with a few exceptions. If you name some of the buttons &quot;next&quot;, &quot;prev&quot; 
+or &quot;close&quot;, WME will use them automatically for inventory scrolling and/or 
+closing.</p>
+
+</body>
+
+</html>

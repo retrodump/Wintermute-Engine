@@ -1,0 +1,161 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Windows Vista support</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+<h1>Windows Vista support</h1>
+<p>Microsoft&#39;s new consumer operating system brought many changes related to 
+security and game integration. Both these areas affect game development in WME. 
+This chapter will guide you through all the possible problems and new WME&#39;s 
+abilities related to Windows Vista.</p>
+<h2>Game development</h2>
+<p>WME tools and the engine itself work fine in Windows Vista. There&#39;s one 
+possible problem you should be aware of, though. In Windows Vista even if the 
+user has administrative privileges, under normal circumstances the rights are 
+lowered to normal user. This means the user doesn&#39;t have write access to the 
+&quot;Program Files&quot; directory. For this reason, do NOT store your WME project folder 
+in Program Files.</p>
+<p>When creating a new project in ProjectMan, the project is created in the 
+&quot;Documents&quot; folder by default, which is fine. Unfortunately older versions of 
+WME defaulted to Program Files. Therefore, if your project is in still stored 
+Program Files, and you are intending to upgrade to Windows Vista, please move 
+the entire project folder elsewhere (preferably to your Documents folder), 
+otherwise ProjectMan might fail to compile the game.</p>
+<h2>Saved games</h2>
+<p>In ProjectMan, in project settings, there is a property called &quot;Personal 
+saved games&quot;. It specifies, whether the game will store saved games directly in 
+the game directory or if it will use the user&#39;s personal folder. For the reasons 
+stated above you should ALWAYS set the &quot;Personal saved games&quot; to &quot;Yes&quot;. 
+Otherwise if the user installs your game to Program Files in Windows Vista, the 
+game will be unable to save games (actually, WME is smart enough to switch to 
+personal saved games folder if the game directory isn&#39;t writeable, but the point 
+stands :).</p>
+<p>If the &quot;Personal saved games&quot; option is enabled, the saved games are stored:</p>
+<ul>
+	<li>In Windows XP and earlier: In the user&#39;s &quot;Documents&quot; folder.</li>
+	<li>In Windows Vista: In the user&#39;s &quot;Saved games&quot; folder.</li>
+</ul>
+<h2>Game Explorer integration and rich saved games</h2>
+<p>There is a new feature in Windows Vista called &quot;Game Explorer&quot;. It serves as 
+a centralized access point for all games installed in Windows. WME provides 
+support for integrating your game with Game Explorer, but the process requires 
+several steps.</p>
+<h3>Game definition file</h3>
+<p>To be successfully integrated with Game Explorer, the game must provide so 
+called &quot;Game definition file&quot; (GDF). It&#39;s an XML file containing description of 
+your game. The complete XML schema for GDF files is available at the
+<a target="_blank" href="https://msdn2.microsoft.com/en-us/library/bb173445.aspx">
+Microsoft website</a>. However, WME ProjectMan can generate a skeleton GDF file 
+for you, based on your game settings. To generate GDF file skeleton, open the 
+Tools menu and click &quot;Generate GDF file...&quot;.</p>
+<p><img src="../img/vista1.png"></p>
+<p>This command will generate an XML file containing some basic information 
+about your game. You will probably want to edit the file afterwards to change 
+some of the pre-generated values, such as the developer/publisher name, game 
+version etc. You shouldn&#39;t change the &quot;gameID&quot; value though, it&#39;s the unique 
+identifier of your game.</p>
+<p>For advanced editing of the GDF file, such as specifying an ESRB rating, 
+you&#39;ll need to install Microsoft&#39;s &quot;Game Definition File Editor&quot; tool, which is 
+part of the
+<a target="_blank" href="http://msdn2.microsoft.com/en-us/xna/aa937788.aspx">
+DirectX Software Development Kit</a>. Also note that for the ESRB rating to be 
+displayed in Game Explorer the game executable needs to be digitally signed.</p>
+<p>Once you generated the GDF file, you need to tell ProjectMan to insert the 
+GDF into the game executable. You do this in the project settings window 
+(Project -&gt; Project Settings...) on the &quot;Game Explorer&quot; tab.</p>
+<p><img src="../img/vista2.png"></p>
+<p>Here you can assign the generated GDF file as well as a thumbnail image. The 
+image is used by Game Explorer to display your game. It should be a 256x256 
+pixels big PNG file and it can contain transparency. If you don&#39;t specify a 
+thumbnail image, WME logo is used by default.</p>
+<p>After specifying these options, whenever you compile the game in ProjectMan, 
+the GDF file and the thumbnail image are injected into game executable, making 
+it ready for Game Explorer integration.</p>
+<h3>Rich saved games</h3>
+<p>Another step in preparing the game for Game Explorer integration are so 
+called &quot;rich saved games&quot;. Windows Vista is capable of displaying saved games 
+directly in Windows Explorer, complete with thumbnails and saved game 
+description.</p>
+<p>To prepare your game for this, two options need to be enabled in project 
+settings in ProjectMan. Firstly, you need to set the &quot;Rich saved games&quot; property 
+to &quot;Yes&quot;. Secondly, you need to specify a file extension to be used for saved 
+games. This extension needs to be unique for your game (i.e. don&#39;t us generic 
+extension like &quot;sav&quot;, but rather something like &quot;MyGameSav&quot;). Once the game is 
+integrated with Game Explorer, it&#39;s associated with this file extension, so the 
+user can double-click the saved game in Windows Explorer, which will run the 
+game and load the saved game.</p>
+<p><img src="../img/vista3.png"></p>
+<h3>Installing and uninstalling the game</h3>
+<p>The final step is to actually integrate the game with Game Explorer. This 
+action requires administrative privileges and therefore needs to be done at 
+install time (the game installer typically has administrative privileges). All 
+you need to do is to call the game executable from your installer, specifying 
+certain command-line switches, and the engine will integrate the game with Game 
+Explorer automatically.</p>
+<p>To integrate game with Game Explorer, the installer of your game needs to 
+call a command like this:</p>
+<p><code>&quot;c:\Program Files\MyGame\Game.exe&quot; -gameexplorer add</code></p>
+<p>The above command will install the game with Game Explorer for all users. 
+Alternatively you may want to only install the game for current user. The 
+command would then look like this:</p>
+<p><code>&quot;c:\Program Files\MyGame\Game.exe&quot; -gameexplorer add-current</code></p>
+<p>Similarly, when uninstalling the game, you should unregister the game from 
+Game Explorer first. To do so, your uninstaller needs to call the following 
+command:</p>
+<p><code>&quot;c:\Program Files\MyGame\Game.exe&quot; -gameexplorer remove</code></p>
+<p>Note: For these commands to work properly the game files need to be 
+installed. It means you should call the &quot;add&quot; command as one of the last steps 
+of the installation (after the game files have been copied to the user&#39;s 
+computer) and the &quot;remove&quot; command needs to be called before the game files are 
+removed.</p>
+<p>Most installers allow you to call external programs during installation. For 
+example when using 
+<a target="_blank" href="http://www.jrsoftware.org/isinfo.php">InnoSetup</a>, your install script would contain something like 
+this:</p>
+<p><code>[Run]<br>
+Filename: &quot;{app}\game.exe&quot;; Parameters: &quot;-gameexplorer add&quot;<br>
+<br>
+[UninstallRun]<br>
+Filename: &quot;{app}\game.exe&quot;; Parameters: &quot;-gameexplorer remove&quot;<br>
+</code>
+</p><p>Please note that you can safely call these command even when installing 
+the game in a different Windows version than Vista. In Windows versions earlier 
+than Windows XP the calls are ignored. In Windows XP the engine will write 
+special values to Windows Registry and if the user later upgrades to Vista, your 
+game will be automatically added to Game Explorer during the upgrade process.<h3>
+Game tasks</h3>
+<p>Once the game appears in Game Explorer, it provides so called &quot;game tasks&quot;. 
+WME installs the following game tasks: Play game, Settings, Website 1, Website 
+2. You can control the labels of these actions by modifying the string table of 
+your game. If you don&#39;t specify any website, the Website game tasks aren&#39;t 
+installed.<h3>Conclusion</h3>
+<p>To conclude, you need to do the following steps to integrate your game with 
+Game Explorer in Windows Vista:<ul>
+	<li>Enable the &quot;Rich saved games&quot; option in ProjectMan.</li>
+	<li>Set a unique saved game file extension in ProjectMan.</li>
+	<li>Generate the GDF file in ProjectMan (Tools -&gt; Generate GDF file...).</li>
+	<li>Edit the generated GDF file and tweak the game information to your 
+	liking.</li>
+	<li>Assign the GDF file and a thumbnail image in project settings in 
+	ProjectMan.</li>
+	<li>Optionally: digitally sign the game executable after compiling the game 
+	in ProjectMan (for the ESRB rating to show up).</li>
+	<li>Modify your game installer to call the Game Explorer registration when 
+	installing the game and the Game Explorer deregistration when uninstalling 
+	the game.</li>
+</ul>
+<p>If all the steps went right, your game should appear in Game Explorer after 
+installation:</p>
+<p><img src="../img/vista4.png"></p>
+<p>And if you select the &quot;Saved Games&quot; command, you should see the saved games 
+of your game, complete with thumbnails and descriptions. It you double-click the 
+saved game, it should start the game and automatically load the selected saved 
+game:</p>
+<p><img src="../img/vista5.png"></p>
+</body>
+</html>

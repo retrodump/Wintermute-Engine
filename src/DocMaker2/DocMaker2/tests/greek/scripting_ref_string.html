@@ -1,0 +1,139 @@
+<html>
+<meta http-equiv="Content-Language" content="el">
+<meta name="GENERATOR" content="WME DocMaker 2.0">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-7">
+<title>Αντικείμενο string</title>
+<link rel="stylesheet" type="text/css" href="../../styles.css">
+</head>
+
+<body>
+<!-- Generated on 6.11.2005 22:35:34, settings file: greek -->
+
+<h3>Αντικείμενο string</h3>
+<p>
+Με το αντικείμενο string μπορείτε να κάνετε ανεπτυγμένους χειρισμούς string. Η δημιουργία του γίνεται με τις παρακάτω συντάξεις:
+<br><br>
+<table border="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" cellpadding="0" id="AutoNumber4">
+<tr>
+<td class="code"><pre>
+var StrObject = new String("Αρχική τιμή");
+var FixedString = new String(256); // δημιουργία άδειου string με μέγεθος 256 χαρακτήρων
+</pre></td>
+</tr>
+</table>
+<br>
+Με τη δεύτερη παραλλαγή μπορείτε να δεσμεύσετε ένα συγκεκριμένο μέγεθος για το κείμενο, κάτι χρήσιμο όταν χρειάζεστε επικοινωνία με εξωτερικές βιβλιοθήκες DLL.
+</p>
+
+<br>
+
+<h4>Μέθοδοι</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%"><a href="#Substring">Substring</a></td>
+    <td>Εξάγει μια γραμμή, με βάση τα δοσμένα όρια, από το αρχικό string.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#Substr">Substr</a></td>
+    <td>Εξάγει μία γραμμή, με βάση τη δοσμένη αρχή και το μέγεθος, από το αρχικό string.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ToUpperCase">ToUpperCase</a></td>
+    <td>Μετατρέπει όλους τους χαρακτήρες της string σε κεφαλαία.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ToLowerCase">ToLowerCase</a></td>
+    <td>Μετατρέπει όλους τους χαρακτήρες της string σε πεζούς.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#IndexOf">IndexOf</a></td>
+    <td>Αναζητά στη string το δοσμένο κείμενο.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#Split">Split</a></td>
+    <td>Χωρίζει τη string σε μία λίστα από τιμές.</td>
+  </tr>
+</table>
+
+<h4>Ιδιότητες</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%">Type (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει πάντα "string".</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Length (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει το μέγεθος της string σε χαρακτήρες.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Capacity</td>
+    <td>Ορίζει το μέγεθος του αντικειμένου string και δεσμεύει τον απαραίτητο χώρο.</td>
+  </tr>
+</table>
+
+<hr>
+<h3><a name="Substring"></a>Substring(Αρχή, Τέλος)</h3>
+<p>Εξάγει μια γραμμή, με βάση τα δοσμένα όρια, από το αρχικό string.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Αρχή</i></dt>
+<dd>Η αρχή της γραμμής που θα εξαχθεί</dd>
+<dt><i>Τέλος</i></dt>
+<dd>Το τέλος της γραμμής που θα εξαχθεί</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει τη γραμμή που έχει εξάγει.</p>
+
+<hr>
+<h3><a name="Substr"></a>Substr(Αρχή, Μέγεθος)</h3>
+<p>Εξάγει μία γραμμή, με βάση τη δοσμένη αρχή και το μέγεθος, από το αρχικό string.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Αρχή</i></dt>
+<dd>Η αρχή της γραμμής που θα εξαχθεί</dd>
+<dt><i>Μέγεθος</i></dt>
+<dd>Το μέγεθος της γραμμής που θα εξαχθεί (προαιρετικό, είναι προκαθορισμένο στο τέλος του string)</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει τη γραμμή που έχει εξάγει.</p>
+
+<hr>
+<h3><a name="ToUpperCase"></a>ToUpperCase()</h3>
+<p>Μετατρέπει όλους τους χαρακτήρες της string σε κεφαλαία.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει την καινούρια string.</p>
+
+<hr>
+<h3><a name="ToLowerCase"></a>ToLowerCase()</h3>
+<p>Μετατρέπει όλους τους χαρακτήρες της string σε πεζούς.</p>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει την καινούρια string.</p>
+
+<hr>
+<h3><a name="IndexOf"></a>IndexOf(Κείμενο, Αρχή)</h3>
+<p>Αναζητά στη string το δοσμένο κείμενο.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Κείμενο</i></dt>
+<dd>Το κείμενο που θα αναζητήσει</dd>
+<dt><i>Αρχή</i></dt>
+<dd>Η θέση από την οποία θα ξεκινήσει την αναζήτηση (προαιρετικό, είναι προκαθορισμένο στην αρχή του string)</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει τη θέση του κειμένου μέσα στην αρχική string ή <b>-1</b> αν δεν βρει το κείμενο.</p>
+
+<hr>
+<h3><a name="Split"></a>Split(Διαχωριστικά)</h3>
+<p>Χωρίζει τη string σε μία λίστα από τιμές.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Διαχωριστικά</i></dt>
+<dd>Οι χαρακτήρες που θα χρησιμοποιηθούν ως διαχωριστικά των τιμών (προαιρετικό, προκαθορισμένος χαρακτήρα;=",")</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Επιστρέφει ένα αντικείμενο <b>πίνακα</b> που περιλαμβάνει τα διαχωρισμένα αντικείμενα του αρχικού string.</p>
+
+
+</body>
+
+</html>

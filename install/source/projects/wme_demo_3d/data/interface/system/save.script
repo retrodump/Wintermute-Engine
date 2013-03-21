@@ -1,0 +1,84 @@
+#include "scripts\base.inc"
+#include "scripts\keys.inc"
+
+this.xResult = false;
+
+var NumSlotButtons = 5;
+
+SetState();
+
+////////////////////////////////////////////////////////////////////////////////
+on "close"
+{
+  this.Close();
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "Keypress"
+{
+  var button;
+
+  if(Keyboard.KeyCode==VK_ESCAPE){
+    button = this.GetControl("close");
+    button.Press();
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+function SetState()
+{
+  for(var i=0; i<NumSlotButtons; i=i+1)
+  {
+    var SlotButton = this.GetControl(ToString(i+1));
+
+    if(Game.IsSaveSlotUsed(i+1))
+      SlotButton.Text = Game.GetSaveSlotDescription(i+1);
+    else
+      SlotButton.Text = "<empty>";
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+function DoSave(Slot)
+{
+	var CanSave = true;
+	if(Game.IsSaveSlotUsed(Slot)) CanSave = Game.QuestionBox("Do you want to overwrite the old savegame?");
+	
+	if(CanSave)
+	{
+		 var Time = new Date();
+		 var Minutes = Time.GetMinutes();
+		 if(Minutes < 10) Minutes = "0" + Minutes;
+		 
+		 Game.SaveGame(Slot, Scene.Name + ", " + Time.GetDate() + "." + Time.GetMonth() + "." + Time.GetYear() + ", " + Time.GetHours() + ":" + Minutes);
+		 this.xResult = true;
+		 this.Close();
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////
+on "1"
+{
+	DoSave(1);
+}
+
+on "2"
+{
+	DoSave(2);
+}
+
+on "3"
+{
+  DoSave(3);
+}
+
+on "4"
+{
+  DoSave(4);
+}
+
+on "5"
+{
+  DoSave(5);
+}

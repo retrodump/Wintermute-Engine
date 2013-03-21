@@ -1,0 +1,58 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Conditions and comparison operators</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3>Conditions and comparison operators</h3>
+<p>WME script supports <b>if</b> and <b>
+if...else</b> conditional statements. In <b>if</b> statements a condition is 
+tested, and if the condition meets the test, the relevant block of code is 
+executed. In the <b>if...else</b> statement, different code is executed if the 
+condition fails the test.</p>
+
+<p>The following comparison operators are 
+accepted in the conditional statements:</p>
+
+<p>== … equal</p>
+<p>!= … non equal</p>
+<p>&lt; … less then</p>
+<p>&lt;= … less than or equal</p>
+<p>&gt; … greater than</p>
+<p>&gt;= … greater than or equal</p>
+
+<p>The block of code in the conditional 
+statement can be either a simple statement or a compound statement (multiple 
+statements enclosed in the curly braces).</p>
+
+<p>Examples:</p>
+
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber1">
+  <tr>
+    <td class="code"><pre>if(Scene.Name=="MyScene")
+{
+  actor.GoTo(100, 200);
+  actor.TurnTo(DI_DOWN);
+}
+else
+{
+  actor.GoTo(500, 200);
+  actor.TurnTo(DI_UPDOWN);
+}
+</pre></td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+
+</body>
+
+</html>

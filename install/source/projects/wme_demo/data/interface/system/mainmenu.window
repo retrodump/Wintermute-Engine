@@ -1,0 +1,68 @@
+WINDOW
+{
+  WIDTH = 280
+  HEIGHT = 240
+  NAME = "mainmenu"
+
+  TITLE = "Main menu"
+  TITLE_RECT { 5,5,255,25 }  
+  TITLE_ALIGN = left
+  DRAG_RECT { 0,0,255,25 }
+  BACK = "ui_elements\win.image"
+  BACK_INACTIVE = "ui_elements\win_inactive.image"
+  FONT = "fonts\outline_white.font"
+  SCRIPT = "interface\system\mainmenu.script"
+
+;----- close button -----
+  BUTTON
+  {
+    TEMPLATE = "ui_elements\template\but_cls.button"
+    X = 246
+    Y = 5
+  }
+
+;----- menu buttons -----
+  BUTTON
+  {
+    TEMPLATE = "ui_elements\template\but.button"
+    NAME = "close"
+    TEXT = "Resume game"
+    X = 10
+    Y = 35
+    WIDTH = 250
+    HEIGHT = 40
+  }
+
+  BUTTON
+  {
+    TEMPLATE = "ui_elements\template\but.button"
+    NAME = "load"
+    TEXT = "Load game"
+    X = 10
+    Y = 85
+    WIDTH = 250
+    HEIGHT = 40
+  }
+
+  BUTTON
+  {
+    TEMPLATE = "ui_elements\template\but.button"
+    NAME = "save"
+    TEXT = "Save game"
+    X = 10
+    Y = 135
+    WIDTH = 250
+    HEIGHT = 40
+  }
+
+  BUTTON
+  {
+    TEMPLATE = "ui_elements\template\but.button"
+    NAME = "quit"
+    TEXT = "Quit game"
+    X = 10
+    Y = 185
+    WIDTH = 250
+    HEIGHT = 40
+  }
+}

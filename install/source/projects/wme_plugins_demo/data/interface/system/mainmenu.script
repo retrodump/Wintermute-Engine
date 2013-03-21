@@ -1,0 +1,63 @@
+#include "scripts\base.inc"
+#include "scripts\keys.inc"
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "close"
+{
+  this.Close();
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "quit"
+{
+  var WinQuit = Game.LoadWindow("interface\system\quit.window");
+  WinQuit.Center();
+  WinQuit.GoSystemExclusive();
+
+  if(WinQuit.xResult)
+  {
+    Game.QuitGame();
+  }
+  else Game.UnloadObject(WinQuit);
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "Keypress"
+{
+  var button;
+
+  if(Keyboard.KeyCode==VK_ESCAPE){
+    button = this.GetControl("close");
+    button.Press();
+  }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "load"
+{
+  var WinLoad = Game.LoadWindow("interface\system\load.window");
+  WinLoad.Center();
+  WinLoad.GoSystemExclusive();
+  Game.UnloadObject(WinLoad);
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "save"
+{
+  var WinSave = Game.LoadWindow("interface\system\save.window");
+  WinSave.Center();
+  WinSave.GoSystemExclusive();
+  if(WinSave.xResult==true)
+  {
+    this.Close();
+    Game.UnloadObject(WinSave);
+  }
+  else
+    Game.UnloadObject(WinSave);
+
+}

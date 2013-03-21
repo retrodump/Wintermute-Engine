@@ -1,0 +1,9 @@
+#include "scripts\base.inc"
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "LeftClick"
+{
+  actor.GoToObject(this);
+  Game.ChangeScene("scenes\Back\Back.scene");
+}

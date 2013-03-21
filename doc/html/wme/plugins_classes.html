@@ -1,0 +1,298 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Interface classes</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h2>WME interface classes</h2>
+<p>The plugin interface provides a number of interface classes to allow the 
+plugin to access the engine internal classes.</p>
+<ul>
+  <li><a href="#IWmeObject">IWmeObject class</a></li>
+  <li><a href="#IWmeGame">IWmeGame class</a></li>
+  <li><a href="#IWmeValue">IWmeValue class</a></li>
+  <li><a href="#IWmeParamSet">IWmeParamSet class</a></li>
+  <li><a href="#IWmeStack">IWmeStack class</a></li>
+  <li><a href="#IWmeSerialMgr">IWmeSerialMgr class</a></li>
+  <li><a href="#IWmeSubFrame">IWmeScript class</a></li>
+  <li><a href="#IWmeFile">IWmeFile class</a></li>
+  <li><a href="#IWmeSubFrame">IWmeSubFrame class</a></li>
+</ul>
+<p>All these classes are declared in the <i>wme_plugin.h</i> header file, which 
+can be found in the WME installation directory in the &quot;plugin\include&quot; 
+subfolder.</p>
+<hr>
+<h3><a name="IWmeObject"></a>IWmeObject class</h3>
+<p>This class encapsulates a generic WME object, such as scene, entity, actor, 
+sprite etc. Using this class you can call the scripting methods of the object 
+and set/get its scripting properties. For example, you can invoke the &quot;Talk&quot; 
+method of an actor object, or set its &quot;Caption&quot; property.</p>
+<p>Supported methods:</p>
+<h4>bool SendEvent(const char* EventName)</h4>
+<p>This method is equivalent to the ApplyEvent script method. It sends a 
+specified event to the object.</p>
+<h4>IWmeValue* CallMethod(const char* MethodName, IWmeParamSet* Params=NULL)</h4>
+<p>This method invokes a scripting method of the object. You pass a method name 
+and an <a href="#IWmeParamSet">IWmeParamSet</a> object containing the method parameters. It returns an 
+<a href="#IWmeValue">IWmeValue</a> object containing the return value of the method.</p>
+<h4>bool SetProperty(const char* PropName, IWmeValue* Value)<br>
+bool SetProperty(const char* PropName, int Value)<br>
+bool SetProperty(const char* PropName, const char* Value)<br>
+bool SetProperty(const char* PropName, double Value)<br>
+bool SetProperty(const char* PropName, bool Value)<br>
+bool SetProperty(const char* PropName, IWmeObject* Value)<br>
+bool SetProperty(const char* PropName)</h4>
+<p>These methods are used to set a scripting property of the object. You pass 
+them a property name and a value. There are several overrides of this method 
+accepting various types for your convenience.</p>
+<h4>IWmeValue* GetProperty(const char* PropName)</h4>
+<p>This method is used to query a value of a scripting property of the object. 
+You pass it a property name and it returns an <a href="#IWmeValue">IWmeValue</a> object containing the 
+value.</p>
+<h4>void* GetInterface(const char* ClassName)</h4>
+<p>This method is used to cast a generic IWmeObject pointer to a derived class 
+pointer. The &quot;ClassName&quot; parameter must be a valid name of a class derived from 
+IWmeObject, i.e. either &quot;IWmeGame&quot; or &quot;IWmeSubFrame&quot;. It's NOT safe to simply 
+cast the pointer, always use this method instead.</p>
+<hr>
+<h3><a name="IWmeGame"></a>IWmeGame class</h3>
+<p>This class encapsulates the one and only 
+<a href="generated/scripting_ref_game.html">Game</a> object, i.e. the game 
+&quot;session&quot;. It inherits all the methods of <a href="#IWmeObject">IWmeObject</a> and adds several others:</p>
+<h4>IWmeValue* CreateValue()</h4>
+<p>This method is used to create a new <a href="#IWmeValue">IWmeValue</a> object.</p>
+<h4>bool DeleteValue(IWmeValue* Value)</h4>
+<p>This method deletes an <a href="#IWmeValue">IWmeValue</a> object returned by CreateValue() method.</p>
+<h4>IWmeParamSet* CreateParamSet()</h4>
+<p>This method is used to create a new <a href="#IWmeParamSet">IWmeParamSet</a> object. You are required to 
+delete this object when you no longer need it by calling DeleteParamSet().</p>
+<h4>bool DeleteParamSet(IWmeParamSet* ParamSet)</h4>
+<p>This method deletes an <a href="#IWmeParamSet">IWmeParamSet</a> object returned by CreateParamSet() 
+method.</p>
+<h4>bool SubscribeEvent(IWmeObject* Object, EWmeEvent Event)</h4>
+<p>Using this method the plugin object can direct the engine to send events of a 
+given type whenever they occur. You pass it a reference to the WME object owning 
+this plugin object and the event type you want to be receiving.</p>
+<h4>bool UnsubscribeEvent(IWmeObject* Object, EWmeEvent Event)</h4>
+<p>As opposed to the SubscribeEvent() method, this method unsubscribes the 
+event.</p>
+<h4>IWmeFile* OpenFile(const char* Filename)</h4>
+<p>This method is used to access files using the WME file system. You pass it a 
+filename and it returns a reference to the <a href="#IWmeFile">IWmeFile</a> object (or NULL of the file 
+cannot be opened).</p>
+<h4>bool CloseFile(IWmeFile* File)</h4>
+<p>This method closes a file previously opened by the OpenFile() method.</p>
+<h4>IWmeObject* CreateObject(const char* ClassName, IWmeParamSet* Params=NULL)</h4>
+<p>Using this method you can create instances of WME's scripting classes, both 
+built-in classes, such as String, Array, Date etc. and classes defined by 
+plugins. Objects created this way are subject to garbage collecting, which means 
+they are automatically destroyed when there are no more references to the 
+object.</p>
+<hr>
+<h3><a name="IWmeValue"></a>IWmeValue class</h3>
+<p>This class encapsulates variant values used by WME scripting system. The 
+value can contain one of the following types:</p>
+<ul>
+  <li>string (char*)</li>
+  <li>boolean (bool)</li>
+  <li>32-bit integer (int)</li>
+  <li>32-bit floating point value (double)</li>
+  <li>reference to WME object (<a href="#IWmeObject">IWmeObject</a>*)</li>
+  <li>null</li>
+</ul>
+<p>Additionally each value can work as an associative array and can contain 
+other <a href="#IWmeValue">IWmeValue</a> objects referenced by their name (properties).</p>
+<p>Supported methods:</p>
+<h4>int GetValInt()<br>
+const char* GetValString()<br>
+double GetValFloat()<br>
+bool GetValBool()<br>
+IWmeObject* GetValNative()</h4>
+<p>These methods return the value contained in the <a href="#IWmeValue">IWmeValue</a> object and convert 
+them to the requested return type if necessary.</p>
+<h4>bool SetVal(int Value)<br>
+bool SetVal(const char* Value)<br>
+bool SetVal(double Value)<br>
+bool SetVal(bool Value)<br>
+bool SetVal(IWmeObject* Value)<br>
+bool SetVal(IWmeValue* Value)<br>
+bool SetVal()</h4>
+<p>These methods are used to assign a value to the <a href="#IWmeValue">IWmeValue</a> object.</p>
+<h4>bool IsValInt()<br>
+bool IsValString()<br>
+bool IsValFloat()<br>
+bool IsValBool()<br>
+bool IsValNative()<br>
+bool IsValObject()<br>
+bool IsValNull()</h4>
+<p>These methods return <b>true</b> of the object currently contains value of a 
+given type.</p>
+<h4>IWmeValue* GetProperty(const char* PropName)</h4>
+<p>This method is used to query a property of a given name.</p>
+<h4>bool SetProperty(const char* PropName, int Value)<br>
+bool SetProperty(const char* PropName, const char* Value)<br>
+bool SetProperty(const char* PropName, double Value)<br>
+bool SetProperty(const char* PropName, bool Value)<br>
+bool SetProperty(const char* PropName, IWmeObject* Value)<br>
+bool SetProperty(const char* PropName, IWmeValue* Value)<br>
+bool SetProperty(const char* PropName)</h4>
+<p>These methods are used to set a property of a given name.</p>
+<hr>
+<h3><a name="IWmeParamSet"></a>IWmeParamSet class</h3>
+<p>This class is used to pass parameters to script functions. It's basically a 
+container holding zero or more values (<a href="#IWmeValue">IWmeValue</a> objects). You can create an 
+instance of <a href="#IWmeParamSet">IWmeParamSet</a> class using the 
+<a href="#IWmeGame">IWmeGame</a>::CreateParamSet() method.</p>
+<p>Supported methods:</p>
+<h4>bool Clean()</h4>
+<p>This method removes all values currently contained in this param set. Call 
+this method when you need to reuse the <a href="#IWmeParamSet">IWmeParamSet</a> object for another method 
+call.</p>
+<h4>bool AddParam(int Value)<br>
+bool AddParam(const char* Value)<br>
+bool AddParam(double Value)<br>
+bool AddParam(bool Value)<br>
+bool AddParam(IWmeObject* Value)<br>
+bool AddParam(IWmeValue* Value)<br>
+bool AddParam()</h4>
+<p>These methods are used to add a new value of a given type to the param set.</p>
+<hr>
+<h3><a name="IWmeStack"></a>IWmeStack class</h3>
+<p>This class encapsulates a WME stack object. WME uses stacks to pass 
+parameters when it invokes a method of your plugin object. The plugin method, 
+in-turn, uses the stack to store the return value.</p>
+<p>Supported methods:</p>
+<h4>IWmeValue* PopValue()</h4>
+<p>This method pops a value from the top of the stack.</p>
+<h4>bool PushValue(int Value)<br>
+bool PushValue(const char* Value)<br>
+bool PushValue(double Value)<br>
+bool PushValue(bool Value)<br>
+bool PushValue(IWmeObject* Value)<br>
+bool PushValue(IWmeValue* Value)<br>
+bool PushValue()</h4>
+<p>These methods are used to push a value of a given type to the stack.</p>
+<h4>bool ExpectParams(int NumParams)</h4>
+<p>Since users are not guaranteed to pass the correct number of parameters to 
+your methods, you must use this method to correct the number of parameters on 
+top of the stack. If there are too many parameters, the extra ones are removed. 
+If there are too few parameters, NULL values are added. You have to always call 
+this method before reading parameters from the stack.</p>
+<hr>
+<h3><a name="IWmeSerialMgr"></a>IWmeSerialMgr class</h3>
+<p>This class is used for serializing/deserializing the object state when 
+saving/restoring game. Imagine the serialization manager as a buffer which 
+contains a set of values. When saving the game, you put all the member variables 
+of your class to the buffer and when restoring game you read them back. Remember 
+you have to read and write exactly the same amount of data or the saved game 
+gets corrupted and the engine will crash when loading it.</p>
+<p>Supported methods:</p>
+<h4>bool IsSaving()</h4>
+<p>This method returns <b>true</b> if the engine is saving game or <b>false</b> 
+if the engine is loading game.</p>
+<h4>bool GetBuffer(unsigned char* Buffer, int Size)</h4>
+<p>This method reads a specified amount of bytes from the saved game.</p>
+<h4>bool PutBuffer(unsigned char* Buffer, int Size)</h4>
+<p>This method writes a specified amount of bytes to the saved game.</p>
+<h4>bool TransferValue(IWmeGame** Value)<br>
+bool TransferValue(IWmeObject** Value)<br>
+bool TransferValue(IWmeSubFrame** Value)<br>
+bool TransferValue(int* Value)<br>
+bool TransferValue(unsigned char* Value)<br>
+bool TransferValue(float* Value)<br>
+bool TransferValue(double* Value)<br>
+bool TransferValue(bool* Value)</h4>
+<p>These convenience methods allow you to store/restore values of various 
+basic types. If you need to store/restore other types, you need to use the GetBuffer() and PutBuffer() methods. Also note that there's no function for 
+storing/restoring strings, because the memory for the string needs to be 
+allocated by the plugin. There is a method for storing/restoring strings in the 
+plugin <a href="plugins_samples.html">helper library</a> though.</p>
+<hr>
+<h3><a name="IWmeScript"></a>IWmeScript class</h3>
+<p>This class encapsulates WME script objects. It allows you to report runtime 
+errors from within your plugin methods and also setting/getting script variable values.</p>
+<p>Supported methods:</p>
+<h4>const char* GetFilename()</h4>
+<p>This method returns the filename of the script.</p>
+<h4>int GetCurrentLine()</h4>
+<p>This method returns the current line the script is executing.</p>
+<h4>void ReportRuntimeError(const char* Description)</h4>
+<p>This method can be used to report a runtime error from within the script.</p>
+<h4>IWmeValue* GetVariable(const char* VarName)</h4>
+<p>This method returns the value contained in a variable of a given name.</p>
+<h4>bool SetVariable(const char* VarName, int Value)<br>
+bool SetVariable(const char* VarName, const char* Value)<br>
+bool SetVariable(const char* VarName, double Value)<br>
+bool SetVariable(const char* VarName, bool Value)<br>
+bool SetVariable(const char* VarName, IWmeObject* Value)<br>
+bool SetVariable(const char* VarName, IWmeValue* Value)<br>
+bool SetVariable(const char* VarName)</h4>
+<p>These methods are used to assign value to script variables.</p>
+<hr>
+<h3><a name="IWmeFile"></a>IWmeFile interface</h3>
+<p>This class allows you to read files using the WME's file system. That means 
+you can read even from files stored in WME packages. You can use it for example 
+to read parameters of your plugin object from a game package. To open a file use 
+the <a href="#IWmeGame">IWmeGame</a>::OpenFile() method. To close a file use the 
+<a href="#IWmeGame">IWmeGame</a>::CloseFile() 
+method.</p>
+<p>Supported methods:</p>
+<h4>unsigned long ReadData(unsigned char* Buffer, unsigned long NumBytes)</h4>
+<p>This method is used to read a specified amount of bytes from the file. It 
+returns the number of bytes actually read.</p>
+<h4>unsigned long GetFileSize()</h4>
+<p>This method returns the size of the file.</p>
+<h4>unsigned long GetFilePosition()</h4>
+<p>This method returns the current reading position in the file.</p>
+<h4>bool SeekToPosition(unsigned long Position)</h4>
+<p>This method sets the reading position in the file.</p>
+<hr>
+<h3><a name="IWmeSubFrame"></a>IWmeSubFrame class</h3>
+<p>This class encapsulates WME sub-frame objects. It allows you to perform pixel 
+operations directly on images assigned to sprite subframes. Note that any 
+changes to subframes pixels are NOT saved to saved games, which means you'll 
+have to either handle the &quot;update&quot; event and update the subframe periodically, 
+or you'll have to catch the &quot;before save&quot; and &quot;after load&quot; events.</p>
+<p>Supported methods:</p>
+<h4>bool StartPixelOperations()</h4>
+
+<p>This method prepares the subframe for pixel operations. It must be called 
+prior to any SetPixel() and GetPixel() calls.</p>
+
+<h4>bool EndPixelOperations()</h4>
+
+<p>This method must be called after performing a batch of SetPixel() / GetPixel() 
+calls.</p>
+
+<h4>unsigned long GetPixel(int X, int Y)</h4>
+
+<p>This method returns a color value of a pixel at given coordinates. The color 
+is an RGBA value encoded in a single long integer. You can use the convenience 
+functions in the <a href="plugins_samples.html">helper library</a> to extract 
+individual color components.</p>
+
+<h4>bool PutPixel(int X, int Y, unsigned long Pixel)</h4>
+
+<p>This method sets a color value of a pixel at given coordinates. The color 
+must be an RGBA value encoded in a single long integer. You can use the MakeRGBA() 
+convenience function in the <a href="plugins_samples.html">helper library</a> to 
+encode color components.</p>
+
+<h4>int GetWidth()</h4>
+
+<p>This method returns the width of the subframe.</p>
+
+<h4>int GetHeight()</h4>
+
+<p>This method returns the height of the subframe.</p>
+
+</body>
+
+</html>

@@ -1,0 +1,188 @@
+*tit Particle emitter object
+*des Particle emitters are used to create various realtime particle effects, such as snow, rain or smoke. Particle emitters are always owned by entities or actors. You create a particle emittor by calling the <b>CreateParticleEmitter()</b> method of an entity or of an actor. You can then query the particle emitter using the <b>ParticleEmitter</b> property.
+*cls CPartEmitter
+
+
+*grp Operations
+
+*met SetBorder(X, Y, Width, Height)
+*des Sets the rectangular area on screens to contain the particles.
+*par X The X position of the border rectangle
+*par Y The Y position of the border rectangle
+*par Width The width of the border rectangle
+*par Height The height of the border rectangle
+*ret Returns <b>true</b> if the method succeeded.
+*rem The border rectangle limits the area the particles can exist in. Once the particle hits the border rectangle, it dies. You can specify the thickness of the border using the <b>SetBorderThickness()</b> method. Call this method without parameters to disable border.
+
+*met SetBorderThickness(Left, Right, Top, Bottom)
+*des Sets the thickness of the border rectangle defined by <b>SetBorder()</b> method.
+*par Left Specifies the thickness of the left edge of the border rectangle
+*par Right Specifies the thickness of the right edge of the border rectangle
+*par Top Specifies the thickness of the top edge of the border rectangle
+*par Bottom Specifies the thickness of the bottom edge of the border rectangle
+*ret Returns <b>true</b> if the method succeeded.
+
+*met AddSprite(Filename)
+*des Adds a sprite to be used for particle representation.
+*par Filename The filename of a sprite to be used
+*ret Returns <b>true</b> if the method succeeded.
+*rem You can add as many sprites as you want. When a new particle is generated, it gets assigned one random sprite from the list.
+
+*met RemoveSprite(Filename)
+*des Removes a specified sprite from the list.
+*par Filename The filename of the sprite to be removed
+*ret Returns <b>true</b> if the method succeeded.
+
+*met Start(InitialTime)
+*des Executes the particle generation.
+*par InitialTime The period of time to "fast-forward" the particle generation before the particles are first displayed (in milliseconds)
+*ret Returns <b>true</b> if the method succeeded.
+*rem The InitialTime parameter is used to populate the emitter with particles before it's first displayed on screen. Don't use too long time not to delay the game execution.
+
+*met Stop()
+*des Shuts down the particle emitter.
+*ret Returns <b>true</b> if the method succeeded.
+
+*met Pause()
+*des Pauses the particle generation.
+*ret Returns <b>true</b> if the method succeeded.
+
+*met Resume()
+*des Resumes the particle generation.
+*ret Returns <b>true</b> if the method succeeded.
+
+*met AddGlobalForce(Name, Angle, Strength)
+*des Adds a global force which will affect all particles equally.
+*par Name The name of the force
+*par Angle The direction of the force in degrees (0 degrees = up)
+*par Strength The strength of the force
+*ret Returns <b>true</b> if the method succeeded.
+
+*met AddPointForce(Name, X, Y, Angle, Strength)
+*des Adds a point force which will affect the particles depending on their distance from the force origin.
+*par Name The name of the force
+*par X The X position of the force origin
+*par Y The Y position of the force origin
+*par Angle The direction of the force in degrees (0 degrees = up)
+*par Strength The strength of the force
+*ret Returns <b>true</b> if the method succeeded.
+
+*met RemoveForce(Name)
+*des Removes a force with the given name.
+*par Name The name of the force to be removed
+*ret Returns <b>true</b> if the method succeeded.
+
+
+
+*grp 
+
+*atr Type
+*des Returns always "particle-emitter"
+*ro
+
+*atr X
+*des The X position of the emitter rectangle
+
+*atr Y
+*des The Y position of the emitter rectangle
+
+*atr Width
+*des The width of the emitter rectangle
+
+*atr Height
+*des The height of the emitter rectangle
+
+*atr Scale1
+*des The lower value of the scale range for particles
+
+*atr Scale2
+*des The upper value of the scale range for particles
+
+*atr ScaleZBased
+*des Specifies if the scale is dependent on the particle's depth
+
+
+*atr Velocity1
+*des The lower value of the velocity range for particles
+
+*atr Velocity2
+*des The upper value of the velocity range for particles
+
+*atr VelocityZBased
+*des Specifies if the velocity is dependent on the particle's depth
+
+*atr LifeTime1
+*des The lower value of the life time range for particles (in milliseconds)
+
+*atr LifeTime2
+*des The upper value of the life time range for particles (in milliseconds)
+
+*atr LifeTimeZBased
+*des Specifies if the life time is dependent on the particle's depth
+
+*atr Angle1
+*des The lower value of the initial direction range for particles (in degrees, 0 degrees = up)
+
+*atr Angle2
+*des The upper value of the initial direction range for particles  (in degrees, 0 degrees = up)
+
+*atr AngVelocity1
+*des The lower value of the angular velocity (rotation speed) for particles
+
+*atr AngVelocity2
+*des The upper value of the angular velocity (rotation speed) for particles
+
+*atr Rotation1
+*des The lower value of the initial rotation range for particles  (in degrees, 0 degrees = up)
+
+*atr Rotation2
+*des The upper value of the initial rotation range for particles  (in degrees, 0 degrees = up)
+
+*atr Alpha1
+*des The lower value of the alpha transparency range for particles (0 to 255)
+
+*atr Alpha2
+*des The upper value of the alpha transparency range for particles (0 to 255)
+
+*atr AlphaTimeBased
+*des Specifies if the actual alpha value of the particle changes with time
+
+*atr GrowthRate1
+*des The lower value of the growth/shrink rate range for particles  (in percent)
+
+*atr GrowthRate2
+*des The upper value of the growth/shrink rate range for particles  (in percent)
+
+*atr ExponentialGrowth
+*des Specifies if the particles grow/shrink exponentially (the bigger they are, the faster they grow) or linear
+
+*atr UseRegion
+*des If set to <b>true</b>, the particles are only visible when they are inside a region (only works for particle emitters owned by region entities)
+
+*atr MaxParticles
+*des Specifies the maximum number of particles to be ever generated
+
+*atr NumLiveParticles
+*ro
+*des Returns the number of currently active particles on screen
+
+*atr GenerationInterval
+*des The time interval in which new particles are being generated (in milliseconds)
+
+*atr GenerationAmount
+*des Specifies the amount of particles to be generated for each <b>GenerationInterval</b>
+
+*atr MaxBatches
+*des Specifies the maximum number of particle batches to be generated (0=no limit)
+
+*atr FadeInTime
+*des The time it takes the particles to fade in when they are generated (in milliseconds)
+
+*atr FadeOutTime
+*des The time it takes the particles to fade out when they are dying (in milliseconds)
+
+*atr BlendMode
+*des Specifies how the particles' images are blended with the background colors; 0...normal mode, 1...additive blending, 2...subtractive blending
+
+*atr EmitEvent
+*des The name of an event which is triggered in the emitter's owner object whenever a new batch of particles is generated.

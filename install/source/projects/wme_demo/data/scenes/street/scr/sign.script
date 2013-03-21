@@ -1,0 +1,40 @@
+#include "scripts\base.inc"
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "LightOn"
+{
+  var LightMap;
+  LightMap = Scene.GetNode("lightmap_1");
+  LightMap.AlphaColor = MakeRGBA(255, 174, 174);
+
+  LightMap = Scene.GetNode("lightmap_2");
+  LightMap.AlphaColor = MakeRGBA(254, 89, 89);
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "LightOff"
+{
+  var LightMap;
+  LightMap = Scene.GetNode("lightmap_1");
+  LightMap.AlphaColor = MakeRGBA(255, 255, 255);
+
+  LightMap = Scene.GetNode("lightmap_2");
+  LightMap.AlphaColor = MakeRGBA(255, 255, 255);
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "LookAt"
+{
+  actor.GoToObject(this);
+  actor.Talk("I seriously doubt that this will attract the masses...");
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "LeftClick"
+{
+  actor.GoToObject(this);
+}

@@ -1,0 +1,33 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+<h3>Use Direct3D 9</h3>
+<p>If enabled, the game will take advantage of Direct3D 9 (as compared to 
+Direct3D 8 when this option is disabled). Currently the only advantage is better 
+performance for 3D characters when using hardware T&amp;L.</p>
+<p>Note that WME requires at least the June 2007 release of Direct3D 9. You may 
+need to refresh your DirectX installation using the
+<a target="_blank" href="http://www.microsoft.com/downloads/details.aspx?FamilyId=2DA43D38-DB71-4C1B-BC6A-9B6652CD92A3">
+DirectX End-User Runtime Web Installer</a>.</p>
+<p>If you are distributing your game on CD, include the latest DirectX Runtime 
+installer. If you are distributing your game online, direct the players to the
+<a target="_blank" href="http://www.microsoft.com/downloads/details.aspx?FamilyId=2DA43D38-DB71-4C1B-BC6A-9B6652CD92A3">
+DirectX End-User Runtime Web Installer</a>.</p>
+<p>If the game displays a &quot;missing library D3DX9_34.DLL&quot; at startup, it means 
+you need to refresh your DirectX installation.</p>
+<p><strong>New in WME 1.8.6:</strong> The &quot;Project settings&quot; window now contains 
+a check-box titled &quot;<em>Include D3DX library (for games using Direct3D 9)</em>&quot;. 
+When enabled, ProjectMan will copy the Direct3D extension library (D3DX) to the 
+output folder while compiling the game. That way the end users will not need to 
+install the latest Direct3D 9 redistributable package (which turned out to be a 
+major support issue). However, technically speaking, distributing this file with 
+your game violates the DirectX EULA. Please choose whichever option you consider 
+the lesser evil. </p>
+</body>
+</html>

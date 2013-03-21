@@ -1,0 +1,86 @@
+*tit Frame object
+*des The Frame object allows you to access the properties of your animation frame. Frame objects can be queried using the <b>Sprite.GetFrame</b> and <b>Sprite.AddFrame</b> methods.<br><br>
+*des <b>Note:</b> If there is only one subframe, all the subframe methods and attributes also apply to a frame object.
+*cls CBFrame
+
+
+*grp Actions
+
+*met GetSound()
+*des Returns the sound assigned to this frame.
+*ret The filename of the assigned sound or <b>null</b>.
+
+*met SetSound(Filename)
+*des Assigns a sound to this frame.
+*par Filename The filename of the sound to be assigned.
+*ret If the method succeeds, the return value is <b>true</b>.
+
+
+*met GetSubframe(Index)
+*des Returns a subframe of this frame.
+*par Index A zero-based index of the subframe to be returned.
+*ret If the method succeeds it returns a subframe object.
+
+
+*met AddSubframe(Filename)
+*des Adds a new subframe to this animation frame.
+*par Filename An image file to be used for this subframe.
+*ret Returns the newly created subframe object.
+
+*met InsertSubframe(Index, Filename)
+*des Inserts a new subframe to this animation frame.
+*par Index The position where the new subframe should be inserted.
+*par Filename An image file to be used for this subframe.
+*ret Returns the newly created subframe object.
+
+
+*met Deletesubframe(Index)
+*mt2 Deletesubframe(Subframe)
+*des Removes specified subframe from this animation frame.
+*par Index A zero-based index of a subframe to be removed.
+*par Subframe The subframe object to be removed.
+
+
+*met GetEvent(Index)
+*des Returns an event assigned to this frame.
+*par Index A zero-based index of an event to be returned.
+*ret If the method succeeds it returns a name of the event.
+
+*met AddEvent(EventName)
+*des Adds an event to this frame.
+*par EventName A name of the event to be added.
+
+*met DeleteEvent(EventName)
+*des Removes an event from this frame.
+*par EventName A name of the event to be removed.
+
+
+
+*grp 
+
+*atr Type
+*des Returns always "frame"
+*ro
+
+*atr Delay
+*des The delay of this frame (in milliseconds)
+
+*atr Keyframe
+*des Specifies if this frame is a keyframe (not used).
+
+*atr KillSounds
+*des Specifies if this frame should stop all currently playing sounds started by this sprite.
+
+*atr MoveX
+*des Specifies the X movement applied to the owner object by this frame.
+
+*atr MoveY
+*des Specifies the Y movement applied to the owner object by this frame.
+
+*atr NumSubframes
+*ro
+*des Returns the actual number of subframes if this frame.
+
+*atr NumEvents
+*ro
+*des Returns the number of events assigned to this frame.

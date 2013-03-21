@@ -1,0 +1,9 @@
+#include "scripts\base.inc"
+
+
+while(true)
+{
+  this.X = -Scene.OffsetX;
+  this.Y = -Scene.OffsetY;
+  Sleep(20);
+}

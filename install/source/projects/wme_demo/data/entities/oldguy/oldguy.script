@@ -1,0 +1,173 @@
+#include "scripts\base.inc"
+
+global StateRoom;
+
+////////////////////////////////////////////////////////////////////////////////
+on "Talk"
+{
+  GoToObject();
+  Game.Interactive = false;
+
+  // greetings
+  if(!StateRoom.TalkedToOldGuy) actor.Talk("Hello!");
+  else actor.Talk("Hi, it's me again.");
+  this.Talk("Hello, miss.");
+
+  // set the flag, so that we know we've already talked to him
+  StateRoom.TalkedToOldGuy = true;
+
+  // and let the dialogue begin
+  OldGuyDialogue();
+
+  // restore interactivity
+  Game.Interactive = true;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+function OldGuyDialogue()
+{
+  var Responses;
+  var Selected;
+
+  var Loop = true;
+
+  while(Loop)
+  {
+    // prepare the sentences
+    Responses[0] = "Who are you?";
+    Responses[1] = "What are you doing here?";
+    Responses[2] = "What can you tell me about the Wintermute Engine?";
+    Responses[3] = "I have to go.";
+
+    // fill the response box
+    Game.AddResponse(0, Responses[0]);
+    Game.AddResponse(1, Responses[1]);
+    Game.AddResponse(2, Responses[2]);
+    Game.AddResponse(3, Responses[3]);
+
+    // let the player choose one
+    Selected = Game.GetResponse();
+
+    // let the actor say the selected sentence
+    // (that's why I use the array for storing the sentences)
+    actor.Talk(Responses[Selected]);
+
+    // now let the Old Guy reply depending on the selected sentence
+    if(Selected==0)
+    {
+      this.Talk("My name's not important.");
+      actor.Talk("Oh... OK");
+    }
+    else if(Selected==1) this.Talk("I'm here to answer questions about the Wintermute Engine.");
+    else if(Selected==2)
+    {
+      this.Talk("What would you like to know?");
+      // go to the second branch of dialogue
+      OldGuyDialogue2();
+    }
+    else if(Selected==3)
+    {
+      this.Talk("OK, bye.");
+      Loop = false; // we want to end the dialogue
+    }
+  }
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+function OldGuyDialogue2()
+{
+  var Responses;
+  var Selected;
+  var Loop = true;
+
+  while(Loop)
+  {
+    // prepare the sentences
+    Responses[0] = "What is it?";
+    Responses[1] = "Is it any good?";
+    Responses[2] = "Why is it called 'Wintermute'?";
+    Responses[3] = "That's all I wanted to know about the Wintermute Engine.";
+
+    // fill the response box
+    Game.AddResponse(0, Responses[0]);
+    Game.AddResponse(1, Responses[1]);
+    Game.AddResponse(2, Responses[2]);
+    Game.AddResponse(3, Responses[3]);
+
+    // let the player choose one
+    Selected = Game.GetResponse();
+
+    // let the actor say the selected sentence
+    // (that's why I use the array for storing the sentences)
+    actor.Talk(Responses[Selected]);
+
+    // now let the Old Guy reply depending on the selected sentence
+    if(Selected==0)
+    {
+      this.Talk("As far as I know it's a piece of software, that allows you to create you own adventure games.");
+      this.Talk("Although I don't understand why would anyone want to do it, since the point&click adventures are dead.");
+      actor.Talk("*ahem*");
+    }
+    else if(Selected==1)
+    {
+      this.Talk("I dunno. I never used it myself. You'll have to find out yourself.");
+      actor.Talk("OK, I'll try.");
+    }
+    else if(Selected==2)
+    {
+      this.Talk("Well I don't know for sure...");
+      this.Talk("But I think it has something to do with the author's obsession for cyberpunk and that kind of crap.");
+      actor.Talk("I *still* don't understand. Oh well, nevermind.");
+    }
+    else if(Selected==3) Loop = false;
+  }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "LookAt"
+{
+  GoToObject();
+  if(!StateRoom.TalkedToOldGuy) actor.Talk("Who's this guy? Maybe I should talk to him.");
+  else actor.Talk("I still don't understand what he is doing here.");
+}
+
+////////////////////////////////////////////////////////////////////////////////
+on "Take"
+{
+  GoToObject();
+  actor.Talk("He's not my type.");
+}
+
+////////////////////////////////////////////////////////////////////////////////
+on "LeftClick"
+{
+  GoToObject();
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "Money"
+{
+  GoToObject();
+  Game.Interactive = false;
+  actor.Talk("Do you want some money?");
+  this.Talk("Miss, do I look like I'm homeless or something?");
+  actor.Talk("Well...");
+  this.Talk("Don't answer that!");
+  actor.Talk("Ok, no money then.");
+
+  Game.Interactive = true;
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+function GoToObject()
+{
+  actor.GoTo(356, 398);
+  actor.TurnTo(DI_UPRIGHT);
+}

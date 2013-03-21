@@ -1,0 +1,202 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Actor definition file, X format</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+<style type="text/css">
+.style1 {
+	color: #800000;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Actor definition file, X format</h1>
+
+<p>Similarly to the ordinary actors, you define 3D actors by creating a simple 
+definition files. These files use the .act3d extension and use the same syntax 
+as other WME files. This is an example of a 3D actor definition file:</p>
+
+<p>
+<pre><font color="#800000">ACTOR3DX
+{
+  NAME = "trinity"
+  CAPTION = "Trinity"
+  INTERACTIVE = TRUE
+  SCRIPT = "actors\trinity\trinity.script"
+
+  SCALE = 180
+  
+  DROP_TO_FLOOR = TRUE
+
+  ;--- velocities
+  VELOCITY = 70.0
+  ANGULAR_VELOCITY = 400.0
+
+  ;--- external data
+  MODEL = &quot;actors\trinity\trinity.x"
+  FONT = "fonts\outline_red.font"  
+  CURSOR = "sprites\arrow.sprite"
+  
+  SHADOW_MODEL = &quot;actors\trinity\trinity_low.x&quot;
+
+  SHADOW_TYPE = &quot;stencil&quot;
+
+  ;--- real-time shadow settings
+  LIGHT_POSITION { -40, 200, -40 }
+  SHADOW_COLOR { 0, 0, 0, 128 }
+
+  ;--- simple shadow settings
+  SHADOW_SIZE = 12.0
+  SHADOW_IMAGE = "actors\trinity\shadow.png"
+  
+  ;--- effect files assignment
+  EFFECT
+  {
+    MATERIAL = "chrome_buckle"
+    EFFECT_FILE = "effects\shine.fx"
+  }
+
+  ;--- animation settings
+  ANIMATION
+  {
+    NAME="idle"
+    LOOPING=TRUE
+  }
+
+
+  ANIMATION
+  {
+    NAME="walk"
+    LOOPING=TRUE
+
+    EVENT
+    {
+      FRAME = 4
+      NAME = "footstep"
+    }
+
+    EVENT
+    {
+      FRAME = 16
+      NAME = "footstep"
+    }
+  }
+}</font>
+
+</pre>
+Most of these properties are optional. WME tries to use reasonable default 
+values for them.</p>
+
+<p>The first block defines the usual properties, name, caption, interactivity 
+and script assignment. You should already know these. If not, take a look at the
+<a href="inside_actors.html">Actors chapter</a>.</p>
+<p>The <font color="#800000">SCALE</font> property affects the overall scale of 
+the character. You will typically use this property if your character model uses 
+different scale than your scene models, but the scaling can also be changed 
+dynamically at runtime to achieve some game effects (shrinking characters, 
+dwarfs etc.). This property also automatically modifies the walking velocity.</p>
+<p>The <span class="style1">DROP_TO_FLOOR</span> property specifies that the 
+actor is always standing/walking on the walkplane, no matter what its original Y 
+coordinate was. You may need to set this property to FALSE for things such as 
+birds or butterflies.</p>
+<p>Speaking of velocity, it's defined by the following two properties. The
+<font color="#800000">VELOCITY</font> property specifies the walking speed, 
+while <font color="#800000">ANGULAR_VELOCITY</font> specifies how fast the 
+character turns.</p>
+<p>Following section defines references to external files, <font color="#800000">
+FONT</font> and <font color="#800000">CURSOR</font> properties are standard 
+ones.</p>
+<p> <font color="#800000">MODEL</font> property is new to 3D characters. It 
+should point to a Microsoft X model file (.x). There can be multiple
+<font color="#800000">MODEL</font> lines in the actor definition file. This 
+allows you to merge animations from multiple files. Note: some 3D packages don't 
+allow you to name animation sets in X files, they export nameless animation sets 
+only (Blender, for example). In that case the animation name defaults to the 
+name of the X file.</p>
+<p>The next few properties are dealing with character <a href="3D_shadows.html">shadows</a>. WME supports 
+several types of shadows. Using the <font color="#800000">SHADOW_TYPE </font>
+property you specify which type of shadow should be used by this actor. This 
+property can be assigned the following values: &quot;none&quot;, &quot;simple&quot;, &quot;flat&quot; or 
+&quot;stencil&quot;. The default value is &quot;stencil&quot;.</p>
+<p><a name="light"></a>If you use flat shadows or stencil shadows, you can define the color of the shadow (this is 
+usually unnecessary) and more importantly the position of the light source (<font color="#800000">LIGHT_POSITION</font>). 
+This position is defined relatively to characters position and defines how long 
+the shadow is and to which direction it's being cast. The property is defined by 
+X, Y and Z coordinates of the light which casts the shadow. See the picture 
+below for an example:</p>
+<p><img border="0" src="../img/shadow.png" width="190" height="296"></p>
+<p dir="ltr"><br>
+<br>
+If you use simple shadows, you will need the following two properties. The
+<font color="#800000">SHADOW_SIZE</font> property defines the size of that black 
+blob, while using the <font color="#800000">SHADOW_IMAGE</font> you can change 
+its appearance. If you don't specify the shadow image, WME will use a default 
+one. Please make sure you specify proper shadow size even if you don't 
+explicitly use simple shadows. Remember that WME can fall back to simple shadows 
+if user's hardware doesn't support flat or stencil shadows.</p>
+<p dir="ltr">The optional <font color="#800000">SHADOW_MODEL</font> property 
+specifies a special low-polygon version of the character model. This model is 
+used for generating stencil shadows. If your character model is very detailed, 
+you'll need to create a low-poly shadow model, otherwise stencil shadows would 
+reduce the performance of your game. Note that the low-poly model must use <b>
+exactly</b> the same bone structure as your main character mode.</p>
+<p><br>
+The last large section of the file deals with the animations. This is a big difference compared to 2D characters. Instead of several 
+small animation files all the animations are predefined in the X files. Each X 
+file can contain one or more animation sets. For example, your actor's X model 
+could contain animation sets called &quot;walk&quot; and &quot;idle&quot;. By using this name you can reference the animations later from game scripts when 
+calling the <a href="generated/scripting_ref_actor3d.html#PlayAnim">PlayAnim</a> 
+method. There are few special (reserved) names for standard animations, namely &quot;Walk&quot;, &quot;Idle&quot;, 
+&quot;Talk&quot;, &quot;TurnLeft&quot; and &quot;TurnRight&quot;. These animations are used by the engine automatically.</p>
+<p>The <span class="style1">EFFECT</span> blocks allow you to assign effect 
+files (advanced material definitions, described <a href="inside_effects.html">
+here</a>) to sub-meshes of the actor model. You 
+define the sub-mesh material name (<span class="style1">MATERIAL</span>) and the effect file to be assigned 
+to this sub-mesh (<span class="style1">EFFECT_FILE</span>). 
+The material name defaults to the name of the texture assigned to given sub-mesh 
+(without path or extension). For example, if the 
+head of your actor model uses texture called &quot;textures\joe_head.png&quot;, the 
+sub-mesh is internally called &quot;joe_head&quot;.</p>
+<p>You can specify multiple <span class="style1">EFFECT</span> blocks, if you 
+need to assign effect files to several sub-meshes of the actor model, but any of 
+the <span class="style1">EFFECT</span> blocks must be placed AFTER the
+<span class="style1">MODEL</span> definitions.</p>
+<p><a name="animations"></a>The
+<font color="#800000">ANIMATION</font> blocks in the actor definition files 
+allow you to define additional options for these animation sets. Note that the 
+animation definitions are optional (unlike the previous WME versions using the 
+MS3D format).</p>
+<p>The animation properties start with name of the animation (<font color="#800000">NAME</font>). 
+The name specifies the animation set whose properties you're going to set. </p>
+<p>The next property is called <font color="#800000">LOOPING</font>. It 
+specifies whether this animation loops or plays only once. Some 3D modeling 
+packages can export the &quot;looping&quot; information directly to X files, some can not. 
+In the latter case you will need to specify the <font color="#800000">LOOPING</font> property in the actor 
+definition file. </p>
+<p>You can see the first animation block above contains two nested blocks named
+<font color="#800000">EVENT</font>. Using these blocks you can trigger a script 
+event whenever a certain frame of animation is played. Experienced WME users 
+already know this from ordinary sprites. The example above specifies that frames 
+4 and 16 trigger a script event called &quot;footstep&quot;. You can use these 
+animation-triggered events in a script for various animation-dependent actions.<br>
+</p>
+<p>There is a semi-experimental support for collision detection between multiple 
+actors. It's only supported for scenes using the &quot;2D pathfinding&quot; option and the 
+function is exactly the same as for 2D actors (described
+<a href="inside_actors.html#collisions">here</a>). So to recap, you need to add 
+the <span class="style1">BLOCKED_REGION</span> and <span class="style1">
+WAYPOINTS</span> sections to the 3D actor definition file, and the scene must be 
+configured to use 2D-based pathfinding. Please note that the private blocked 
+region is scaled automatically according to scene scale level in the point where 
+the actor is standing. Therefore it might be necessary to define scale levels 
+for your scene, even though normally it's not needed for 3D characters.</p>
+
+</body>
+
+</html>

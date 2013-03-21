@@ -1,0 +1,1450 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1250)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// GF_RES
+//
+
+SYSTEM_FONT.BMP         GF_RES                  "res\\system_font.bmp"
+SYSTEM_FONT.FNT         GF_RES                  "res\\system_font.fnt"
+WPT.BMP                 GF_RES                  "res\\wpt.bmp"
+WPT.SPRITE              GF_RES                  "res\\wpt.sprite"
+SHADOW.PNG              GF_RES                  "res\\shadow.png"
+INVALID.BMP             GF_RES                  "res\\invalid.bmp"
+INVALID_DEBUG.BMP       GF_RES                  "res\\invalid_debug.bmp"
+OUTLINE_GREEN.FNT       GF_RES                  "res\\outline_green.fnt"
+OUTLINE_GREEN.BMP       GF_RES                  "res\\outline_green.bmp"
+ENTITY_SOUND.BMP        GF_RES                  "res\\entity_sound.bmp"
+ENTITY_SOUND.SPRITE     GF_RES                  "res\\entity_sound.sprite"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ADVANCED DIALOGEX 0, 0, 186, 111
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "/syseng0012/Advanced settings"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "/syseng0100/OK",IDOK,40,90,50,14
+    PUSHBUTTON      "/syseng0101/Cancel",IDCANCEL,96,90,50,14
+    LTEXT           "/syseng0013/Note: These settings are provided for troubleshooting purposes only. If the game displays correctly on your computer, you don't need to select any of these options.",IDC_STATIC,7,7,172,34,SS_SUNKEN
+    GROUPBOX        "/syseng0014/Texture settings",IDC_STATIC,7,45,172,38
+    CONTROL         "/syseng0015/Force 16bit textures",IDC_16BIT_TEXTURES,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,56,159,10
+    CONTROL         "/syseng0016/Force texture subdivision",IDC_TEXTURE_SUBDIVISION,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,67,159,10
+END
+
+IDD_WMESETTINGS DIALOGEX 0, 0, 298, 203
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+CAPTION "/syseng0001/Game settings"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "/syseng0024/Don't show this window again",IDC_DONT_SHOW,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,167,219,10
+    DEFPUSHBUTTON   "/syseng0100/OK",IDOK,94,182,50,14
+    PUSHBUTTON      "/syseng0101/Cancel",IDCANCEL,152,182,50,14
+    CONTROL         "",IDC_TAB_PAGES,"SysTabControl32",WS_TABSTOP,7,7,284,156
+    RTEXT           "ver",IDC_WME_VER,191,167,100,8,WS_DISABLED
+END
+
+IDD_PAGE_DISPLAY DIALOGEX 0, 0, 277, 141
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "/syseng0004/Use hardware acceleration",IDC_ACCELERATED,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,81,7,152,10
+    RTEXT           "/syseng0005/Display device:",IDC_STATIC,7,22,73,8
+    COMBOBOX        IDC_VIDEO_DEVICE,81,20,117,53,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    RTEXT           "/syseng0006/Colors:",IDC_STATIC,7,37,73,8
+    COMBOBOX        IDC_COLORS,81,35,53,34,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "/syseng0007/Run in window",IDC_WINDOWED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,138,37,96,10
+    RTEXT           "/syseng0022/Antialiasing:",IDC_MULTISAMPLE_LABEL,7,53,73,8
+    COMBOBOX        IDC_MULTISAMPLE,81,51,53,53,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "/syseng0009/Use hardware T&&L",IDC_TL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,138,53,70,10
+    PUSHBUTTON      "/syseng0010/More...",IDC_ADVANCED,81,67,53,14
+    LTEXT           "Static",IDC_WARN_TEXT,24,97,246,37
+    ICON            IDI_WARNING_SM,IDC_WARN_ICON,7,97,21,20,SS_NOTIFY | SS_REALSIZEIMAGE
+END
+
+IDD_PAGE_SOUND DIALOGEX 0, 0, 277, 141
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    RTEXT           "/syseng0011/Sound device:",IDC_STATIC,7,22,73,8
+    COMBOBOX        IDC_AUDIO_DEVICE,81,20,117,53,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Static",IDC_WARN_TEXT,24,97,246,37
+    ICON            IDI_WARNING_SM,IDC_WARN_ICON,7,97,21,20,SS_NOTIFY | SS_REALSIZEIMAGE
+END
+
+IDD_PAGE_ACCESS DIALOGEX 0, 0, 277, 147
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "/SYSENG0031/These options are intended for enhancing accessibility for some vision-impaired players.",IDC_STATIC,7,7,263,17
+    CONTROL         "/SYSENG0032/Send written text to text-to-speech output",IDC_TTS_ENABLED,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,54,29,216,10
+    CONTROL         "/SYSENG0033/Read item captions",IDC_TTS_CAPTIONS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,61,41,209,10
+    CONTROL         "/SYSENG0034/Read spoken lines",IDC_TTS_TALK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,61,52,209,10
+    CONTROL         "/SYSENG0035/Read typed characters",IDC_TTS_KEYPRESS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,61,63,209,10
+    CONTROL         "/SYSENG0036/Use keyboard shortcuts to highlight active items",IDC_KEYBOARD_ENABLED,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,54,82,216,10
+    CONTROL         "/SYSENG0037/Move mouse pointer to the active item",IDC_KEYBOARD_CURSOR_SKIP,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,61,94,209,10
+    LTEXT           "/SYSENG0038/(Use Ctrl+Tab and Ctrl+Shift+Tab to cycle through active items)",IDC_STATIC,54,106,216,17
+    CONTROL         "/SYSENG0039/Allow pausing game anytime using Ctrl+Space",IDC_KEYBOARD_PAUSE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,54,124,216,10
+END
+
+IDD_PAGE_ABOUT DIALOGEX 0, 0, 277, 157
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         133,IDC_WME_LOGO,"Static",SS_BITMAP | SS_SUNKEN,6,7,265,63
+    LTEXT           "http://www.wintermute-engine.org",IDC_WME_LINK,7,95,263,8
+    LTEXT           "/SYSENG0051/Powered by Wintermute Engine",IDC_STATIC,7,73,263,8
+    LTEXT           "Copyright (c) 2007 DEAD:CODE Software",IDC_STATIC,7,84,263,8
+END
+
+IDD_SOUND_PAGE DIALOGEX 0, 0, 138, 103
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    RTEXT           "Name:",IDC_STATIC,2,2,30,8
+    EDITTEXT        IDC_NAME,33,0,85,12,ES_AUTOHSCROLL
+    RTEXT           "Sound:",IDC_STATIC,8,15,24,8
+    EDITTEXT        IDC_SOUND,33,13,85,12,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "...",IDC_BROWSE_SOUND,118,13,15,12
+    PUSHBUTTON      "Scripts...",IDC_EVENTS,34,28,40,13
+    PUSHBUTTON      "Custom...",IDC_CUSTOM,75,28,40,13
+    PUSHBUTTON      "",IDC_PLAY,117,28,12,13
+    RTEXT           "Pos:",IDC_STATIC,67,48,15,8
+    EDITTEXT        IDC_POS_X,85,47,25,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_POS_Y,110,47,25,12,ES_AUTOHSCROLL
+    RTEXT           "Volume (%):",IDC_STATIC,44,62,38,8
+    EDITTEXT        IDC_VOLUME,85,60,38,12,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",IDC_VOLUME_SPIN,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | UDS_NOTHOUSANDS,123,60,11,12
+    RTEXT           "Start time (ms):",IDC_STATIC,35,75,47,8
+    EDITTEXT        IDC_START_TIME,85,74,49,12,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Sound panning",IDC_SOUND_PANNING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,48,89,64,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ADVANCED, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 104
+    END
+
+    IDD_WMESETTINGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 291
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 196
+    END
+
+    IDD_PAGE_DISPLAY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 270
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 134
+    END
+
+    IDD_PAGE_SOUND, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 270
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 134
+    END
+
+    IDD_PAGE_ACCESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 270
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 140
+    END
+
+    IDD_PAGE_ABOUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 270
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 150
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_WME_LOGO_ORANGE     BITMAP                  "res\\wme_orange.bmp"
+IDB_PLAY                BITMAP                  "res\\play.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_CURSOR_LINK         CURSOR                  "res\\link.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_WARNING_SM          ICON                    "res\\warning.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_MISSING_FILES_ENG   "Some of the essential game files cannot be loaded. Please reinstall the game and try again."
+    IDS_MISSING_FILES_CZE   "Nebyly nalezeny soubory, potøebné ke spuštìní hry. Prosím, pøeinstalujte hru a zkuste to znovu."
+    IDS_MISSING_FILES_DAN   "En eller flere nodvendige programfiler kunne ikke indlases. Geninstallér venligst spillet og prov igen."
+    IDS_MISSING_FILES_GER   "Einige notwendige Spieldateien können nicht geladen werden. Bitte installieren Sie das Spiel erneut und versuchen Sie es noch einmal."
+    IDS_MISSING_FILES_SPA   "Algunos archivos esenciales para el juego no se pudieron cargar. Reinstale el juego e inténtelo de nuevo por favor."
+    IDS_MISSING_FILES_DUT   "Sommige van de essentiële spelbestanden konden niet geladen worden. Herinstalleer het spel en probeer opnieuw."
+    IDS_MISSING_FILES_FRE   "Certains des fichiers essentiels du jeu ne peuvent etre chargés. SVP réinstaller le jeu et réessayer."
+    IDS_MISSING_FILES_GRE   "Some of the essential game files cannot be loaded. Please reinstall the game and try again."
+END
+
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Czech resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CSY)
+#ifdef _WIN32
+LANGUAGE LANG_CZECH, SUBLANG_DEFAULT
+#pragma code_page(1250)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_SCRIPTS DIALOGEX 0, 0, 216, 144
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Scripts"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "",IDC_SCRIPT_UP,3,4,14,13,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_SCRIPT_DOWN,18,4,14,13,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_NEW_SCRIPT,40,4,14,13,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_ADD_SCRIPT,54,4,14,13,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_EDIT,68,4,14,13,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_REMOVE_SCRIPT,90,4,14,13,NOT WS_TABSTOP
+    LISTBOX         IDC_SCRIPTS,3,22,210,102,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,56,128,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,109,128,50,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT,36,3,1,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT,86,4,1,13
+END
+
+IDD_PROJECT_ROOT DIALOGEX 0, 0, 207, 160
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Root folder"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "Please specify the root folder of your project:",IDC_STATIC,7,7,140,8
+    CONTROL         "Previously specified folders:",IDC_PREVIOUS,"Button",BS_AUTORADIOBUTTON | WS_GROUP,7,25,103,10
+    LISTBOX         IDC_PREV_LIST,20,39,167,27,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Other folder:",IDC_CUSTOM,"Button",BS_AUTORADIOBUTTON,7,80,55,10
+    EDITTEXT        IDC_CUSTOM_NAME,20,94,151,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE,171,94,16,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,130,193,1
+    DEFPUSHBUTTON   "OK",IDOK,50,137,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,106,137,50,14
+END
+
+IDD_CUSTOM_PROP DIALOGEX 0, 0, 217, 131
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Custom properties"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "",IDC_ADD_PROP,3,3,14,13,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_EDIT_PROP,17,3,14,13,NOT WS_TABSTOP
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT,35,3,1,13
+    PUSHBUTTON      "",IDC_REMOVE_PROP,39,3,14,13,NOT WS_TABSTOP
+    CONTROL         "List1",IDC_PROP_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,3,19,211,90
+    DEFPUSHBUTTON   "OK",IDOK,57,114,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,110,114,50,14
+END
+
+IDD_NEW_PROP DIALOGEX 0, 0, 186, 84
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Custom property"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    RTEXT           "Name:",IDC_STATIC,40,9,22,8
+    EDITTEXT        IDC_PROP_NAME,64,7,82,14,ES_AUTOHSCROLL
+    RTEXT           "Value:",IDC_STATIC,41,27,21,8
+    EDITTEXT        IDC_PROP_VALUE,64,24,82,14,ES_AUTOHSCROLL
+    LTEXT           "Note: property names are case sensitive",IDC_STATIC,29,43,150,8
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,57,172,1
+    DEFPUSHBUTTON   "OK",IDOK,41,63,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,95,63,50,14
+END
+
+IDD_ANIMATION DIALOGEX 0, 0, 186, 177
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Actor animation selection"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Choose animation:",IDC_STATIC,7,7,60,8
+    LISTBOX         IDC_ANIM_LIST,7,18,172,133,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,41,156,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,94,156,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_SCRIPTS, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 213
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 141
+    END
+
+    IDD_PROJECT_ROOT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 200
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 153
+    END
+
+    IDD_CUSTOM_PROP, DIALOG
+    BEGIN
+        LEFTMARGIN, 3
+        RIGHTMARGIN, 214
+        TOPMARGIN, 3
+        BOTTOMMARGIN, 128
+    END
+
+    IDD_NEW_PROP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 77
+    END
+
+    IDD_ANIMATION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 170
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_ADD_ROT             CURSOR                  "res\\cursor1.cur"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "#include ""bcgbarres.h""\r\n"
+    "#include ""dcgf.rc""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\SceneEdit.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#include ""afxprint.rc""       // printing/print preview resources\r\n"
+    "#define _BCGCONTROLBAR_STATIC_\r\n"
+    "#include ""bcgcontrolbar.rc""                          // BCG ControlBar resources\r\n"
+    "#endif\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    ID_SCALE_PROPERTIES     "Scale level properties"
+    ID_SCALE_REMOVE         "Remove scale level"
+END
+
+#endif    // Czech resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_3D_PAGE DIALOGEX 0, 0, 145, 246
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_SYSMENU
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    RTEXT           "Geometry:",IDC_STATIC,7,9,37,8
+    EDITTEXT        IDC_GEOMETRY,45,7,69,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "...",IDC_BROWSE_GEOMETRY,115,7,15,14
+    RTEXT           "Camera:",IDC_STATIC,7,28,37,8
+    COMBOBOX        IDC_CAMERA,45,26,71,62,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Override camera FOV",IDC_OVERRIDE_FOV,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,45,42,85,10
+    RTEXT           "deg.",IDC_FOV_TEXT,30,58,15,8
+    CONTROL         "",IDC_FOV,"msctls_trackbar32",TBS_AUTOTICKS | WS_TABSTOP,44,52,94,24
+    RTEXT           "Waypoints height:",IDC_STATIC,12,79,63,8
+    EDITTEXT        IDC_WAYPOINT_HEIGHT,76,76,40,14,ES_AUTOHSCROLL
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,158,131,1
+    CONTROL         "Display scene geometry",IDC_SHOW_GEOMETRY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,179,97,10
+    LTEXT           "Game resolution:",IDC_STATIC,7,192,131,8
+    EDITTEXT        IDC_RES_WIDTH,45,203,26,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_RES_HEIGHT,72,203,26,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_NEAR_PLANE,29,106,43,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FAR_PLANE,89,106,43,14,ES_AUTOHSCROLL
+    LTEXT           "Far:",IDC_STATIC,75,109,14,8
+    LTEXT           "Near:",IDC_STATIC,11,109,18,8
+    GROUPBOX        "Clipping planes",IDC_STATIC,7,94,131,30
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,175,131,1
+    CONTROL         "Find path using 2D elements only",IDC_2D_PATHFINDING,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,163,121,10
+    RTEXT           "Shadows:",IDC_STATIC,7,131,37,8
+    COMBOBOX        IDC_SHADOWS,45,128,71,62,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "Scrolling scenes pre-1.7 behaviour",IDC_SCROLL3D_COMPATIBILITY,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,220,123,10
+    RTEXT           "Amb. light:",IDC_STATIC,7,145,37,8
+    PUSHBUTTON      "Ambient light",IDC_COL_AMBIENT,45,143,71,12
+    EDITTEXT        IDC_FOV_VAL,7,55,22,14,ES_AUTOHSCROLL
+END
+
+IDD_TEMPLATE DIALOGEX 0, 0, 371, 236
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Template selection"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_TEMPLATES,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SORTASCENDING | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,7,34,175,133
+    EDITTEXT        IDC_DESC,7,169,175,37,ES_MULTILINE | ES_AUTOVSCROLL | ES_READONLY | WS_VSCROLL
+    LTEXT           "/str1035/Name:",IDC_NAME_LABEL,186,7,178,8
+    EDITTEXT        IDC_NAME,186,17,178,14,ES_AUTOHSCROLL
+    LTEXT           "/str1036/Location:",IDC_DIR_LABEL,186,34,178,8
+    EDITTEXT        IDC_DIR,186,44,164,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE,350,44,14,14
+    LISTBOX         IDC_PROPS,186,60,178,146,LBS_OWNERDRAWVARIABLE | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,210,356,1
+    DEFPUSHBUTTON   "/str1005/OK",IDOK,133,215,50,14
+    PUSHBUTTON      "/str1004/Cancel",IDCANCEL,187,215,50,14
+    LTEXT           "/str1034/Repository:",IDC_STATIC,7,7,175,8
+    COMBOBOX        IDC_REPOSITORY,7,18,175,52,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_SCENE_PAGE DIALOGEX 0, 0, 161, 247
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    CONTROL         "List1",IDC_LAYERS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,0,16,127,67
+    CONTROL         "List1",IDC_NODES,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SHAREIMAGELISTS | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,0,100,127,120
+    PUSHBUTTON      "",IDC_ADD_LAYER,35,0,15,15,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_LAYER_DOWN,15,0,15,15,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_LAYER_UP,0,0,15,15,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_REMOVE_LAYER,50,0,15,15,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_LAYER_PROPERTIES,70,0,15,15,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_NODE_UP,0,85,15,15,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_NODE_DOWN,15,85,15,15,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_ADD_REGION,35,85,15,15,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_ADD_ENTITY,50,85,25,15,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_REMOVE_NODE,75,85,15,15,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_ADD_POINT,95,85,15,15,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_REMOVE_POINT,110,85,15,15,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_ADD_SCALE,100,0,15,15,NOT WS_TABSTOP
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT,32,1,1,15
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT,67,1,1,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT,32,86,1,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT,92,86,1,14
+    CONTROL         "",IDC_DIVIDE,"Static",SS_ETCHEDHORZ,0,83,127,1
+    PUSHBUTTON      "",IDC_ADD_ROT,116,0,15,15,NOT WS_TABSTOP
+END
+
+IDD_OPTIONS DIALOGEX 0, 0, 175, 167
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Engine settings"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "&OK",IDOK,35,146,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,90,146,50,14
+    CONTROL         "Use hardware acceleration (if available)",IDC_ACCELERATION,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,7,140,10
+    CONTROL         "Force 16bit textures",IDC_FORCE_16BIT_TEXTURES,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,18,78,10
+    CONTROL         "Force texture subdivision",IDC_FORCE_TEXTURE_SUBDIVISION,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,29,94,10
+    LTEXT           "Custom resource paths:",IDC_STATIC,7,51,75,8
+    PUSHBUTTON      "&Edit ""dcgf.ini"" file",IDC_EDIT_INI,100,46,68,14
+    CONTROL         "",IDC_CUSTOM_PATHS,"Static",SS_BLACKFRAME,7,61,161,81
+END
+
+IDD_REGION_PAGE DIALOGEX 0, 0, 136, 91
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    RTEXT           "Name:",IDC_STATIC,14,2,22,8
+    EDITTEXT        IDC_NAME,37,0,60,12,ES_AUTOHSCROLL
+    RTEXT           "Scale(%):",IDC_STATIC,0,29,36,8
+    EDITTEXT        IDC_SCALE,37,27,60,12,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Spin1",IDC_SCALE_SPIN,"msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | UDS_ARROWKEYS | UDS_NOTHOUSANDS,97,27,11,12
+    RTEXT           "Color:",IDC_STATIC,17,57,19,8
+    PUSHBUTTON      "Alpha",IDC_ALPHA,37,54,60,14
+    LTEXT           "(0 = default scale)",IDC_STATIC,38,41,91,8
+    PUSHBUTTON      "Scripts...",IDC_EVENTS,37,71,40,13
+    PUSHBUTTON      "Custom...",IDC_CUSTOM,78,71,40,13
+    CONTROL         "Layout",IDC_TYPE_LAYOUT,"Button",BS_AUTORADIOBUTTON,0,15,36,10
+    CONTROL         "Decoration",IDC_TYPE_DECORATION,"Button",BS_AUTORADIOBUTTON,40,15,50,10
+    CONTROL         "Blocked",IDC_TYPE_BLOCKED,"Button",BS_AUTORADIOBUTTON,94,15,41,10
+END
+
+IDD_ENTITY_PAGE DIALOGEX 0, 0, 154, 131
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    RTEXT           "Name:",IDC_STATIC,2,2,30,8
+    EDITTEXT        IDC_NAME,33,0,85,12,ES_AUTOHSCROLL
+    RTEXT           "Caption:",IDC_STATIC,2,15,30,8
+    EDITTEXT        IDC_CAPTION,33,13,85,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE_CAPTION,118,13,15,12
+    RTEXT           "Sprite:",IDC_STATIC,2,28,30,8
+    EDITTEXT        IDC_SPRITE,33,26,85,12,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "...",IDC_BROWSE_SPRITE,118,26,15,12
+    RTEXT           "Cursor:",IDC_STATIC,2,41,30,8
+    EDITTEXT        IDC_CURSOR,33,39,85,12,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "...",IDC_BROWSE_CURSOR,118,39,15,12
+    RTEXT           "Font:",IDC_STATIC,2,54,30,8
+    EDITTEXT        IDC_FONT,33,52,85,12,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "...",IDC_BROWSE_FONT,118,52,15,12
+    RTEXT           "Item:",IDC_STATIC,0,68,30,8
+    EDITTEXT        IDC_ITEM_NAME,33,66,85,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Scripts...",IDC_EVENTS,0,80,38,13
+    PUSHBUTTON      "Custom...",IDC_CUSTOM,40,80,37,13
+    RTEXT           "Pos:",IDC_STATIC,79,81,15,8
+    EDITTEXT        IDC_POS_X,97,80,25,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_POS_Y,122,80,25,12,ES_AUTOHSCROLL
+    CONTROL         "Scalable",IDC_SCALABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,2,94,43,10
+    CONTROL         "Interactive",IDC_REGISTRABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,49,94,49,10
+    CONTROL         "Colorable",IDC_SHADOWABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,102,94,45,10
+    RTEXT           "Walk to:",IDC_STATIC,1,107,29,8
+    EDITTEXT        IDC_WALK_X,33,106,25,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_WALK_Y,59,106,25,12,ES_AUTOHSCROLL
+    COMBOBOX        IDC_WALK_DIR,85,105,46,98,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "<",IDC_WALK_GET,132,105,15,12
+    CONTROL         "Sound panning",IDC_SOUND_PANNING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,2,120,64,10
+    CONTROL         "Ignore items",IDC_IGNORE_ITEMS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,69,120,54,10
+    PUSHBUTTON      ">",IDC_WALK_SET,132,118,15,12
+END
+
+IDD_EMPTY_PAGE DIALOGEX 0, 0, 108, 93
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "No properties available",IDC_EMPTY_NOTE,17,42,73,8
+END
+
+IDD_WAYPOINTS_PAGE DIALOGEX 0, 0, 136, 71
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    RTEXT           "Name:",-1,17,2,22,8
+    EDITTEXT        IDC_NAME,40,0,60,14,ES_AUTOHSCROLL
+END
+
+IDD_LAYER DIALOGEX 0, 0, 180, 83
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Layer properties"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_NAME,70,7,60,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_WIDTH,70,24,30,14,ES_AUTOHSCROLL | ES_NUMBER
+    EDITTEXT        IDC_HEIGHT,100,24,30,14,ES_AUTOHSCROLL | ES_NUMBER
+    DEFPUSHBUTTON   "&OK",IDOK,38,60,50,14
+    PUSHBUTTON      "&Cancel",IDCANCEL,91,60,50,14
+    LTEXT           "Name:",IDC_STATIC,46,9,22,8
+    LTEXT           "Dimensions:",IDC_STATIC,29,27,39,8
+    LTEXT           "(This is the main layer)",IDC_IS_MAIN,44,43,120,8
+    CONTROL         "Close-up layer",IDC_CLOSE_UP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,29,43,142,10
+END
+
+IDD_SCENE_PROP_PAGE DIALOGEX 0, 0, 140, 236
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "Name:",IDC_STATIC,33,7,22,8
+    EDITTEXT        IDC_NAME,56,4,60,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "Scripts...",IDC_EVENTS,41,22,40,13
+    GROUPBOX        "Editor colors",IDC_STATIC,4,57,121,105
+    RTEXT           "Entity:",IDC_STATIC,27,69,28,8
+    PUSHBUTTON      "Entity",IDC_COL_ENTITY,57,67,29,12
+    PUSHBUTTON      "EntitySel",IDC_COL_ENTITY_SEL,87,67,29,12
+    RTEXT           "Region:",IDC_STATIC,29,82,26,8
+    PUSHBUTTON      "Region",IDC_COL_REGION,57,80,29,12
+    PUSHBUTTON      "RegionSel",IDC_COL_REGION_SEL,87,80,29,12
+    RTEXT           "Blocked:",IDC_STATIC,26,95,29,8
+    PUSHBUTTON      "Blocked",IDC_COL_BLOCKED,57,93,29,12
+    PUSHBUTTON      "BlockedSel",IDC_COL_BLOCKED_SEL,87,93,29,12
+    RTEXT           "Waypoints:",IDC_STATIC,14,120,41,8
+    PUSHBUTTON      "Waypoints",IDC_COL_WAYPOINTS,57,119,29,12
+    PUSHBUTTON      "WaypointsSel",IDC_COL_WAYPOINTS_SEL,87,119,29,12
+    RTEXT           "Frame:",IDC_STATIC,23,146,32,8
+    PUSHBUTTON      "Frame",IDC_COL_FRAME,57,144,29,12
+    GROUPBOX        "Editor margins",IDC_STATIC,3,165,122,32
+    LTEXT           "Vert.:",IDC_STATIC,15,179,18,8
+    EDITTEXT        IDC_MARGIN_V,35,177,21,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           "Horiz.:",IDC_STATIC,61,179,21,8
+    EDITTEXT        IDC_MARGIN_H,84,177,21,14,ES_AUTOHSCROLL | ES_NUMBER
+    RTEXT           "Scale level:",IDC_STATIC,17,133,38,8
+    PUSHBUTTON      "Scale",IDC_COL_SCALE,57,132,29,12
+    CONTROL         "Show regions",IDC_SHOW_REGIONS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,4,199,59,10
+    CONTROL         "Show blocked",IDC_SHOW_BLOCKED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,64,199,61,10
+    CONTROL         "Show entities",IDC_SHOW_ENTITIES,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,4,211,58,10
+    CONTROL         "Show scale lvls",IDC_SHOW_SCALE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,64,211,65,10
+    PUSHBUTTON      "Custom...",IDC_CUSTOM,83,22,40,13
+    RTEXT           "Decoration:",IDC_STATIC,17,108,38,8
+    PUSHBUTTON      "Decor",IDC_COL_DECOR,57,106,29,12
+    PUSHBUTTON      "DecorSel",IDC_COL_DECOR_SEL,87,106,29,12
+    CONTROL         "Show decorations",IDC_SHOW_DECOR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,4,222,73,10
+    CONTROL         "Remember nodes states",IDC_PERSISTENT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,33,36,106,10
+    CONTROL         "Including sprites",IDC_PERSISTENT_SPRITES,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,42,47,97,10
+END
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 241, 98
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About SceneEdit"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,7,7,21,20
+    LTEXT           "SceneEdit",IDC_PRODUCT,40,7,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (c) 2007 Dead:Code",IDC_STATIC,40,33,119,8
+    DEFPUSHBUTTON   "OK",IDOK,184,7,50,14,WS_GROUP
+    PUSHBUTTON      "wme@wintermute-engine.org",IDC_COMPANY_URL,40,55,86,8
+    LTEXT           "Wintermute Engine Tool",IDC_STATIC,40,17,77,8
+    LTEXT           "(See the documentation for the list of third party libraries used in this product)",IDC_STATIC,40,72,142,16
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,39,69,144,1
+    PUSHBUTTON      "http://www.wintermute-engine.org/",IDC_COMPANY_WEB,40,45,86,8
+END
+
+IDD_EVENTS DIALOGEX 0, 0, 236, 127
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Events"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    PUSHBUTTON      "",IDC_EVENT_UP,7,7,15,15,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_EVENT_DOWN,23,7,15,15,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_ADD_EVENT,43,7,15,15,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_REMOVE_EVENT,57,7,15,15,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_EVENT_PROPERTIES,77,7,15,15,NOT WS_TABSTOP
+    CONTROL         "List1",IDC_EVENTS,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,7,22,222,77
+    DEFPUSHBUTTON   "OK",IDOK,65,106,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,119,106,50,14
+END
+
+IDD_EVENT_PROP DIALOGEX 0, 0, 285, 55
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Event properties"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "Event:",IDC_STATIC,7,9,22,8
+    COMBOBOX        IDC_EVENT,30,7,79,131,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Script:",IDC_STATIC,113,9,21,8
+    EDITTEXT        IDC_SCRIPT,136,7,127,14,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "...",IDC_BROWSE_SCRIPT,263,7,15,14
+    DEFPUSHBUTTON   "OK",IDOK,90,34,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,145,34,50,14
+END
+
+IDD_POINT_POS DIALOGEX 0, 0, 155, 56
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Point position"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "Move point to:",IDC_STATIC,26,10,46,8
+    EDITTEXT        IDC_POS_X,74,7,26,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_POS_Y,102,7,26,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,26,35,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,79,35,50,14
+END
+
+IDD_SCALE DIALOGEX 0, 0, 170, 56
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Scale level"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "Scale (%):",IDC_STATIC,16,10,32,8
+    EDITTEXT        IDC_SCALE,50,7,26,14,ES_AUTOHSCROLL
+    LTEXT           "Y position:",IDC_STATIC,82,10,34,8
+    EDITTEXT        IDC_POS_Y,117,7,26,14,ES_AUTOHSCROLL | ES_NUMBER
+    DEFPUSHBUTTON   "OK",IDOK,33,35,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,86,35,50,14
+END
+
+IDD_ROT DIALOGEX 0, 0, 170, 56
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Rotation level"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "Rotation (°):",IDC_STATIC,11,10,38,8
+    EDITTEXT        IDC_ROTATION,50,7,26,14,ES_AUTOHSCROLL
+    LTEXT           "X position:",IDC_STATIC,82,10,34,8
+    EDITTEXT        IDC_POS_X,117,7,26,14,ES_AUTOHSCROLL | ES_NUMBER
+    DEFPUSHBUTTON   "OK",IDOK,33,35,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,86,35,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_3D_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 138
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 217
+    END
+
+    IDD_TEMPLATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 364
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 229
+    END
+
+    IDD_SCENE_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 154
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 240
+    END
+
+    IDD_OPTIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 168
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 160
+    END
+
+    IDD_REGION_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 129
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 84
+    END
+
+    IDD_ENTITY_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 147
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 124
+    END
+
+    IDD_EMPTY_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 101
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 86
+    END
+
+    IDD_WAYPOINTS_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 129
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 64
+    END
+
+    IDD_SCENE_PROP_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 133
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 229
+    END
+
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 234
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+
+    IDD_EVENTS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 229
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 120
+    END
+
+    IDD_EVENT_PROP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 278
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_POINT_POS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 148
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 49
+    END
+
+    IDD_SCALE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 163
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 49
+    END
+
+    IDD_ROT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 163
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 49
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_NODES               BITMAP                  "res\\nodes.bmp"
+IDB_MOVE_UP             BITMAP                  "res\\move_up.bmp"
+IDB_MOVE_DOWN           BITMAP                  "res\\move_do.bmp"
+IDB_PROPERTIES          BITMAP                  "res\\props.bmp"
+IDB_ADD_ENTITY          BITMAP                  "res\\add_enti.bmp"
+IDB_ADD_REGION          BITMAP                  "res\\add_regi.bmp"
+IDB_ADD_POINT           BITMAP                  "res\\bitmap1.bmp"
+IDB_REMOVE_POINT        BITMAP                  "res\\remove_p.bmp"
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+IDB_WORKSPACE           BITMAP                  "res\\workspace.bmp"
+IDB_ADD_SCALE           BITMAP                  "res\\add_scal.bmp"
+IDB_ADD_ROT             BITMAP                  "res\\add_rot.bmp"
+IDB_OPEN                BITMAP                  "res\\open.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_MOVE_POINT          CURSOR                  "res\\move_poi.cur"
+IDC_NO_REMOVE           CURSOR                  "res\\no_remov.cur"
+IDC_ADD_POINT           CURSOR                  "res\\add_point.cur"
+IDC_REMOVE_POINT        CURSOR                  "res\\remove_point.cur"
+IDC_ADD_SCALE           CURSOR                  "res\\add_scal.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\SceneEdit.ico"
+IDR_SCENETYPE           ICON                    "res\\SceneDoc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_TOOLS_REFRESH
+    SEPARATOR
+    BUTTON      ID_ACTOR_PLACE
+    BUTTON      ID_ACTOR_REMOVE
+    SEPARATOR
+    BUTTON      ID_EDIT_UNDO
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM SEPARATOR
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&View"
+    BEGIN
+        POPUP "&Toolbars"
+        BEGIN
+            MENUITEM "",                            ID_VIEW_TOOLBARS
+        END
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+    END
+    POPUP "&Tools"
+    BEGIN
+        MENUITEM "&<User-defined tools",        ID_TOOLS_ENTRY
+        MENUITEM SEPARATOR
+        MENUITEM "&Engine settings...",         ID_TOOLS_OPTIONS
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&WME Documentation",          ID_HELP_DOCS
+        MENUITEM SEPARATOR
+        MENUITEM "&About SceneEdit...",         ID_APP_ABOUT
+    END
+END
+
+IDR_SCENETYPE MENU 
+BEGIN
+    POPUP "&File"
+    BEGIN
+        MENUITEM "&New\tCtrl+N",                ID_FILE_NEW
+        MENUITEM "&Open...\tCtrl+O",            ID_FILE_OPEN
+        MENUITEM "&Close",                      ID_FILE_CLOSE
+        MENUITEM "&Save\tCtrl+S",               ID_FILE_SAVE
+        MENUITEM "Save &As...",                 ID_FILE_SAVE_AS
+        MENUITEM SEPARATOR
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+    END
+    POPUP "&View"
+    BEGIN
+        POPUP "&Toolbars"
+        BEGIN
+            MENUITEM "",                            ID_VIEW_TOOLBARS
+        END
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+    END
+    POPUP "&Actor"
+    BEGIN
+        MENUITEM "Load actor...",               ID_ACTOR_LOAD
+        MENUITEM "Place actor",                 ID_ACTOR_PLACE
+        MENUITEM "Remove actor",                ID_ACTOR_REMOVE
+        MENUITEM "Choose animation...",         ID_ACTOR_ANIMATION
+        MENUITEM SEPARATOR
+        MENUITEM "Copy actor placement",        ID_ACTOR_COPY_DATA
+    END
+    POPUP "&Tools"
+    BEGIN
+        MENUITEM "&<User-defined tools",        ID_TOOLS_ENTRY
+        MENUITEM SEPARATOR
+        MENUITEM "&Engine settings...",         ID_TOOLS_OPTIONS
+        MENUITEM SEPARATOR
+        MENUITEM "Reload graphics",             ID_TOOLS_REFRESH
+    END
+    POPUP "&Window"
+    BEGIN
+        MENUITEM "&Cascade",                    ID_WINDOW_CASCADE
+        MENUITEM "&Tile",                       ID_WINDOW_TILE_HORZ
+        MENUITEM "&Arrange Icons",              ID_WINDOW_ARRANGE
+    END
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&WME Documentation",          ID_HELP_DOCS
+        MENUITEM SEPARATOR
+        MENUITEM "&About SceneEdit...",         ID_APP_ABOUT
+    END
+END
+
+IDR_CONTEXT_MENU MENU 
+BEGIN
+    POPUP "_POPUP_"
+    BEGIN
+        MENUITEM "Cu&t",                        ID_EDIT_CUT
+        MENUITEM "&Copy",                       ID_EDIT_COPY
+        MENUITEM "&Paste",                      ID_EDIT_PASTE
+    END
+END
+
+IDR_POPUP_TOOLBAR MENU 
+BEGIN
+    POPUP "DUMMY"
+    BEGIN
+        MENUITEM "Standard Toolbar",            ID_VIEW_TOOLBAR
+        MENUITEM "&Scene",                      ID_VIEW_WORKSPACE
+        MENUITEM "&Output",                     ID_VIEW_OUTPUT
+        MENUITEM "Properties",                  ID_VIEW_PROPERTY
+        MENUITEM "<User Toolbar>",              ID_VIEW_USER_TOOLBAR2
+        MENUITEM "<User Toolbar>",              ID_VIEW_USER_TOOLBAR3
+        MENUITEM "<User Toolbar>",              ID_VIEW_USER_TOOLBAR4
+        MENUITEM "<User Toolbar>",              ID_VIEW_USER_TOOLBAR5
+        MENUITEM "<User Toolbar>",              ID_VIEW_USER_TOOLBAR6
+        MENUITEM "<User Toolbar>",              ID_VIEW_USER_TOOLBAR7
+        MENUITEM "<User Toolbar>",              ID_VIEW_USER_TOOLBAR8
+        MENUITEM "<User Toolbar>",              ID_VIEW_USER_TOOLBAR9
+        MENUITEM "<User Toolbar>",              ID_VIEW_USER_TOOLBAR10
+        MENUITEM SEPARATOR
+        MENUITEM "&Customize...",               ID_VIEW_CUSTOMIZE
+    END
+END
+
+IDR_NEW_ENTITY MENU 
+BEGIN
+    POPUP "dummy"
+    BEGIN
+        MENUITEM "Add sprite entity",           ID_NEW_ENTITY_SPRITE
+        MENUITEM "Add region entity",           ID_NEW_ENTITY_REGION
+        MENUITEM SEPARATOR
+        MENUITEM "Add sound entity",            ID_NEW_ENTITY_SOUND
+    END
+END
+
+IDR_POPUP_ROTATION MENU 
+BEGIN
+    POPUP "_POPUP_"
+    BEGIN
+        MENUITEM "Properties...",               ID_ROT_PROPERTIES
+        MENUITEM SEPARATOR
+        MENUITEM "Remove",                      ID_ROT_REMOVE
+    END
+END
+
+IDR_POPUP_SCALE MENU 
+BEGIN
+    POPUP "_POPUP_"
+    BEGIN
+        MENUITEM "Properties...",               ID_SCALE_PROPERTIES
+        MENUITEM SEPARATOR
+        MENUITEM "Remove",                      ID_SCALE_REMOVE
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS 
+BEGIN
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    VK_F5,          ID_TOOLS_REFRESH,       VIRTKEY, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+END
+
+IDR_SCENETYPE ACCELERATORS 
+BEGIN
+    "C",            ID_ACTOR_COPY_DATA,     VIRTKEY, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,7,3,0
+ PRODUCTVERSION 1,7,3,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x21L
+#else
+ FILEFLAGS 0x20L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "Dead:Code"
+            VALUE "FileDescription", "SceneEdit - Scene editor for Wintermute Engine"
+            VALUE "FileVersion", "1.7.3"
+            VALUE "InternalName", "SceneEdit"
+            VALUE "LegalCopyright", "Copyright (c) 2007 Dead:Code"
+            VALUE "OriginalFilename", "SceneEdit.exe"
+            VALUE "ProductName", "Wintermute Engine"
+            VALUE "ProductVersion", "1.7.3"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "SceneEdit"
+    IDR_SCENETYPE           "\nScene\nScene\nScene Files (*.scene)\n.scene\nSceneEdit.Document\nWintermute Scene"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "SceneEdit"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+    ID_INDICATOR_FPS        "FPS: 0000"
+    ID_INDICATOR_MODE       "Window: 1000x1000 (accelerated)"
+    ID_INDICATOR_CURSOR     "0000, 0000"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_USER_TOOLBAR8   "Show or hide the user toolbar\nToggle User ToolBar"
+    ID_VIEW_USER_TOOLBAR9   "Show or hide the user toolbar\nToggle User ToolBar"
+    ID_VIEW_USER_TOOLBAR10  "Show or hide the user toolbar\nToggle User ToolBar"
+    ID_VIEW_WORKSPACE       "Show or hide the scene bar\nToggle Scene"
+    ID_VIEW_OUTPUT          "Show or hide the output bar\nToggle Output"
+    ID_TOOLS_ENTRY          "User-defined tools\nUser Tools"
+    ID_USER_TOOL1           "Activates user-defined tool\nUser Tool"
+    ID_USER_TOOL2           "Activates user-defined tool\nUser Tool"
+    ID_USER_TOOL3           "Activates user-defined tool\nUser Tool"
+    ID_USER_TOOL4           "Activates user-defined tool\nUser Tool"
+    ID_USER_TOOL5           "Activates user-defined tool\nUser Tool"
+    ID_USER_TOOL6           "Activates user-defined tool\nUser Tool"
+    ID_USER_TOOL7           "Activates user-defined tool\nUser Tool"
+    ID_USER_TOOL8           "Activates user-defined tool\nUser Tool"
+    ID_USER_TOOL9           "Activates user-defined tool\nUser Tool"
+    ID_USER_TOOL10          "Activates user-defined tool\nUser Tool"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_WINDOW_NEW           "Open another window for the active document\nNew Window"
+    ID_WINDOW_ARRANGE       "Arrange icons at the bottom of the window\nArrange Icons"
+    ID_WINDOW_CASCADE       "Arrange windows so they overlap\nCascade Windows"
+    ID_WINDOW_TILE_HORZ     "Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_TILE_VERT     "Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_PROPERTY        "Show or hide the property bar\nToggle properties"
+    ID_WINDOW_MANAGER       "Manages the currently opened window\nWindow List"
+    ID_LAYER_UP             "Move layer into backround\nLayer up"
+    ID_LAYER_DOWN           "Move layer into foreground\nLayer down"
+    ID_TOOLS_OPTIONS        "Change engine settings\nEngine settings"
+    ID_SCENE_REFRESH        "Reload all graphics\nRefresh"
+    ID_TOOLS_REFRESH        "Reload all graphics\nReload"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+    AFX_IDS_MDICHILD        "Activate this window"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_CUSTOMIZE       "Customize toolbars ane menus.\nCustomize"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_MAIN_TOOLBAR        "Standard"
+    IDS_WINDOWS_MANAGER     "&Windows..."
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_USER_TOOLBAR1   "Show or hide the user toolbar\nToggle User ToolBar"
+    ID_VIEW_USER_TOOLBAR2   "Show or hide the user toolbar\nToggle User ToolBar"
+    ID_VIEW_USER_TOOLBAR3   "Show or hide the user toolbar\nToggle User ToolBar"
+    ID_VIEW_USER_TOOLBAR4   "Show or hide the user toolbar\nToggle User ToolBar"
+    ID_VIEW_USER_TOOLBAR5   "Show or hide the user toolbar\nToggle User ToolBar"
+    ID_VIEW_USER_TOOLBAR6   "Show or hide the user toolbar\nToggle User ToolBar"
+    ID_VIEW_USER_TOOLBAR7   "Show or hide the user toolbar\nToggle User ToolBar"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_SCALE_PROPERTIES     "Scale level properties"
+    ID_SCALE_REMOVE         "Remove scale level"
+    ID_ACTOR_LOAD           "Load actor from file\nLoad actor"
+    ID_PLACE_ACTOR          "Place actor into the scene\nPlace actor"
+    ID_ACTOR_REMOVE         "Remove actor from scene\nRemove actor"
+    ID_ACTOR_PLACE          "Place actor into scene\nPlace actor"
+    ID_ACTOR_COPY_DATA      "Copy actor placement into clipboard\nCopy actor placement"
+    ID_ROT_PROPERTIES       "Rotation level properties"
+    ID_ROT_REMOVE           "Remove rotation level"
+    ID_HELP_DOCS            "Display the WME help file"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

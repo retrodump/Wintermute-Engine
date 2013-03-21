@@ -1,0 +1,105 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Functions and the return statement</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3>Custom methods and objects</h3>
+<p>&nbsp;</p>
+<h4>Custom methods</h4>
+<p>You already know the engine provides predefined objects (such as actors, 
+entities, scenes etc.) and those objects offer you methods you can call from 
+your scripts. But WME also allows you to define your own methods for these 
+objects. Defining a 
+method is very similar to defining a <a href="scripting_about_functions.html">
+function</a>, but instead of the <b>function</b> keyword you have to use <b>
+method</b> keyword. Such a function is then visible from the &quot;outside&quot;, i.e. you 
+can call it exactly the same way as the hard-coded engine methods.</p>
+<p>All you need to do is:</p>
+<ol>
+  <li>create a script file</li>
+  <li>define one or more methods in the script</li>
+  <li>attach the script to an object (e.g. to an actor)</li>
+</ol>
+
+<p>Example:</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber1">
+  <tr>
+    <td class="code"><pre>method MyTestMethod(parameter)
+{
+  Game.Msg("This is my test method. The parameter was " + parameter);
+}
+</pre></td>
+  </tr>
+</table>
+&nbsp;<p>Once you attach the above script to some object (either in the object 
+definition, or using a GUI tool such as SceneEdit, or using the <b>AttachScript</b> 
+method), you can call the method from another script:</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td class="code"><pre>SomeObject.MyTestMethod(&quot;some parameter&quot;);
+</pre></td>
+  </tr>
+</table>
+<p>If you need to reference the object owning the method, use the <b>this</b> 
+keyword. This pseudo-variable holds a reference to the object the current script 
+is attached to.</p>
+<p>Due to the nature of the scripting in WME, the engine is unable to detect 
+misspelled method names at compile time; those will be detected at runtime and 
+will cause a runtime error. This is the only drawback of the methods compared to 
+ordinary functions.</p>
+<p>You can also override the engine built-in methods, such as Talk or GoTo by simply defining a 
+method with the same name. But it's strongly recommended to call the original 
+method from within your custom implementation. The following example overrides 
+the built-in GoTo method. It writes the requested destination to screen and then 
+calls the original GoTo method to perform the actual walking.</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td class="code"><pre>method GoTo(X, Y)
+{
+  Game.Msg("The actor is about to walk to " + X + ", " + Y);
+  this.GoTo(X, Y);
+}
+</pre></td>
+  </tr>
+</table>
+</pre></td>
+  
+<p>&nbsp;</p>
+<h4>Custom objects</h4>
+<p>The previous chapter mentions you can use custom methods to enhance existing 
+engine-defined objects. But WME also allows you to create new object from 
+scratch. First you need to create a script file, containing all the methods your 
+new object should provide. When you want to instantiate the object, use the 
+following syntax:</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td class="code"><pre>// create a new object&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp; var MyObject = new Object(&quot;script_filename&quot;);
+
+    &nbsp;&nbsp;&nbsp; // now we can call its methods&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp; MyObject.MyMethod();</pre></td>
+  </tr>
+</table>
+
+<p>From now on you can call MyObject's methods as they are defined in the script 
+file, referenced by &quot;script_filename&quot;.</p>
+
+<p>You can use this approach for variety of tasks. For example you can create 
+&quot;code libraries&quot;, i.e. objects providing various shared utility functions. This 
+is the (only) way how WME supports global functions shared between multiple 
+scripts.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

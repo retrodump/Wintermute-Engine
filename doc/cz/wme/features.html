@@ -1,0 +1,145 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Schopnosti WME</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h1>Schopnosti WME</h1>
+<p>Wintermute Engine (WME) je navržen tak, aby byl co možná nejvíce všestranný,
+při zachování snadnosti použití. Obsahuje spoustu předdefinovaných funkcí,
+a navíc skriptovací vrstvu, která vám umožňuje vytvořit další speciální
+funkcionalitu, kterou budete ve své hře potřebovat.</p>
+<p><b>Některé význačné vlastnosti WME:</b></p>
+<ul>
+  <li>Scény s několika vstvami, podporující tzv. paralaxní skrolování (<a href="inside_scenes.html">více</a>)
+  <li>Vykreslování pomocí 3D akcelerátoru. To umožňuje rychlou grafiku, včetně
+    různých speciálních efektů, jako je průsvitnost, alpha-blending a
+    vyhlazování hran. WME také nabízí jednodušší neakcelerovaný grafický
+    subsystém pro lepší kompatibilitu se starými videokartami
+  <li>Je podporováno téměř jakékoliv rozlišení; barevnou hloubku si může
+    zvolit sám koncový uživatel (buďto 16bit nebo 32bit), engine sám provádí
+    konverzi barev
+  <li>Herní postavy se mohou pohybovat až do osmi směrů (<a href="inside_actors.html">více</a>)
+  <li>Flexibilní&nbsp;objektově orientovaný skriptovací jazyk (<a href="scripting_about.html">více</a>)
+  <li>Podpora pro&nbsp;tvoru uživatelského rozhraní (okna, tlačítka...) (<a href="inside_ui.html">více</a>)
+  <li>Přehrávání videa v AVI formátu
+  <li>Grafické nástroje, které umožňují snadnou tvorbu vlastní hry; manažer
+    projektu, využívající systému šablon (<a href="inside_projectman.html">více</a>)
+  <li>Škálovatelná distribuce výsledné hry prostřednictvím systému
+    &quot;balíčků&quot; (<a href="inside_filesystem.html">více</a>)
+  <li>Podpora snadné lokalizace do jiných jazyků (<a href="inside_localization.html">více</a>)
+  <li>...a mnoho dalšího</li>
+</ul>
+<p>&nbsp;</p>
+<h3>Detailnější popis:</h3>
+<p><strong><em>Rozlišení a barvy<br>
+</em></strong>Engine podporuje v podstatě jakékoliv rozlišení. Vaše hry
+mohou hraničit od retro-rozlišení 320x200 až po moderně vyhlížející
+1024x768.<br>
+Podporovány jsou barevné hloubky 16 bitů (hicolor) a 32 bitů (true color).
+Hráč si sám může zolit barevnou hloubku, odpovídající výkonu jeho počítače;
+konverzi barev zajistí engine automaticky.<br>
+</p>
+<p><strong><em>Vykreslovací subsystém</em></strong><br>
+Jelikož už jsou dnes 3D akcelerované videokarty standardem, WME dokáže využít
+3D akcelerace pro rychlé vykreslování 2D grafiky ve vysokém rozlišení i s
+grafickými efekty, jako je průsvitnost, alpha-blending a antialiasing.<br>
+Na starších počítačích dovede WME běžet v takzvaném &quot;režimu
+kompatibility&quot;, který sice 3D akcelerátor nepožaduje, nicméně pokročilé
+grafické efekty jsou vypnuty.<br>
+</p>
+<p><strong><em>Vývojářské nástroje<br>
+</em></strong>Pro zrychlení vývoje nabízí WME sadu grafických nástrojů
+pro návrh jednotlivých scén hry, animací a pro správu souborů hry. Nástroje
+interně využívají pro vykreslování přímo herní engine, takže mohou nabídnout
+opravdový WYSIWYG :)<br>
+Momentálně je ve vývoji nová generace podpůrných nástrojů.<br>
+</p>
+<p><strong><em>Podporované formáty souborů<br>
+</em></strong>Engine vám umožňuje používat různé druhy souborů pro
+grafiku a zvuky. Kromě toho používá vlastní formáty souborů pro definování
+herních objektů.<br>
+<em>Podporované grafické formáty</em>: BMP, TGA, PNG a JPG.<br>
+WME podporuje PNG a TGA soubory s alfa kanálem.<br>
+<em>Podporované zvukové formáty</em>: Ogg Vorbis (OGG) a WAV.<br>
+Ačkoliv WME nepodporuje formát MP3 kvůli licenčním komplikacím, formát
+Ogg Vorbis je jeho více než rovnocennou náhradou.<br>
+Tyto zvukové formáty lze použít jak pro zvukové efekty, tak pro hudbu. Velké
+zvukové soubory jsou během hraní &quot;streamovány&quot; z disku a nezabírají
+zbytčně paměť.<br>
+Kromě toho umí engine přehrávat video ve formátu AVI, včetně automatického
+zobrazování titulků (formát SUB).<br>
+</p>
+<p><strong><em>Skriptovací jazyk<br>
+</em></strong>WME nabízí flexibilní, objektově orientovaný skriptovací
+jazyk, pomocí kterého jste schopni do hry začlenit téměř jakoukoliv
+vlastnost či hádanku. Všechny herní objekty nabízejí sadu metod a atributů,
+které vám umožňují snadno ovládat herní engine. Také je možné vytvářet
+vlastní objekty a upravovat vestavěné metody.<br>
+Skriptovací jazyk používá běžnou syntaxi, podobnou jazyku C, podobně jako
+JavaScript, C++, C#, Java či PHP. Znáte-li některý z těchto jazyků, můžete
+okamžitě začít psát skripty pro WME.<br>
+</p>
+<p><strong><em>Paralaxní skrolování<br>
+</em></strong>Paralaxní skrolování více vrstev scény je přímo podporováno
+herním enginem a nástrojem pro návrh scén. Není třeba jej dodatečně
+skriptovat.<br>
+</p>
+<p><strong><em>Balíky<br>
+</em></strong>Než je hotová hra distibuována, může být zabalena do jednoho
+nebo více &quot;balíků&quot;. Balík obsahuje všechny soubory hry ve
+zkomprimovaném tvaru. Můžete si zvolit, že chcete rozdělit hru do více balíků,
+například pokud chcete zvlášť nabízet vlastní hru a zvlášť zvuky, nebo
+vydáváte-li hru po jednotlivých kapitolách.<br>
+Balíky mohou mít různou prioritu; toho lze využít třeba při vydávání
+opravných patchů. Balík - patch bude obsahovat pouze změněné soubory a
+bude mít vyšší prioritu, než původní balíky hry. Engine pak použije přednostně
+změněné soubory.<br>
+Během vývoje&nbsp;není třeba balíky kompilovat. Engine dokáže pracovat přímo
+nad zdrojovými soubory, což ulehčuje vývoj a ladění hry.<br>
+</p>
+<p><strong><em>Vrstva pro tvorbu uživatelského rozhraní<br>
+</em></strong>Pomocí několika základních stavenbních prvků (jako jsou
+okna, tlačítka atd.) můžete sestavit komplexní uživatelské rozhraní pro
+vaši hru. Například okno pro nahrání/uložení hry, okno nastavení, inventář
+a podobně. Všechny ovládací prvky jsou plně &quot;skinovatelné&quot;, tudíž
+můžete změnit jejich vzhled tak, aby odpovídal stylu vaší hry.<br>
+</p>
+<p><strong><em>Podpora lokalizace<br>
+</em></strong>WME vám umožňuje přeložit hru do jiných jazyků. Lokalizace
+není omezena pouze na texty, lze vytvořit lokalizační balíky pro jednotlivé
+jazyky, které budou obsahovat přeloženou tabulku textů, písma, grafiku nebo
+dokonce dabing v jiném jazyce.<br>
+</p>
+<p><strong><em>Komunita<br>
+</em></strong>Přátelšté lidé na WME fóru jsou vždy ochotni vám podat
+pomocnou ruku (a stočit jakoukoliv diskusi mimo téma :)<br>
+</p>
+<p><strong><em>Stálý vývoj<br>
+</em></strong>WME je neustále vyvíjeno. Updaty s novými funkcemi a opravenými
+chybami jsou zveřejňovány prostřednictvím WME fóra. Program Project
+Manager navíc umí automaticky zjišťovat nové verze na internetu, takže si
+můžete stáhnout update okamžitě po jeho zveřejnění.<br>
+</p>
+<p><strong><em>A spousta dalších drobností</em></strong></p>
+<ul>
+  <li>jednotlivé snímky animace mohou vyvolávat události ve skriptu
+  <li>obrázky s náhledy pro uložené pozice
+  <li>free verze není žádným způsobem zmrzačená
+  <li>žádný vestavěný limit na počet herních objektů
+  <li>možnost spustit hru přímo z CD (uložebé pozice se pak ukládají do
+    složky &quot;Dokumenty&quot;)
+  <li>podpora pro externí DLL pluginy
+  <li>…a další</li>
+</ul>
+
+</body>
+
+</html>

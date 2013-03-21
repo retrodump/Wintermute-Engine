@@ -1,0 +1,26 @@
+#include "scripts\base.inc"
+
+////////////////////////////////////////////////////////////////////////////////
+on "LookAt"
+{
+  actor.GoTo(171, 465);
+  actor.TurnTo(DI_UPLEFT);
+
+  actor.Talk("There is a teapot lying on the floor. Weird...");
+}
+
+////////////////////////////////////////////////////////////////////////////////
+on "Take"
+{
+  actor.GoTo(171, 465);
+  actor.TurnTo(DI_UPLEFT);
+  actor.Talk("I'll take it.");
+  Game.Interactive = false;
+  actor.PlayAnimChannel(1, "take_up");  
+  actor.AddAttachment("actors\trinity\teapot_taken.x", "teapot", "Bip01_R_Finger12");
+  this.Active = false;
+  Game.TakeItem("teapot");
+  actor.PlayAnimChannel(1, "take_down");
+  //actor.PlayAnimChannelAsync(1, "hold");
+  Game.Interactive = true;
+}

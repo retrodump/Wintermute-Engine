@@ -1,0 +1,210 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Fonts</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3>TrueType fonts</h3>
+
+<p>Besides <a href="inside_ui_fonts_bitmap.html">bitmap fonts</a> WME also 
+allows you to use the standard TrueType fonts to display any in-game texts. 
+TrueType fonts are commonly used in the Windows operating systems. All the 
+letters are represented by their vector shape, allowing lossless scaling and 
+antialiasing of letter edges. To allow WME to use a TrueType font you have to 
+write a simple text definition file, which describes which font to use, in what 
+size, and some other properties, such as bold, italic etc.</p>
+
+<p>You can either use one of the standard fonts provided with Windows, such as 
+Arial or Times New Roman, or you can distribute a custom font file (*.ttf) with 
+your game. If you are distributing the ttf file, <b>make sure the file is</b> <b>
+NOT packed inside the game packages</b>. You have to copy the font file to the 
+game directory, because WME uses Windows functions to render the text and 
+Windows is, naturally, unable to read data from inside WME's packages.</p>
+<p>Let's take a look at an example TrueType font definition file. Please note 
+that most of these properties are optional. If you don't provide them, WME uses 
+appropriate defaults:</p>
+<pre><font color="#800000">TTFONT
+{
+  SIZE = 12  
+  FACE = "Arial"
+  FILENAME = "fonts\arial.ttf"
+
+  BOLD = TRUE
+  ITALIC = FALSE
+  UNDERLINE = FALSE
+  STRIKE = FALSE
+
+  CHARSET = 1
+
+  COLOR { 255, 0, 0 }
+  ALPHA = 255
+  
+  LAYER
+  {
+    OFFSET_X = 1
+    OFFSET_Y = 1
+    COLOR { 0, 0, 0 }
+    ALPHA = 255
+  }
+
+  LAYER
+  {
+    OFFSET_X = -1
+    OFFSET_Y = -1
+    COLOR { 0, 0, 0 }
+    ALPHA = 255
+  }
+
+  LAYER
+  {
+    OFFSET_X = -1
+    OFFSET_Y = 1
+    COLOR { 0, 0, 0 }
+    ALPHA = 255
+  }
+
+  LAYER
+  {
+    OFFSET_X = 1
+    OFFSET_Y = -1
+    COLOR { 0, 0, 0 }
+    ALPHA = 255
+  }
+
+
+  LAYER
+  {
+    OFFSET_X = 0
+    OFFSET_Y = 0
+    COLOR { 255, 0, 0 }
+    ALPHA = 255
+  }
+}</font>
+</pre>
+
+Description:<ul>
+  <li>SIZE - specifies the font size in pixels</li>
+  <li>FACE - the typeface of the font to be used. This is the &quot;logical&quot; name of 
+  the font. You can query the typeface name of a font using the font viewer in 
+  Windows.</li>
+  <li>FILENAME - the actual .ttf file which contains the font definition. You 
+  don't have to specify the filename if you are using one of the standard fonts 
+  provided with Windows (e.g. Arial)</li>
+  <li>BOLD - specifies if the font should be displayed in bold</li>
+  <li>ITALIC - specifies if the font should be displayed in italic</li>
+  <li>UNDERLINE - specifies if the font should be underlined</li>
+  <li>STRIKE - specifies if the font should be stroked out</li>
+  <li>CHARSET - specifies the character set to be used, see the table below for 
+  the list of possible values. Please note that not every TrueType font support 
+  all character sets.</li>
+  <li>COLOR - specifies the color of the letters (RGB)</li>
+  <li>ALPHA - specifies the transparency of the letters (0 to 255)</li>
+</ul>
+<p>This is the basic definition. But since fonts in games typically use some 
+sort of dark outline or a shadow to be readable on both dark and light 
+backgrounds, WME allows you to compose the letters out of several &quot;layers&quot;. Each 
+layer can use a different color and can be offset by a number of pixels. For 
+example to simulate a black outline, you'd specify four black layers, each 
+shifted by one pixel to the left, right, top and bottom. That's exactly what the 
+above example does. It uses four black layers to form the outline and one red 
+layer for the actual letters. </p>
+<p>And this is the resulting font in WME:</p>
+<p><img border="0" src="../img/ttfont.png" width="223" height="97"></p>
+<p>&nbsp;</p>
+<p>Available character sets:</p>
+<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="59%">
+  <tr>
+    <td width="10%" bgcolor="#C0C0C0">WME character set number</td>
+    <td width="57%" bgcolor="#C0C0C0">Description</td>
+  </tr>
+  <tr>
+    <td width="10%">0</td>
+    <td width="57%">ANSI characters.</td>
+  </tr>
+  <tr>
+    <td width="10%">1</td>
+    <td width="57%">Default charset. Font is chosen based on name and size. If 
+    the described font is not available on the system, Windows will substitute 
+    another font.</td>
+  </tr>
+  <tr>
+    <td width="10%">2</td>
+    <td width="57%">OEM charset. Depends on the codepage of the operating 
+    system.</td>
+  </tr>
+  <tr>
+    <td width="10%">3</td>
+    <td width="57%">Baltic characters.</td>
+  </tr>
+  <tr>
+    <td width="10%">4</td>
+    <td width="57%">Traditional Chinese characters (taiwanese).</td>
+  </tr>
+  <tr>
+    <td width="10%">5</td>
+    <td width="57%">Central and eastern european languages.</td>
+  </tr>
+  <tr>
+    <td width="10%">6</td>
+    <td width="57%">Simplified Chinese characters (mainland china).</td>
+  </tr>
+  <tr>
+    <td width="10%">7</td>
+    <td width="57%">Greek characters.</td>
+  </tr>
+  <tr>
+    <td width="10%">8</td>
+    <td width="57%">Korean characters (Wansung).</td>
+  </tr>
+  <tr>
+    <td width="10%">9</td>
+    <td width="57%">Macintosh characters.</td>
+  </tr>
+  <tr>
+    <td width="10%">10</td>
+    <td width="57%">Cyrillic characters.</td>
+  </tr>
+  <tr>
+    <td width="10%">11</td>
+    <td width="57%">Japanese shift-jis characters.</td>
+  </tr>
+  <tr>
+    <td width="10%">12</td>
+    <td width="57%">Standard symbol set.</td>
+  </tr>
+  <tr>
+    <td width="10%">13</td>
+    <td width="57%">Turkish characters.</td>
+  </tr>
+  <tr>
+    <td width="10%">14</td>
+    <td width="57%">Vietnamese characters.</td>
+  </tr>
+  <tr>
+    <td width="10%">15</td>
+    <td width="57%">Korean characters (Johab).</td>
+  </tr>
+  <tr>
+    <td width="10%">16</td>
+    <td width="57%">Arabic characters.</td>
+  </tr>
+  <tr>
+    <td width="10%">17</td>
+    <td width="57%">Hebrew characters.</td>
+  </tr>
+  <tr>
+    <td width="10%">18</td>
+    <td width="57%">Thai characters.</td>
+  </tr>
+</table>
+
+</body>
+
+</html>

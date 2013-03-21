@@ -1,0 +1,58 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Advanced plugin support in WME</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h1>Advanced plugin support in WME</h1>
+
+<p>&nbsp;</p>
+
+<p><b>Note: Plugin development support is only intended for experienced 
+programmers who want to expand WME functionality. Others can safely ignore this 
+chapter.</b></p>
+
+<p>&nbsp;</p>
+
+<p>Although you can call functions from DLL libraries directly from WME scripts, 
+as described in <a href="scripting_about_dll.html">this chapter</a>, Wintermute 
+Engine is also able to use advanced plugin modules. These plugins are external 
+DLL libraries that use a standardized interface to communicate with the engine. 
+Advanced plugins can access some of the engine internals, they can receive 
+events from the engine and the can serialize/deserialize their state when the 
+player saves/restores game. </p>
+
+<p>Plugins can be written using Microsoft Visual C++ .NET or Microsoft Visual 
+C++ 6.0. It may be possible to use other compilers/programming languages capable 
+of creating native DLL libraries (such as Delphi or Borland C++), but it's 
+untested and not officially supported.</p>
+
+<p>If you are releasing a plugin for public use, please consider releasing the 
+source codes as well. That way plugins could be recompiled/further developed 
+even if the original developer abandons them.</p>
+
+<ul>
+  <li><a href="plugins_basics.html">Basics</a></li>
+  <li><a href="plugins_exports.html">Mandatory exported functions</a></li>
+  <li><a href="plugins_class_def.html">Class definition functions</a></li>
+  <li><a href="plugins_classes.html">WME interface classes</a></li>
+  <li><a href="plugins_samples.html">Samples and a helper library</a></li>
+</ul>
+
+<p>External links:</p>
+<ul>
+  <li>
+  <a target="_blank" href="http://wiki.dead-code.org/wakka.php?wakka=DebuggingPlugins">
+  Debugging WME plugins</a></li>
+</ul>
+
+</body>
+
+</html>

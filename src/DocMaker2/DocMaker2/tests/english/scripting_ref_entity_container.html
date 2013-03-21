@@ -1,0 +1,295 @@
+<html>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="WME DocMaker 2.0">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Entity container object</title>
+<link rel="stylesheet" type="text/css" href="../../styles.css">
+</head>
+
+<body>
+<!-- Generated on 7.11.2005 18:05:37, settings file: english -->
+
+<h3>Entity container object</h3>
+<p>
+The Entity container object allows you to incorporated an advanced interactive object (an entity) into your GUI windows. Entity containers can be queried using the Window.GetControl method.
+</p>
+
+<br>
+
+<h4>Methods</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%"><a href="#SetFont">SetFont</a></td>
+    <td>Sets a normal font.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetImage">SetImage</a></td>
+    <td>Sets a background image (sprite).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetImage">GetImage</a></td>
+    <td>Returns the filename of the background sprite (or null if no sprite is set)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetImageObject">GetImageObject</a></td>
+    <td>Returns a reference to the background sprite (or null if no sprite is set)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#Focus">Focus</a></td>
+    <td>Focuses the control.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#MoveAfter">MoveAfter</a></td>
+    <td>Moves the control in z-order after a given control.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#MoveBefore">MoveBefore</a></td>
+    <td>Moves the control in z-order before a given control.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#MoveToTop">MoveToTop</a></td>
+    <td>Moves the control to the top of the z-order.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#MoveToBottom">MoveToBottom</a></td>
+    <td>Moves the control to the bottom of the z-order.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Actions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetEntity">GetEntity</a></td>
+    <td>Returns the entity object assigned to this container.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetEntity">SetEntity</a></td>
+    <td>Assigns an entity object to this container.</td>
+  </tr>
+</table>
+
+<h4>Attributes</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%">Parent (read only)</td>
+    <td>Returns a reference to a parent window of this control (or null)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">ParentNotify</td>
+    <td>Specifies whether this control should notify its parent about events</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Width</td>
+    <td>A width of the control</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Height</td>
+    <td>A height of the control</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Visible</td>
+    <td>Specifies whether the control is visible</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Disabled</td>
+    <td>Specifies whether the control is disabled</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Text</td>
+    <td>A text the control displays</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">NextSibling (read only)</td>
+    <td>Returns a reference to the next control in z-order</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">PrevSibling (read only)</td>
+    <td>Returns a reference to the previous control in z-order</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Type (read only)</td>
+    <td>Returns always "entity container"</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Freezable</td>
+    <td>Specifies if the contained entity should be frozen when a system exclusive window is active</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Name</td>
+    <td>The internal name of the object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Caption</td>
+    <td>The caption of the object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">X</td>
+    <td>The X position of the object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Y</td>
+    <td>The Y position of the object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Height (read only)</td>
+    <td>Returns the current height of the object. In case of actors and entities the scaling is taken into account.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Filename (read only)</td>
+    <td>Returns the filename.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Ready (read only)</td>
+    <td>Returns whether the object isn't currently performing any action.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Interactive</td>
+    <td>Specifies whether the object recieves user input.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">SoundPanning</td>
+    <td>Specifies whether the sounds played by this object are automatically panned depending on object's position on screen.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">NonIntMouseEvents</td>
+    <td>Specifies if the object can receive the <b>MouseEntry</b> and <b>MouseLeave</b> events even if the game is in non-interactive mode.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Movable</td>
+    <td>Specifies whether the object can be moved by its sprites (in case the sprite frames have a "move" property set).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Scalable</td>
+    <td>Specifies whether the object is affected by scene's scaling levels.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Rotatable</td>
+    <td>Specifies whether the object is affected by scene's rotation levels.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Colorable</td>
+    <td>Specifies whether the object is affected by scene's color regions.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">AlphaColor</td>
+    <td>Specifies an RGBA color of this object (overrides scene coloring); set to 0 to reset default behavior.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Scale</td>
+    <td>Specifies a scale of this object (overrides scene scaling); set to null to reset default behavior.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">ScaleX</td>
+    <td>Specifies horizontal scale of this object; set to null to reset default behavior.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">ScaleY</td>
+    <td>Specifies vertical scale of this object; set to null to reset default behavior.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">RelativeScale</td>
+    <td>Specifies a scale amount to be added to the default scene scale.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Rotate</td>
+    <td>Specifies rotation of this object (in degrees); overrides scene rotation; set to null to reset default behavior; not available in compatibility mode</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">RelativeRotate</td>
+    <td>Specifies a rotation amount to be added to the default scene rotation.</td>
+  </tr>
+</table>
+
+<hr>
+<h3><a name="SetFont"></a>SetFont(Filename)</h3>
+<p>Sets a normal font.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>A filename of a font file to be used.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="SetImage"></a>SetImage(Filename)</h3>
+<p>Sets a background image (sprite).</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>A filename of a sprite file to be used.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetImage"></a>GetImage()</h3>
+<p>Returns the filename of the background sprite (or null if no sprite is set)</p>
+
+<hr>
+<h3><a name="GetImageObject"></a>GetImageObject()</h3>
+<p>Returns a reference to the background sprite (or null if no sprite is set)</p>
+
+<hr>
+<h3><a name="Focus"></a>Focus()</h3>
+<p>Focuses the control.</p>
+
+<hr>
+<h3><a name="MoveAfter"></a>MoveAfter(Control)<br>MoveAfter(ControlName)</h3>
+<p>Moves the control in z-order after a given control.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Control</i></dt>
+<dd>A control object we will move our control after</dd>
+<dt><i>ControlName</i></dt>
+<dd>A name of a control object we will move our control after</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="MoveBefore"></a>MoveBefore(Control)<br>MoveBefore(ControlName)</h3>
+<p>Moves the control in z-order before a given control.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Control</i></dt>
+<dd>A control object we will move our control before</dd>
+<dt><i>ControlName</i></dt>
+<dd>A name of a control object we will move our control before</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="MoveToTop"></a>MoveToTop()</h3>
+<p>Moves the control to the top of the z-order.</p>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="MoveToBottom"></a>MoveToBottom()</h3>
+<p>Moves the control to the bottom of the z-order.</p>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetEntity"></a>GetEntity()</h3>
+<p>Returns the entity object assigned to this container.</p>
+<h4>Return value</h4>
+<p>Returns a reference to the entity object.</p>
+
+<hr>
+<h3><a name="SetEntity"></a>SetEntity(Filename)</h3>
+<p>Assigns an entity object to this container.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the entity file to be assigned.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+
+</body>
+
+</html>

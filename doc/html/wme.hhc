@@ -1,0 +1,430 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Introducing Wintermute Engine Development Kit">
+		<param name="Local" value="wme\intro.html">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="WME architecture">
+			<param name="Local" value="wme\architecture.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="WME features">
+			<param name="Local" value="wme\features.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Requirements">
+			<param name="Local" value="wme\requirements.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Supported file formats">
+			<param name="Local" value="wme\formats.html">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Inside a game">
+		<param name="Local" value="wme\inside.html">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="WME ProjectMan: the headquarters">
+			<param name="Local" value="wme\inside_projectman.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Scene creation step by step (tutorial)">
+			<param name="Local" value="wme\inside_scenes.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Step 1: Creating the scene; introducing the SceneEdit tool">
+				<param name="Local" value="wme\inside_scenes_step1.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Step 2: Scene entities">
+				<param name="Local" value="wme\inside_scenes_step2.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Step 3: Scene layout">
+				<param name="Local" value="wme\inside_scenes_step3.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Step 4: Blocked regions">
+				<param name="Local" value="wme\inside_scenes_step4.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Step 5: Waypoints">
+				<param name="Local" value="wme\inside_scenes_step5.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Step 6: Free entities, scale levels and decoration regions">
+				<param name="Local" value="wme\inside_scenes_step6.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Step 7: Region entities, cursors, scripts">
+				<param name="Local" value="wme\inside_scenes_step7.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Step 8: Layers">
+				<param name="Local" value="wme\inside_scenes_step8.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Step 9: Miscellaneous tips and procedures">
+				<param name="Local" value="wme\inside_scenes_step9.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Sprites">
+			<param name="Local" value="wme\inside_sprites.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Actors">
+			<param name="Local" value="wme\inside_actors.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Entities">
+			<param name="Local" value="wme\inside_entites.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="User interface layer">
+			<param name="Local" value="wme\inside_ui.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="WindowEdit tool guide">
+				<param name="Local" value="wme\windowedit.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Fonts">
+				<param name="Local" value="wme\inside_ui_fonts.html">
+				</OBJECT>
+			<UL>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="Bitmap fonts">
+					<param name="Local" value="wme\inside_ui_fonts_bitmap.html">
+					</OBJECT>
+				<LI> <OBJECT type="text/sitemap">
+					<param name="Name" value="TrueType fonts">
+					<param name="Local" value="wme\inside_ui_fonts_ttf.html">
+					</OBJECT>
+			</UL>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="3D characters support">
+			<param name="Local" value="wme\3D_intro.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Principles and requirements">
+				<param name="Local" value="wme\3D_principles.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Actor definition file, X format">
+				<param name="Local" value="wme\3D_actors_x.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Actor definition file, MS3D format (deprecated)">
+				<param name="Local" value="wme\3D_actors_ms3d.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Scripting support">
+				<param name="Local" value="wme\3D_scripting.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Additional 3D options">
+				<param name="Local" value="wme\3D_additional.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Shadows">
+				<param name="Local" value="wme\3D_shadows.html">
+				</OBJECT>
+
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Working with the inventory">
+			<param name="Local" value="wme\inside_inventory.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Particle effects">
+			<param name="Local" value="wme\inside_particles.html">
+			</OBJECT>
+
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Scripting dialogues">
+			<param name="Local" value="wme\inside_dialogues.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Music support in WME">
+			<param name="Local" value="wme\inside_music.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Packages and file system in WME">
+			<param name="Local" value="wme\inside_filesystem.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Localization support">
+			<param name="Local" value="wme\inside_localization.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Using Theora to play videos">
+			<param name="Local" value="wme\inside_theora.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Using effect files">
+			<param name="Local" value="wme\inside_effects.html">
+			</OBJECT>
+
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Accessibility">
+			<param name="Local" value="wme\inside_access.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="String Table Manager">
+			<param name="Local" value="wme\inside_stm.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Debugging console">
+			<param name="Local" value="wme\inside_console.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Windows Vista support">
+			<param name="Local" value="wme\inside_vista.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Wide screen support">
+			<param name="Local" value="wme\inside_widescreen.html">
+			</OBJECT>
+
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Scripting in WME">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="About the scripting language">
+			<param name="Local" value="wme\scripting_about.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Script and include files">
+				<param name="Local" value="wme\scripting_about_files.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Comments">
+				<param name="Local" value="wme\scripting_about_comments.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Variables and data types">
+				<param name="Local" value="wme\scripting_about_variables.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Conditions and comparison operators">
+				<param name="Local" value="wme\scripting_about_conditions.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Loops, break, continue and switch statements">
+				<param name="Local" value="wme\scripting_about_loops.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Functions and the return statement">
+				<param name="Local" value="wme\scripting_about_functions.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Custom methods and objects">
+				<param name="Local" value="wme\scripting_about_methods.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Event handlers">
+				<param name="Local" value="wme\scripting_about_events.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Calling external DLL libraries from WME scripts">
+				<param name="Local" value="wme\scripting_about_dll.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Script language reference">
+			<param name="Local" value="wme\scripting_ref.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Game object">
+				<param name="Local" value="wme\generated\scripting_ref_game.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Scene object">
+				<param name="Local" value="wme\generated\scripting_ref_scene.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Actor object">
+				<param name="Local" value="wme\generated\scripting_ref_actor.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="3D actor object">
+				<param name="Local" value="wme\generated\scripting_ref_actor3d.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Entity object">
+				<param name="Local" value="wme\generated\scripting_ref_entity.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Layer object">
+				<param name="Local" value="wme\generated\scripting_ref_layer.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Region object">
+				<param name="Local" value="wme\generated\scripting_ref_region.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Waypoint group object">
+				<param name="Local" value="wme\generated\scripting_ref_waypoint.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Item object">
+				<param name="Local" value="wme\generated\scripting_ref_item.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Sprite object">
+				<param name="Local" value="wme\generated\scripting_ref_sprite.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Frame object">
+				<param name="Local" value="wme\generated\scripting_ref_frame.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Subframe object">
+				<param name="Local" value="wme\generated\scripting_ref_subframe.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Window object">
+				<param name="Local" value="wme\generated\scripting_ref_window.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Button object">
+				<param name="Local" value="wme\generated\scripting_ref_button.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Static control object">
+				<param name="Local" value="wme\generated\scripting_ref_static.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Editor object">
+				<param name="Local" value="wme\generated\scripting_ref_editor.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Entity container object">
+				<param name="Local" value="wme\generated\scripting_ref_entity_container.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="String object">
+				<param name="Local" value="wme\generated\scripting_ref_string.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Date object">
+				<param name="Local" value="wme\generated\scripting_ref_date.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Array object">
+				<param name="Local" value="wme\generated\scripting_ref_array.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Math object">
+				<param name="Local" value="wme\generated\scripting_ref_math.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Keyboard object">
+				<param name="Local" value="wme\generated\scripting_ref_keyboard.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="File object">
+				<param name="Local" value="wme\generated\scripting_ref_file.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Directory object">
+				<param name="Local" value="wme\generated\scripting_ref_directory.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="MemBuffer object">
+				<param name="Local" value="wme\generated\scripting_ref_membuffer.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Particle emitter object">
+				<param name="Local" value="wme\generated\scripting_ref_particle.html">
+				</OBJECT>
+
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Global functions">
+				<param name="Local" value="wme\generated\scripting_ref_functions.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Setting up a text editor">
+			<param name="Local" value="wme\scripting_editor.html">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Syntax highlighting">
+				<param name="Local" value="wme\scripting_editor_highlight.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Checking the syntax">
+				<param name="Local" value="wme\scripting_editor_tools.html">
+				</OBJECT>
+		</UL>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Plugin development">
+		<param name="Local" value="wme\plugins_about.html">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Basics">
+			<param name="Local" value="wme\plugins_basics.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Mandatory exported functions">
+			<param name="Local" value="wme\plugins_exports.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Class definition functions">
+			<param name="Local" value="wme\plugins_class_def.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="WME interface classes">
+			<param name="Local" value="wme\plugins_classes.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Samples">
+			<param name="Local" value="wme\plugins_samples.html">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Version history">
+		<param name="Local" value="wme\history.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="WME Book (online)">
+		<param name="Local" value="http://res.dead-code.org/doku.php/wmebook:start">
+		<param name="ImageNumber" value="14">
+		</OBJECT>
+
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="WME Resource Center (online)">
+		<param name="Local" value="http://res.dead-code.org">
+		<param name="ImageNumber" value="14">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="License">
+		<param name="Local" value="wme\license.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Credits and thanks">
+		<param name="Local" value="wme\credits.html">
+		</OBJECT>
+</UL>
+</BODY></HTML>
