@@ -454,8 +454,10 @@ void CAdActor::TurnTo(TDirection dir)
 	if(abs(delta) < 2)
 	{
 		m_Dir = dir;
+		m_TargetDir = dir;
 		m_State = m_NextState;
 		m_NextState = STATE_READY;
+		m_TempSprite2 = NULL;
 		return;
 	}
 
