@@ -41,7 +41,7 @@ CBSound::~CBSound()
 
 
 //////////////////////////////////////////////////////////////////////////
-HRESULT CBSound::SetSound(char *Filename, TSoundType Type, bool Streamed)
+HRESULT CBSound::SetSound(char *Filename, TSoundType Type, bool Streamed, DWORD initialPrivateVolume)
 {
 	if(m_Sound){
 		Game->m_SoundMgr->RemoveSound(m_Sound);
@@ -49,7 +49,7 @@ HRESULT CBSound::SetSound(char *Filename, TSoundType Type, bool Streamed)
 	}
 	SAFE_DELETE_ARRAY(m_SoundFilename);
 
-	m_Sound = Game->m_SoundMgr->AddSound(Filename, Type, Streamed);
+	m_Sound = Game->m_SoundMgr->AddSound(Filename, Type, Streamed, initialPrivateVolume);
 	if(m_Sound){
 		m_SoundFilename = new char[strlen(Filename)+1];
 		strcpy(m_SoundFilename, Filename);

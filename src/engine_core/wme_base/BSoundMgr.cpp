@@ -106,7 +106,7 @@ HRESULT CBSoundMgr::InitLoop()
 
 
 //////////////////////////////////////////////////////////////////////////
-CBSoundBuffer* CBSoundMgr::AddSound(char *Filename, TSoundType Type, bool Streamed)
+CBSoundBuffer* CBSoundMgr::AddSound(char *Filename, TSoundType Type, bool Streamed, DWORD initialPrivateVolume)
 {
 	if(!m_SoundAvailable) return NULL;
 
@@ -147,7 +147,10 @@ CBSoundBuffer* CBSoundMgr::AddSound(char *Filename, TSoundType Type, bool Stream
 		return NULL;
 	}
 
-	// set volume appropriately
+	// sound starts with user defined instead of 100% volume (of the global setting)
+	sound->m_PrivateVolume = initialPrivateVolume;
+
+	// set volume appropriately (global volume setting)
 	switch(Type){
 		case SOUND_SFX:    sound->SetVolume(m_VolumeSFX);    break;
 		case SOUND_SPEECH: sound->SetVolume(m_VolumeSpeech); break;

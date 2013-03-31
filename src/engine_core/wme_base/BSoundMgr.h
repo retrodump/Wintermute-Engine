@@ -32,7 +32,7 @@ public:
 	int m_VolumeSpeech;
 	int m_VolumeSFX;
 	HRESULT RemoveSound(CBSoundBuffer* Sound);
-	CBSoundBuffer* AddSound(char* Filename, TSoundType Type=SOUND_SFX, bool Streamed=false);
+	CBSoundBuffer* AddSound(char* Filename, TSoundType Type=SOUND_SFX, bool Streamed=false, DWORD initialPrivateVolume=100);
 	HRESULT AddSound(CBSoundBuffer* Sound, TSoundType Type=SOUND_SFX);
 	HRESULT InitLoop();
 	HRESULT Initialize(HWND Window, CHWManager* hwManager);
