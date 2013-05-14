@@ -61,10 +61,9 @@ HRESULT CBFontTT::CreateWinFont()
 
 	if(m_HFont) DeleteObject(m_HFont);
 
-	HDC hDC = CreateCompatibleDC(NULL);
-	SetMapMode(hDC, MM_TEXT);
-	int Height = -MulDiv(m_FontHeight, GetDeviceCaps(hDC, LOGPIXELSY), 72);
-	DeleteDC(hDC);
+	// we ignore the windows DPI settings and always use 96 DPI
+	int Height = -MulDiv(m_FontHeight, 96, 72);
+
 
 	m_HFont = ::CreateFont(Height, 0, 0, 0,
 		m_IsBold?FW_BOLD:FW_NORMAL,
