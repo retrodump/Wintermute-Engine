@@ -306,14 +306,18 @@ HRESULT CAdGame::ScCallMethod(CScScript* Script, CScStack *Stack, CScStack *This
 	// ChangeScene
 	//////////////////////////////////////////////////////////////////////////
 	if(strcmp(Name, "ChangeScene")==0){
-		Stack->CorrectParams(3);
+		Stack->CorrectParams(4);
 		char* Filename = Stack->Pop()->GetString();
 		CScValue* valFadeOut = Stack->Pop();
 		CScValue* valFadeIn = Stack->Pop();
+		CScValue* valBlockFadeIn = Stack->Pop();
 
 		bool TransOut = valFadeOut->IsNULL()?true:valFadeOut->GetBool();
 		bool TransIn  = valFadeIn->IsNULL() ?true:valFadeIn->GetBool();
+		bool BlockTransIn = valBlockFadeIn->IsNULL() ? false : valBlockFadeIn->GetBool();
 
+		m_TransMgr->BlockFadeIn(BlockTransIn);
+		
 		ScheduleChangeScene(Filename, TransIn);
 		if(TransOut) m_TransMgr->Start(TRANSITION_FADE_OUT, true);
 		Stack->PushNULL();
@@ -323,6 +327,16 @@ HRESULT CAdGame::ScCallMethod(CScScript* Script, CScStack *Stack, CScStack *This
 		//if(FAILED(ret)) Stack->PushBool(false);
 		//else Stack->PushBool(true);
 
+		return S_OK;
+	}
+
+	//////////////////////////////////////////////////////////////////////////
+	// SceneFadeIn
+	//////////////////////////////////////////////////////////////////////////
+	else if(strcmp(Name, "SceneFadeIn")==0){
+		Stack->CorrectParams(0);
+		m_TransMgr->BlockFadeIn(false);
+		Stack->PushNULL();
 		return S_OK;
 	}
 

@@ -16,6 +16,7 @@ CBTransitionMgr::CBTransitionMgr(CBGame* inGame):CBBase(inGame)
 	m_PreserveInteractive = false;
 	m_LastTime = 0;
 	m_Started = false;
+	m_FadeInBlocked = false;
 }
 
 
@@ -31,6 +32,13 @@ CBTransitionMgr::~CBTransitionMgr()
 bool CBTransitionMgr::IsReady()
 {
 	return (m_State==TRANS_MGR_READY);
+}
+
+
+//////////////////////////////////////////////////////////////////////////
+void CBTransitionMgr::BlockFadeIn(bool blocked)
+{
+	m_FadeInBlocked = blocked;
 }
 
 
@@ -88,12 +96,19 @@ HRESULT CBTransitionMgr::Update()
 
 		case TRANSITION_FADE_IN:
 		{		
-			DWORD time = timeGetTime() - m_LastTime;
-			int Alpha = (float)time / (float)FADE_DURATION * 255;
-			Alpha = min(255, max(Alpha, 0));
-			Game->m_Renderer->Fade((WORD)Alpha);
-			
-			if(time > FADE_DURATION) m_State = TRANS_MGR_READY;
+			if (m_FadeInBlocked == false) {
+				DWORD time = timeGetTime() - m_LastTime;
+				int Alpha = (float)time / (float)FADE_DURATION * 255;
+				Alpha = min(255, max(Alpha, 0));
+				Game->m_Renderer->Fade((WORD)Alpha);
+				
+				if(time > FADE_DURATION) m_State = TRANS_MGR_READY;
+			} else {
+				// set scene alpha to 0 and continuously
+				// update timestamp to avoid sudden fade-in
+				Game->m_Renderer->Fade(0);
+				m_Started = false;
+			}
 		}	
 		break;
 
