@@ -48,6 +48,8 @@ namespace DeadCode.WME.WindowEdit
 		private bool UndoPending = false;
 		private Point StartPoint;
 		private Type ControlToAdd = null;
+
+
 		//////////////////////////////////////////////////////////////////////////
 		private void OnMouseDown(object sender, MouseEventArgs e)
 		{
@@ -387,7 +389,7 @@ namespace DeadCode.WME.WindowEdit
 
 			int Step = e.Control ? 5 : 1;
 
-			if (e.KeyCode == Keys.Left)
+            if (e.KeyCode == Keys.Left)
 			{
 				if (e.Shift) ResizeX = -Step;
 				else MoveX = -Step;
@@ -407,6 +409,20 @@ namespace DeadCode.WME.WindowEdit
 				if (e.Shift) ResizeY = Step;
 				else MoveY = Step;
 			}
+            else if (e.KeyCode == Keys.Space)
+            {
+                
+                foreach (WUIObject It in SelectedItems)
+                {
+                    It.Visible = !It.Visible;
+                }
+
+                RefreshProps = true;
+                UpdateScrollSize();
+            }
+
+
+
 
 			// keyboard movement
 			if(MoveX != 0 || MoveY != 0)
