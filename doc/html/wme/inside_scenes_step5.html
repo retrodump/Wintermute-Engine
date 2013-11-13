@@ -1,0 +1,162 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Step 5: Waypoints</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3>Step 5: Waypoints</h3>
+<p>Waypoints help your actors to navigate 
+the scene. The actors are able to walk from one waypoint to another as long as 
+there is no blocked region in their way. If there are multiple waypoints in the 
+scene and you tell the actor to walk somewhere, he will use the waypoints to 
+find the shortest path from his current position to the requested destination.</p>
+<p>In our scene, the actor is not able to 
+go around the desk. We will teach him how.</p>
+
+<p>Open our “MyScene.scene” file in 
+SceneEdit. In the layer list window click the “Waypoint groups” item (the 
+waypoints are grouped to one or more groups, hence the name “waypoint groups”).</p>
+
+<p align="center">
+<img border="0" src="../img/tut5-1.png" width="224" height="167"></p>
+
+<p align="center">&nbsp;</p>
+<p>The contents of the node list window 
+have changed. Now it shows the waypoint groups. Click the “Add waypoint group” 
+button.</p>
+
+<p align="center">
+<img border="0" src="../img/tut5-2.png" width="222" height="250"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>A “new waypoints” item has been created. 
+Change its name for example to “wpt_default”. You can now add new waypoint to 
+the group or remove existing points. It’s done exactly the same as 
+adding/removing vertices to/from the regions, i.e. using the “Add point” and 
+“Remove point” buttons.</p>
+
+<p align="center">
+<img border="0" src="../img/tut5-3.png" width="56" height="30"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>We will add four waypoints; one to each 
+vertex of the blocked region:</p>
+
+<p align="center">
+<img border="0" src="../img/tut5-4.png" width="496" height="266"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Remember, the actor is only able to find 
+a way from one waypoint to another if a direct non-blocked connecting line 
+exists between those waypoints.</p>
+
+<p>Those four waypoints will allow our 
+actor to walk around the desk with no problems. Try it. Save the scene, switch 
+to the ProjectMan tool and run the game. Select the “MyScene” item as usual and 
+test the scene. If you click the floor somewhere behind the desk, the actor will 
+walk there, walking round the desk intelligently.</p>
+
+<p>Quit the game (press the Esc key twice) 
+and switch back to SceneEdit. We will work on our scene a bit more.</p>
+
+<p>We don’t want our actor to walk into the 
+closet. So we will block the closed area by adding another blocked region.</p>
+<p>Select the “main” node in the layer 
+list. Then click the “Add region” button. Change region’s name to “block_closet” 
+and change the radio button from “Layout” to “Blocked”. Now change the shape of 
+the region to block the closet:</p>
+
+<p align="center">
+<img border="0" src="../img/tut5-5.png" width="364" height="177"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Three vertices of the region lie outside 
+a “walkable” area, but the bottom left vertex lies inside. We must add a 
+waypoint to allow the actor to walk around this vertex.</p>
+<p>Click the “Waypoint groups” item in the 
+layers list and then select our “wpt_default” group in the node list. Click the 
+“Add point” button and place a new waypoint near the closet’s blocked region’s 
+vertex (see the picture below). </p>
+
+
+<p align="center">
+<img border="0" src="../img/tut5-6.png" width="221" height="160"></p>
+
+
+<p align="center">&nbsp;</p>
+
+
+<p>The actors will now utilize this 
+waypoint to walk around the closet’s edge.</p>
+
+<p>You can find two more “edges” (acute 
+angles) in the scene the actors may have trouble walking around. These are near 
+the door. Let’s add two more waypoints:</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut5-7.png" width="233" height="265"></p>
+
+
+<p align="center">&nbsp;</p>
+
+
+<p>I will add one more example to help you 
+understand how waypoints work. Imagine the following situation. The actor is 
+standing somewhere in the scene (the “A” point) and the player click the floor 
+(the “C” point):</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut5-8.png" width="336" height="217"></p>
+
+
+<p align="center">&nbsp;</p>
+
+
+<p>There isn’t a direct path from point A 
+to point C, because the blocked region is in the way. If there wasn’t the 
+waypoint the actor wouldn’t be able to find a way to the C point:</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut5-9.png" width="336" height="217"></p>
+
+
+<p align="center">&nbsp;</p>
+
+<p>But after adding the waypoint, the actor 
+walks to it first, and then he can walk directly to the C point:</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut5-10.png" width="336" height="217"></p>
+
+
+<p align="center">&nbsp;</p>
+
+
+<p>OK, that’s all about waypoints. Save 
+your scene and quit the SceneEdit. If you test the scene, you’ll see that the 
+actor doesn’t have a problem getting anywhere in the scene. He should be always 
+able to find a shortest path.</p>
+
+<p>Yet he still walks through the chair and 
+his scale is far from perfect. Let’s move on to a 
+<a href="inside_scenes_step6.html">Step 6: Free entities, scale 
+levels and decoration regions</a>.</p>
+
+</body>
+
+</html>

@@ -1,0 +1,167 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>WME features</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h1>WME features</h1>
+<p>The Wintermute Engine (WME) is designed 
+to be as flexible as possible yet easy to use. It provides a large set of 
+predefined functions plus a scripting layer, which allows you to implement 
+advanced custom functionality when needed.</p>
+<h3>Some of the notable WME features:</h3>
+<ul type="disc" style="margin-bottom: 0cm">
+  <li>Multiple layered parallax scrolling 
+  for scenes (<a href="inside_scenes.html">more</a>)</li>
+  <li>3D accelerated rendering subsystem. 
+  It allows faster drawing and advanced graphical effects such as transparency, 
+  alpha blending and antialiasing. WME also provides non-accelerated renderer 
+  for compatibility with older video adapters (with advanced effects disabled)</li>
+  <li>Virtually any resolution is 
+  supported; user selectable color depth (either 16bit or 32bit, the engine 
+  handles the color conversion automatically)</li>
+  <li>Actors can move up to 8 directions (<a href="inside_actors.html">more</a>)</li>
+  <li>Flexible object-oriented scripting 
+  language (<a href="scripting_about.html">more</a>)</li>
+  <li>Real-time 3D characters support (<a href="3D_intro.html">more</a>)</li>
+  <li>User-interface layer (<a href="inside_ui.html">more</a>)</li>
+  <li>Video playback (<a href="inside_theora.html">more</a>)</li>
+  <li>GUI tools helping you to create the 
+  game content; template-based project manager (<a href="inside_projectman.html">more</a>)</li>
+  <li>Scalable game deployment using the 
+  package system (<a href="inside_filesystem.html">more</a>)</li>
+  <li>Localization support (<a href="inside_localization.html">more</a>)</li>
+  <li>Accessibility support (<a href="inside_access.html">more</a>)</li>
+  <li>Plugin support (<a href="plugins_about.html">more</a>)</li>
+  <li>…and more</li>
+</ul>
+
+<p>&nbsp;</p>
+<h3>In more depth:</h3>
+<p><strong><em>Resolution and colors<br>
+</em></strong>The engine supports virtually any resolution. Your games may range 
+from 320x200 retro-style to high-res 1024x768 modern looking ones.<br>
+Both 16bit (hicolor) and 32bit (true color) color depths are supported. The 
+player can select a color depth appropriate for his computer and the engine 
+handles the color conversion automatically.</p>
+<p><br>
+<strong><em>Rendering subsystem</em></strong><br>
+Since 3D accelerated videocards are a standard today, WME is able to utilize 3D 
+acceleration to provide fast 2D graphics in high resolutions, with advanced 
+graphical effects such as transparency, alpha blending and antialiasing.<br>
+On old computers, WME is able to run in so called &quot;compatibility mode&quot;, which 
+doesn't require 3D accelerator, but all the advanced graphics effects are 
+disabled.</p>
+<p><br>
+<strong><em>Development tools<br>
+</em></strong>To speed up the development, WME provides a set of GUI tools for 
+designing the game scenes, animations and for managing the project contents. The 
+tools are powered by the engine itself, therefore they can offer a true WYSIWYG 
+:)<br>
+Next generation tools are currently under development.</p>
+<p><br>
+<em><strong>Supported file formats</strong><br>
+</em>The engine allows you to use various file formats for storing graphics and 
+sounds. It also introduces custom file formats for defining the game objects.<br>
+Graphics formats supported: BMP, TGA, PNG and JPG<br>
+WME supports PNG and TGA files with an alpha channel.<br>
+Sound formats supported: Ogg Vorbis (OGG) and WAV.<br>
+Although WME doesn't support the MP3 format due to licensing issues, the Ogg 
+Vorbis format is more than a valid replacement.<br>
+These sound formats can be used for both music and sound effects. Large sounds 
+are streamed from the disk and do not waste the memory.<br>
+Furthermore the engine is able to play videos in Ogg Theora and AVI format, including automatic 
+subtitles display (SUB format).</p>
+<p><br>
+<strong><em>Scripting language</em></strong><br>
+WME provides a flexible object-oriented scripting language, which allows you to 
+add almost any feature/puzzle you want. All the game objects support a set of 
+methods and attributes to allow you an easy access to the internal engine 
+workings. You can also create your own custom objects and override and customize 
+build-in methods.<br>
+The scripting language uses the common C-like syntax, similar to JavaScript, 
+C++, C#, Java or PHP. If you know any of these languages, you can immediately 
+start to write WME scripts.</p>
+<p><br>
+<strong><em>Parallax scrolling<br>
+</em></strong>Multi-layered parallax scrolling for the scenes is natively 
+supported by the engine and the scene designing tool. No additional scripting is 
+required to implement it.</p>
+<p><br>
+<strong><em>Packages</em></strong><br>
+Before the game is distributed, it can be compiled into one or more packages. 
+The package files contain all the game resources in a compressed form. You can 
+choose to split the resources into multiple packages, for example to distribute 
+a separate package with sounds/speech, or to release individual game episodes as 
+packages.<br>
+The packages can have various priorities. It can be used for example to release 
+a patch for your game. The patch package will only contain the changed files and 
+it will have a higher priority than the original release. The engine will then 
+use the new files.<br>
+Throughout the development you don't need to compile the game. The engine is 
+able to operate directly on the uncompressed files to speed up testing and 
+debugging.</p>
+<p><strong><em>Support for 3D characters</em></strong><br>
+WME includes support for real-time rendered 3D characters. 
+This allows WME developers to create state-of-the-art adventure games which 
+combine 2D environments with 3D characters (so-called 2.5D games), similar to 
+games like Syberia or The Longest Journey. Please see the documentation for more 
+details about supported features and requirements. There is a simple
+<a href="http://www.dead-code.org/download/wme_demo_3d.zip" target="_blank">demo</a> 
+available for download.</p>
+<p><br>
+<strong><em>User interface layer<br>
+</em></strong>Using several available controls (such as windows, buttons...), 
+you can build a complex user interface for your games, such as load/save 
+windows, settings window, inventory window etc. All the controls are fully &quot;skinnable&quot;, 
+you can change their look to fit your game.</p>
+<p><br>
+<strong><em>Localization support</em></strong><br>
+WME allows you to translate your game into other languages. The localization 
+isn't limited to texts, you can create localization packages containing 
+localized string table, fonts, graphics or even sounds.</p>
+<p><br><i><b>Accessibility support<br>
+</b></i>WME provides several options to improve accessibility for 
+vision-impaired players. Firstly it's possible to send most of the written text 
+to text-to-speech synthesizer, so that the players don't have to read captions, 
+which are often too small or disappear too fast to be comfortable to read. 
+Secondly it's possible to manually highlight active areas on screen using 
+keyboard shortcuts, because normally it can be hard to spot them for people with 
+visual disabilities. Thirdly the player can pause the game at any time (using 
+the Ctrl+Space keyboard shortcut) to be able to read any text or examine the 
+scene without rush.</p>
+<p><br>
+<strong><em>Community<br>
+</em></strong>The friendly people at the WME forum are always willing to give a 
+helping hand (and to turn every discussion off topic :)</p>
+<p><br>
+<strong><em>Continual development<br>
+</em></strong>WME is constantly under development. Updates with new features and 
+bugfixes are being released via the WME forum. The Project Manager utility is 
+able to check for updates on the internet so that you can download the latest 
+version immediately after it's released.</p>
+<p><br>
+<strong><em>And a lot of other smaller things</em></strong></p>
+<ul>
+  <li>individual animation frames can trigger script events </li>
+  <li>thumbnails for saved games </li>
+  <li>the free version is not crippled in any way </li>
+  <li>no hardcoded limits on game objects </li>
+  <li>the ability to run the game off CD (savegames are stored in player's &quot;My 
+  Documents&quot; folder) </li>
+  <li>support for external DLL plugins </li>
+  <li>…and more<br>
+&nbsp;</li>
+</ul>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

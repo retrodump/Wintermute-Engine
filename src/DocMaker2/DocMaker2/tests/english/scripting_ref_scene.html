@@ -1,0 +1,583 @@
+<html>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="WME DocMaker 2.0">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Scene object</title>
+<link rel="stylesheet" type="text/css" href="../../styles.css">
+</head>
+
+<body>
+<!-- Generated on 7.11.2005 18:05:37, settings file: english -->
+
+<h3>Scene object</h3>
+<p>
+The Scene object represents the currently loaded scene. There is always one and only Scene object available. It's accessible via the Game.Scene attribute. For the convenience the templates automatically store the scene object in a global variable named <b>Scene</b>.
+</p>
+
+<br>
+
+<h4>Methods</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%"><b>Object manipulation</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#LoadActor">LoadActor</a></td>
+    <td>Loads a new actor from a file.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#LoadActor3D">LoadActor3D</a></td>
+    <td>Loads a new 3D actor from a file.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#LoadEntity">LoadEntity</a></td>
+    <td>Loads a new entity from a file.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#UnloadObject">UnloadObject</a></td>
+    <td>Removes an object from memory.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Scrolling functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SkipTo">SkipTo</a></td>
+    <td>Sets the current scroll position to the given point / object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ScrollTo">ScrollTo</a></td>
+    <td>Scrolls the scene to the given point / object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Node querying functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetLayer">GetLayer</a></td>
+    <td>Returns the given layer.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetWaypointGroup">GetWaypointGroup</a></td>
+    <td>Returns the given waypoint group.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetNode">GetNode</a></td>
+    <td>Returns the given scene node (entity or region).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetRegionAt">GetRegionAt</a></td>
+    <td>Returns a scene region at a given position.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Scene querying functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#IsBlockedAt">IsBlockedAt</a></td>
+    <td>Queries whether the scene is blocked at a given point.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#IsWalkableAt">IsWalkableAt</a></td>
+    <td>Queries whether the scene is walkable at a given point.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetScaleAt">GetScaleAt</a></td>
+    <td>Queries a scale factor at a given point of the scene.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetRotationAt">GetRotationAt</a></td>
+    <td>Queries a sprite rotation factor at a given point of the scene.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#IsPointInViewport">IsPointInViewport</a></td>
+    <td>Queries whether a given point is lying within the current scene viewport.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Fading functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#FadeOut">FadeOut</a></td>
+    <td>Fades the scene out to a specified color.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#FadeIn">FadeIn</a></td>
+    <td>Fades the scene in from a specified color.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetFadeColor">GetFadeColor</a></td>
+    <td>Gets the current fading color.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Dynamic object creation</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#CreateEntity">CreateEntity</a></td>
+    <td>Creates a new entity object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#DeleteEntity">DeleteEntity</a></td>
+    <td>Destroys a entity object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>3D characters related</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#EnableNode3D">EnableNode3D</a></td>
+    <td>Enables a 3D walkplane or blocked object</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#DisableNode3D">DisableNode3D</a></td>
+    <td>Disables a 3D walkplane or blocked object</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#EnableLight">EnableLight</a></td>
+    <td>Enables a 3D light within the scene</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#DisableLight">DisableLight</a></td>
+    <td>Disables a 3D light within the scene</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetLightColor">SetLightColor</a></td>
+    <td>Changes the color of a 3D light</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetActiveCamera">SetActiveCamera</a></td>
+    <td>Switches a camera used to display 3D objects in scene</td>
+  </tr>
+</table>
+
+<h4>Attributes</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%">Type (read only)</td>
+    <td>Returns always "scene"</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Name</td>
+    <td>The internal name of the scene</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Filename (read only)</td>
+    <td>Returns the filename.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Ready (read only)</td>
+    <td>Returns whether the scene is ready (the scrolling is over)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">NumLayers (read only)</td>
+    <td>Returns the number of layers</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">NumWaypointGroups (read only)</td>
+    <td>Return the number of waypoint groups</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">MouseX (read only)</td>
+    <td>Returns the current X position of the mouse cursor within the scene</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">MouseY (read only)</td>
+    <td>Returns the current Y position of the mouse cursor within the scene</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">MainLayer (read only)</td>
+    <td>Returns a reference to the scene's main layer</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">AutoScroll</td>
+    <td>Specifies whether scene automatically scrolls to the Game.MainObject</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">IsScrolling (read only)</td>
+    <td>Returns <b>true</b> if the scene is currently scrolling.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">PersistentState</td>
+    <td>Specifies whether the engine "remembers" the previous state of scene nodes when re-entering the scene</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">ScrollSpeedX</td>
+    <td>Horizontal scrolling speed (in milliseconds, default=10)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">ScrollSpeedY</td>
+    <td>Vertical scrolling speed (in milliseconds, default=10)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">ScrollPixelsX</td>
+    <td>Horizontal scrolling shift (in pixels, default=1)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">ScrollPixelsY</td>
+    <td>Vertical scrolling shift (in pixels, default=1)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">OffsetX</td>
+    <td>Current horizontal scrolling offset of the scene</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">OffsetY</td>
+    <td>Current vertical scrolling offset of the scene</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">GeometryFile (read only)</td>
+    <td>The filename of the geometry file assigned to scene or <b>null</b> if no geometry is assigned</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">ShowGeometry</td>
+    <td>Specifies if the hidden scene geometry is displayed (for development purposes only)</td>
+  </tr>
+</table>
+
+<hr>
+<h3><a name="LoadActor"></a>LoadActor(Filename)</h3>
+<p>Loads a new actor from a file.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the actor file to be loaded.</dd>
+</dl>
+<h4>Return value</h4>
+<p>A reference to the new Actor object. If the method fails, the return value is <b>null</b>.</p>
+<h4>Remarks</h4>
+<p>Actors loaded using this method will be automatically unloaded when the game changes to another scene (as opposed to the <b>Game.LoadActor</b> method).</p>
+
+<hr>
+<h3><a name="LoadActor3D"></a>LoadActor3D(Filename)</h3>
+<p>Loads a new 3D actor from a file.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the 3D actor file to be loaded.</dd>
+</dl>
+<h4>Return value</h4>
+<p>A reference to the new 3D actor object. If the method fails, the return value is <b>null</b>.</p>
+<h4>Remarks</h4>
+<p>Actors loaded using this method will be automatically unloaded when the game changes to another scene (as opposed to the <b>Game.LoadActor3D</b> method).</p>
+
+<hr>
+<h3><a name="LoadEntity"></a>LoadEntity(Filename)</h3>
+<p>Loads a new entity from a file.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the entity file to be loaded.</dd>
+</dl>
+<h4>Return value</h4>
+<p>A reference to the new Entity object. If the method fails, the return value is <b>null</b>.</p>
+<h4>Remarks</h4>
+<p>Entities loaded using this method will be automatically unloaded when the game changes to another scene (as opposed to the <b>Game.LoadEntity</b> method).</p>
+
+<hr>
+<h3><a name="UnloadObject"></a>UnloadObject(Object)</h3>
+<p>Removes an object from memory.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Object</i></dt>
+<dd>The object to be removed from memory.</dd>
+</dl>
+<h4>Remarks</h4>
+<p>If you load an object using the Scene.LoadActor or Scene.LoadEntity methods, you should unload those when you no longer need them to free memory. Otherwise those objects will be released automatically when the game changes to another scene.</p>
+
+<hr>
+<h3><a name="SkipTo"></a>SkipTo(X, Y)<br>SkipTo(Object)</h3>
+<p>Sets the current scroll position to the given point / object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>X</i></dt>
+<dd>New X coordinate for scroll position</dd>
+<dt><i>Y</i></dt>
+<dd>New Y coordinate for scroll position</dd>
+<dt><i>Object</i></dt>
+<dd>An object (actor/entity) to be used as a new scroll position</dd>
+</dl>
+
+<hr>
+<h3><a name="ScrollTo"></a>ScrollTo(X, Y)<br>ScrollTo(Object)</h3>
+<p>Scrolls the scene to the given point / object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>X</i></dt>
+<dd>X coordinate of the target scroll position</dd>
+<dt><i>Y</i></dt>
+<dd>Y coordinate of the target scroll position</dd>
+<dt><i>Object</i></dt>
+<dd>An object (actor/entity) to be used as a new target scroll position</dd>
+</dl>
+<h4>Remarks</h4>
+<p>The <b>Scene.AutoScroll</b> attribute must be set to <b>true</b> for this method to work.</p>
+
+<hr>
+<h3><a name="GetLayer"></a>GetLayer(LayerIndex)<br>GetLayer(LayerName)</h3>
+<p>Returns the given layer.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>LayerIndex</i></dt>
+<dd>An index of a layer to be returned</dd>
+<dt><i>LayerName</i></dt>
+<dd>A name of a layer to be returned</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns a reference to the layer object at a given index/with a given name or returns <b>null</b> if there's no such layer.</p>
+
+<hr>
+<h3><a name="GetWaypointGroup"></a>GetWaypointGroup(WptGroupIndex)</h3>
+<p>Returns the given waypoint group.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>WptGroupIndex</i></dt>
+<dd>An index of a waypoint group to be returned</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns a reference to the waypoint group object at a given index or <b>null</b> if there's no such waypoint group.</p>
+
+<hr>
+<h3><a name="GetNode"></a>GetNode(Name)</h3>
+<p>Returns the given scene node (entity or region).</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Name</i></dt>
+<dd>The name of the scene node to be returned</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns a reference to the scene node object with a given name or <b>null</b> if there's no such node.</p>
+<h4>Remarks</h4>
+<p>The scene nodes should have unique names for this method to work correctly.</p>
+
+<hr>
+<h3><a name="GetRegionAt"></a>GetRegionAt(X, Y, IncludeDecorations)</h3>
+<p>Returns a scene region at a given position.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>X</i></dt>
+<dd>The X coordinate within the scene to be searched for regions</dd>
+<dt><i>Y</i></dt>
+<dd>The Y coordinate within the scene to be searched for regions</dd>
+<dt><i>IncludeDecorations</i></dt>
+<dd>Specifies whether the decoration regions should be searched too (optional, default=false)</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns a reference to the scene region object at a given position or <b>null</b> if there's no such region.</p>
+
+<hr>
+<h3><a name="IsBlockedAt"></a>IsBlockedAt(X, Y)</h3>
+<p>Queries whether the scene is blocked at a given point.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>X</i></dt>
+<dd>The X coordinate of the point within scene to be tested</dd>
+<dt><i>Y</i></dt>
+<dd>The Y coordinate of the point within scene to be tested</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the scene is blocked at given coordinates.</p>
+
+<hr>
+<h3><a name="IsWalkableAt"></a>IsWalkableAt(X, Y)</h3>
+<p>Queries whether the scene is walkable at a given point.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>X</i></dt>
+<dd>The X coordinate of the point within scene to be tested</dd>
+<dt><i>Y</i></dt>
+<dd>The Y coordinate of the point within scene to be tested</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the scene is walkable at given coordinates.</p>
+
+<hr>
+<h3><a name="GetScaleAt"></a>GetScaleAt(X, Y)</h3>
+<p>Queries a scale factor at a given point of the scene.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>X</i></dt>
+<dd>The X coordinate of the point within scene to be queried</dd>
+<dt><i>Y</i></dt>
+<dd>The Y coordinate of the point within scene to be queried</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns the scale factor at given coordinates (in percent).</p>
+
+<hr>
+<h3><a name="GetRotationAt"></a>GetRotationAt(X, Y)</h3>
+<p>Queries a sprite rotation factor at a given point of the scene.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>X</i></dt>
+<dd>The X coordinate of the point within scene to be queried</dd>
+<dt><i>Y</i></dt>
+<dd>The Y coordinate of the point within scene to be queried</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns the sprite rotation factor at given coordinates (in degrees).</p>
+
+<hr>
+<h3><a name="IsPointInViewport"></a>IsPointInViewport(X, Y)</h3>
+<p>Queries whether a given point is lying within the current scene viewport.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>X</i></dt>
+<dd>The X coordinate of the point to be tested</dd>
+<dt><i>Y</i></dt>
+<dd>The Y coordinate of the point to be tested</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the specified point lies within the scene viewport.</p>
+
+<hr>
+<h3><a name="FadeOut"></a>FadeOut(Duration, TargetRed, TargetGreen, TargetBlue, TargetAlpha)<br>FadeOutAsync(Duration, TargetRed, TargetGreen, TargetBlue, TargetAlpha)</h3>
+<p>Fades the scene out to a specified color.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Duration</i></dt>
+<dd>Specifies how long it will take to fade out, in milliseconds (optional, default=500)</dd>
+<dt><i>TargetRed</i></dt>
+<dd>The Red component of a target fade color (optional, default=0)</dd>
+<dt><i>TargetGreen</i></dt>
+<dd>The Green component of a target fade color (optional, default=0)</dd>
+<dt><i>TargetBlue</i></dt>
+<dd>The Blue component of a target fade color (optional, default=0)</dd>
+<dt><i>TargetAlpha</i></dt>
+<dd>The Alpha component (opacity) of a target fade color (optional, default=255)</dd>
+</dl>
+<h4>Remarks</h4>
+<p>The FadeOut method blocks the script execution until the fading is over, while the FadeOutAsync method returns immediately.</p>
+
+<hr>
+<h3><a name="FadeIn"></a>FadeIn(Duration, SourceRed, SourceGreen, SourceBlue, SourceAlpha)<br>FadeInAsync(Duration, SourceRed, SourceGreen, SourceBlue, SourceAlpha)</h3>
+<p>Fades the scene in from a specified color.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Duration</i></dt>
+<dd>Specifies how long it will take to fade in, in milliseconds (optional, default=500)</dd>
+<dt><i>SourceRed</i></dt>
+<dd>The Red component of the initial fade color (optional, default=0)</dd>
+<dt><i>SourceGreen</i></dt>
+<dd>The Green component of the initial fade color (optional, default=0)</dd>
+<dt><i>SourceBlue</i></dt>
+<dd>The Blue component of the initial fade color (optional, default=0)</dd>
+<dt><i>SourceAlpha</i></dt>
+<dd>The Alpha component (opacity) of the initial fade color (optional, default=255)</dd>
+</dl>
+<h4>Remarks</h4>
+<p>The FadeIn method blocks the script execution until the fading is over, while the FadeInAsync method returns immediately.</p>
+
+<hr>
+<h3><a name="GetFadeColor"></a>GetFadeColor()</h3>
+<p>Gets the current fading color.</p>
+<h4>Return value</h4>
+<p>Returns the current fading color in the encoded color format.</p>
+<h4>Remarks</h4>
+<p>You can use the GetRValue(), GetGValue(), GetBValue() and GetAValue() functions to extract individual color components.</p>
+
+<hr>
+<h3><a name="CreateEntity"></a>CreateEntity(Name)</h3>
+<p>Creates a new entity object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Name</i></dt>
+<dd>The name of the entity object (optional)</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns a reference to the newly created entity.</p>
+
+<hr>
+<h3><a name="DeleteEntity"></a>DeleteEntity(Entity)</h3>
+<p>Destroys a entity object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Entity</i></dt>
+<dd>The entity object to be destroyed</dd>
+</dl>
+
+<hr>
+<h3><a name="EnableNode3D"></a>EnableNode3D(NodeName)</h3>
+<p>Enables a 3D walkplane or blocked object</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>NodeName</i></dt>
+<dd>The name of the node to be enabled.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the node has been successfuly enabled.</p>
+<h4>Remarks</h4>
+<p>The scene must have a 3D geometry assigned for this method to work.</p>
+
+<hr>
+<h3><a name="DisableNode3D"></a>DisableNode3D(NodeName)</h3>
+<p>Disables a 3D walkplane or blocked object</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>NodeName</i></dt>
+<dd>The name of the node to be disabled.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the node has been successfuly disabled.</p>
+<h4>Remarks</h4>
+<p>The scene must have a 3D geometry assigned for this method to work.</p>
+
+<hr>
+<h3><a name="EnableLight"></a>EnableLight(LightName)</h3>
+<p>Enables a 3D light within the scene</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>LightName</i></dt>
+<dd>The name of the light to be enabled.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the light has been successfuly enabled.</p>
+<h4>Remarks</h4>
+<p>The scene must have a 3D geometry assigned for this method to work.</p>
+
+<hr>
+<h3><a name="DisableLight"></a>DisableLight(LightName)</h3>
+<p>Disables a 3D light within the scene</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>LightName</i></dt>
+<dd>The name of the light to be disabled.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the light has been successfuly disabled.</p>
+<h4>Remarks</h4>
+<p>The scene must have a 3D geometry assigned for this method to work.</p>
+
+<hr>
+<h3><a name="SetLightColor"></a>SetLightColor(LightName, Color)</h3>
+<p>Changes the color of a 3D light</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>LightName</i></dt>
+<dd>The name of the light to be changed</dd>
+<dt><i>Color</i></dt>
+<dd>The RGB color to be assigned to the light</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the light color has been successfuly changed.</p>
+<h4>Remarks</h4>
+<p>The scene must have a 3D geometry assigned for this method to work.</p>
+
+<hr>
+<h3><a name="SetActiveCamera"></a>SetActiveCamera(CameraName)</h3>
+<p>Switches a camera used to display 3D objects in scene</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>CameraName</i></dt>
+<dd>The name of the camera to be used.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the camera has been successfuly switched.</p>
+<h4>Remarks</h4>
+<p>The scene must have a 3D geometry assigned for this method to work.</p>
+
+
+</body>
+
+</html>

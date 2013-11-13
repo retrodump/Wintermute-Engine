@@ -1,0 +1,67 @@
+#include "scripts\base.inc"
+#include "scripts\keys.inc"
+
+var NumSlotButtons = 5;
+
+SetState();
+
+////////////////////////////////////////////////////////////////////////////////
+on "close"
+{
+  this.Close();
+}
+
+////////////////////////////////////////////////////////////////////////////////
+on "Keypress"
+{
+  var button;
+
+  if(Keyboard.KeyCode==VK_ESCAPE){
+    button = this.GetControl("close");
+    button.Press();
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+function SetState()
+{  
+  for(var i=0; i<NumSlotButtons; i=i+1)
+  {
+    var SlotButton = this.GetControl(ToString(i+1));
+
+    if(Game.IsSaveSlotUsed(i+1))
+    {
+      SlotButton.Text = Game.GetSaveSlotDescription(i+1);
+      SlotButton.Disabled = false;
+    }
+    else
+    {
+      SlotButton.Text = "<empty>";
+      SlotButton.Disabled = true;
+    }
+  }
+  
+  //if(Game.IsSaveSlotUsed(SelectedSlot)) Thumbnail.SetImage("savegame:" + SelectedSlot);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+on "1"
+{
+	Game.LoadGame(1);
+}
+on "2"
+{
+	Game.LoadGame(2);
+}
+on "3"
+{
+	Game.LoadGame(3);
+}
+on "4"
+{
+	Game.LoadGame(4);
+}
+on "5"
+{
+  Game.LoadGame(5);
+}

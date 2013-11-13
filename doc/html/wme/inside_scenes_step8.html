@@ -1,0 +1,109 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Step 8: Layers</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3>Step 8: Layers</h3>
+<p>The previous step of the tutorial was 
+quite difficult. Let’s have some rest in this last step. We will learn how to 
+achieve a so called “parallax scrolling”. For this purpose, WME allows you to 
+have multiple <b>layers</b> in one scene. If the layer’s dimensions are bigger 
+than the game resolution, the layer will automatically scroll. And the bigger 
+the layer is, the faster the scrolling will be. If you have, say, three layers, 
+each of them having a different width, they will scroll each at a different 
+speed. It’s as simple as that. To achieve a realistic perspective effect, the 
+largest layers must be closest to the viewer. Another thing you need to know is 
+that there is always one “main” layer and the other layers are only a 
+decoration. Only the main layer can contain the regions.</p>
+<p>Usually, three layers will be enough to 
+get good results (background, main layer and foreground), but there is no limit 
+on the number of layers in one scene.</p>
+
+<p>We will add a background layer to our 
+scene. It will be an image of the sky and it will be visible behind the window.</p>
+
+<p>First of all we need some graphics for 
+the layer. Once again the sky image is prepared for you in the “data\tutorial\gfx” 
+folder. In ProjectMan, right click the “MyScene” folder and select the 
+“Import-&gt;Import file(s)…” command. Browse to the “data\tutorial\gfx” folder, 
+select a “sky.bmp” file and click OK. The sky image will be imported into your 
+scene’s folder.</p>
+
+<p>Open our “MyScene.scene” file in 
+SceneEdit.</p>
+
+<p>You will add a new layer by pressing the 
+“Add layer” button above the layer list window. </p>
+
+<p align="center">
+<img border="0" src="../img/tut8-1.png" width="222" height="129"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>SceneEdit will open the layer properties 
+window. Change the name to “sky” and change the dimensions to 800, 716. That way 
+the layer’s horizontal dimension matches the game resolution hence this layer will not 
+scroll. Since the main layer WILL scroll, we will get a nice perspective effect. 
+The vertical dimension matches the height of the main layer. This way the sky 
+image will scroll at the same speed as the background, hence it will be always 
+displayed behind the window.</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut8-2.png" width="276" height="163"></p>
+
+
+<p>Click OK to dismiss the layer properties dialog. You have to move the new layer 
+to be first in the list (use the up and down buttons).</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut8-3.png" width="221" height="148"></p>
+
+
+<p align="center">&nbsp;</p>
+
+
+<p>All we have to do now is to add a new 
+entity to the newly created layer. We already know the “Add entity” button. 
+Press it and select “Add sprite entity”. A new entity will be created. Change 
+its name to “sky” and set its sprite to the “sky.bmp” file we’ve imported 
+earlier.</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut8-4.png" width="215" height="132"></p>
+
+
+<p align="center">&nbsp;</p>
+
+
+<p>Now move the entity to properly cover the window.</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut8-5.png" width="564" height="325"></p>
+
+
+<p>&nbsp;</p>
+
+<p>And that’s all. Save your scene and run 
+the game. You should see a parallax scrolling in the action.</p>
+
+<p>Congratulations! You have just finished 
+your first scene for the Wintermute Engine!!! :-)</p>
+
+<p>Now we can move to the last step of this tutorial, <a href="inside_scenes_step9.html">Step 9: Miscellaneous tips and procedures</a>.</p>
+
+
+</body>
+
+</html>

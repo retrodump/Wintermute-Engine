@@ -1,0 +1,76 @@
+*tit Layer object
+*des The Layer object allows you to access the properties of your scene's layers. Layers can be queried by using the <b>Scene.GetLayer</b> method.
+*cls CAdLayer
+
+*grp Layer actions
+
+*met GetNode(NodeIndex)
+*mt2 GetNode(NodeName)
+*des Queries a given node (region/entity) of the layer.
+*par NodeIndex An index of the requested scene node
+*par NodeName A name of the requested scene node
+*ret Returns the requested node or <b>null</b> if a specified node doesn't exist.
+
+*grp Dynamic object creation
+
+*met AddEntity(EntityName)
+*des Adds a new entity to the top of the layer
+*par EntityName The name of the new entity
+*ret Returns a reference to the newly created entity object.
+
+*met InsertEntity(Index, EntityName)
+*des Inserts a new entity to the scene layer
+*par Index The position within scene nodes where the new entity is to be inserted
+*par EntityName The name of the new entity
+*ret Returns a reference to the newly created entity object.
+
+*met AddRegion(RegionName)
+*des Adds a new region to the top of the layer
+*par RegionName The name of the new region
+*ret Returns a reference to the newly created region object.
+
+*met InsertRegion(Index, RegionName)
+*des Inserts a new region to the scene layer
+*par Index The position within scene nodes where the new region is to be inserted
+*par RegionName The name of the new region
+*ret Returns a reference to the newly created region object.
+
+*met DeleteNode(NodeIndex)
+*mt2 DeleteNode(NodeObject)
+*des Permanently removes a scene node (entity or region) from a scene layer
+*par NodeIndex The index of the scene node to be deleted
+*par NodeObject The scene node object to be deleted
+*ret Returns <b>true</b> if the node was successfuly deleted.
+
+
+
+*grp 
+*atr Type
+*des Returns always "layer" 
+*ro
+
+*atr Name
+*des The internal name of the layer
+
+*atr Active
+*des Specifies whether the layer is visible on screen
+
+*atr NumNodes
+*des Returns the number of nodes of the layer
+*ro
+
+*atr Width
+*des Returns the width of the layer
+*ro
+
+*atr Height
+*des Returns the height of the layer
+*ro
+
+*atr Main
+*des Returns <b>true</b> if this is the scene's main layer
+*ro
+
+*atr CloseUp
+*des Specifies whether this is a close-up layer
+

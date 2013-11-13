@@ -1,0 +1,60 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Architektura WME</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h1>Architektura WME</h1>
+<p>WME je navrženo d&#367;sledn&#283; objektov&#283;. Svou hru skládáte z n&#283;kolika
+typ&#367; &quot;objekt&#367;&quot;, které pospojujete pomocí akpika&#269;ní
+logiky. Herní objekty jsou spravovány nástrojem <i>ProjectMan</i>. </p>
+<p>Nej&#269;ast&#283;ji používané herní objekty jsou:</p>
+<p><b>Scény (Scenes) </b>– Hra se zpravidla skládá z mnoha scén, ty p&#345;edstavují
+&quot;místnosti&quot;, sv&#283;t, &#269;i prost&#345;edí, kde se hra odehrává.
+Scény vytvá&#345;íme pomocí nástroje <i>SceneEdit</i>.&nbsp;</p>
+<p><b>Postavy (Actors)</b> 
+– Postavy jsou lidé (zví&#345;ata/monstra...), kte&#345;í se objevují ve
+vaší h&#345;e. Obvykle máme jednu hlavní postavu (hlavní hrdina ovládaný
+hrá&#269;em) a n&#283;kolik dalších postav (NPC - non-player characters).</p>
+<p><b>Entity (Entities)</b> 
+– Entity jsou obecné interaktivní i neinteraktivní objekty v herním sv&#283;t&#283;.
+Také scény jsou poskládány z entity (m&#367;žete si entity p&#345;edstavit
+jako divadelní kulisy). Také m&#367;žete pomocí entit vytvo&#345;it
+jednoduché postavy, které nemusejí chodit (normáln&#283; se pro lidi používá
+objekt &quot;postava&quot;, ale pokud postava není pohyblivá, bohat&#283;
+posta&#269;í entita, její tvorba je jednodušší).&nbsp; </p>
+<p><b>Objekty uživatelského rozhraní (GUI objects)</b> 
+– WME vám umož&#328;uje vytvá&#345;et rozhraní hry pomocí p&#345;eddefinovaných
+ovládacích prvk&#367;, jako jsou okna, tla&#269;ítka &#269;i textová pole.
+Tyto prvky lze využít na v&#283;ci, jako je inventá&#345;, okna pro ukládání/na&#269;ítání
+hry, okna nastavení, menu pro výb&#283;r akcí atd. U všech ovládacích prvk&#367;
+lze m&#283;nit jejich vzhled, tak aby zapadly do grafického stylu hry.</p>
+<p><b>Fonty (Fonts)</b> – WME používá grafické fonty (písma) pro zobrazení
+nejr&#367;zn&#283;jších nápis&#367;, titulk&#367;, ovládacích prvk&#367;
+atd. M&#367;žete vytvá&#345;et vlastní fonty, které zapadnou do grafického
+stylu vaší hry.</p>
+<p><b>Sprity (Sprites)</b> 
+– &quot;Sprite&quot; je základní grafický element, používaný ve WME. M&#367;že
+to být bu&#271;to statický obrázek, nebo animace. Pomocí sprit&#367; se skládají
+složit&#283;jší herní objekty, jako jsou postavy a entity. Sprity lze
+editovat nástrojem <i>SpriteEdit</i>.</p>
+<p>Ovšem co vaši hru opravdu p&#345;ivede k životu jsou <b>skripty</b>.
+Skripty jsou jednoduché programy, které p&#345;edstavují vlastní herní
+logiku (neboli &quot;chytrost&quot;, chcete-li). Skripty m&#367;žete napojovat
+k jednotlivým herním objekt&#367;m, &#269;ímž jim vlastn&#283; dáte jejich
+mozek. Skripty dále mohou regovat na události zven&#269;í, jako je kliknutí
+myší a podobn&#283;. WME používá vlastní skriptovací jazyk, který je
+vlastn&#283; zjednodušenou verzí JavaScriptu. Pokud už máte s JavaScriptem n&#283;jaké
+zkušenosti, psaní skript&#367; pro WME by vám nem&#283;lo &#269;init žádné
+potíže.</p>
+
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<html>
+<meta http-equiv="Content-Language" content="el">
+<meta name="GENERATOR" content="WME DocMaker 2.0">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-7">
+<title>Αντικείμενο πληκτρολόγιο</title>
+<link rel="stylesheet" type="text/css" href="../../styles.css">
+</head>
+
+<body>
+<!-- Generated on 6.11.2005 22:35:34, settings file: greek -->
+
+<h3>Αντικείμενο πληκτρολόγιο</h3>
+<p>
+Το αντικείμενο πληκτρολόγιο αναπαριστά την κατάσταση του πληκτρολογίου αυτή τη στιγμή. Υπάρχει πάντα ένα και μόνο ένα διαθέσιμο και είναι προσβάσιμο μέσω της ιδιότητας <b>Game.Keyboard</b>. Για ευκολία τα πρότυπα το αποθηκεύουν αυτόματα σε μία γενική μεταβλητή με το όνομα <b>Keyboard</b>.
+</p>
+
+<br>
+
+<h4>Μέθοδοι</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%"><a href="#IsKeyDown">IsKeyDown</a></td>
+    <td>Ελέγχει αν το δοσμένο πλήκτρο είναι πατημένο.</td>
+  </tr>
+</table>
+
+<h4>Ιδιότητες</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%">Type (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει πάντα "keyboard".</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Key (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει μία γραμμή με το όνομα του πατημένου πλήκτρου (αν είναι εκτυπώσιμος χαρακτήρας).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Printable (μόνο για ανάγνωση)</td>
+    <td>Αν το πατημένο πλήκτρο είναι εκτυπώσιμος χαρακτήρας επιστρέφει <b>true</b>.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">KeyCode (μόνο για ανάγνωση)</td>
+    <td>Επιστρέφει τον αριθμητικό κωδικό του πατημένου πλήκτρου.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">IsShift (μόνο για ανάγνωση)</td>
+    <td>Αν όταν πατηθεί ένα πλήκτρο είναι παράλληλα πατημένο και το SHIFT επιστρέφει <b>true</b>.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">IsAlt (μόνο για ανάγνωση)</td>
+    <td>Αν όταν πατηθεί ένα πλήκτρο είναι παράλληλα πατημένο και το ALT επιστρέφει <b>true</b>.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">IsControl (μόνο για ανάγνωση)</td>
+    <td>Αν όταν πατηθεί ένα πλήκτρο είναι παράλληλα πατημένο και το CONTROL επιστρέφει <b>true</b>.</td>
+  </tr>
+</table>
+
+<hr>
+<h3><a name="IsKeyDown"></a>IsKeyDown(Πλήκτρο)</h3>
+<p>Ελέγχει αν το δοσμένο πλήκτρο είναι πατημένο.</p>
+<h4>Παράμετροι</h4>
+<dl>
+<dt><i>Πλήκτρο</i></dt>
+<dd>Το πλήκτρο που θα ελεγχθεί (είτε κείμενο όπως "Α" είτε αριθμητική σταθερά)</dd>
+</dl>
+<h4>Επιστρεφόμενη τιμή</h4>
+<p>Αν το πλήκτρο είναι πατημένο επιστρέφει <b>true</b>.</p>
+<h4>Παρατηρήσεις</h4>
+<p>Τα διαθέσιμο ονόματα πλήκτρων είναι ορισμένα ως σταθερές στο αρχείο "scripts\keys.inc".</p>
+
+
+</body>
+
+</html>

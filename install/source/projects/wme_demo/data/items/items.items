@@ -1,0 +1,28 @@
+ITEM
+{
+   CURSOR_COMBINED = TRUE
+   CAPTION = "WME User's Guide"
+   NAME = "book"
+   SPRITE = "items\book.bmp"
+   CURSOR = "items\book.bmp"
+   CURSOR_HOVER = "items\book_h.bmp"
+   SCRIPT = "items\book.script"
+}
+
+
+ITEM
+{
+   CURSOR_COMBINED = TRUE
+   CAPTION = "Money"
+   NAME = "money"
+   SPRITE = "items\money.png"
+   CURSOR = "items\money.png"
+   CURSOR_HOVER = "items\money_h.png"
+   SCRIPT = "items\money.script"
+
+   DISPLAY_AMOUNT = TRUE
+   AMOUNT = 200
+   AMOUNT_ALIGN = right
+   AMOUNT_OFFSET_x = 5
+   AMOUNT_OFFSET_Y = 47
+}

@@ -1,0 +1,476 @@
+; string table for WME Project Manager (ProjectMan.exe)
+; each line contains a string identifier and the actual string, delimited by a TAB character
+; only translate the string, never modify the identifier
+
+comment	----- Properties -----
+str0001	Startup settings
+str0002	Resolution - width
+str0003	Resolution - height
+str0005	Registry path
+str0006	Require 3D accel.
+str0007	Allow windowed
+str0008	String table
+str0009	Game settings
+str0010	Caption
+str0011	Name
+str0012	Scripts
+str0013	[NO SCRIPTS]
+str0014	scripts
+str0015	script
+str0016	Personal savegames
+str0017	Speech subtitles
+str0018	Video subtitles
+str0019	Subtitles speed
+str0020	System font
+str0021	Video font
+str0022	Cursor
+str0023	Active cursor
+str0024	Nonint.cursor
+str0025	Inventory window
+str0026	Response window
+str0027	Items definition
+str0028	Talk lines skipped by
+str0029	left mouse button
+str0030	right mouse button
+str0031	both mouse buttons
+str0032	Scene viewport
+str0033	[fullscreen]
+str0034	Pos:
+str0035	Size:
+str0036	Debugging settings
+str0037	Debug mode
+str0038	Show FPS
+str0039	Allow windowed
+str0040	Selected package
+str0041	Description
+str0042	CD
+str0043	Priority
+comment	----- Various messages -----
+str0044	This name contains forbidden characters.
+str0045	A folder or file with this name already exists.
+str0046	Error writing to a file
+str0047	Error loading the settings file.
+str0048	Do you really want to remove the currently assigned file?
+str0049	Error creating folder.
+str0050	Cannot remove the object while loading is in progress.
+str0051	Do you really want to degrade this package to a common folder?\n(you will lose all setting for this package)
+str0052	Syntax is correct.
+comment	----- Dynamic menu items -----
+str0060	Edit...
+str0061	Explore
+str0062	Promote to package
+str0063	Set as primary package
+str0064	Degrade to folder
+str0065	Add scene...
+str0066	Add actor...
+str0067	Add entity...
+str0068	Add script...
+str0069	Add sprite...
+str0070	Add font...
+str0071	Add window...
+str0072	Create subfolder...
+str0073	Add
+str0074	Import
+str0075	Import file(s)...
+str0076	Import folder...
+str0077	Check syntax...
+str0078	Remove
+str0079	Copy filename
+str0080	Refresh
+str0081	Create folder...
+comment ----- Miscelaneous -----
+str0100	Compiling file
+str0101	Line
+str0102	New folder
+str0103	Select a folder to put the compiled packages to...
+str0104	Select a folder to import...
+str0105	Help
+str0106	Log
+str0107	Shared tools settings
+str0108	Preparing output folder...
+str0109	Cannot create output folder
+str0110	Preparing build...
+str0111	Package
+str0112	no files to add
+str0113	Cancelled by user
+str0114	All packages are empty.
+str0115	Packages created successfuly
+str0116	Initializing filters...
+str0117	Package
+str0118	Creating package
+str0119	Error opening file
+str0120	for writing
+str0121	File
+str0122	Cannot open file
+str0123	for reading
+str0124	Cannot allocate memory for file
+str0125	Error applying filter to file
+str0126	Error compressing file
+str0127	Creating master index package
+str0128	Master index
+str0129	New project
+str0130	WME runtime
+str0131	abcdefghijklmnopqrstuvwxyz\nABCDEFGHIJKLMNOPQRSTUVWXYZ\n0123456789.:,;(*!?')\n\nThe quick brown fox jumps over the lazy dog. 1234567890
+str0132	Project settings
+str0133	Preview is disabled
+str0134	Loading preview...
+str0135	File
+str0136	Error loading sprite
+str0137	Error loading scene
+str0138	Error loading actor
+str0139	Error loading entity
+str0140	Error loading font
+str0141	Error loading window
+str0142	Error loading sound
+str0143	Playing the sound...
+str0144	Preview not available
+str0145	Error querying latest available version.
+str0146	Your WME version is up to date.
+str0147	There is an updated version of WME available. Do you want to display the download page now?
+str0148	Error copying the engine runtime to the output folder
+str0149	Icon changing is not supported on this Windows version
+str0150	Error changing icon
+
+comment ----- Dialogs -----
+str0160	About ProjectMan
+str0161	(See the documentation for the list of third party libraries used in this product)
+str0162	New folder
+str0163	Name:
+str0164	Packages
+str0165	(semicolon separated list of file masks, e.g. *.txt;*.doc)
+str0166	Exclude from build:
+str0167	Do not compress:
+str0168	Use script compiler:
+str0169	Output folder:
+str0170	Build master index
+str0171	Game version:
+str0172	Preview
+str0173	Viewport
+str0174	No viewport (fullscreen)
+str0175	Position:
+str0176	Size:
+str0177	Copy WME runtime to the output folder as:
+str0178	Change icon to: (unavailable on Windows 95/98/Me)
+str0179	Icon files
+
+
+comment	----- Menus -----
+str0190	&File
+str0191	&New...\tCtrl+N
+str0192	&Open...\tCtrl+O
+str0193	&Close
+str0194	&Save project\tCtrl+S
+str0195	E&xit
+str0196	&Edit
+str0197	&Undo\tCtrl+Z
+str0198	Cu&t\tCtrl+X
+str0199	&Copy\tCtrl+C
+str0200	&Paste\tCtrl+V
+str0201	&View
+str0202	&Toolbar
+str0203	&Status Bar
+str0204	&Project
+str0207	&Project settings...
+str0208	&Tools
+str0209	&Options...
+str0210	&Window
+str0211	&New Window
+str0212	&Cascade
+str0213	&Tile
+str0214	&Arrange Icons
+str0215	&Help
+str0216	&About ProjectMan...
+str0217	&Browse...
+str0218	&Edit...
+str0219	&Remove
+str0220	&WME Documentation
+str0221	&Check for updates...
+str0222	WME on the Web
+comment	----- Command prompts -----
+str0250	Create a new project
+str0251	Open an existing project
+str0252	Close the active project
+str0253	Save current project
+str0254	Save the active document with a new name
+str0255	Display program information, version number and copyright
+str0256	Quit the application; prompts to save documents
+str0257	Open this document
+str0258	Switch to the next window pane
+str0259	Switch back to the previous window pane
+str0260	Open another window for the active document
+str0261	Arrange icons at the bottom of the window
+str0262	Arrange windows so they overlap
+str0263	Arrange windows as non-overlapping tiles
+str0264	Split the active window into panes
+str0265	Erase the selection
+str0266	Erase everything
+str0267	Copy the selection and put it on the Clipboard
+str0268	Cut the selection and put it on the Clipboard
+str0269	Find the specified text
+str0270	Insert Clipboard contents
+str0271	Repeat the last action
+str0272	Replace specific text with different text
+str0273	Select the entire document
+str0274	Undo the last action
+str0275	Redo the previously undone action
+str0276	Show or hide the toolbar
+str0277	Show or hide the status bar
+str0278	Change the window size
+str0279	Change the window position
+str0280	Reduce the window to an icon
+str0281	Enlarge the window to full size
+str0282	Switch to the next document window
+str0283	Switch to the previous document window
+str0284	Close the active window and prompts to save the documents
+str0285	Restore the window to normal size
+str0286	Activate Task List
+str0287	Activate this window
+str0288	Edit selected object
+str0289	Open selected folder in Windows Explorer
+str0290	Promote this folder to a package
+str0291	Create a new subfolder
+str0292	Refresh the project tree
+str0293	Create a new top-level folder
+str0294	Remove selected node (hold a SHIFT key to bypass the Recycle Bin)
+str0295	Degrade this package to an ordinary folder
+str0296	Make this package a primary package
+str0297	Edits the project settings
+str0298	Compile the packages
+str0299	Run the game using raw resources
+str0300	Copy the relative path to the selected file to the Clipboard
+str0301	Add a new actor
+str0302	Add a new entity
+str0303	Add a new scene
+str0304	Add a new script
+str0305	Add a new sprite
+str0306	Add a new font
+str0307	Add a new window
+str0308	Import one or multiple files into your project
+str0309	Import a folder into your project
+str0310	Check the selected script for syntactical errors
+str0311	Display the WME help file
+str0312	Checks for available updates
+
+comment	----- Shared strings -----
+str1000	Yes
+str1001	No
+str1002	Error
+str1003	All Files
+str1004	Cancel
+str1005	OK
+str1006	General
+str1007	Use hardware acceleration (if available)
+str1008	Force 16bit textures
+str1009	Force texture subdivision
+str1010	Note: these settings will only affect the newly opened windows
+str1011	Path to WME tools:
+str1012	Repository paths:
+str1013	Add...
+str1014	Remove
+str1015	Sorry, you can't have more than 10 repository paths.
+str1016	Select a folder...
+str1017	WME runtime
+str1018	Root folder
+str1019	Please specify the root folder of your project:
+str1020	Previously specified folders:
+str1021	Other folder:
+str1022	Scripts
+str1023	Script up
+str1024	Script down
+str1025	Remove script
+str1026	Add script
+str1027	Edit script
+str1028	Scripts for the
+str1029	object
+str1030	Script Files
+str1031	This script is already assigned.
+str1032	Do you really want to remove this script?
+str1033	Template selection
+str1034	Repository:
+str1035	Name:
+str1036	Location:
+str1037	Project name:
+str1038	Select a target folder...
+str1039	The specified name contains illegal characters.\n\n(Illegal characters are: ./\:*?<>"| and space)
+str1040	Cannot find the source file/folder
+str1041	Template properties
+str1042	The target file
+str1043	already exists.\nDo you want to overwrite it?
+str1044	The destination folder already contains file named
+str1045	Please select another name.
+str1046	The destination folder already contains subfolder
+str1047	Some of its contents may be overwritten.\nDo you want to continue?
+str1048	Error creating folder for file
+str1049	Parsing file
+str1050	Error opening file
+str1051	for reading
+str1052	for writing
+str1053	Parsing merge file
+str1054	Error opening merge file
+str1055	Template
+str1056	Error initializing accelerated renderer. Sticking back to software...
+str1057	Cannot undo changes
+str1058	Folder
+str1059	is not a parent folder of file
+str1060	Folder
+str1061	doesn't exist.\nDo you want to create it?
+str1062	The specified folder cannot be created.
+str1063	This doesn't appear to be a valid root folder (no project file was found).\n\nDo you want to continue anyway?
+str1064	Warning
+str1065	must be an
+str1066	integer number.
+str1067	unsigned
+str1068	must be a number in range
+str1069	cannot be longer than
+str1070	characters
+str1071	character
+str1072	must be at least
+str1073	long.
+str1074	String tables
+str1075	Font files
+str1076	Sprite files
+str1077	Definition files
+str1078	Items files
+str1079	\nThe specified file doesn't exist.\nDo you want to create it?
+str1080	Error creating file
+str1081	File
+str1082	could not be found.
+str1083	Automatically check for updates on startup
+
+; 1.1.035
+str1084	This project has been created in a newer version of WME. It is recommended that you upgrade before opening this file.\n\nDo you want to open this project anyway? (not recommended)
+comment	Updates download URL and version string URL
+str1085	http://dead-code.org/redir.php?target=updates
+str1087	Startup scene
+str1088	Scene files
+str1089	Set as startup scene (debug only)
+str1090	Sets this scene as startup scene (only applies when the game runs in debug mode)
+
+; 1.1.036
+str1091	Saved games
+str1092	Thumbnail width
+str1093	Thumbnail height
+
+; 1.1.038
+str1094	Launches SceneEdit
+str1095	Launches SpriteEdit
+str1096	Bind package to the engine runtime:
+
+; 1.2.042
+; -- moved, added keyboard shortcuts
+str0205	Run game\tF5
+str0206	Compile packages\tF7
+
+
+str1097	Indicator X
+str1098	Indicator Y
+str1099	Indicator Width
+str1100	Indicator Height
+str1101	Indicator Color
+str1102	Indicator Transparency
+str1103	Always display settings dialog when running game
+
+; 1.2.044
+str1104	Save/load screen
+str1105	<set>
+str1106	<not set>
+str1107	Save / load screen
+str1108	Loading screen
+str1109	Saving screen
+str1110	Position:
+str1111	Image file:
+str1112	Image files
+
+; 1.3
+str1113	Add 3D actor...
+str1114	Add a new 3D actor
+
+; changed
+str1086	http://www.dead-code.org/vercheck.php
+str1115	Allow 3D settings
+
+; 1.3.2
+str1116	Save directory
+
+; 1.5
+str1117	Plugins
+str1118	Select plugins you want to distribute with your game:
+str1119	Description:
+str1120	Version:
+str1121	WME version:
+str1122	Full path:
+str1123	Supported classes:
+str1124	Copying plugin
+str1125	Error copying plugin
+
+; 1.6
+str1126	Allow accessibility
+str1127	Allow about tab
+
+; 1.7
+str1128	Show hidden files
+str1129	Debugging console
+str1130	Never
+str1131	In windowed mode
+str1132	Always
+str1133	Launches String Table Manager
+
+str1134	Donation reminder
+str1135	You have been using WME for quite some time...
+str1136	By now you should probably know whether this program is useful to you or not, and perhaps you'd like to support its further development by making a donation.
+str1137	Visit WME dotation page now
+str1138	Remind me later
+str1139	I already donated
+str1140	I don't want to donate
+str1141	Thank you for supporting Wintermute Engine!
+str1142	Donate
+str1143	Support WME development by making a donation
+
+; 1.8
+str1144	Require sound
+str1145	Hardware T&&L
+str1146	don't use
+str1147	use when available
+str1148	ask user
+str1149	Use Direct3D 9
+str1150	Set as startup scene
+str1151	GUID
+str1152	Game GUID
+str1153	Game GUID:
+str1154	Generate
+str1155	Warning: You shouldn't change this GUID once the game has been released.
+str1156	Are you sure you want to change the GUID of your game?
+str1157	Rich saved games
+str1158	File extension
+str1159	Filters
+str1160	Copy as is:
+str1161	Copy settings.exe to the output folder as:
+str1162	Error copying settings.exe to the output folder
+str1163	Game Explorer
+str1164	Add Game Explorer integration data
+str1165	Game definition file:
+str1166	Game thumbnail:
+str1167	Game definition files
+str1168	Inserting Game Explorer data is not supported on this Windows version
+str1169	Generate GDF file...
+str1170	Generates Game Definition File skeleton
+str1171	Note: You can use the 'Tools->Generate GDF file...' command to generate a skeleton game definition file based on project settings.
+str1172	Debugging options (useful when building alpha/beta versions):
+str1173	Include WME crash reporting library
+str1174	Enable framerate display
+str1175	Enable error logging
+str1176	Error copying wme_report.dll to the output folder
+str1177	Compatibility
+str1178	These options allow you to restore compatibility with previous WME releases:
+str1179	Custom methods behavior compatibility (changed in WME 1.8)
+str1180	Open...
+str1181	Open selected object in an associated application
+str1182	Compile this package
+str1183	Compile only the selected package
+
+; 1.8.6
+str1184	Include D3DX library (for games using Direct3D 9)
+str1185	Error copying D3DX library to the output folder
+
+; 1.8.8
+str1186	Allow desktop resolution

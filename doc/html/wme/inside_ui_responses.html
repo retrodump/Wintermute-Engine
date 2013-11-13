@@ -1,0 +1,103 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Response box</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3>Response box</h3>
+
+<p>The response box represents the response selection window for your game. 
+It defines the placement of the responses, some controls (such as the  scrolling buttons) and  the design of the background of the 
+response selection.</p>
+
+<p>Reponse box is defined in a simple text file which as a structure similar 
+to this:</p>
+
+<pre><font color="#FF00FF">RESPONSE_BOX
+{
+  FONT = "fonts\outline_white.font"
+  FONT_HOVER = "fonts\outline_red.font"
+  CURSOR = "path\response_cursor.png"
+  HORIZONTAL = FALSE
+  TEXT_ALIGN = &quot;left&quot;
+  VERTICAL_ALIGN = &quot;bottom&quot;
+  SPACING = 5
+
+  AREA {40, 0, 800, 170}</font>
+
+<font color="#808080">  WINDOW
+  {    
+    X = 0
+    Y = 420
+    WIDTH = 800
+    HEIGHT = 180
+
+    BUTTON
+    {
+      TEMPLATE = "ui_elements\template\but.button"
+      IMAGE = "ui_elements\arrow_up.bmp"
+      TEXT = ""
+      NAME = "prev"
+
+      X = 0
+      Y = 0
+      WIDTH = 30
+      HEIGHT = 30
+    }
+
+    BUTTON{
+      TEMPLATE = "ui_elements\template\but.button"
+      IMAGE = "ui_elements\arrow_down.bmp"
+      TEXT = ""
+      NAME = "next"
+
+      X = 0
+      Y = 150
+      WIDTH = 30
+      HEIGHT = 30
+    }
+  }</font>
+<font color="#FF00FF">}</font>
+</pre>
+
+<p>&nbsp;</p>
+<p>As you see, the first part (purple) defines some response-box specific 
+attributes, while the second part (gray) defines the design. The second part is 
+a casual window, as described in the <a href="inside_ui_windows.html">Windows 
+and controls</a> chapter. The response-box window can contain any GUI elements you 
+want, please see the mentioned chapter for more details about GUI definitions.</p>
+<p>Let's take a closer look at the first section. It contains the following 
+attributes:</p>
+<ul>
+  <li>FONT / FONT_HOVER - the fonts setting for the textual responses</li>
+  <li>CURSOR - the image to be used as a cursor for iconic responses</li>
+  <li>SPACING - the space between two responses</li>
+  <li>HORIZONTAL - specifies if the responses are ordered horizontally</li>
+  <li>TEXT_ALIGN - specifies the alignment of textual response lines; it can be 
+  either &quot;left&quot;, &quot;right&quot; or &quot;center&quot;; the default value is &quot;left&quot;</li>
+  <li>VERTICAL_ALIGN - specifies the vertical alignment of responses within the 
+  response area (it has no effect on horizontally ordered items); it can be one 
+  of the following values: &quot;top&quot;, &quot;center&quot; or &quot;bottom&quot;; the default value is 
+  &quot;bottom&quot;</li>
+  <li>AREA - defines a rectangle within the background window, where the 
+  responses will be displayed. The four numbers represent the X, Y coordinates 
+  of the upper left and bottom right points of the rectangle. Note that the area 
+  is defined relative to the responses window, NOT relative to screen.</li>
+</ul>
+<p>Based on this setting, WME will automatically populate the defined rectangle 
+with responses.</p>
+<p>&nbsp;</p>
+<p>As for the second part, i.e. the window definitions, it's a normal window 
+definition with a few exceptions. If you name some of the buttons &quot;next&quot; 
+or &quot;prev&quot;, WME will use them automatically for the response scrolling.</p>
+
+</body>
+
+</html>

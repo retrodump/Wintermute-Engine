@@ -1,0 +1,122 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Shadows</title>
+<link rel="stylesheet" type="text/css" href="../styles.css"></head>
+
+<body>
+
+<h1>Shadows</h1>
+
+<p>WME supports several types of shadows for 3D characters. The shadow types 
+differ in their visual fidelity and hardware requirements.</p>
+
+<h2>Shadow types</h2>
+
+<h3>No shadows</h3>
+
+<p>This is, of course, the simplest case, shadows are completely disabled. You 
+may need to disable shadows under certain circumstances, for example when your 
+character is lying on the bed you probably won't need to display shadows.</p>
+
+<p>
+<img border="0" src="../img/shadow_none.png" alt="No shadow" width="180" height="234"></p>
+
+<h3>Simple shadows</h3>
+
+<p>This is sort of a &quot;last resort&quot; type of shadow. It's always available and 
+doesn't impose any hardware or performance requirements. You can change the 
+shadow image using the
+<a href="generated/scripting_ref_actor3d.html#SetShadowImage">SetShadowImage()</a> 
+method.</p>
+
+<p>
+<img border="0" src="../img/shadow_simple.png" alt="Simple shadow" width="180" height="234"></p>
+
+<h3>Flat shadows</h3>
+
+<p>Flat shadows are projected onto a fictional flat plane at the character's 
+feet. You can specify the shape and direction of the shadow by specifying a 
+position of a <a href="3D_actors_x.html#light">fictional light</a> casting it. This can be done using the
+<a href="generated/scripting_ref_actor3d.html#SetLightPosition">
+SetLightPosition()</a> method. You can also change the color of the shadow using 
+the <b>ShadowColor</b> property.</p>
+
+<p>Flat shadows are not available on some older video cards. If the engine 
+detects flat shadows are unavailable, it falls back to simple shadows.</p>
+
+<p>Flat shadows impose a small performance loss, because the character model 
+needs to be rendered twice; once for the shadow silhouette and once for the 
+scene display itself.</p>
+
+<p>
+<img border="0" src="../img/shadow_flat.png" alt="Flat shadow" width="180" height="234"></p>
+
+<h3>Stencil shadows</h3>
+
+<p>Stencil shadows are the most advanced type of shadows. Similarly to flat 
+shadows they're cast by a fictional light source, but unlike the flat shadow 
+they are projected onto the hidden scene geometry. That means the shadows are 
+realistically bending on the walls, furniture etc.</p>
+
+<p>Similarly to flat shadows you can affect the shadow shape and direction by 
+changing the light source position using the
+<a href="generated/scripting_ref_actor3d.html#SetLightPosition">SetLightPosition()</a> 
+method and you can change its color by setting the <b>ShadowColor</b> property.</p>
+
+<p>To use stencil shadows, the scene must be designed to support them. Your 
+hidden scene geometry must include relatively detailed model of the scene 
+objects receiving shadows, which is not required for the other shadow types. See
+<a href="3D_principles.html">this chapter</a> for more information about hidden 
+scene geometry.</p>
+
+<p>Stencil shadows are the most hardware demanding type of shadows. They use 
+both CPU and rendering power of the computer, especially for very detailed 
+character models. For this reason WME allows you to specify a special 
+low-polygon model of the character for stencil shadow processing purposes. This 
+simplified character model is specified in <a href="3D_actors_x.html">3D actor 
+definition file</a>. It must use <b>exactly</b> the same bone structure as your 
+main character model, because they share the same animations.</p>
+
+<p>
+<img border="0" src="../img/shadow_stencil.png" alt="Stencil shadow" width="180" height="234"></p>
+
+<h2>Limiting shadow type availability</h2>
+
+<p>It is sometimes desirable to limit shadow type support to certain detail 
+level. For example, you can let the user choose detail level depending on their 
+computer configuration, or you may need to only allow certain shadow type in 
+certain scenes (for example, scenes which don't have detailed hidden geometry 
+will be limited to flat shadows, some scenes don't need shadows at all, etc.).</p>
+
+<p>To limit the maximum available shadow type for the entire game, use the <b>
+Game.MaxShadowType</b> attribute. This attribute can be assigned numbers 0 (no 
+shadows), 1 (simple shadows), 2 (flat shadows) or 3 (stencil shadows). If you 
+try to assign shadow type unsupported on current hardware, the engine will fall 
+back to the next lower available shadow type. To check whether certain shadow 
+type is supported or not, use the <b>
+<a href="generated/scripting_ref_game.html#IsShadowTypeSupported">
+Game.IsShadowTypeSupported()</a></b> method.</p>
+
+<p>To limit the maximum available shadow type for a certain scene, use the <b>
+Scene.MaxShadowType</b> attribute. This value can be interactively assigned in 
+SceneEdit when designing scene, using the <a href="3D_additional.html">
+Additional 3D options tab</a>.</p>
+
+<p>Additionally, you can specify shadow type individually for each 3D actor 
+setting their <b>ShadowType</b> attribute.</p>
+
+<p><b>Note:</b> You cannot mix stencil shadows with other shadow types in a 
+single scene. Once stencil shadows are enabled for a scene, all the actors must 
+use them. If you attempt to use flat or simple shadows in scene with stencil 
+shadow support enabled, you'll get graphical artifacts.</p>
+
+<p>&nbsp;</p>
+
+</body>
+
+</html>

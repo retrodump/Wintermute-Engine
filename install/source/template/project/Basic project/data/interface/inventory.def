@@ -1,0 +1,43 @@
+INVENTORY_BOX
+{
+  ITEM_WIDTH = 65
+  ITEM_HEIGHT = 65
+  SPACING = 10
+  SCROLL_BY = 1
+  HIDE_SELECTED = TRUE
+
+  AREA { 30, 12, 770, 77 }
+  EXCLUSIVE = FALSE
+;  ALWAYS_VISIBLE = TRUE
+
+  WINDOW
+  {
+    X = 0
+    Y = 0
+    WIDTH = 800
+    HEIGHT = 90
+    IMAGE = "interface\inventory.bmp"
+  
+    BUTTON
+    {
+      TEMPLATE = "ui_elements\template\but.button"
+      NAME = "prev"
+      TEXT = "<"
+      X = 0
+      Y = 0
+      WIDTH = 30
+      HEIGHT = 90
+    }
+
+    BUTTON
+    {
+      TEMPLATE = "ui_elements\template\but.button"
+      NAME = "next"
+      TEXT = ">"
+      X = 770
+      Y = 0
+      WIDTH = 30
+      HEIGHT = 90
+    }
+  }
+}

@@ -1,0 +1,239 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1250)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PROJECT_ROOT DIALOGEX 0, 0, 207, 158
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "/str1018/Root folder"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "/str1019/Please specify the root folder of your project:",
+                    IDC_STATIC,7,7,193,8
+    CONTROL         "/str1020/Previously specified folders:",IDC_PREVIOUS,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,7,25,133,10
+    LISTBOX         IDC_PREV_LIST,20,39,167,27,LBS_SORT | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "/str1021/Other folder:",IDC_CUSTOM,"Button",
+                    BS_AUTORADIOBUTTON,7,80,85,10
+    EDITTEXT        IDC_CUSTOM_NAME,20,94,151,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE,171,94,16,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,130,193,1
+    DEFPUSHBUTTON   "/str1005/OK",IDOK,50,137,50,14
+    PUSHBUTTON      "/str1004/Cancel",IDCANCEL,106,137,50,14
+END
+
+IDD_SCRIPTS DIALOGEX 0, 0, 254, 144
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "/str1022/Scripts"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LISTBOX         IDC_SCRIPTS,2,17,250,106,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "/str1005/OK",IDOK,74,126,50,14
+    PUSHBUTTON      "/str1004/Cancel",IDCANCEL,129,126,50,14
+    PUSHBUTTON      "",IDC_UP,2,2,16,14,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_DOWN,18,2,16,14,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_NEW,41,2,16,14,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_EDIT,57,2,16,14,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_DELETE,80,2,16,14,NOT WS_TABSTOP
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT,37,2,1,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT,76,2,1,14
+END
+
+IDD_TEMPLATE DIALOGEX 0, 0, 371, 236
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "/str1033/Template selection"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    CONTROL         "List1",IDC_TEMPLATES,"SysListView32",LVS_REPORT | 
+                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SORTASCENDING | 
+                    LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,7,34,175,133
+    EDITTEXT        IDC_DESC,7,169,175,37,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_READONLY | WS_VSCROLL
+    LTEXT           "/str1035/Name:",IDC_NAME_LABEL,186,7,178,8
+    EDITTEXT        IDC_NAME,186,17,178,14,ES_AUTOHSCROLL
+    LTEXT           "/str1036/Location:",IDC_DIR_LABEL,186,34,178,8
+    EDITTEXT        IDC_DIR,186,44,164,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE,350,44,14,14
+    LISTBOX         IDC_PROPS,186,60,178,146,LBS_OWNERDRAWVARIABLE | 
+                    LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,210,356,1
+    DEFPUSHBUTTON   "/str1005/OK",IDOK,133,215,50,14
+    PUSHBUTTON      "/str1004/Cancel",IDCANCEL,187,215,50,14
+    LTEXT           "/str1034/Repository:",IDC_STATIC,7,7,175,8
+    COMBOBOX        IDC_REPOSITORY,7,18,175,52,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+END
+
+IDD_PAGE_GENERAL_SETTINGS DIALOGEX 0, 0, 247, 218
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "/str1006/General"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    CONTROL         "/str1007/Use hardware acceleration (if available)",
+                    IDC_ACCLERATION,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,
+                    7,233,10
+    CONTROL         "/str1008/Force 16bit textures",IDC_FORCE_16BIT_TEXTURES,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,18,221,10
+    CONTROL         "/str1009/Force texture subdivision",
+                    IDC_FORCE_TEXTURE_SUBDIVISION,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,19,28,221,10
+    LTEXT           "/str1010/Note: these settings will only affect the newly opened windows",
+                    IDC_STATIC,19,41,221,18
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,60,233,1
+    RTEXT           "/str1011/Path to WME tools:",IDC_STATIC,7,66,82,8
+    EDITTEXT        IDC_WME_PATH,90,64,136,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE_TOOLS,227,64,13,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,82,233,1
+    LTEXT           "/str1012/Repository paths:",IDC_STATIC,7,85,233,8
+    PUSHBUTTON      "/str1013/Add...",IDC_ADD_REPOSITORY,7,98,50,14
+    PUSHBUTTON      "/str1014/Remove",IDC_REMOVE_REPOSITORY,60,98,50,14
+    LISTBOX         IDC_REPOSITORIES,7,113,233,58,LBS_NOINTEGRALHEIGHT | 
+                    WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,175,233,1
+    CONTROL         "/str1083/Automatically check for updates on startup",
+                    IDC_CHECK_UPDATES,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    7,179,233,10
+    CONTROL         "/str1103/Always display settings dialog when running game",
+                    IDC_SETTINGS_DLG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,
+                    190,233,10
+    CONTROL         "/str1128/Show hidden files",IDC_SHOW_HIDDEN,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,201,233,10
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_PROJECT_ROOT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 200
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 151
+    END
+
+    IDD_SCRIPTS, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 252
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 140
+    END
+
+    IDD_TEMPLATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 364
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 229
+    END
+
+    IDD_PAGE_GENERAL_SETTINGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 240
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 211
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_DELETE              BITMAP                  "..\\MFCExt\\res\\delete.bmp"
+IDB_DOWN                BITMAP                  "..\\MFCExt\\res\\down.bmp"
+IDB_NEW                 BITMAP                  "..\\MFCExt\\res\\new.bmp"
+IDB_UP                  BITMAP                  "..\\MFCExt\\res\\up.bmp"
+IDB_PROPS               BITMAP                  "..\\MFCExt\\res\\props.bmp"
+IDB_NODES               BITMAP                  "..\\MFCExt\\res\\nodes.bmp"
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Czech resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CSY)
+#ifdef _WIN32
+LANGUAGE LANG_CZECH, SUBLANG_DEFAULT
+#pragma code_page(1250)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Czech resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

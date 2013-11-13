@@ -1,0 +1,41 @@
+*tit Keyboard object
+*des The Keyboard object represents the current state of the keyboard. There is always one and only Keyboard object available. It's accessible via the Game.Keyboard attribute. For the convenience the templates automatically store the keyboard object in a global variable named <b>Keboard</b>.
+*cls CBKeyboard
+
+*met IsKeyDown(Key)
+*des Queries whether a specified key is pressed.
+*par Key The key to be querried (either a string, such as "A", or a numeric constant)
+*ret Returns <b>true</b> if the key is pressed down.
+*rem The available key names are defined as constants in the "scripts\keys.inc" file
+
+
+*grp 
+
+*atr Type
+*des Returns always "keyboard"
+*ro
+
+*atr Key
+*des Returns a string with the name of the pressed key (if the key is a printable character)
+*ro
+
+*atr Printable
+*des Returns <b>true</b> if the pressed key is a printable character
+*ro
+
+*atr KeyCode
+*des Returns a numeric code of a pressed key.
+*ro
+
+*atr IsShift
+*des Returns <b>true</b> if the SHIFT key has been hold down when the key was pressed
+*ro
+
+*atr IsAlt
+*des Returns <b>true</b> if the ALT key has been hold down when the key was pressed
+*ro
+
+*atr IsControl
+*des Returns <b>true</b> if the CONTROL key has been hold down when the key was pressed
+*ro
+

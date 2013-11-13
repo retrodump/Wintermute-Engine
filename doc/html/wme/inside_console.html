@@ -1,0 +1,72 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Debugging console</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h2>Debugging console</h2>
+
+<p>The debugging console can be used to inspect scripts while running the game. 
+The console displays all currently running scripts and the values of all global 
+variables and script variables. Additionally it displays WME log.</p>
+
+<p><img border="0" src="../img/console.png"></p>
+
+<p>The developer can set so-called &quot;breakpoints&quot;. Breakpoints are marked script 
+lines, which can break game execution and bring the debugging console window 
+into foreground. So set a breakpoint, select a script in debugging console. Then 
+select the script line and press the &quot;Toggle breakpoint&quot; button (or press F9). A 
+red dot will appear beside the line. Now, whenever the engine executes given 
+line, it pauses the game and displays the debugging console. To continue script 
+execution, switch back to the game window or press the Escape key in debugging 
+console.</p>
+
+<p>Similarly you can remove existing breakpoints by selecting an existing 
+breakpoint line and pressing the &quot;Toggle breakpoint&quot; button or F9 key.</p>
+
+<p>You can also use the &quot;Step&quot; button (or F10 key) to trace a script line by 
+line. Please note that thanks to a multithreaded nature of game programming, 
+tracing scripts which rely on other running scripts can slightly change the game 
+behavior, because the scripts are executed in different order than without 
+tracing.</p>
+
+<p>To stop tracing, press the &quot;Continue&quot; button (or the F5 key).</p>
+
+<p>You can enable or disable the debugging console in project settings in 
+ProjectMan. In the &quot;Debug&quot; section there is &quot;Debugging console&quot; item, which can 
+be assigned following values:</p>
+<ul>
+  <li>Never - the console is never executed</li>
+  <li>In windowed mode - the console is only displayed when the game runs in 
+  windowed mode</li>
+  <li>Always - the console is always displayed; only developers with 
+  multi-monitor configurations will probably want to enable this option</li>
+</ul>
+
+<p>In addition to these breakpoints, you can explicitly call the <b>
+<a href="generated/scripting_ref_functions.html#Debug">Debug()</a></b> function 
+from your script, which has the same effect. That way you can script conditional 
+breakpoints.</p>
+
+<p>In addition to all global variables and all variables of a selected script, 
+you can set your own &quot;watches&quot;, that is only variables that interest you. To add 
+a watch, select the &quot;Watch&quot; tab, right-click the tab pane and select &quot;Add 
+watch&quot;. Then type the name of the variable you want to watch. To remove a watch, 
+right-click the variable name and select &quot;Remove watch&quot;.</p>
+<p>&nbsp;</p>
+
+<p>Note that the console is only displayed if the debug mode is enabled.</p>
+
+<p>WME Debugging Console requires
+<a target="_blank" href="http://www.microsoft.com/downloads/details.aspx?FamilyID=0856eacb-4362-4b0d-8edd-aab15c5e04f5&displaylang=en">
+Microsoft .NET Framework 2.0</a>.</p>
+</body>
+
+</html>

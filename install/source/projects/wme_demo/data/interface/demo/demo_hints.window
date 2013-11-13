@@ -1,0 +1,71 @@
+WINDOW
+{
+  TRANSPARENT = TRUE
+  SCRIPT = "interface\demo\demo_hints.script"
+  SCRIPT = "interface\demo\demo_hints_scroll.script"
+  ALPHA = 128
+
+  BUTTON
+  {
+    NAME = "door"
+    IMAGE = "interface\demo\hint.png"
+    CURSOR = "sprites\system\cur_arrow_h.sprite"
+    PARENT_NOTIFY = TRUE
+    X = 35
+    Y = 170
+  }
+
+  BUTTON
+  {
+    NAME = "oldguy"
+    IMAGE = "interface\demo\hint.png"
+    CURSOR = "sprites\system\cur_arrow_h.sprite"
+    PARENT_NOTIFY = TRUE
+    X = 463
+    Y = 72
+  }
+
+  BUTTON
+  {
+    NAME = "book"
+    IMAGE = "interface\demo\hint.png"
+    CURSOR = "sprites\system\cur_arrow_h.sprite"
+    PARENT_NOTIFY = TRUE
+    X = 670
+    Y = 390
+  }
+
+
+  BUTTON
+  {
+    NAME = "fan"
+    IMAGE = "interface\demo\hint.png"
+    CURSOR = "sprites\system\cur_arrow_h.sprite"
+    PARENT_NOTIFY = TRUE
+    X = 515
+    Y = 340
+  }
+
+
+  BUTTON
+  {
+    NAME = "drawer"
+    IMAGE = "interface\demo\hint.png"
+    CURSOR = "sprites\system\cur_arrow_h.sprite"
+    PARENT_NOTIFY = TRUE
+    X = 580
+    Y = 480
+  }
+
+  BUTTON
+  {
+    NAME = "sign"
+    IMAGE = "interface\demo\hint.png"
+    CURSOR = "sprites\system\cur_arrow_h.sprite"
+    PARENT_NOTIFY = TRUE
+    X = 650
+    Y = 105
+  }
+
+
+}

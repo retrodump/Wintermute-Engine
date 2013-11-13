@@ -1,0 +1,119 @@
+*tit Item object
+*des The Item object allows you to access the properties of your inventory items. Items objects are created at game startup or using the Game.CreateItem method. Existing items can be queried using the Game.GetItem method.
+*cls CAdItem
+
+*grp Actions
+
+*met SetSprite(Filename)
+*des Sets the default sprite.
+*par Filename The filename of the sprite file to be used as a default sprite.
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met SetHoverSprite(Filename)
+*des Sets the hover sprite.
+*par Filename The filename of the sprite file to be used as a hover sprite.
+*ret If the method succeeds, the return value is <b>true</b>.
+*rem The hover sprite is displayed if the player moves mouse pointer above the inventory item.
+
+
+*met SetTalkSprite(Filename, Extended)
+*des Sets the talk sprite.
+*par Filename The filename of the sprite file to be used as a talk sprite.
+*par Extended Should this sprite be used for explicit talk stances only (optional, default=false).
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met AddTalkSprite(Filename, Extended)
+*des Adds a talk sprite.
+*par Filename The filename of the sprite file to be added to the list of talk sprites.
+*par Extended Should this sprite be used for explicit talk stances only (optional, default=false).
+*ret If the method succeeds, the return value is <b>true</b>.
+
+*met RemoveTalkSprite(Filename)
+*des Removes a sprite from the list of talk sprites.
+*par Filename The filename of the sprite file to be removed.
+*ret If the method succeeds, the return value is <b>true</b>.
+
+
+*met GetSprite()
+*des Queries a default sprite of this item.
+*ret Returns filename of the currently assigned sprite.
+
+*met GetHoverSprite()
+*des Queries a hover sprite of this item.
+*ret Returns filename of the currently assigned sprite.
+
+*met GetSpriteObject()
+*des Queries a default sprite of this item.
+*ret Returns a reference to the currently assigned sprite object.
+
+*met GetHoverSpriteObject()
+*des Queries a hover sprite of this item.
+*ret Returns a reference to the currently assigned sprite object.
+
+
+*inc inc_adobject_methods_2D.inc
+
+*inc inc_object_cursor.inc
+
+
+*met SetNormalCursor(Filename)
+*des Sets the normal cursor.
+*par Filename Filename of a sprite file to be used as a cursor pointer.
+*ret Returns <b>true</b> if the cursor has been set succesfuly.
+
+*met GetNormalCursor()
+*des Returns the filename of the cursor sprite (or null if no cursor is set)
+
+*met GetNormalCursorObject()
+*des Returns a reference to the cursor sprite (or null if no cursor is set)
+
+
+*met SetHoverCursor(Filename)
+*des Sets the hover cursor.
+*par Filename Filename of a sprite file to be used as a cursor pointer.
+*ret Returns <b>true</b> if the cursor has been set succesfuly.
+
+*met GetHoverCursor()
+*des Returns the filename of the cursor sprite (or null if no cursor is set)
+
+*met GetHoverCursorObject()
+*des Returns a reference to the cursor sprite (or null if no cursor is set)
+
+
+*inc inc_object_script.inc
+
+*inc inc_object_sound.inc
+*inc inc_object_events.inc
+
+
+*grp 
+
+*atr Type
+*des Returns always "item"
+*ro
+
+*atr DisplayAmount
+*des Specifies whether the item should display current amount.
+
+*atr Amount
+*des Current amount (integer).
+
+*atr AmountOffsetX
+*des The X offset of the amount label, relative to item position on screen.
+
+
+*atr AmountOffsetY
+*des The Y offset of the amount label, relative to item position on screen.
+
+*atr AmountAlign
+*des Specifies the text alignment of the amount label (TAL_LEFT, TAL_RIGHT or TAL_CENTER).
+
+*atr CursorCombined
+*des Specifies if the items displays together with default game cursor when selected.
+
+*atr AmountString
+*des A string label to be displayed beside the item (set to null to reset the default behavior).
+
+
+*inc inc_adobject_attr.inc 
+*inc inc_object_attr_2D.inc

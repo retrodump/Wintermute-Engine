@@ -1,0 +1,58 @@
+; $EDITOR_PROJECT_ROOT_DIR$ ..\..\..\
+
+ACTOR
+{
+  NAME = "molly"
+  CAPTION=""
+  SCALABLE = TRUE
+  INTERACTIVE = FALSE
+  X = 400
+  Y = 460
+  SCRIPT="actors\molly\molly.script"
+
+  FONT = "fonts\outline_red.font"
+;-------------------------------------------------------------------------------
+  WALK
+  {
+    SPRITESET
+    {
+      LEFT       = "actors\molly\empty.bmp"
+    }
+  }
+
+;-------------------------------------------------------------------------------
+  STAND
+  {
+    SPRITESET
+    {
+      LEFT       = "actors\molly\empty.bmp"
+    }
+  }
+
+;-------------------------------------------------------------------------------
+  TURN_LEFT
+  {
+    SPRITESET
+    {
+      LEFT       = "actors\molly\empty.bmp"
+    }
+  }
+
+;-------------------------------------------------------------------------------
+  TURN_RIGHT
+  {
+    SPRITESET
+    {
+      LEFT       = "actors\molly\empty.bmp"
+    }
+  }
+
+;-------------------------------------------------------------------------------
+  TALK
+  {
+    SPRITESET
+    {
+      LEFT       = "actors\molly\empty.bmp"
+    }
+  }
+}

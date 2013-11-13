@@ -1,0 +1,9 @@
+SPRITE
+{
+  LOOPING = FALSE
+
+  FRAME{
+    IMAGE = "sprites\system\arrow_left.bmp"
+    HOTSPOT { 0,9 }
+  }
+}

@@ -1,0 +1,45 @@
+#include "scripts\base.inc"
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "Take"
+{
+  // walk to the desk
+  actor.GoTo(782, 645);
+  actor.TurnTo(DI_UPLEFT);
+
+  Game.Interactive = false;
+  actor.Talk("OK, I'll take it.");
+
+  // play "take" animation
+  actor.PlayAnim("actors\molly\ul\take1.sprite");
+
+  // hide the book entity and place "book" item into the inventory
+  Game.TakeItem("book");
+  var EntBook = Scene.GetNode("book");
+  EntBook.Active = false;
+
+  // play the second "take" animation
+  actor.PlayAnim("actors\molly\ul\take2.sprite");
+
+  Game.Interactive = true;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "LookAt"
+{
+  // walk to the desk
+  actor.GoToObject(this);
+  actor.Talk("~"Wintermute Engine: User's manual.~"");
+  actor.TurnTo(DI_DOWN);
+  actor.Talk("Sounds interesting.");
+  actor.TurnTo(DI_UPRIGHT);
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "LeftClick"
+{
+  actor.GoToObject(this);
+}

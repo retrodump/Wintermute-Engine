@@ -1,0 +1,765 @@
+Abs(Number)Returns the absolute value of a number
+AccCaption
+Accelerated
+AccessMode
+AccKeyboardCursorSkip
+AccKeyboardEnabled
+AccKeyboardPause
+AccOutputText(Text, Type)Sends the text to text-to-speech synthesizer
+AccTTSCaptions
+AccTTSEnabled
+AccTTSKeypress
+AccTTSTalk
+Acos(Number)Returns the arccosine of a number
+Active
+ActiveObject
+AddAttachment(EntityFile, PreDisplay, OffsetX, OffsetY)Adds an attached entity to this object.
+AddAttachment(Filename, AttachmentName, ParentBone)Load a new model from a file and attaches it to a specified bone of this actor
+AddEntity(EntityName)Adds a new entity to the top of the layer
+AddEvent(EventName)Adds an event to this frame.
+AddFrame(Filename)Adds a new frame to the animation.
+AddGlobalForce(Name, Angle, Strength)Adds a global force which will affect all particles equally.
+AddIgnoredLight(LightName)Adds a light to the list of lights that shouldn't affect the actor
+AddLayer(LayerName)Adds a new layer to the top of the scene
+AddMesh(Filename, MeshName, ParentBone)Load a new model from a file and attaches it to a specified bone of this actor
+AddPoint(X, Y)Adds a new point to the region.
+AddPointForce(Name, X, Y, Angle, Strength)Adds a point force which will affect the particles depending on their distance from the force origin.
+AddRegion(RegionName)Adds a new region to the top of the layer
+AddResponse(ID, Response, IconFilename, HoverIconFilename, PressedIconFilename, FontFilename)Adds a single response sentence to the response box.
+AddResponseOnce(ID, Response, IconFilename, HoverIconFilename, PressedIconFilename, FontFilename)Adds a single response sentence to the response box. The response is only added once per a dialogue branch.
+AddResponseOnceGame(ID, Response, IconFilename, HoverIconFilename, PressedIconFilename, FontFilename)Adds a single response sentence to the response box. The response is only added once per a game session.
+AddSpeechDir(Directory)Adds a directory to be used when WME automatically looks for speech files.
+AddSprite(Filename)Adds a sprite to be used for particle representation.
+AddSubframe(Filename)Adds a new subframe to this animation frame.
+AddTalkSprite(Filename, Extended)Adds a talk sprite.
+AddTalkSprite(Filename, Extended)Adds entity's talk sprite.
+Alpha1
+Alpha2
+AlphaColor
+AlphaTimeBased
+AmbientLightColor
+Amount
+AmountAlign
+AmountOffsetX
+AmountOffsetY
+AmountString
+Angle1
+Angle2
+AngularVelocity
+AngVelocity1
+AngVelocity2
+AnimStopTransitionTime
+AnimTransitionTime
+ApplyEvent(EventName)Applies a named event to the object.
+Array()Creates an empty array object.
+Array(Item1, Item2, Item3, ...)Creates an array object and fills it with the specified items.
+Array(NumItems)Creates an array object with the specified number of items.
+Asin(Number)Returns the arcsine of a number
+Atan(Number)Returns the arctangent of a number
+Atan2(Y, X)Returns the angle (in radians) from the X axis to a point (y,x)
+AttachScript(Filename)Executes a script file and attaches it to the object.
+AutorunDisabled
+AutoScroll
+BlendMode
+Blocked
+CanHandleEvent(EventName)Queries whether the object has an event handler for a specified event.
+CanHandleMethod(MethodName)Queries whether the object supports a method of a specified name.
+Capacity
+Caption
+Ceil(Number)Returns the smallest integer greater than or equal to the specified number
+Center()Centers the window on screen.
+ClearResponses()Removes any responses previously added to the response box.
+ClearScriptCache()Clears the content of the engine script cache.
+ClipContents
+Close()Closes the file.
+Close()Closes the window.
+CloseUp
+Colorable
+Copy(DestinationFilename, Overwrite)Copies the file to a new location.
+Cos(Angle)Returns the cosine of a number
+Cosh(Angle)Returns the hyperbolic cosine of a number
+Create(Path)Creates a new directory or directory tree.
+CreateButton(Name)Dynamically creates a new button control
+CreateEditor(Name)Dynamically creates a new editor control
+CreateEntity(Name)Creates a new entity object.
+CreateEntityContainer(Name)Dynamically creates a new entity container control
+CreateItem(Name)Creates a new inventory item object.
+CreateParticleEmitter(FollowOwner, OffsetX, OffsetY)Initializes the particle emitter attached to this object.
+CreateParticleEmitterBone(BoneName, OffsetX, OffsetY, OffsetZ)Initializes the particle emitter and attaches it to a specified bone.
+CreateRegion()Creates a region for this entity.
+CreateStatic(Name)Dynamically creates a new static control
+CreateWindow(Name)Creates a new window object.
+CreateWindow(Name)Dynamically creates a new sub-window control
+CurrentDirectory
+CurrentFrame
+CurrentTime
+CursorBlinkRate
+CursorCombined
+CursorChar
+Date()Creates a new date object and assigns it current date and time.
+Date(Year, Month, Day, Hours, Minutes, Seconds)Creates a new date object and assigns it specified date and time.
+Debug ()Pauses game execution and displays a debugging console
+DebugMode
+Decoration
+DegToRad(Angle)Converts an angle from degrees to radians
+Delay
+Delete()Deletes the file accosiated with this File object.
+Delete(Path)Deletes a directory.
+DeleteButton(Button)Deletes a button object
+DeleteControl(Control)Deletes a child control object (button, static, etc.)
+DeleteEditor(Editor)Deletes an editor object
+DeleteEntity(Entity)Destroys a entity object.
+DeleteEvent(EventName)Removes an event from this frame.
+DeleteFrame(Frame)Removes specified animation frame.
+DeleteFrame(Index)Removes specified animation frame.
+DeleteItem(Item)Destroys an item object.
+DeleteLayer(LayerIndex)Permanently removes a scene layer
+DeleteLayer(LayerObject)Permanently removes a scene layer
+DeleteNode(NodeIndex)Permanently removes a scene node (entity or region) from a scene layer
+DeleteNode(NodeObject)Permanently removes a scene node (entity or region) from a scene layer
+DeleteParticleEmitter()Deletes the particle emitter attached to this object.
+DeleteRegion()Removes a region from this entity.
+DeleteSaveThumbnail()Releases a stored saved game thumbnail.
+DeleteStatic(Static)Deletes a static control object
+Deletesubframe(Index)Removes specified subframe from this animation frame.
+Deletesubframe(Subframe)Removes specified subframe from this animation frame.
+DeleteWindow(Window)Deletes a window object
+DeleteWindow(Window)Destroys a window object.
+DetachScript(Filename, KillThreads)Terminates a specified script file and detaches it from an object.
+Direct3DDevice
+DirectDrawInterface
+Direction
+DirectionAngle
+DirectTurnLeft(Velocity, Animation)Makes the character turn counter-clockwise.
+DirectTurnRight(Velocity, Animation)Makes the character turn clockwise.
+DirectTurnStop()Stops character from turning.
+DirectWalk(Velocity, Animation)Makes the character walk forward.
+DirectWalkBack(Velocity, Animation)Makes the character walk backwards.
+DirectWalkStop()Stops character from walking.
+Disabled
+DisableFog()Disables fog within the scene.
+DisableLight(LightName)Disables a 3D light within the scene
+DisableNode3D(NodeName)Disables a 3D walkplane or blocked object
+DisableScriptProfiling()Stops gathering statistic information on script execution times and writes the results to wme.log and to the debugging console.
+DisplayAmount
+DisplayLoadingIcon(Sprite, X, Y, Persistent)Briefly displays a "loading" icon.
+DrawBackfaces
+DropItem(ItemName)Removes an item from the inventory.
+DropToFloor
+DumpTextureStats(Filename)Writes texture usage data to a text file in CSV format.
+EmitEvent
+EmptySaveSlot(Slot)Empties a given save slot.
+EnableFog(Color, Start, End)Enables linear fog within the scene, which affects the 3D actors
+EnableLight(LightName)Enables a 3D light within the scene
+EnableNode3D(NodeName)Enables a 3D walkplane or blocked object
+EnableScriptProfiling()Starts gathering statistic information on script execution times.
+EndDlgBranch(DialogueName)Denotes an end of a dialogue branch.
+Exclusive
+Exp(Number)Returns e (the base of natural logarithms) raised to a power
+ExpandString(String)Expands a given string using the string table.
+ExponentialGrowth
+FadeColor
+FadeIn(Duration, SourceRed, SourceGreen, SourceBlue, SourceAlpha)Fades the scene in from a specified color.
+FadeIn(Duration, SourceRed, SourceGreen, SourceBlue, SourceAlpha)Fades the screen in from a specified color.
+FadeInAsync(Duration, SourceRed, SourceGreen, SourceBlue, SourceAlpha)Fades the scene in from a specified color.
+FadeInAsync(Duration, SourceRed, SourceGreen, SourceBlue, SourceAlpha)Fades the screen in from a specified color.
+FadeInTime
+FadeOut(Duration, TargetRed, TargetGreen, TargetBlue, TargetAlpha)Fades the scene out to a specified color.
+FadeOut(Duration, TargetRed, TargetGreen, TargetBlue, TargetAlpha)Fades the screen out to a specified color.
+FadeOutAsync(Duration, TargetRed, TargetGreen, TargetBlue, TargetAlpha)Fades the scene out to a specified color.
+FadeOutAsync(Duration, TargetRed, TargetGreen, TargetBlue, TargetAlpha)Fades the screen out to a specified color.
+FadeOutTime
+File(Filename)Creates a new file object for a specified filename.
+FileExists(Filename)Queries whether a given file exists.
+Filename
+Finished
+Floor(Number)Returns the greatest integer less than or equal to the specified number
+Focus()Focuses the control.
+Focusable
+ForceTalkAnim(Filename)Force a special animation to be used for a subsequent Talk call.
+FPS
+FrameWidth
+Freezable
+Frozen
+Game
+GenerationAmount
+GenerationInterval
+GeometryFile
+GetActiveCursor()Returns the filename of the active cursor sprite (or null if no cursor is set)
+GetActiveCursorObject()Returns a reference to the active cursor sprite (or null if no cursor is set)
+GetAnimTransitionTime(AnimFrom, AnimTo)Queries a transition time for an animation pair
+GetAttachment(AttachmentIndex)Gets a reference to an attached entity object.
+GetAttachment(AttachmentName)Gets a reference to a specified attachment object
+GetAttachment(AttachmentName)Gets a reference to an attached entity object.
+GetAValue (Color)Extracts an Alpha portion of a color
+GetBonePosition2D(BoneName)Returns current position of a specified bone in screen coordinates
+GetBonePosition3D(BoneName)Returns current position of a specified bone in world coordinates
+GetBool(Position)Reads a boolean value (1 byte) from memory buffer.
+GetBValue (Color)Extracts a Blue portion of a color
+GetByte(Position)Reads an 8-bit integer value from memory buffer.
+GetControl(ControlIndex)Get a reference to a given object contained in this window
+GetControl(ControlName)Get a reference to a given object contained in this window
+GetCurrentDlgBranch()Queries a current dialogue branch name.
+GetCursor()Returns the filename of the cursor sprite (or null if no cursor is set)
+GetCursorObject()Returns a reference to the cursor sprite (or null if no cursor is set)
+GetDate()Returns a day of the month stored in this Date object
+GetDirectories(Path, Mask)Returns list of sub-directories stored in a given directory.
+GetDisabledImage()Returns the filename of the disabled background sprite (or null if no sprite is set)
+GetDisabledImageObject()Returns a reference to the disabled background sprite (or null if no sprite is set)
+GetDouble(Position)Reads a 32-bit floating point value from memory buffer.
+GetDrives()Returns list of present disk drives.
+GetEntity()Returns the entity object assigned to this container.
+GetEvent(Index)Returns an event assigned to this frame.
+GetFadeColor()Gets the current fading color.
+GetFileChecksum(Filename, AsHexString)Computes a CRC32 value of a given file
+GetFiles(Path, Mask)Returns list of files stored in a given directory.
+GetFloat(Position)Reads a 16-bit floating point value from memory buffer.
+GetFocusedImage()Returns the filename of the focused background sprite (or null if no sprite is set)
+GetFocusedImageObject()Returns a reference to the focused background sprite (or null if no sprite is set)
+GetFont()Gets a font assigned to this object.
+GetFrame(Index)Returns one animation frame.
+GetFreeNode(Index)Returns the given free scene node (entity or actor).
+GetFreeNode(Name)Returns the given free scene node (entity or actor).
+GetGlobalMasterVolume()Gets the current master volume.
+GetGlobalMusicVolume()Gets the current music volume.
+GetGlobalSFXVolume()Gets the current sound effects volume.
+GetGlobalSpeechVolume()Gets the current speech volume.
+GetGValue (Color)Extracts a Green portion of a color
+GetHours()Returns hours stored in this Date object
+GetHoverCursor()Returns the filename of the cursor sprite (or null if no cursor is set)
+GetHoverCursorObject()Returns a reference to the cursor sprite (or null if no cursor is set)
+GetHoverImage()Returns the filename of the hovered background sprite (or null if no sprite is set)
+GetHoverImageObject()Returns a reference to the hovered background sprite (or null if no sprite is set)
+GetHoverSprite()Queries a hover sprite of this item.
+GetHoverSpriteObject()Queries a hover sprite of this item.
+GetHValue(Color)Extracts a Hue portion of a color
+GetImage()Returns the filename of the background sprite (or null if no sprite is set)
+GetImageObject()Returns a reference to the background sprite (or null if no sprite is set)
+GetInactiveImage()Returns the filename of the inactive background sprite (or null if no sprite is set)
+GetInactiveImageObject()Returns a reference to the inactive background sprite (or null if no sprite is set)
+GetInt(Position)Reads a 32-bit integer value from memory buffer.
+GetInventoryWindow()Returns a reference to the window object used by the inventory box.
+GetItem(ItemIndex)Queries an inventory item.
+GetItem(ItemName)Queries an inventory item.
+GetLayer(LayerIndex)Returns the given layer.
+GetLayer(LayerName)Returns the given layer.
+GetLightColor(LightName)Queries the color of a 3D light
+GetLightName(LightIndex)Queries the name of a specified 3D light
+GetLightPosition(LightName)Queries the position of a 3D light
+GetLong(Position)Reads a 32-bit integer value from memory buffer.
+GetLValue(Color)Extracts a Luminance portion of a color
+GetMinutes()Returns minutes stored in this Date object
+GetMonth()Returns a month stored in this Date object
+GetMusic()Queries the filename of the current music
+GetMusicChannel(Channel)Queries the filename of the current music in a specified channel
+GetMusicChannelPosition(Channel)Queries the music's current playing position in a specified channel.
+GetMusicChannelVolume(Channel)Queries the music's current volume in a specified channel.
+GetMusicPosition()Queries the music's current playing position
+GetMusicVolume()Queries the music's current volume.
+GetNode(Name)Returns the given scene node (entity or region).
+GetNode(NodeIndex)Queries a given node (region/entity) of the layer.
+GetNode(NodeName)Queries a given node (region/entity) of the layer.
+GetNormalCursor()Returns the filename of the cursor sprite (or null if no cursor is set)
+GetNormalCursorObject()Returns a reference to the cursor sprite (or null if no cursor is set)
+GetNumResponses()Queries the number of remaining responses in the response box.
+GetPoint(Index)Queries one point of the region.
+GetPointer(Position)Reads a 32-bit memory-pointer value from memory buffer.
+GetPressedImage()Returns the filename of the pressed background sprite (or null if no sprite is set)
+GetPressedImageObject()Returns a reference to the pressed background sprite (or null if no sprite is set)
+GetRegionAt(X, Y, IncludeDecorations)Returns a scene region at a given position.
+GetResponse(AutoSelectLastResp)Displays a response box and waits for the player's choice.
+GetResponsesWindow()Returns a reference to the window object used by the responses box.
+GetRotationAt(X, Y)Queries a sprite rotation factor at a given point of the scene.
+GetRValue (Color)Extracts a Red portion of a color
+GetSaveSlotDescription(Slot)Queries a description of a given save slot.
+GetScaleAt(X, Y)Queries a scale factor at a given point of the scene.
+GetSeconds()Returns seconds stored in this Date object
+GetShadowImage()Gets the currently assigned image to be used as a simple shadow for 3D characters
+GetShadowImage()Gets the currently assigned image to be used as a simple shadow for this actor
+GetShort(Position)Reads a 16-bit integer value from memory buffer.
+GetSound()Returns the sound assigned to this frame.
+GetSoundLength(SoundFilename)Queries length of a given sound file
+GetSoundPosition()Queries the sound's current playing position
+GetSoundVolume()Gets a volume of the currently playing sound.
+GetSprite()Queries a default sprite of this entity.
+GetSprite()Queries a default sprite of this item.
+GetSprite()Queries a sprite set by SetSprite().
+GetSpriteObject()Queries a default sprite of this entity.
+GetSpriteObject()Queries a default sprite of this item.
+GetSpriteObject()Queries a sprite set by SetSprite().
+GetString(Position, Length)Reads a string value from memory buffer.
+GetSubframe(Index)Returns a subframe of this frame.
+GetSValue(Color)Extracts a Saturation portion of a color
+GetWaitCursor()Returns the filename of the non-interactive cursor sprite (or null if no cursor is set)
+GetWaitCursorObject()Returns a reference to the non-interactive cursor sprite (or null if no cursor is set)
+GetWaypointGroup(WptGroupIndex)Returns the given waypoint group.
+GetWeekday()Returns a weekday of the date stored in this Date object
+GetYear()Returns a year stored in this Date object
+GoExclusive()Makes the window an exclusive object on screen.
+GoSystemExclusive()Pauses the game and makes the window an exclusive object on screen.
+GoTo(X, Y)Makes the actor walk to a given point.
+GoTo3D(X, Y, Z)Makes the actor walk to a given point in 3D space.
+GoTo3DAsync(X, Y, Z)Makes the actor walk to a given point in 3D space.
+GoToAsync(X, Y)Makes the actor walk to a given point.
+GoToObject(Entity)Makes the actor walk to a specified entity.
+GoToObjectAsync(Entity)Makes the actor walk to a specified entity.
+GoToTolerance
+GrowthRate1
+GrowthRate2
+HardwareTL
+HasActiveCursor()Queries whether the active cursor is set.
+HasAnim(AnimationName)Checks if the actor has an animation set with the specified name
+HasCursor()Queries whether the standard cursor is set.
+HasItem(ItemName)Queries whether a given item is in inventory of any of this object.
+HasItem(ItemObject)Queries whether a given item is in inventory of any of this object.
+Height
+HeightToFit()Changes the height of the control to fit the contained text.
+HideLoadingIcon()Hides a "loading" icon displayed by DisplayLoadingIcon()
+HideMesh(MeshName)Hides a specified part (mesh) of this actor
+HotspotX
+HotspotY
+Hwnd
+ChangeScene(Filename, FadeOut, FadeIn)Loads a specified scene file.
+ChangingScene
+IdleAnimName
+IgnoreItems
+IndexOf(Substring, Starting)Searches the string for a specified substring.
+InGame
+InsertEntity(Index, EntityName)Inserts a new entity to the scene layer
+InsertFrame(Index, Filename)Inserts a new frame to the animation.
+InsertLayer(Index, LayerName)Inserts a new layer to the scene
+InsertPoint(Index, X, Y)Adds a new point to the region.
+InsertRegion(Index, RegionName)Inserts a new region to the scene layer
+InsertSubframe(Index, Filename)Inserts a new subframe to this animation frame.
+Interactive
+InventoryObject
+InventoryScrollOffset
+InventoryVisible
+Is2DOnly
+Is3DOnly
+IsAlt
+IsAnimChannelPlaying(Channel, AnimName)Checks whether the actor is currently playing an animation in a specified channel
+IsAnimPlaying(AnimName)Checks whether the actor is currently playing an animation
+IsBlockedAt(X, Y)Queries whether the scene is blocked at a given point.
+IsControl
+IsItemTaken(ItemName)Queries whether a given item is in inventory of any of the game objects.
+IsItemTaken(ItemObject)Queries whether a given item is in inventory of any of the game objects.
+IsKeyDown(Key)Queries whether a specified key is pressed.
+IsLightEnabled(LightName)Checks whether a specified 3D light is enabled.
+IsMusicChannelPlaying(Channel)Queries whether the music is currently playing in a specified channel
+IsMusicPlaying()Queries whether the music is currently playing
+IsNode3DEnabled(NodeName)Checks whether a specified 3D walkplane or blocked object is enabled.
+IsPointInViewport(X, Y)Queries whether a given point is lying within the current scene viewport.
+IsSaveSlotUsed(Slot)Queries whether a given save slot is in use.
+IsScriptRunning(Filename)Queries whether a specified script file is running and attached to an object.
+IsScrolling
+IsShadowTypeSupported(ShadowType)Checks the availability of specified shadow type on current computer configuration.
+IsShift
+IsSoundPlaying()Queries whether a sound playback is in progress.
+IsTalking()Queries whether the object is currently talking.
+IsTheoraPaused()Queries whether the entity is currently playing a Theora video and the playback is paused
+IsTheoraPlaying()Queries whether the entity is currently playing a Theora video
+IsWalkableAt(X, Y)Queries whether the scene is walkable at a given point.
+IsWalking()Queries whether the actor is currently walking.
+Item
+Key
+Keyboard
+KeyCode
+Keyframe
+KillSounds
+LastResponse
+LastResponseOrig
+Length
+LifeTime1
+LifeTime2
+LifeTimeZBased
+LoadActor(Filename)Loads a new actor from a file.
+LoadActor3D(Filename)Loads a new 3D actor from a file.
+LoadEntity(Filename)Loads a new entity from a file.
+LoadFromFile(Filename)Loads the window definition from a specified file.
+LoadGame(Slot)Loads a game from the given save slot.
+LoadInventoryBox(Filename)Reloads an inventory box from file.
+LoadItems(Filename, Merge)Loads inventory items from a definition file.
+LoadResponseBox(Filename)Reloads a response box from file.
+LoadSound(Filename)Initializes a sound from file and makes it ready to be played.
+LoadStringTable(Filename, ClearOld)Loads the string table from a file.
+LoadWindow(Filename)Loads a new window from a file.
+LockMouseRect(Left, Top, Right, Bottom)Limits the mouse pointer movement to the specified rectangle
+Log(Number)Returns the natural logarithm of a number
+LOG(Text)Writes a text string to the system log file.
+Log10(Number)Returns the base-10 logarithm of a number
+Looping
+Main
+MainLayer
+MainObject
+MakeHSL(H, S, L)Packs the Hue, Saturation and Luminance color component into one number
+MakeRGBA (R, G, B, A)Packs the Red, Green, Blue and Alpha color values into one number
+MaxActiveLights
+MaxBatches
+MaxLength
+MaxParticles
+MaxShadowType
+MemBuffer(Size)Creates a new memory buffer of a specified size.
+Menu
+MergeAnims(Filename)Loads one or more animation sets from a file
+MergeAnims(ModelName)Loads animations from X file
+MirrorX
+MirrorY
+MouseX
+MouseY
+Movable
+MoveAfter(Control)Moves the control in z-order after a given control.
+MoveAfter(ControlName)Moves the control in z-order after a given control.
+MoveBefore(Control)Moves the control in z-order before a given control.
+MoveBefore(ControlName)Moves the control in z-order before a given control.
+MoveToBottom()Moves the control to the bottom of the z-order.
+MoveToTop()Moves the control to the top of the z-order.
+MoveX
+MoveY
+Msg(Text)Writes a quick diagnostic message to the screen.
+MusicCrossfade(Channel1, Channel2, Time, SwapChannels)Crossfades two music channels
+Name
+NextSibling
+NonIntMouseEvents
+NumAttachments
+NumControls
+NumEvents
+NumFrames
+NumFreeNodes
+NumItems
+NumLayers
+NumLights
+NumLiveParticles
+NumNodes
+NumPoints
+NumSubframes
+NumWaypointGroups
+OffsetX
+OffsetY
+OpenAsBinary(AccessMode)Opens file for binary reading or writing.
+OpenAsText(AccessMode)Opens file for text reading or writing.
+OpenDocument(Filename)Opens a specified document file or internet URL in an associated program.
+Owner
+Parent
+ParentNotify
+ParticleEmitter
+PathSeparator
+Pause()Pauses the animation.
+Pause()Pauses the particle generation.
+Paused
+PauseMusic
+PauseMusic()Pauses a music playback.
+PauseMusicChannel(Channel)Pauses a music playback in a specified channel.
+PauseSound()Pauses the currently playing sound.
+PauseTheora()Pauses the Theora video playback
+PersistentState
+PI
+PixelPerfect
+Play()Resumes a paused animation.
+PlayAnim(AnimName)Plays an animation.
+PlayAnim(Filename)Plays an animation.
+PlayAnimAsync(AnimName)Plays an animation.
+PlayAnimAsync(Filename)Plays an animation.
+PlayAnimChannel(Channel, AnimName)Plays an animation in a specified channel.
+PlayAnimChannelAsync(Channel, AnimName)Plays an animation in a specified channel.
+PlayMusic(Filename, Looping, LoopStart)Plays a music.
+PlayMusicChannel(Channel, Filename, Looping, LoopStart)Plays a music in a specified channel.
+PlaySound(Filename, Looping, LoopStart)Plays a sound. If the filename is omitted, the currently assigned sound is played (if any).
+PlaySound(Looping, LoopStart)Plays a sound. If the filename is omitted, the currently assigned sound is played (if any).
+PlaySoundEvent(EventName)Plays a sound and triggers an event when the sound is over. If the filename is omitted, the currently assigned sound is played (if any).
+PlaySoundEvent(Filename, EventName)Plays a sound and triggers an event when the sound is over. If the filename is omitted, the currently assigned sound is played (if any).
+PlayTheora(Filename, Looping, AlphaImage, StartTime)Plays a video in Theora format
+PlayTheora(Filename, Type, X, Y, FreezeMusic, DropFrames, SubtitleFile)Plays a given Theora video file
+PlayVideo(Filename, Type, X, Y, FreezeMusic, SubtitleFile)Plays a given AVI video file
+Pop()Removes a last item from the array and returns it.
+Position
+PosX
+PosY
+PosZ
+Pow(Base, Exponent)Returns the value of a Base value taken to a specified power
+Press()Presses the button programatically.
+Pressed
+PrevScene
+PrevSceneFilename
+PrevSibling
+Printable
+Push(Item1, Item2, Items3, ...)Adds one or more items to the end of the array.
+QueryItem(ItemIndex)Queries a specified inventory item of all inventory items currently defined in game
+QueryItem(ItemName)Queries a specified inventory item of all inventory items currently defined in game
+QuitGame()Quits the current game session.
+RadToDeg(Angle)Converts an angle from radians to degrees
+Random (From, To)Returns a pseudo-random number from a specified range 
+ReadBool()Reads a boolean value (1 byte) from a binary file open for reading.
+ReadByte()Reads an 8-bit integer value from a binary file open for reading.
+ReadDouble()Reads a 32-bit floating point value from a binary file open for reading.
+ReadFloat()Reads a 16-bit floating point value from a binary file open for reading.
+ReadInt()Reads a 32-bit integer value from a binary file open for reading.
+ReadLine()Reads a line from a text file open for reading.
+ReadLong()Reads a 32-bit integer value from a binary file open for reading.
+ReadShort()Reads a 16-bit integer value from a binary file open for reading.
+ReadString()Reads a zero-terminated string value from a binary file open for reading.
+ReadText(Length)Reads text from a text file open for reading.
+Ready
+Region
+RegReadNumber(Key, InitValue)Reads a numeric value from the Windows Registry.
+RegReadString(Key, InitValue)Reads a string value from the Windows Registry.
+RegWriteNumber(Key, Value)Writes a given number to the Windows Registry.
+RegWriteString(Key, Value)Writes a given string to the Windows Registry.
+RelativeRotate
+RelativeScale
+RemoveActiveCursor()Removes the active cursor.
+RemoveAttachment(AttachmentIndex)Removes an attached entity from this object.
+RemoveAttachment(AttachmentName)Permanently removes a specified attachment from this actor
+RemoveAttachment(AttachmentName)Removes an attached entity from this object.
+RemoveCursor()Removes the standard cursor.
+RemoveEffect(MaterialName)Removed an advanced material defined by effect file from a specified material
+RemoveForce(Name)Removes a force with the given name.
+RemoveIgnoredLight(LightName)Removes a light from the list of lights that shouldn't affect the actor
+RemoveMesh(MeshName)Permanently removes a specified mesh from this actor
+RemovePoint(Index)Removes point from the region.
+RemoveSpeechDir(Directory)Removes a directory from the list of dirs to look for speech files automatically.
+RemoveSprite(Filename)Removes a specified sprite from the list.
+RemoveTalkSprite(Filename)Removes a sprite from the list of talk sprites.
+RemoveWaitCursor()Removes the non-interactive cursor.
+Reset()Cancels the action the object was currently performing (like talking, walking etc.).
+Reset()Resets the animation.
+Reset()Resets the game's persistent data.
+ResetResponse(ID)Revives a previously disabled response.
+ResponsesVisible
+Resume()Resumes the particle generation.
+ResumeMusic()Resumes a paused music playback.
+ResumeMusicChannel(Channel)Resumes a paused music playback in a specified channel.
+ResumeSound()Resumes a paused sound playback.
+ResumeTheora()Resumes a paused Theora video playback
+Rotatable
+Rotate
+Rotation1
+Rotation2
+SaveDirectory
+SaveGame(Slot, Description)Saves a game to the given save slot.
+SaveState
+Scalable
+Scale
+Scale1
+Scale2
+ScaleX
+ScaleY
+ScaleZBased
+Scene
+ScreenHeight
+Screenshot(Name)Takes a screenshot of the current game and saves it into a BMP file.
+ScreenshotEx(Filename, Width, Height)Takes an (optionally resized) screenshot of the current game and saves it into a BMP file.
+ScreenWidth
+ScrollPixelsX
+ScrollPixelsY
+ScrollSpeedX
+ScrollSpeedY
+ScrollTo(Object)Scrolls the scene to the given point / object.
+ScrollTo(X, Y)Scrolls the scene to the given point / object.
+ScrollToAsync(Object)Scrolls the scene to the given point / object.
+ScrollToAsync(X, Y)Scrolls the scene to the given point / object.
+SelectedItem
+SelEnd
+SelStart
+SetActiveCamera(CameraName)Switches a camera used to display 3D objects in scene
+SetActiveCursor(Filename)Sets the active cursor.
+SetAnimTransitionTime(AnimFrom, AnimTo, Time)Sets a transition time for an animation pair
+SetBool(Position, Value)Writes a boolean value (1 byte) to a memory buffer.
+SetBorder(X, Y, Width, Height)Sets the rectangular area on screens to contain the particles.
+SetBorderThickness(Left, Right, Top, Bottom)Sets the thickness of the border rectangle defined by <b>SetBorder()</b> method.
+SetByte(Position, Value)Writes an 8-bit integer value to a memory buffer.
+SetCurrentTime()Sets this Date object to the current system date and time 
+SetCursor(Filename)Sets the standard cursor.
+SetDate(Day)Sets a day of the month of this Date object 
+SetDisabledFont(Filename)Sets a font for button's disabled state.
+SetDisabledImage(Filename)Sets a background image (sprite) for button's disabled state.
+SetDouble(Position, Value)Writes a 32-bit floating point value to a memory buffer.
+SetEffect(MaterialName, EffectFilename)Assigns an advanced material defined by effect file to a specified material
+SetEffectParam(MaterialName, ParamName, Value)Sets a parameter of an effect applied to a material
+SetEffectParamColor(MaterialName, ParamName, Color)Sets a color parameter of an effect applied to a material
+SetEffectParamVector(MaterialName, ParamName, X, Y, Z, W)Sets a 4D vector parameter of an effect applied to a material
+SetEntity(Filename)Assigns an entity object to this container.
+SetFilename(Filename)Sets the filename the File object operates on.
+SetFloat(Position, Value)Writes a 16-bit floating point value to a memory buffer.
+SetFocusedFont(Filename)Sets a font for button's focused state.
+SetFocusedImage(Filename)Sets a background image (sprite) for button's focused state.
+SetFont(Filename)Sets a normal font.
+SetFont(Filename)Sets font of this object.
+SetGlobalMasterVolume(Percent)Sets the master volume.
+SetGlobalMusicVolume(Percent)Sets the volume of music.
+SetGlobalSFXVolume(Percent)Sets the volume of sound effects.
+SetGlobalSpeechVolume(Percent)Sets the volume of speech.
+SetHours(Hours)Sets hours of this Date object 
+SetHoverCursor(Filename)Sets the hover cursor.
+SetHoverFont(Filename)Sets a font for button's hover (mouse-over) state.
+SetHoverImage(Filename)Sets a background image (sprite) for button's hover (mouse-over) state.
+SetHoverSprite(Filename)Sets the hover sprite.
+SetImage(Filename)Sets a background image (sprite).
+SetInactiveFont(Filename)Sets a font to be used when the window is inactive.
+SetInactiveImage(Filename)Sets a background image (sprite) to be used when this window is inactive.
+SetInt(Position, Value)Writes a 32-bit integer value to a memory buffer.
+SetLightColor(LightName, Color)Changes the color of a 3D light
+SetLightPosition(X, Y, Z)Sets the position of a light to project a real-time shadow
+SetLoadingScreen(ImageFilename, PosX, PosY)Sets an image to be displayed while loading a saved game.
+SetLong(Position, Value)Writes a 32-bit integer value to a memory buffer.
+SetMinutes(Minutes)Sets minutes of this Date object 
+SetMonth(Month)Sets a month of this Date object 
+SetMousePos(X, Y)Sets the mouse cursor position.
+SetMusicChannelPosition(Channel, Time)Sets the music's current playing position in a specified channel.
+SetMusicChannelVolume(Channel, Volume)Sets the volume of currently playing music in a specified channel.
+SetMusicPosition(Time)Sets the music's current playing position.
+SetMusicVolume(Volume)Sets the volume of currently playing music.
+SetNormalCursor(Filename)Sets the normal cursor.
+SetPoint(Index, X, Y)Changes the coordinates of a point of this region.
+SetPointer(Position, Value)Writes a 32-bit memory pointer to a memory buffer.
+SetPosition(Position)Sets a new reading/writing point for a currently open file.
+SetPressedFont(Filename)Sets a font for button's pressed state.
+SetPressedImage(Filename)Sets a background image (sprite) for button's pressed state.
+SetSavingScreen(ImageFilename, PosX, PosY)Sets an image to be displayed while saving the game.
+SetSceneViewport(X, Y, Width, Height)Sets scene viewport to specified values.
+SetScriptTimeSlice (Milliseconds)The script will be automatically suspended after a specified time interval 
+SetSeconds(Seconds)Sets seconds of this Date object 
+SetSelectedFont(Filename)Sets a font for displaying the selected text within the editor control.
+SetShadowImage(Filename)Sets and image to be used as a simple shadow for 3D characters
+SetShadowImage(Filename)Sets and image to be used as a simple shadow for this actor
+SetShort(Position, Value)Writes a 16-bit integer value to a memory buffer.
+SetSize(Size)Resizes the memory buffer to the desired size.
+SetSound(Filename)Assigns a sound to this frame.
+SetSoundPosition(Time)Sets the sound's current playing position.
+SetSoundVolume(Volume)Sets a volume of the currently playing sound.
+SetSprite(Filename)Sets entity's default sprite.
+SetSprite(Filename)Sets the default sprite.
+SetSprite(Filename)Sets the sprite to be used instead of actor's standing animations.
+SetString(Position, Value)Writes a string value to a memory buffer.
+SetTalkSprite(Filename, Extended)Sets entity's talk sprite.
+SetTalkSprite(Filename, Extended)Sets the talk sprite.
+SetTexture(MaterialName, TextureFilename)Assigns a new texture to a specified material
+SetTheoraTexture(MaterialName, VideoFilename)Assigns a Theora video as a texture to a specified material
+SetViewport(X, Y, Width, Height)Sets scene viewport to specified values.
+SetWaitCursor(Filename)Sets the non-interactive cursor.
+SetYear(Year)Sets a year of this Date object 
+Shadow
+ShadowColor
+Shadows
+ShadowType
+ShowGeometry
+ShowMesh(MeshName)Shows a specified part (mesh) of this actor
+SimpleShadow
+SimpleShadows
+Sin(Angle)Returns the sine of a number
+Sinh(Angle)Returns the hyperbolic sine of a number
+SizeToFit()Changes the size of the control to fit the contained text or image.
+SkipTo(Object)Sets the current scroll position to the given point / object.
+SkipTo(X, Y)Moves an object to a specified location.
+SkipTo(X, Y)Sets the current scroll position to the given point / object.
+SkipTo3D(X, Y, Z)Moves the actor to a specified point in 3D space
+Sleep (Milliseconds)Suspends the script for a specified number of milliseconds 
+SmartItemCursor
+SoundAvailable
+SoundBufferSize
+SoundFXEcho(WetDryMix, Feedback, LeftDelay, RightDelay)Assigns an echo effect to the sounds played by this object.
+SoundFXNone()Removes any sound effect currently assigned to this object.
+SoundFXReverb(InGain, ReverbMix, ReverbTime, HighFreqRTRatio)Assigns a reverb effect to the sounds played by this object.
+SoundPanning
+Split(Separators)Splits string into a list of values.
+Sqrt(Number)Returns the square root of a number
+Start(InitialTime)Executes the particle generation.
+StartDlgBranch(DialogueName)Denotes a start of a dialogue branch.
+StartupScene
+StickToRegion(Region)Forces this actor/entity to act like it's inside a given region
+StickToRegion(RegionName)Forces this actor/entity to act like it's inside a given region
+Stop()Shuts down the particle emitter.
+StopAnim(TransitionTime)Stops a currently playing animation.
+StopAnimChannel(Channel)Stops a currently playing animation in the specified channel.
+StopMusic()Stops a music playback.
+StopMusicChannel(Channel)Stops a music playback in a specified channel.
+StopSound()Stops the currently playing sound (if any).
+StopTalking()Cancels object's talking.
+StopTheora()Stops the Theora video playback
+StoreSaveThumbnail()Stores the current screen content to be used as a saved game thumbnail.
+String()Creates an empty string object.
+String(BufferSize)Creates a new string buffer of a specified size
+String(StringValue)Creates a new string object and assigns it a specified value.
+Substr(Start, Length)Extracts a substring by specifying the start position and length of the fragment
+Substring(Start, End)Extracts a substring by specifying the start and end positions within the original string 
+Subtitles
+SubtitlesPosRelative
+SubtitlesPosX
+SubtitlesPosXCenter
+SubtitlesPosY
+SubtitlesSpeed
+SubtitlesWidth
+Subtype
+SupportsRealTimeShadows
+SuppressScriptErrors
+SuspendedRendering
+SystemExclusive
+SystemFadeIn(Duration, SourceRed, SourceGreen, SourceBlue, SourceAlpha)Fades the screen in from a specified color.
+SystemFadeInAsync(Duration, SourceRed, SourceGreen, SourceBlue, SourceAlpha)Fades the screen in from a specified color.
+SystemFadeOut(Duration, TargetRed, TargetGreen, TargetBlue, TargetAlpha)Fades the screen out to a specified color.
+SystemFadeOutAsync(Duration, TargetRed, TargetGreen, TargetBlue, TargetAlpha)Fades the screen out to a specified color.
+TakeItem(ItemName, InsertAfter)Adds an item into the inventory.
+Talk(Text, SoundFilename, Duration, TalkStances, TextAlignment)Makes the object talk.
+TalkAnimChannel
+TalkAnimName
+TalkAsync(Text, SoundFilename, Duration, TalkStances, TextAlignment)Makes the object talk.
+TalkSkipButton
+Tan(Angle)Returns the tangent of a number
+Tanh(Angle)Returns the hyperbolic tangent of a number
+TempDirectory
+Text
+TextAlign
+TextEncoding
+TextMode
+TextRTL
+ToBool (Value)Converts a specified value to a boolean (logical) value
+ToFloat (Value)Converts a specified value to a floating point number
+ToInt (Value)Converts a specified value to an integer number
+ToLowerCase()Converts the string to lower case
+ToString (Value)Converts a specified value to a string
+TotalNumItems
+ToUpperCase()Converts the string to upper case
+Transparent
+TransparentColor
+TurnLeftAnimName
+TurnRightAnimName
+TurnTo(Direction)Makes actor turn to the given direction or to a given object.
+TurnTo(Object)Makes actor turn to the given direction or to a given object.
+TurnToAngle(Angle)Makes actor turn to the given angle.
+TurnToAngleAsync(Angle)Makes actor turn to the given angle.
+TurnToAsync(Direction)Makes actor turn to the given direction or to a given object.
+TurnToAsync(Object)Makes actor turn to the given direction or to a given object.
+Type
+UnloadAnim(AnimationName)Unload specified named animation from memory
+UnloadAnim(AnimationName)Unloads a specified animation set from memory
+UnloadObject(Object)Removes an object from memory.
+UseRegion
+ValidObject(Object)Queries whether a given object reference is valid.
+Velocity
+Velocity1
+Velocity2
+VelocityZBased
+VerticalAlign
+VideoSubtitles
+Visible
+WaitFor (Object)Suspends the script until the specified object is "ready"
+WalkAnimName
+WalkToDirection
+WalkToX
+WalkToY
+Width
+WindowedMode
+WindowsTime
+WriteBool(Value)Writes a boolean value (1 byte) to a binary file open for writing/appending.
+WriteByte(Value)Writes an 8-bit integer value to a binary file open for writing/appending.
+WriteDouble(Value)Writes a 32-bit floating point value to a binary file open for writing/appending.
+WriteFloat(Value)Writes a 16-bit floating point value to a binary file open for writing/appending.
+WriteInt(Value)Writes a 32-bit integer value to a binary file open for writing/appending.
+WriteLine(Line)Writes a line to a text file open for writing/appending.
+WriteLong(Value)Writes a 32-bit integer value to a binary file open for writing/appending.
+WriteShort(Value)Writes a 16-bit integer value to a binary file open for writing/appending.
+WriteString(Value)Writes a zero-terminated string value to a binary file open for writing/appending.
+WriteText(Text)Writes text to a text file open for writing/appending.
+X
+Y
+

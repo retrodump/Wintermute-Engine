@@ -1,0 +1,317 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="cs">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Krok 6: Volné entity, úrovně zvětšení a dekorační regiony</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3>Krok 6: Volné entity, úrovně zvětšení a dekorační regiony</h3>
+<p>V této kapitole dokončíme hrubý design naší scény. Otevřete soubor
+&quot;MyScene.scene&quot; ve SceneEditu.</p>
+
+<p>&nbsp;</p>
+
+<h4><a name="free_entities"></a>Volné entity</h4>
+<p>Podíváme-li se na naši scénu, židle se ještě nechová tak, jak by měla.
+Vypadá, jako by byla namalovaná na podlaze. Zkusme s tím něco udělat.&nbsp;
+Totéž už jsme učinili se stolem v kapitolách 
+<a href="inside_scenes_step2.html">krok 2</a> a <a href="inside_scenes_step3.html">krok
+3</a>. Vytvořili jsme entitu &quot;stůl&quot; a rozvrhli jsme regiony tak, že
+stůl patřičně překrývá postavy, pokud se dostanou za něj. Popsaný přístup
+pomocí regionů je velice flexibilní a je vhodný zejména pro veliké objekty
+a pro objekty s nepravidelným půdorysem. V případě menších objektů je
+vhodnější převést je na něco, čemu říkáme &quot;volné entity&quot;
+(free entities). Ukážeme si to na příkladu židle.</p>
+
+<p>Takže co jsou &quot;volné entity&quot;? Dříve už jsme používali normální
+entity; pozadí a stůl jsou entity, ale tyto entity jsou pevně vázány na
+rozvržení scény. Volné entity se v mnohém chovají jako postavy, jsou
+vykreslovány v závislosti na tom, <b>kde</b> ve scéně jsou umístěny (jinými
+slovy, ve kterém regionu stojí). Takhle to může znít trochu zmateně, ale
+hned si ukážeme, jak to funguje.</p>
+
+<p>Dobře, vytvořme entitu &quot;chair&quot; (židle). Nejprve potřebujeme prřipravit
+grafiku, tedy obrázek židle. Totéž už jsme dělali s obrázkem pozadí a
+obrázkem stolu. Přepněte se do programu ProjectMan, pravým tlačítkem myši
+klikněte na složce &quot;MyScene&quot; a vyberte příkaz
+&quot;Import-&gt;Import file...&quot;&nbsp; (Import-&gt;Import souboru).
+Nalistujte složku &quot;data\tutorial\gfx&quot; a vyberte soubor
+&quot;chair.bmp&quot;. Obrázek bude zkopírován do adresáře s naší scénou.</p>
+
+<p>Přepněte se zpátky do SceneEditu. Vlevo v seznamu vrstev zvolte položku
+&quot;Free entities&quot; (Volné entity). Spodní seznam prvků scény se změnil
+a nyní zobrazuje seznam všech volných entit (zatím je prázdný). Klikněte
+na tlačítko &quot;Add entity&quot; (Přidat entitu) a v menu vyberte položku
+&quot;Add sprite entity&quot; (Přidat sprite entitu). Bude vytvořen objekt
+&quot;new entity&quot;. Změňte jeho název na &quot;chair&quot; (židle). Také
+můžete změnit vlatnost &quot;Caption&quot; (Titulek) na &quot;Židle&quot;,
+titulek použijeme později.</p>
+
+<p align="center">
+<img border="0" src="../img/tut6-1.gif" width="222" height="190"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Nyní musíme nastavit obrázek, který reprezentuje naši novou netitu.
+Klikněte na tlačítko &quot;...&quot; vedle vlastnosti &quot;Sprite&quot; a
+najděte soubor &quot;chair.bmp&quot;, který jsme před chvílí naimportovali.
+Posuňte entitu tak, aby se přesně kryla s obrázkem židle na pozadí:</p>
+
+<p align="center">
+<img border="0" src="../img/tut6-2.gif" width="422" height="347"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Uložte scénu a spusťte hru (v programu ProjectMan), abychom scénu vyzkoušeli.
+A jéje, něco je špatně, postava překrývá židli pořád. A co že se děje?
+Skutečnost je taková, že stojí-li více volných objektů (postav a entit)
+ve stejném regionu, pořadí jejich vykreslení je dáno jejich Y souřadnicí
+na obrazovce. Pozice postavy je daná bodem, kde se její nohy dotýkají země,
+zatímco základní bod židle je v levém horním bodu obrázku. Určitě byste
+očekávali, že židle by měla mít základní bod také tam, kde se dotýká
+země, nemám pravdu? Ale jak toho dosáhnout? Namísto jednoduchého BMP obrázku
+použijeme <b>sprite</b>. &quot;Sprite&quot; v pojetí WME je vlastně složený
+obrázek. Může to být jednoduchý obrázek či animace a navíc lze definovat
+některé další vlastnosti (více informací o spritech). Jednou z techto dalších
+vlastností je i takzvaný bázový bod (hot spot). Přesně to potřebujeme,
+abychm změnili bázový bod naší židle.</p>
+
+<p>Takže nyní potřebujeme vytvořit sprite pro židli. Přepněte se do
+ProjectManu. Klikněte pravým tlačítkem myši na adresáři
+&quot;MyScene&quot; a v menu vyberte příkaz &quot;Add-&gt;Add sprite...&quot;
+(Přidat-&gt;Přidat sprite). Objeví se okno s výběrem šablony. Zde vyberte
+položku &quot;Empty sprite&quot; (Prázdný sprite). Přepište jméno na
+&quot;chair&quot; (židle) a stiskněte OK.</p>
+
+<p align="center">
+<img border="0" src="../img/tut6-3.gif" width="367" height="331"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Nový sprite bude vytvořen v adresáři &quot;MyScene&quot; a bude se
+jmenovat &quot;chair.sprite&quot;. Použijte double-click na nově vytvořeném
+souboru, čímž se sprite otevře v editačním programu <b>SpriteEdit</b>. Zatím
+je sprite prázdný. Ve SpriteEditu můžete vytvářet animace, tím že poskládáte
+několik obrázku za sebe. Ale jelikož naše židle není animovaná, vystačíme
+s jedním obrázkem. Klikněte na tlačítko &quot;Add frame(s)&quot; (Přidat
+snímek/snímky) a potom najděte a vyberte soubor &quot;chair.bmp&quot;.</p>
+
+<p align="center">
+<img border="0" src="../img/tut6-4.gif" width="218" height="184"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Nyní změníme onen bázový bod (hot spot). Toho lze dosáhnout dvěma způsoby:
+buďto přetáhněte obrázek myší, nebo vyplňte pozici bázového bodu v okně
+vlastností vlevo dole (bázový bod je zobrazen jako malý červený křížek
+vpravo v okně náhledu spritu).</p>
+<p>Změňte pozici bázového bodu na 135, 174.</p>
+
+<p align="center">
+<img border="0" src="../img/tut6-5.gif" width="219" height="210"></p>
+
+<p align="center">
+<img border="0" src="../img/tut6-6.gif" width="223" height="232"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Uložte sprite a zavřete SpriteEdit. Přepněte se zpátky do SceneEditu. V
+okně vlastností entity &quot;chair&quot; znovu klikněte na tlačítko
+&quot;...&quot; vedle vlastnosti &quot;Sprite&quot; a tentokrát vyberte soubor
+&quot;char.sprite&quot;, který jsme právě vytvořili. Všimněte si, že po
+vybrání souboru židle poskočila. To proto, jelikož se změnil její bázový
+bod. Znovu posuňte entitu židle tak, aby přesně překrývala obrázek židle
+na pozadí. No a je to! Uložte scénu a spusťte hru.</p>
+<p>Překrývání teď už funguje tak, jak by mělo. Je-li postava za židlí,
+je překryta a naopak.</p>
+
+<p align="center">
+<img border="0" src="../img/tut6-7.gif" width="258" height="312">&nbsp;&nbsp;&nbsp;
+<img border="0" src="../img/tut6-8.gif" width="258" height="312"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Teď už jen musíme zařídit, aby postava nemohla procházet skrz židlo.
+Docílíme toho přidáním blokovaného regionu a hrsti navigačních bodů.</p>
+
+<p>Přidejte nový blokovaný region (pojmenovaný &quot;block_chair&quot;) a čtyři
+navigační body. Jak to udělat jsme se naučili v kapitolách&nbsp; <a href="inside_scenes_step4.html">krok
+4</a>
+ a <a href="inside_scenes_step5.html">krok 5</a>. Měli byste se dostat zhruba
+na výsledek, zobrazený na následujícím obrázku:</p>
+
+
+
+<p align="center">
+<img border="0" src="../img/tut6-9.gif" width="305" height="293"></p>
+
+
+
+<p align="center">&nbsp;</p>
+
+
+
+<h4><a name="scale_levels"></a>Úrovně zvětšení</h4>
+<p>Rozvržení už funguje dobře, ale postava se zdá být trochu moc malá vůči
+zbytku scény. Jak se postavy zvětšují a zmenšují můžeme snadno ovlivnit
+pomocí takzvaných &quot;úrovní zvětšení&quot; (scale levels). Úrovně zvětšení
+jsou reprezentovány těmi vodorovnými zelenými čarami ve SceneEditu, kterých
+jste si určitě už všimli. Myšlenka je následující: zadefinujete úroveň
+zvětšení postavy v určitých klíčových bodech scény a herní engine pak
+automaticky dopočítá správné zvětšení podle aktuální Y pozice postavy.</p>
+<p>V naší scéně už jsou předdefinovány dvě úrovně zvětšení (a zřídka
+budete potřebovat více než dvě). Zelenými čarami můžete pohybovat myší,
+pokud je chytnete za držátko vlevo. Odstranit úroveň zvětšení a nastavit
+její vlastnosti můžete, pokud na držátku kliknete pravým tlačítkem myši.</p>
+
+<p align="center">
+<img border="0" src="../img/tut6-10.gif" width="173" height="149"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Pokud potřebujete do scény přidat další úroveň zvětšení, použijte
+tlačítko &quot;Add scale level&quot; (Přidat úroveň zvětšení).</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut6-11.gif" width="173" height="153"></p>
+
+
+<p align="center">&nbsp;</p>
+
+
+<p>Ale dosti teorie, nastavme úrovně zvětšení v naší scéně. Posuňte
+horní zelenou čáru tak, aby se zhruba dotýkala horního bodu podlahy. Přes
+pravé tlačítko nastavte zvětšení na 90%.</p>
+<p>Potom posuňte spodní zelenou čáru k dolnímu okraji podlahy a nastavte zvětšení
+na 160%.</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut6-12.gif" width="613" height="402"></p>
+
+
+<p align="center">&nbsp;</p>
+
+
+<p><a name="actor_placement"></a>Možná si říkáte, jak odhadnout správné
+zvětšení v těchto dvou bodech. Inu, nejlepší způsob je použít <b>nástroj
+pro umístění postavy</b>. SceneEdit vám umožňuje umístit do scény
+postavu, a tak okamžitě otestovat, jak funguje rozvržení scény a úrovně
+zvětšení. To znamená, že vůbec nemusíte spouštět hru, abyste otetovali
+výsledek vašeho snažení ve SceneEditu! Příkaz &quot;Place actor&quot; (Umístit
+postavu) naleznete na panelu nástrojů nebo nahoře v hlavním menu jako
+&quot;Actor-&gt;Place actor&quot; (Postava-&gt;Umístit postavu).</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut6-13.gif" width="178" height="109"></p>
+
+
+<p align="center">&nbsp;</p>
+
+<p>Stiskněte toto tlačítko a SceneEdit vás nechá vyprat soubor s postavou.
+Nalistujte adresář &quot;data\actors\molly&quot; a vyberte soubor
+&quot;molly.actor&quot;. Jakmile bude postava nahrána do scény, pohybem myší
+můžete postavu umístit na jakékoliv místo. Stisknutím pravého tlačítka
+myši lze nastavit, do jakého směru je postava natočena. Stisknutím levého
+tlačítka myši se postava umístí do scény. Pokud potřebujete později změnit
+její pozici, prostě opět stiskněte tlačítko &quot;Place actor&quot; (Umístit
+postavu).</p>
+
+<p>Poznámka: nástroj pro umístění postavy slouží pouze pro potřeby návrhu
+scény; vlastní scénu nijak neovlivňuje</p>
+
+<p>Pokusným umístěním postavy na různá místa scény můžete snadno
+vyladit to správné procento zvětšení pro jednotlivé úrovně zvětšení.</p>
+
+
+<p>&nbsp;</p>
+
+
+<h4><a name="decoration_regions"></a>Dekorační regiony</h4>
+<p>Jelikož je rozvržení scény už hotové, přidáme nějakou tu ozdobu. Řekněme
+že chceme, aby se postava jevila trochu tmavší, pokud stojí v odlehlém koutě
+scény.</p>
+<p>Můžeme do scény přidat speciální regiony, které ovlivňují barevnost
+a zvětšení postav. Říká se jim &quot;dekorační regiony&quot; (pamatujte,
+už známe dva další typy regionů: 
+<a href="inside_scenes_step3.html">regiony rozvržení</a> a 
+<a href="inside_scenes_step4.html">blokované regiony</a>).</p>
+<p>Dekorační regiony přidáváme úplně stejně, jako ostatní typy:
+stisknutím tlačítka &quot;Add region&quot; (Přidat region). Než tlačítko
+stisknete, ujistěte se, že máte v seznamu vrstev vybránu položku
+&quot;main&quot;.</p>
+
+<p align="center">
+<img border="0" src="../img/tut6-14.gif" width="133" height="92"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Stiskněte tlačítko a do scény bude vložen nový region. Změňte jeho jméno
+na &quot;shade&quot; (stín) a poté přepněte rádové tlačítko z polohy
+&quot;Layout&quot; (rozvržení) do polohy &quot;Decoration&quot; (dekorační).
+V okně s vlastnostmi si nyní povšimněte výběrového pole &quot;Color&quot;
+(barva). Jak jistě tušíte, pomocí něj lze zvolit barvu daného regionu.
+Pokud do regionu vstoupí postava, její původní barva bude zkombinována s
+barvou regionu. Změňte barvu na světle šedou.</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut6-15.gif" width="221" height="173"></p>
+
+
+<p align="center">&nbsp;</p>
+
+
+<p>Poznámka: Také byste mohli změnit zvětšení pro tento region (Scale).
+Tato volba pak pro daný region potlačí výchozí velikost, nastavenou pomocí
+úrovní zvětšení (viz předchozí podkapitola).</p>
+
+<p>Poznámka: obarvování postav funguje pouze pokud:</p>
+<blockquote>
+1)&nbsp;&nbsp;&nbsp;hra běží v akcelerovaném režimu; v režimu
+kompatibility je obarvování vypnuto<br>
+2)&nbsp;&nbsp;&nbsp;obarvovaný objekt musí mít vlastnost Colorable
+(obarvitelné) nastavenou na true (pravda)
+<p>&nbsp;</p>
+
+</blockquote>
+
+<p>Nyní přesuňte region na správnou pozici a změňte jeho tvar tak jako na
+obrázku:</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut6-16.gif" width="545" height="231"></p>
+
+
+<p align="center">&nbsp;</p>
+
+
+<p>Poznámka: Dekorační regiony neovlivňují rozvržení scény. Nicméně
+obarvení postavy se řídí podle <u>nejvrchnějšího</u> regionu, který
+postava najde, proto by dekorační regiony měly být umístěny až na konci
+seznamu prvků ve SceneEditu.</p>
+
+<p>Výsledky nastavení můžete otestovat přímo ve SceneEditu pomocí <a href="#actor_placement">nástroje
+pro umístění postavy</a>, který je popsán výše.</p>
+
+<p>Uložte scénu a ukončete SceneEdit. Nyní můžete spustit hru a otestovat
+všechny změny, které jsme v této kapitole provedli. Postava by měla mít
+správnou velikost, obcházet židli, a pokud dojde do odlehlého rohu scény,
+tak lehce ztmavne.</p>
+
+<p>Naše scéna už teď dobře vypadá, takže můžeme přidat nějakou tu
+interaktivitu v kapitole <a href="inside_scenes_step7.html">Krok 7: Regionové
+entity, kurzory, skripty</a>.</p>
+
+</body>
+
+</html>

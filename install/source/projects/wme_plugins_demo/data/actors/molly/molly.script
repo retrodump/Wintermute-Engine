@@ -1,0 +1,22 @@
+#include "scripts\base.inc"
+
+// where do you want the actor's subtitles to appear
+this.X = 400;
+this.Y = 300;
+
+
+method GoTo()
+{
+	/* do nothing */
+}
+
+method TurnTo()
+{
+	/* do nothing */
+}
+
+
+method SkipTo()
+{
+	/* do nothing */
+}

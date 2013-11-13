@@ -1,0 +1,126 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Music support in WME</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h2>Music support in WME</h2>
+<p>The Wintermute Engine provides various music related functions. All of them 
+are exposed as methods of the Game object. See the <a href="scripting_ref.html">
+Script language reference</a> for a detailed description of each method.</p>
+<ul>
+  <li><a href="#standard">Standard music playback</a></li>
+  <li><a href="#multi">Multi-channel music and cross-fading</a></li>
+</ul>
+<p>&nbsp;</p>
+<h3><a name="standard"></a>Standard music playback</h3>
+<p>The most important is probably the <b>Game.PlayMusic()</b> method. You pass 
+it a sound file (Wav or Ogg), and specify if the music should loop or not.</p>
+<p>For example:</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber3">
+  <tr>
+    <td class="code">
+<pre>Game.PlayMusic(&quot;music\MyMusic.ogg&quot;, true);
+</pre>    
+    </td>
+  </tr>
+</table>
+<p>The above line tells WME to play the MyMusic.ogg file and that it should 
+start over once the music finishes.</p>
+<p>But since it's not always easy for the musician to achieve a seamless 
+transition when the music starts over, the <b>PlayMusic()</b> has a third 
+optional parameter, which specifies the point from which the music should start 
+when looping. This point is specified in milliseconds:</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber4">
+  <tr>
+    <td class="code">
+<pre>Game.PlayMusic(&quot;music\MyMusic.ogg&quot;, true, 6890);
+</pre>    
+    </td>
+  </tr>
+</table>
+<p>This command will play the MyMusic.ogg file, but once the playback reaches 
+the end of the file, it skips to 6890 milliseconds from the beginning.</p>
+<p>There are many other music functions but their names are usually 
+self-describing like <b>Game.StopMusic()</b>, <b>Game.GetMusicPosition()</b> 
+etc. See the <a href="generated/scripting_ref_game.html"><b>Game</b> object 
+scripting reference</a> for a complete list with a detailed description.</p>
+<p>You will usually put the <b>Game.PlayMusic</b> call to the scene_init.script 
+of the scene where your music should start to play.</p>
+<p>&nbsp;</p>
+<h3><a name="multi"></a>Multi-channel music and cross-fading</h3>
+<p>While the standard set of functions described in the previous article is able 
+to work with a single music channel, WME provides a second set of functions, 
+allowing you to work with multiple music channels. WME supports up to 5 music 
+channels numbered 0 - 4. </p>
+<p>The multi-channel music methods have similar names as their single-channel 
+counterparts, but the word &quot;Music&quot; is replaced by the word MusicChannel. For 
+example there are two methods for playing the music:</p>
+<ul>
+  <li>Game.PlayMusic(Filename, Looping, LoopStart)</li>
+  <li>Game.PlayMusicChannel (Channel, Filename, Looping, LoopStart)</li>
+</ul>
+<p>All the multi-channel music functions take a channel number as the first 
+parameter. The channel number can be a number in range from 0 to 4. On the other 
+hand, the single-channel methods operate always on channel 0.</p>
+<p>Again, see the <a href="generated/scripting_ref_game.html"><b>Game</b> object 
+scripting reference</a> for a detailed description of both single-channel and 
+multi-channel music methods.</p>
+<p>The multi-channel music support comes with the ability to cross-fade two 
+music channels. WME has a <b>Game.MusicCrossfade()</b> for this purpose. You 
+need to tell this method what two channels you want to cross-fade, and how long 
+should the cross-fade take. You can also specify, if the two channels should be 
+swapped after the cross-fading is over. This is useful to always hold the main 
+melody in the same channel.</p>
+<p>This is the typical scenario of using the music cross-fading. You'll start 
+the first channel playback somewhere, usually at the scene entry, i.e. in the 
+scene_init.script:</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber5">
+  <tr>
+    <td class="code">
+<pre>Game.PlayMusicChannel(0, &quot;music\FirstChannel.ogg&quot;, true);
+</pre>    
+    </td>
+  </tr>
+</table>
+<p>The music is now playing at channel 0. Now, once some event happens, we want 
+the music to seamlessly cross-fade to other tune. What we need to do is to start 
+playback in other channel and call the <b>MusicCrossfade</b> method:</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber6">
+  <tr>
+    <td class="code">
+<pre>Game.PlayMusicChannel(1, &quot;music\SecondChannel.ogg&quot;);
+Game.MusicCrossfade(0, 1, 3000);
+</pre>    
+    </td>
+  </tr>
+</table>
+<p>Those two lines will start the playback in the channel 1 and will initiate 
+the cross-fade. The cross-fading will take three seconds and once it's over, the 
+channels will be swapped, i.e. you still have the main music playing in channel 
+0, only the music file is now different.</p>
+<p>Sometimes you may want to start the second channel not from the beginning, 
+but from a certain point. In that case you'd call the <b>
+Game.SetMusicChannelPosition</b> method first:</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber7">
+  <tr>
+    <td class="code">
+<pre>Game.SetMusicChannelPosition(1, 10000);
+Game.PlayMusicChannel(1, &quot;music\SecondChannel.ogg&quot;);
+Game.MusicCrossfade(0, 1, 3000);
+</pre>    
+    </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

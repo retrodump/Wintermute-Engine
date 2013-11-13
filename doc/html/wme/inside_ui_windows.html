@@ -1,0 +1,577 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Windows and widgets</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3>Windows and controls</h3>
+
+<ul>
+  <li><a href="#windows">Windows</a></li>
+  <li><a href="#buttons">Buttons</a></li>
+  <li><a href="#editors">Editors</a></li>
+  <li><a href="#statics">Static controls</a></li>
+  <li><a href="#entity_containers">Entity containers</a></li>
+  <li><a href="#tiled_images">Tiled images</a></li>
+</ul>
+
+<p>&nbsp;</p>
+<hr>
+<h3><a name="windows"></a>Windows</h3>
+<p>The windows are the base of all GUI elements in WME. Imagine a window as a 
+rectangular area on screen, which can can contain one or more other controls 
+(buttons, editors...) including other (nested) windows. The windows can be 
+completely &quot;skinned&quot;, i.e. you can change their appearance to fit your game's 
+look and feel.</p>
+
+<p>You define a window by writing a simple text file. The window files use the 
+.window extension. Let's have a look at an 
+example of a window definition file. First there is a file header followed by 
+general window properties. There are lots of possible properties, you don't need 
+to use all of them, most properties use a reasonable default if you don't define 
+them. Basically, only define properties you need to change and ignore the 
+others.</p>
+
+<pre><font color="#800000">WINDOW
+{
+  NAME = "MyWindow"
+  TEMPLATE = "templates\MyTemplate.window"
+
+  ; position and size
+  X = 200
+  Y = 200
+  WIDTH = 240
+  HEIGHT = 150
+
+  ; window state
+  VISIBLE = TRUE
+  DISABLED = FALSE
+
+  ; title
+  TITLE = "My brand new window"
+  TITLE_RECT { 5,5,235,45 }  
+  TITLE_ALIGN = left
+
+  DRAG_RECT { 0,0,215,25 }
+  
+  ; background
+  BACK = "path\window.image"
+  BACK_INACTIVE = "path\winow_inactive.image"
+  
+  IMAGE = "path\window.sprite"
+  IMAGE_INACTIVE = "path\window_inactive.sprite"
+
+  ; fonts  
+  FONT = "fonts\outline_white.font"
+  FONT_INACTIVE = "fonts\outline_gray.font"
+
+  ; cursor
+  CURSOR = "path\arrow.sprite"
+  
+  ; script
+  SCRIPT = "path\MyWindow.script"
+  
+  ; extended properties
+  TRANSPARENT = FALSE
+  MENU = FALSE
+  IN_GAME = FALSE
+  CLIP_CONTENTS = TRUE
+  
+  ; background fading
+  FADE_COLOR { 255, 0, 0 }
+  FADE_ALPHA = 255
+  
+  PAUSE_MUSIC = TRUE
+}</font>
+  
+</pre>
+<p>Description:</p>
+
+<ul>
+  <li>NAME - the internal name of this window</li>
+  <li>TEMPLATE - a reference to another .window file; if you have lots of 
+  similar windows, you can move all common properties to a separate file and 
+  reference it as a template. It's a good idea to put the template reference 
+  early in the definition, so that you can override inherited properties if 
+  needed.</li>
+  <li>X, Y - the initial position of the window</li>
+  <li>WIDTH, HEIGHT - the size of the window</li>
+  <li>VISIBLE - specifies whether the window is initially visible</li>
+  <li>DISABLED - specifies whether the window is initially disabled</li>
+  <li>TITLE - the title caption of this window</li>
+  <li>TITLE_RECT - specifies the rectangle within the window where the caption 
+  will be placed. The rectangle is defined by four numbers: left, top, right and 
+  bottom (in pixels).</li>
+  <li>TITLE_ALIGN - specifies the alignment of the caption, the possible values 
+  are: left, right or center.</li>
+  <li>DRAG_RECT - specifies the rectangle within the window which can be dragged 
+  by mouse. The rectangle is defined by four numbers: left, top, right and 
+  bottom (in pixels).</li>
+  <li>BACK - specifies a tiled image to be used as a background image of this 
+  window (<a href="#tiled_images">learn more about tiled images</a>)</li>
+  <li>BACK_INACTIVE - specifies a tiled image to be used as a background image 
+  of this window when the window is inactive (<a href="#tiled_images">learn more about tiled images</a>)</li>
+  <li>IMAGE - specifies a sprite to be used as a background image of this window 
+  (<a href="inside_sprites.html">learn more about sprites</a>)</li>
+  <li>IMAGE_INACTIVE - specifies a sprite to be used as a background image of 
+  this window when the window is inactive (<a href="inside_sprites.html">learn 
+  more about sprites</a>)</li>
+  <li>FONT - the font file to be used to display window title</li>
+  <li>FONT_INACTIVE - the font file to be used to display window title when the 
+  window is inactive</li>
+  <li>CURSOR - the sprite file to be used as a mouse cursor when mouse is over this window</li>
+  <li>SCRIPT - the script file containing the logic of this window (there can be 
+  multiple SCRIPT lines in the window definition)</li>
+  <li>TRANSPARENT - the window marked as transparent doesn't receive click 
+  events, all the mouse clicks go through</li>
+  <li>MENU - the window marked as a menu does automatically disappear when the 
+  player clicks outside the window</li>
+  <li>IN_GAME - the window marked as in-game is displayed before the inventory 
+  window; otherwise the windows are displayed after the inventory</li>
+  <li>CLIP_CONTENTS - this attribute specifies whether the controls contained in 
+  the window are clipped if they overlap the window rectangle</li>
+  <li>FADE_COLOR - if the window is displayed the background will be covered by 
+  the specified color; the color is defined as three numbers for red, green and 
+  blue color components</li>
+  <li>FADE_ALPHA - specifies the opacity of the color defined by the FADE_COLOR 
+  attribute; it ranges from 0 (completely transparent) to 255 (completely 
+  opaque)</li>
+  <li>PAUSE_MUSIC - specifies if the window should pause music when entering the system exlusive mode
+  opaque)</li>
+</ul>
+<p>After those general properties the window definition contains embedded 
+definitions of the controls to be placed on this window. For example the 
+following definition will place a button on our window. The controls definitions 
+are described in detail later in this chapter. Note that windows can contain 
+other windows in them.</p>
+<pre><font color="#800000">  BUTTON
+  {
+    NAME = "MyButton"
+    TEXT = "Button"
+    X = 40
+    Y = 100
+    WIDTH = 70
+    HEIGHT = 30
+  }</font>
+</pre>
+<p>&nbsp;</p>
+<p>For an example of a complete window definition please see the &quot;WME demo&quot; 
+project. There are some windows prepared in the &quot;interface\system&quot; folder. Also, 
+you don't need to write the definition file from scratch, there is a window 
+template available in ProjectMan (<a href="inside_projectman.html">learn more 
+about ProjectMan</a>).</p>
+<p>&nbsp;</p>
+<p><b>See also</b>: <a href="generated/scripting_ref_window.html">Window 
+scripting reference</a></p>
+<hr>
+<h3><a name="buttons"></a>Buttons</h3>
+
+<p>Buttons in WME can have various appearances. They can be either graphical or 
+rectangular with a text label, or a combination of those. As in the case of 
+windows and other controls, the buttons can be &quot;skinned&quot; to fit your game's 
+appearance.</p>
+
+<p>Button definitions are always part of the .window file (see above).  Let's have a look at an 
+example of a button definition block. First there is a header followed by 
+general button properties. There are lots of possible properties, you don't need 
+to use all of them, most properties use a reasonable default if you don't define 
+them. Basically, only define properties you need to change and ignore the 
+others.</p>
+
+<pre><font color="#800000">BUTTON
+{
+  NAME = "MyButton"
+  TEMPLATE = "templates\MyTemplate.button"
+
+  ; position and size (relative to the window position)
+  X = 100
+  Y = 100
+  WIDTH = 200
+  HEIGHT = 50
+
+  ; button state
+  VISIBLE = TRUE
+  DISABLED = FALSE
+  PRESSED = FALSE
+  FOCUSABLE = FALSE
+
+  ; text
+  TEXT = "My brand new button"  
+  TEXT_ALIGN = "center"
+  
+  ; background
+  BACK = "path\button.image"
+  BACK_DISABLE = "path\button_disable.image"
+  BACK_FOCUS = "path\button_focus.image"
+  BACK_HOVER = "path\button_hover.image"
+  BACK_PRESS = "path\button_press.image"
+
+  
+  IMAGE = "path\button.sprite"
+  IMAGE_DISABLE = "path\button_disable.sprite"
+  IMAGE_FOCUS = "path\button_focus.sprite"
+  IMAGE_HOVER = "path\button_hover.sprite"
+  IMAGE_PRESS = "path\button_press.sprite"
+  
+  CENTER_IMAGE = TRUE
+
+
+  ; fonts  
+  FONT = "fonts\outline_white.font"
+  FONT_DISABLE = "fonts\outline_gray.font"
+  FONT_FOCUS = "fonts\outline_white.font"
+  FONT_HOVER = "fonts\outline_red.font"
+  FONT_PRESS = "fonts\outline_red.font"
+
+  
+  ; script
+  SCRIPT = "path\MyButton.script"
+  
+  ; cursor
+  CURSOR = "path\arrow.sprite"
+  
+  ; extended properties
+  PARENT_NOTIFY = TRUE
+  PIXEL_PERFECT = TRUE
+} </font>   
+</pre>
+<p>Description:</p>
+
+<ul>
+  <li>NAME - the internal name of this button</li>
+  <li>TEMPLATE - a reference to another file; if you have lots of 
+  similar buttons, you can move all common properties to a separate file and 
+  reference it as a template. It's a good idea to put the template reference 
+  early in the definition, so that you can override inherited properties if 
+  needed.</li>
+  <li>X, Y - the initial position of the button (relative to the window 
+  position)</li>
+  <li>WIDTH, HEIGHT - the size of the button</li>
+  <li>VISIBLE - specifies whether the button is initially visible</li>
+  <li>DISABLED - specifies whether the button is initially disabled</li>
+  <li>PRESSED - specifies whether the button appears to be pressed all the time</li>
+  <li>FOCUSABLE - specifies whether this button can be focused</li>
+  <li>TEXT - the text label of this button</li>
+  <li>TEXT_ALIGN - specifies the alignment of the label, the possible values 
+  are: left, right or center.</li>
+  <li>BACK - specifies a tiled image to be used as a background image of this 
+  button (<a href="#tiled_images">learn more about tiled images</a>)</li>
+  <li>BACK_DISABLE - specifies a tiled image to be used as a background image 
+  of this button when the button is disabled (<a href="#tiled_images">learn more about tiled images</a>)</li>
+  <li>BACK_FOCUS - specifies a tiled image to be used as a background image 
+  of this button when the button is focused (<a href="#tiled_images">learn more about tiled images</a>)</li>
+  <li>BACK_HOVER - specifies a tiled image to be used as a background image 
+  of this button when the mouse cursor is over it (<a href="#tiled_images">learn more about tiled images</a>)</li>
+  <li>BACK_PRESS - specifies a tiled image to be used as a background image 
+  of this button when the button is pressed (<a href="#tiled_images">learn more about tiled images</a>)</li>
+  <li>IMAGE - specifies a sprite to be used as a background image of this button 
+  (<a href="inside_sprites.html">learn more about sprites</a>)</li>
+  <li>IMAGE_DISABLE - specifies a sprite to be used as a background image of 
+  this button when the button is disabled (<a href="inside_sprites.html">learn 
+  more about sprites</a>)</li>
+  <li>IMAGE_FOCUS - specifies a sprite to be used as a background image of 
+  this button when the button is focused (<a href="inside_sprites.html">learn 
+  more about sprites</a>)</li>
+  <li>IMAGE_HOVER - specifies a sprite to be used as a background image of 
+  this button when the mouse cursor is over it (<a href="inside_sprites.html">learn 
+  more about sprites</a>)</li>
+  <li>IMAGE_PRESS - specifies a sprite to be used as a background image of 
+  this button when the button is pressed (<a href="inside_sprites.html">learn 
+  more about sprites</a></li>
+  <li>CENTER_IMAGE - if the button size is bigger than the used image, the image 
+  will be centered</li>
+  <li>FONT - the font file to be used to display the button label</li>
+  <li>FONT_DISABLE - the font file to be used to display the button label when the 
+  button is disabled</li>
+  <li>FONT_FOCUS - the font file to be used to display the button label when the 
+  button is focused</li>
+  <li>FONT_HOVER - the font file to be used to display the button label when the 
+  mouse cursor is over it</li>
+  <li>FONT_PRESS - the font file to be used to display the button label when the 
+  button is pressed</li>
+  <li>SCRIPT - the script file containing the logic of this button (there can be 
+  multiple SCRIPT lines in the button definition)</li>
+  <li>CURSOR - the sprite file to be used as a mouse cursor when mouse is over 
+  this button</li>
+  <li>PARENT_NOTIFY - when the button is pressed, its parent window will receive 
+  an event with the same name as the button name (this way you can move all the 
+  window logic to the window's script)</li>
+  <li>PIXEL_PERFECT - if the button is defined by a sprite, the mouse-over 
+  detection will be pixel perfect</li>
+</ul>
+<p>For an example of a complete button definitions please see the &quot;WME demo&quot; 
+project. There are some windows prepared in the &quot;interface\system&quot; folder 
+and they contain various types of buttons. Also, 
+you don't need to write the definition file from scratch, there is a window 
+template available in ProjectMan (<a href="inside_projectman.html">learn more 
+about ProjectMan</a>) already containing predefined buttons.</p>
+<p>&nbsp;</p>
+<p><b>See also</b>: <a href="generated/scripting_ref_button.html">Button 
+scripting reference</a></p>
+<hr>
+<h3><a name="editors"></a>Editors</h3>
+
+<p>Editor objects represent a single line editor control. The user can enter 
+text in the editor, select part of the text and copy/paste text to/from 
+clipboard. As in the case of 
+windows and other controls, the editors can be &quot;skinned&quot; to fit your game's 
+appearance.</p>
+
+<p>Editor definitions are always part of the .window file (see above).  Let's have a look at an 
+example of an editor definition block. First there is a header followed by 
+general editor properties. There are lots of possible properties, you don't need 
+to use all of them, most properties use a reasonable default if you don't define 
+them. Basically, only define properties you need to change and ignore the 
+others.</p>
+
+<pre><font color="#800000">EDIT
+{
+  NAME = "MyEditor"
+  TEMPLATE = "templates\MyTemplate.editor"
+
+  ; position and size (relative to the window position)
+  X = 100
+  Y = 100
+  WIDTH = 200
+  HEIGHT = 50
+
+  ; editor state
+  VISIBLE = TRUE
+  DISABLED = FALSE
+
+  ; text
+  TEXT = "My brand new editor"  
+  
+  ; background
+  BACK = "path\editor.image"
+  
+  IMAGE = "path\editor.sprite"
+  
+  
+  ; fonts  
+  FONT = "fonts\outline_white.font"
+  FONT_SELECTED = "fonts\outline_red.font"
+
+  
+  ; script
+  SCRIPT = "path\MyEditor.script"
+  
+  ; cursor
+  CURSOR = "path\beam.sprite"
+  
+  ; extended properties
+  PARENT_NOTIFY = TRUE
+  MAX_LENGTH = 100
+  FRAME_WIDTH = 2
+  CURSOR_BLINK_RATE = 0
+} </font>   
+</pre>
+<p>Description:</p>
+
+<ul>
+  <li>NAME - the internal name of this editor</li>
+  <li>TEMPLATE - a reference to another file; if you have lots of 
+  similar editors, you can move all common properties to a separate file and 
+  reference it as a template. It's a good idea to put the template reference 
+  early in the definition, so that you can override inherited properties if 
+  needed.</li>
+  <li>X, Y - the initial position of the editor (relative to the window 
+  position)</li>
+  <li>WIDTH, HEIGHT - the size of the editor</li>
+  <li>VISIBLE - specifies whether the editor is initially visible</li>
+  <li>DISABLED - specifies whether the editor is initially disabled</li>
+  <li>TEXT - the text initially contained in the editor</li>
+  <li>BACK - specifies a tiled image to be used as a background image of this 
+  editor (<a href="#tiled_images">learn more about tiled images</a>)</li>
+  <li>IMAGE - specifies a sprite to be used as a background image of this editor 
+  (<a href="inside_sprites.html">learn more about sprites</a>)</li>
+  <li>FONT - the font file to be used to display the text within the editor</li>
+  <li>FONT_SELECTED - the font file to be used to display the selected text 
+  within the editor</li>
+  <li>SCRIPT - the script file containing the logic of this editor (there can be 
+  multiple SCRIPT lines in the editor definition)</li>
+  <li>CURSOR - the sprite file to be used as a mouse cursor when mouse is over 
+  this editor</li>
+  <li>PARENT_NOTIFY - when the editor text is changed by the user, its parent window will receive 
+  an event with the same name as the editor name (this way you can move all the 
+  window logic to the window's script)</li>
+  <li>MAX_LENGTH - specifies the maximum number of characters the editor can 
+  contain (-1 for infinite length)</li>
+  <li>FRAME_WIDTH - specifies the offset of the text from the editor position 
+  (in pixels)</li>
+  <li>CURSOR_BLINK_RATE - specifies the cursor blink rate (in milliseconds), 
+  defaults to the Windows setting</li>
+</ul>
+<p>For an example of a complete editor definitions please see the &quot;WME demo&quot; 
+project. There are some windows prepared in the &quot;interface\system&quot; folder 
+and some of them contain editors.</p>
+<p>&nbsp;</p>
+<p><b>See also</b>: <a href="generated/scripting_ref_editor.html">Editor 
+scripting reference</a></p>
+<hr>
+<h3><a name="statics"></a>Static controls</h3>
+
+<p>Static controls represent various non-interactive decoration component of the 
+windows, such as text labels or icons. As in the case of 
+windows and other controls, the static controls can be &quot;skinned&quot; to fit your game's 
+appearance.</p>
+
+<p>Static controls definitions are always part of the .window file (see above).  Let's have a look at an 
+example of a static control definition block. First there is a header followed by 
+general  properties. There are lots of possible properties, you don't need 
+to use all of them, most properties use a reasonable default if you don't define 
+them. Basically, only define properties you need to change and ignore the 
+others.</p>
+
+<pre><font color="#800000">STATIC
+{
+  NAME = "MyStatic"
+  TEMPLATE = "templates\MyTemplate.static"
+
+  ; position and size (relative to the window position)
+  X = 100
+  Y = 100
+  WIDTH = 200
+  HEIGHT = 50
+
+  ; state
+  VISIBLE = TRUE
+  DISABLED = FALSE
+
+  ; text
+  TEXT = "A static control"  
+  TEXT_ALIGN = left
+
+  
+  ; background
+  BACK = "path\static.image"
+  
+  IMAGE = "path\static.sprite"
+  
+  
+  ; fonts  
+  FONT = "fonts\outline_white.font"
+  
+  ; script
+  SCRIPT = "path\MyStatic.script"
+  
+  ; cursor
+  CURSOR = "path\arrow.sprite"
+}    </font>
+</pre>
+<p>Description:</p>
+
+<ul>
+  <li>NAME - the internal name of this static control</li>
+  <li>TEMPLATE - a reference to another file; if you have lots of 
+  similar controls, you can move all common properties to a separate file and 
+  reference it as a template. It's a good idea to put the template reference 
+  early in the definition, so that you can override inherited properties if 
+  needed.</li>
+  <li>X, Y - the initial position of the static control (relative to the window 
+  position)</li>
+  <li>WIDTH, HEIGHT - the size of the static control</li>
+  <li>VISIBLE - specifies whether the control is initially visible</li>
+  <li>DISABLED - specifies whether the control is initially disabled (not used)</li>
+  <li>TEXT - the text displayed by the control</li>
+  <li>TEXT_ALIGN - specifies the alignment of the text, the possible values are: 
+  left, right or center</li>
+  <li>BACK - specifies a tiled image to be used as a background image of this 
+  control (<a href="#tiled_images">learn more about tiled images</a>)</li>
+  <li>IMAGE - specifies a sprite to be used as a background image of this 
+  control 
+  (<a href="inside_sprites.html">learn more about sprites</a>)</li>
+  <li>FONT - the font file to be used to display the text</li>
+  <li>SCRIPT - the script file containing the logic of this control (not used)</li>
+  <li>CURSOR - the sprite file to be used as a mouse cursor when mouse is over 
+  this control (not used)</li>
+</ul>
+<p>For an example of a complete static control definitions please see the &quot;WME demo&quot; 
+project. There are some windows prepared in the &quot;interface\system&quot; folder 
+and some of them contain static controls.</p>
+<p>&nbsp;</p>
+<p><b>See also</b>: <a href="generated/scripting_ref_static.html">Static 
+scripting reference</a></p>
+<hr>
+<h3><a name="entity_containers"></a>Entity containers</h3>
+<p>The entity container is a special control, which allows you to incorporate 
+advanced interactive object (an entity) to your GUI layout. This way you can 
+have &quot;intelligent&quot; objects placed on your windows. The possible usages are for 
+example a Runaway style inventory window (with a talking animated character) or 
+items close-ups (<a href="inside_entites.html">learn more about entities</a>).</p>
+
+<p>Entity container definitions are always part of the .window file (see above).  Let's have a look at an 
+example of an entity container definition block.</p>
+
+<pre><font color="#800000">ENTITY_CONTAINER
+{
+  NAME = "MyEntity"
+  TEMPLATE = "templates\MyTemplate.txt"
+
+  ; position (relative to the window position)
+  X = 100
+  Y = 100
+
+  ; state
+  VISIBLE = TRUE
+  DISABLED = FALSE
+  
+  ENTITY = "path\MyEntity.entity"
+} </font>   
+</pre>
+<p>Description:</p>
+
+<ul>
+  <li>NAME - the internal name of this entity container</li>
+  <li>TEMPLATE - a reference to another file; if you have lots of 
+  similar controls, you can move all common properties to a separate file and 
+  reference it as a template. It's a good idea to put the template reference 
+  early in the definition, so that you can override inherited properties if 
+  needed.</li>
+  <li>X, Y - the initial position of the entity container (relative to the window 
+  position)</li>
+  <li>VISIBLE - specifies whether the control is initially visible</li>
+  <li>DISABLED - specifies whether the control is initially disabled (not used)</li>
+  <li>ENTITY - a reference to an entity definition file</li>
+</ul>
+<p>As you can see, the entity container serves merely as a &quot;bridge&quot; between a 
+window and an entity object.</p>
+<p>&nbsp;</p>
+<p><b>See also</b>: <a href="generated/scripting_ref_entity_container.html">Entity 
+container scripting reference</a></p>
+<hr>
+<h3><a name="tiled_images"></a>Tiled images</h3>
+<p>Although you can specify an image (sprite) as a background for windows and 
+controls, the image always has a fixed size. Sometimes it's useful to specify a 
+special kind of image which can be &quot;stretched&quot; when needed. This way you can use 
+the same background for windows/controls with variable size. There special 
+images are called &quot;tiled images&quot;.</p>
+<p>The tiled image consist of a picture and a definition file.&nbsp; The 
+definition file specifies the &quot;tiles&quot; within the picture. When the engine needs 
+to resize the image, it uses those tiles and repeats them until the need size is 
+matched.</p>
+<p>For example the following definition divides the picture into nine tiles of 
+30x30 pixels.</p>
+
+<pre><font color="#800000">TILED_IMAGE
+{
+  IMAGE="ui_elements\win.bmp"
+  VERTICAL_TILES {30, 30, 30}
+  HORIZONTAL_TILES {30, 30, 30}
+}</font>
+</pre>
+<p>And this is the resulting tiled image:</p>
+<p><img border="0" src="../img/tiled_image.png" width="100" height="100"></p>
+<p>Of course, if you use a tiled image as a background for your 
+windows/controls, you can only set the size to multiplies of the tile size.</p>
+
+</body>
+
+</html>

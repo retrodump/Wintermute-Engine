@@ -1,0 +1,5 @@
+#include "scripts\base.inc"
+
+Game.PlaySound("scenes\intro\wmelogo.ogg");
+Sleep(5000);
+Game.ChangeScene("scenes\Menu\Menu.scene");

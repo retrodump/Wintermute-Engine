@@ -1,0 +1,60 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Checking the syntax</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3>Checking the syntax</h3>
+<p>It is useful to be able to check the 
+syntactical correctness of the script you are writing. Most programmer’s editors 
+allow you to execute an external tool on the edited file and to capture their 
+output. WME Development Kit includes a standalone utility for this particular 
+purpose. Its name is “wme_comp.exe” and it’s a command-line compiler for WME 
+scripts.</p>
+<p>The usage is following:</p>
+
+<pre>wme_comp.exe -script <i>filename</i> [-project <i>filename</i>] [-output <i>folder</i>]</pre>
+<p>(the <i>-project </i>and <i>-output</i> parameters are 
+optional)</p>
+
+<p>&nbsp;</p>
+
+<p>All you have to do is to plug this 
+utility to your favorite text editor to be able to run in on your scripts 
+(perhaps using a hotkey).</p>
+
+<p>In UltraEdit, you can do it this way:</p>
+
+1)&nbsp;&nbsp;&nbsp;Go to the “Advanced” menu and select the “Tool Configuration…” item.<br>
+2)&nbsp;&nbsp;&nbsp;Change the “Command Line” field to:<br>
+<pre>  "C:\Program Files\WME DevKit\wme_comp.exe" -project "C:\Program Files\WME DevKit\wme_demo\wme_demo.wpr" -script "%F"</pre>(Note: This is just an example, you must specify your project’s .wpr file path and also the 
+Program Files\… path may be different if you selected another folder during the 
+WME DevKit installation)</p>
+3)&nbsp;&nbsp;&nbsp;You can leave the “Working Directory” field empty.<br>
+4)&nbsp;&nbsp;&nbsp;Change the “Menu Item Name” filed to something 
+appropriate, such as “WME Check Syntax”.<br>
+5)&nbsp;&nbsp;&nbsp;Select the “Output to List Box” option and check the 
+“Capture Output” check box.<br>
+6)&nbsp;&nbsp;&nbsp;Press the “Insert” button, the “OK”.<p align="center">
+<img border="0" src="../img/ue2.png" width="428" height="387"></p>
+<p align="center"><br>
+
+</p>
+
+<p>Now you can run the “Check syntax” 
+command on the scripts. If there is a syntax error, UltraEdit will show it in 
+the output box. You can jump directly to the line containing the error by 
+double-clicking the error in the output box.</p>
+
+<p align="center"><img border="0" src="../img/ue3.png" width="661" height="492"></p>
+
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+TILED_IMAGE
+{
+  IMAGE="ui_elements\but_hover.bmp"
+  VERTICAL_TILES {10, 10, 10}
+  HORIZONTAL_TILES {10, 10, 10}
+}

@@ -1,0 +1,57 @@
+TTFONT
+{
+  SIZE = 12  
+  FACE = "Arial"
+;  FILENAME = "fonts\arial.ttf"
+
+  BOLD = TRUE
+  ITALIC = FALSE
+  UNDERLINE = FALSE
+  STRIKE = FALSE
+
+  CHARSET = 1
+
+  COLOR { 255, 0, 0 }
+  ALPHA = 255
+  
+  LAYER
+  {
+    OFFSET_X = 1
+    OFFSET_Y = 1
+    COLOR { 0, 0, 0 }
+    ALPHA = 255
+  }
+
+  LAYER
+  {
+    OFFSET_X = -1
+    OFFSET_Y = -1
+    COLOR { 0, 0, 0 }
+    ALPHA = 255
+  }
+
+  LAYER
+  {
+    OFFSET_X = -1
+    OFFSET_Y = 1
+    COLOR { 0, 0, 0 }
+    ALPHA = 255
+  }
+
+  LAYER
+  {
+    OFFSET_X = 1
+    OFFSET_Y = -1
+    COLOR { 0, 0, 0 }
+    ALPHA = 255
+  }
+
+
+  LAYER
+  {
+    OFFSET_X = 0
+    OFFSET_Y = 0
+    COLOR { 255, 0, 0 }
+    ALPHA = 255
+  }
+}

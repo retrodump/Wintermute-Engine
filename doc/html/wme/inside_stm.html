@@ -1,0 +1,126 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>String Table Manager</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h2>String Table Manager</h2>
+
+<p><b>WME String Table Manager</b> is a simple tool for extracting all in-game 
+texts from your WME project and export them to a string table for localization 
+purposes. It also modifies the game files and scripts and replaces the original 
+string occurences with their &quot;localizable&quot; form.</p>
+
+<p>For example this line in the script:</p>
+
+<p>
+<blockquote>
+  <pre><font color="#800000">this.Talk(&quot;Hello, miss.&quot;);</font></pre>
+</blockquote>
+</p>
+
+<p>will become:</p>
+
+<p>
+<blockquote>
+  <pre><font color="#800000">this.Talk(&quot;/str0003/Hello, miss.&quot;);</font></pre>
+</blockquote>
+</p>
+
+<p>And the generated string table will contain the extracted string:</p>
+
+<p>
+<blockquote>
+  <pre><font color="#800000">str0003 Hello, miss.</font></pre>
+</blockquote>
+</p>
+
+<p>For more information on localization support in WME please see the
+<a href="inside_localization.html">Localization</a> chapter.</p>
+
+<p>&nbsp;</p>
+
+<h3>Quick user's guide</h3>
+
+<p>Start the program and fill in the two text boxes. Choose a path to your WME 
+project file (.wpr) and a path to a string table. You can either select an 
+existing string table file, or a non-existing. In the latter case the file will 
+be created.</p>
+
+<p>Additionally you can check or uncheck the &quot;Backup old files&quot; option. 
+It is recommended to leave this option enabled. (Note: If you have the project 
+file open in WME Project Manager, please close it, otherwise String Table 
+Manager won't be able to save the localized name of the game to the 'default.game' 
+file.)</p>
+
+<p><img border="0" src="../img/stm1.png" width="440" height="390"></p>
+
+<p>Once the paths are set, click the &quot;Scan project&quot; button. String Table Manager 
+will extract all strings from the project and load the contents of the original 
+string table (if any). It will then try to automatically remove all strings 
+which are not supposed to be translated (e.g. event names, item names, file 
+names, scene node names etc.).</p>
+
+<p>After the project is scanned, click the &quot;Manage strings&quot; button. It will open 
+a new window which contains all the localizable strings on the left and all the 
+ignored string on the right. Now please carefuly examine the lists. If there are 
+still some strings left which shouldn't be localized, you can move them to the 
+right list. Right-click the item and choose either &quot;Ignore item&quot; or &quot;Always 
+ignore item&quot; from the context menu. The &quot;Always ignore&quot; command will add the 
+string to the global ignore list, therefore next time you scan the project, this 
+string will be automatically ignored.<br>
+Similarly, you can return any ignored string back to the left list by 
+right-clicking it and choosing the &quot;Unignore item&quot; command from the context 
+menu.</p>
+
+<p>The left list allows you to choose several items at once by checking the 
+check-boxes on the left. To select a block of items, select the first one, then 
+hold the Shift key and click the last item. Similarly, to deselect a block of 
+items, select the first one, then hold Ctrl+Shift keys and click the last item.</p>
+
+<p>Alternatively you can use the &quot;Selection&quot; submenu in the context menu 
+to select all/none, invert selection, or only select items with no string ID 
+assigned.</p>
+
+<p><br>
+<img border="0" src="../img/stm2.png" width="660" height="561"></p>
+
+<p>Make sure the left list only contains strings which are supposed to be 
+translated. Now you can assign the unique string ID to each of the string. You 
+will probably want to choose multiple items before assigning the IDs.<br>
+Choose one or more items, right-click and select the &quot;Assign string ID...&quot; 
+command from the context menu. Now you need to choose the string ID itself. You 
+can choose any word/code you want, for example &quot;str&quot;. You can either assign the 
+same code to all the strings in the game, or you can use different code 
+depending on the string context (for example, you might use different codes 
+depending on which character uses the line).</p>
+
+<p>Fill in the code and click OK (the window offers you all the codes previously 
+used in your project). String Table Manager will now assign the chosen code to 
+all the selected items, and it adds a number to make the string IDs unique.<br>
+<br>
+After all strings were assigned a string ID, click the &quot;Close&quot; button and return 
+back to the main window. Here you can save the changes back to your project 
+files by clicking the &quot;Save changes&quot; button. This command will add the new 
+strings to the end of the string table, and it will replace the original strings 
+in your game files/scripts with their localizable form (see above).<br>
+<br>
+<br>
+You can go through this entire process multiple times, as you add new game 
+content. String Table Manager will extract all the newly added strings and 
+you'll be able to assign a string ID to them.</p>
+
+<p>WME String Table Manager requires
+<a target="_blank" href="http://www.microsoft.com/downloads/details.aspx?FamilyID=0856eacb-4362-4b0d-8edd-aab15c5e04f5&displaylang=en">
+Microsoft .NET Framework 2.0</a>.<br>
+&nbsp;</p>
+</body>
+
+</html>

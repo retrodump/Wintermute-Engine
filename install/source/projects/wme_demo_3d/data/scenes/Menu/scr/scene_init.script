@@ -1,0 +1,11 @@
+#include "scripts\base.inc"
+
+// here comes the stuff which initializes the scene
+
+actor.Active = false;
+
+if(!Game.IsMusicPlaying()) Game.PlayMusic("music\narco - postmortusica.ogg");
+
+var WinMenu = Game.LoadWindow("interface\system\firstmenu.window");
+WinMenu.GoExclusive();
+

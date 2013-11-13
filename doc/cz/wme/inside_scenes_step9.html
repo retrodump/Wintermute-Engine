@@ -1,0 +1,131 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="cs">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Krok 9: Různé tipy a postupy</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3>Krok 9: Různé tipy a postupy</h3>
+
+<p>Jelikož už je naše scéna kompletní, můžeme se nyní podívat na některé
+další postupy, které budete patrně potřebovat při vytváření vaší hry.</p>
+
+<p>&nbsp;</p>
+
+<p><b>Stavy scény (scene states)</b></p>
+
+<p>Herní engine je schopen automaticky uchovávat stavy objektů ve scéně a
+obnovit je poté, kdy hráč scénu opakovaně navštíví. Tuto funkci je možno
+zapnout v okně vlastnosí scény ve SceneEditu (panel vlevo, záložka
+Properties). Také zde můžete zvolit, zda si mají entity ve scéně
+pamatovat, jaký měli naposled přiřazen sprite, abyste toto nemuseli ručně
+skriptovat.</p>
+
+<p align="center">
+<img border="0" src="../img/tut9-1.gif" width="224" height="446"></p>
+<p>Poznámka: automatické uchovávání stavu scény využívá názvů objektů.
+To znamená, že byste ve scéně neměli mít dva prvky se stejným názvem,
+jinak se můžete dočkat nežádoucích výsedků.</p>
+<p>&nbsp;</p>
+<p><b>Přechod do jiné scény</b></p>
+<p>Vaše hra se pravděpodobně nebude celá odehrávat v jedné scéně. Už víte,
+jak scény vytvářet, ale jak je navzájem propojit? Způsobů jak ve hře může
+dojít k přechodu do jiné scény, může být celá řada, a proto pro tuto
+funci WME používá skriptování. Zkusme si to. V <a href="inside_scenes_step7.html">kroku
+7</a>  už jsme učinili dveře interaktivním objektem. Vlevo v seznamu prvků
+scény vyberte entitu &quot;door&quot; (dveře) a klikněte na tlačítko
+&quot;Scripts...&quot; (skripty). Jelikož dveře doposud neměly žádný
+skript přiřazen, SceneEdit nám nabídne vytvoření nového skriptu ze šablony.
+Vyberte šablonu &quot;scene object&quot; a stiskněte OK. Tím bude vytvořen
+nový skript &quot;door.script&quot;. Objeví se okno se seznamem skriptů.
+Double-clickněte na položce &quot;door.script&quot; nebo stiskněte tlačítko
+&quot;Edit script&quot; (upravit skript) na panelu nástrojů.</p>
+<p align="center">
+<img border="0" src="../img/tut9-2.gif" width="329" height="260"></p>
+<p align="left">Skript bude otevřen v textovém editoru. Jak vydíte, skript už
+obsahuje řadu předdefinovaných obsluh událostí. My ovšem chceme, aby dveře
+reagovaly pouze na kliknutí levým tlačítkem myši. Smažte všechny bloky
+obsluhy událostí, můžete nechat jen funkci &quot;GoToObject&quot;. Později
+můžete změnit koordináty v této funkci, tak aby postava došla ke dveřím
+(to už jsme se naučili v <a href="inside_scenes_step7.html">kroku 7</a>).</p>
+<p align="left">Nyní už jen potřebujeme přidat obsluhu kliknutí levým tlačítkem
+myši, která zajistí, že postava dojde ke dveřím a hra se přepne do jiné
+scény. Přidejte do skriptu následující kousek kódu:</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td class="code">
+<pre>on &quot;LeftClick&quot;
+{
+  GoToObject();
+  Game.ChangeScene(&quot;scenes\menu\menu.scene&quot;);
+}
+</pre>    
+    </td>
+  </tr>
+</table>
+<p align="left">První řádek zavolá funkci GoToObject, která zajistí, že
+postava dojde ke dveří. Druhý řádek říká hře, že má nahrát novou scénu
+(change scene = změnit scénu), jmenovitě to bude scéna, uložená v souboru
+&quot;scenes\menu\menu.scene&quot;. Samozřejmě, můžete použít cestu k jakékoliv
+scéně, kterou už máte v projektu vytvořenu.</p>
+
+<p align="left">V projektu <b>WME demo</b> můžete vidět ukázku přechodu
+mezi dvěma scénami.</p>
+
+<p align="left">&nbsp;</p>
+
+<p align="left"><b>Nastavování &quot;Walk to&quot; (jdi k) bodů a směru</b></p>
+
+<p align="left">V minulých kapitolách této výuky jsme ve skriptech používali
+funkci &quot;GoToObject&quot;, která zajistila, že postava dojde k nějakému
+objektu ve scéně. Nyní existuje snazší způsob; můžete interaktivně
+nastavit cílovou pozici postavy pro jednotlivé objekty ve scéně a to přímo
+ve SceneEditu.</p>
+
+<p align="left">Zkusme si to právě na objektu dveře. Vlevo v seznamu prvků
+vyberte položku &quot;door&quot; (dveře) a podívejte se na okno s vlastnostmi
+entity:</p>
+
+<p align="center">
+<img border="0" src="../img/tut9-3.gif" width="259" height="245"></p>
+
+<p align="left">Zde můžete buďto ručne vyplnit cílovou pozici a natočení
+postavy, a nebo - lépe - použijde <b>nástroj pro umístění postavy</b>
+(popsán v <a href="inside_scenes_step6.html#actor_placement">kroku 6</a>). To
+uděláte tak, že umístíte postavu do scény v požadovaném místě a natočení
+a potom kliknete na tlačítko &quot;&lt;&quot;, které přenese aktuální
+pozici postavy do okna vlastností.</p>
+
+<p align="left">Ve skriptu pak už stačí zavolat metodu <b>actor.GoToObect</b>
+(actor=postava, GoToObject=jdi k objektu) a postava dojde na toto místo. Například
+skript &quot;door.script&quot;, který jsme před chvílí vytvořili, pak bude
+vypadat takto:</p>
+
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber3">
+  <tr>
+    <td class="code">
+<pre>on &quot;LeftClick&quot;
+{
+  actor.GoToObject(this);
+  Game.ChangeScene(&quot;scenes\menu\menu.scene&quot;);
+}
+</pre>    
+    </td>
+  </tr>
+</table>
+
+<p align="left">Jelikož je skript připojen k objektu &quot;dveře&quot;,
+standardní proměnná s názvem &quot;this&quot; se odkazuje přímo na dveře.
+Jinými slovy, první řádek říká postavě, aby &quot;došla ke dveřím&quot;.
+Postava přitom použije cílový bod, který jsme pro dveře nastavili ve
+SceneEditu.</p>
+
+</body>
+
+</html>

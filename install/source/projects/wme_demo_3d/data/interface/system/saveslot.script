@@ -1,0 +1,21 @@
+#include "scripts\base.inc"
+
+var Window = this.Parent;
+var Thumbnail = Window.GetControl("thumbnail");
+
+////////////////////////////////////////////////////////////////////////////////
+on "MouseEntry"
+{
+	if(Game.IsSaveSlotUsed(this.Name))
+	{
+	  Thumbnail.SetImage("savegame:" + this.Name);
+	  Thumbnail.Visible = true;
+	}
+	else Thumbnail.Visible = false;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+on "MouseLeave"
+{
+	Thumbnail.Visible = false;
+}

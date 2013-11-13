@@ -1,0 +1,34 @@
+#include "scripts\base.inc"
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "LookAt"
+{
+  actor.GoToObject(this);
+  actor.Talk("Crates, everywhere just crates.");
+  actor.Talk("It must have something to do with that warehouse.");
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "Take"
+{
+  actor.GoToObject(this);
+  actor.Talk("Nah. You should go play Sokoban instead.");
+  actor.Talk("Or Broken Sword 3.");
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "Talk"
+{
+  actor.GoToObject(this);
+  actor.Talk("Hey, crates, what are you hiding?");
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "LeftClick"
+{
+  actor.GoToObject(this);
+}

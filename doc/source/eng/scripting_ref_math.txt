@@ -1,0 +1,96 @@
+*tit Math object
+*des The Math object allows you to perform advanced mathematical operations. This object is always available in a form of predefined <b>Math</b> global variable.
+*des <br><br>
+*des <table border="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" cellpadding="0" id="AutoNumber4">
+*des <tr>
+*des     <td class="code"><pre>
+*des // calculate sine of 90 degrees
+*des var Sine90 = Math.Sin(90);
+*des </pre></td>
+*des </tr>
+*des </table>
+*cls CSXMath
+
+*met Abs(Number)
+*des Returns the absolute value of a number
+
+
+*met Acos(Number)
+*des Returns the arccosine of a number
+
+*met Asin(Number)
+*des Returns the arcsine of a number
+
+*met Atan(Number)
+*des Returns the arctangent of a number
+
+*met Atan2(Y, X)
+*des Returns the angle (in radians) from the X axis to a point (y,x)
+*par X A number representing the cartesian x-coordinate
+*par Y A number representing the cartesian y-coordinate
+
+*met Ceil(Number)
+*des Returns the smallest integer greater than or equal to the specified number
+
+*met Cos(Angle)
+*des Returns the cosine of a number
+*par Angle Angle in degrees
+
+*met Cosh(Angle)
+*des Returns the hyperbolic cosine of a number
+*par Angle Angle in degrees
+
+*met Exp(Number)
+*des Returns e (the base of natural logarithms) raised to a power
+
+*met Floor(Number)
+*des Returns the greatest integer less than or equal to the specified number
+
+*met Log(Number)
+*des Returns the natural logarithm of a number
+
+*met Log10(Number)
+*des Returns the base-10 logarithm of a number
+
+*met Pow(Base, Exponent)
+*des Returns the value of a Base value taken to a specified power
+
+*met Sin(Angle)
+*des Returns the sine of a number
+*par Angle Angle in degrees
+
+*met Sinh(Angle)
+*des Returns the hyperbolic sine of a number
+*par Angle Angle in degrees
+
+*met Tan(Angle)
+*des Returns the tangent of a number
+*par Angle Angle in degrees
+
+*met Tanh(Angle)
+*des Returns the hyperbolic tangent of a number
+*par Angle Angle in degrees
+
+*met Sqrt(Number)
+*des Returns the square root of a number
+
+*met DegToRad(Angle)
+*des Converts an angle from degrees to radians
+*par Angle Angle to convert (in degrees)
+*ret Returns the converted angle (in radians)
+
+*met RadToDeg(Angle)
+*des Converts an angle from radians to degrees
+*par Angle Angle to convert (in radians)
+*ret Returns the converted angle (in degrees)
+
+
+*grp 
+
+*atr Type
+*des Returns always "math"
+*ro
+
+*atr PI
+*des Returns the ratio of the circumference of a circle to its diameter, approximately 3.141592653589793
+*ro

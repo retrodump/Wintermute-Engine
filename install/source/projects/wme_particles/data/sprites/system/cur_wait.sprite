@@ -1,0 +1,10 @@
+SPRITE
+{
+  LOOPING = FALSE
+
+  FRAME{
+    IMAGE = "sprites\system\cur_wait.bmp"
+    HOTSPOT {6,10}
+    TRANSPARENT = 255,0,255
+  }
+}

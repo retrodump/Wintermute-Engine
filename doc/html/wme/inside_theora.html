@@ -1,0 +1,105 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Using Theora to play video</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h2>Using Theora files to play video</h2>
+<ul>
+  <li><a href="#about">About Theora</a></li>
+  <li><a href="#creating">Creating videos in Theora format</a></li>
+  <li><a href="#scripting">Theora support in WME</a></li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3><a name="about"></a>About Theora</h3>
+
+<p>Beginning with version 1.5 WME supports playing videos compressed with the 
+Theora codec.</p>
+
+<p>Theora is an open and free video codec developed by Xiph Foundation, the 
+creators of the popular Vorbis audio codec. Learn more about Theora at the
+<a target="_blank" href="http://www.theora.org/">official website</a>.</p>
+
+<p>Similarly to Vorbis audio, Theora videos use the Ogg file format. 
+Unfortunately that means they use the same file extension as Vorbis audio files 
+(.OGG) so it may be hard to distinguish between audio and video files at first 
+sight.</p>
+
+<p>Compared to AVI files Theora videos have several pros and cons:</p>
+
+<p><b>Advantages of Theora:</b></p>
+<ul>
+  <li>The video codec is hardcoded in WME, you don't need to install any 
+  external codecs with your game.</li>
+  <li>Theora codec is license free. Even though it uses patented technology, the 
+  patent holder granted an irrevocable free license to Theora developers.</li>
+  <li>WME is unable to play compressed audio in AVI files. This is not true for 
+  Theora, which means videos with sound will be considerably smaller.</li>
+  <li>Unlike AVI files, Theora videos can be stored inside WME packages. No need 
+  to store the video files separately.</li>
+</ul>
+
+<p><b>Disadvantages of Theora:</b></p>
+<ul>
+  <li>The Theora codec is still in development and at the time of this writing 
+  it's in Alpha state. That means the code is not yet fully finished and 
+  optimized. But the binary file format is already frozen so any videos created 
+  today will be playable with any future releases of the codec.</li>
+  <li>Being still in development means it's not yet widely supported by many 
+  video editing programs. This is likely to change in the future, though, as it 
+  did with the Vorbis audio format.</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<h3><a name="creating"></a>Creating videos in Theora format</h3>
+
+<p>Even though the Theora format wasn't yet adopted by many video editing 
+programs, there are several ways of converting existing videos to Theora. There 
+is a forum thread dedicated to Theora video creation. Please visit this
+<a target="_blank" href="http://wiki.dead-code.org/wakka.php?wakka=CreatingTheora">
+knowledge base article</a> to get up-to-date information.</p>
+
+<p>&nbsp;</p>
+
+<h3><a name="scripting"></a>Theora support in WME</h3>
+
+<p>There are two ways of using Theora videos in WME:</p>
+
+<p>1) You can play full-screen video using the <b>
+<a href="generated/scripting_ref_game.html#PlayTheora">Game.PlayTheora()</a></b> 
+method. This method replaces the old
+<a href="generated/scripting_ref_game.html#PlayVideo">Game.PlayVideo()</a> for 
+playing AVI files.</p>
+
+<p>2) WME entities also provide a <b>
+<a href="generated/scripting_ref_entity.html#PlayTheora">PlayTheora()</a></b> 
+method. That means you can place video playback directly to game scenes, for 
+example to simulate a playing television, or Blade Runner-style video 
+billboards. To control the video playback entities also provide the <b>
+<a href="generated/scripting_ref_entity.html#StopTheora">StopTheora()</a></b>,
+<b><a href="generated/scripting_ref_entity.html#PauseTheora">PauseTheora()</a></b>,
+<b><a href="generated/scripting_ref_entity.html#ResumeTheora">ResumeTheora()</a></b>,
+<b><a href="generated/scripting_ref_entity.html#IsTheoraPlaying">
+IsTheoraPlaying()</a></b> and <b>
+<a href="generated/scripting_ref_entity.html#IsTheoraPaused">IsTheoraPaused()</a></b> 
+methods.</p>
+
+<p>Additionally you can control the shape of the video entity by specifying an 
+optional alpha-channel image when calling <b>
+<a href="generated/scripting_ref_entity.html#PlayTheora">PlayTheora()</a></b>. 
+Only the alpha channel of the image will be used and applied to the playing 
+video. Also the <b>AlphaColor</b> property of the entity will affect the 
+color/alpha of video.</p>
+</body>
+
+</html>

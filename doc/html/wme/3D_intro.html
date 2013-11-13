@@ -1,0 +1,117 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>3D characters support in WME</title>
+<link rel="stylesheet" type="text/css" href="../styles.css"></head>
+
+<body>
+
+<h1>3D characters support in WME</h1>
+
+<p>WME  provides  support for real-time 3D characters 
+rendered over a 2D background. This approach has been used by several commercial 
+games, such as The Longest Journey or Syberia.</p>
+
+<p>Compared to the classical 2D characters, this new method has both advantages and 
+disadvantages. I will list some here, but you will be certainly able to think of 
+more of them.</p>
+
+<h3>
+<br>
+Some advantages of 3D characters</h3>
+<ul>
+  <li>Camera angles. You are not limited by a fixed camera angle in all of your 
+  scenes, you can use basically any camera, which allows for more interesting 
+  look of the game locations<br>
+&nbsp;</li>
+  <li>Smooth animations. The animation of 3D characters is using keyframes and 
+  all the frames in between two keyframes are interpolated, i.e. It doesn't 
+  jump&quot; from frame to frame as in 2D pre-rendered animations<br>
+&nbsp;</li>
+  <li>Independent body part animations. 3D characters allow you to animate 
+  various body parts independently, for example to combine walking animation of 
+  the legs and some gesture animation for the arms.<br>
+&nbsp;</li>
+  <li>Attaching other objects to the character. It is a typical situation for 
+  adventure games that the character takes an item and does tome action with it. 
+  While in 2D you have to render new images for various items, in 3D you can use 
+  one generic animation and only attach various items to the character's hand.
+  </ul>
+  
+  
+  
+  <h3>Some 
+  disadvantages of 3D characters</h3>
+<ul>
+  <li>You must know what you are doing. While the independent adventure 
+  development scene already mastered 2D characters creation, the 3D ones are a 
+  whole new world for many people. Not everyone is capable of modeling and 
+  animating a quality 3D model.<br>
+  &nbsp;</li>
+  <li>Higher hardware requirements. Although WME always supported 3D accelerated video cards to display fast 2D graphics with advanced effects, it was able to 
+  switch back to a simplified mode on old video cards. This is not the case of 3D 
+  characters support. Your games will require a decent 3D accelerated video card 
+  to run, which can drive away part of your target audience. Luckily most people 
+  own 3D accelerated cards nowadays. WME's minimum requirement for 3D characters 
+  support is Nvidia TNT2 video card or an equivalent.</li>
+</ul>
+<h3>Notes about migrating from .MS3D model format to .X format</h3>
+<p>Older versions of WME were using 3D models in Milkshape (MS3D) format. 
+Starting with WME 1.6, Milkshape support has been deprecated and it is 
+recommended to convert your models to Microsoft X format. Here are some common 
+questions regarding migration from MS3D to X:</p>
+<p><i>Q: Why the X format?</i><br>
+A: X format has several major advantages over the previously used MS3D format:<br>
+-X format supports weighted vertices. Your 3D artist will love that.<br>
+-X format natively supports multiple animations stored in a single file.<br>
+-X format is widely supported by various 3D packages.<br>
+<br>
+<i>Q: What do I need to know when switching from MS3D to X?</i><br>
+A: The 3D actors definition file format and scripting support have changed for X 
+actors.<br>
+-3D actor definition file starts with ACTOR3DX, not ACTOR3D, to distinguish 
+between X actors and MS3D actors.<br>
+-Animations no longer need to be defined by their frame ranges, because the X 
+format supports named animation sets directly. You only specify additional 
+properties of the animation in the act3d files (see the docs for details).<br>
+-The AddMesh(), RemoveMesh(), HideMesh() and ShowMesh() methods are deprecated. 
+The attachments are now treated as autonomous scriptable objects. You add an 
+attachment using the AddAttachment() method and remove it using RemoveAttachment(). 
+The GetAttachment() method returns a reference to an attachment object, which 
+provides it's own set of methods and properties (e.g. using the Active property 
+you can show or hide the attachment).<br>
+-Unlike MS3D actors, the PlayAnimChannel() now blocks script execution even if 
+the animation plays in other channel than channel zero. Use PlayAnimChannelAsync() 
+if you want to play the animation without blocking script.<br>
+<br>
+<i>Q: How do I export/convert my model to X format?</i><br>
+A: I have started a
+<a href="http://wiki.dead-code.org/wakka.php?wakka=XFiles" target="_blank">Wiki 
+page on X file support</a> in various 3D programs. Feel free to expand the 
+article if you have any additional info or experience with other programs.<br>
+<br>
+<i>Q: The old 3D actors format using MS3D models is now marked as &quot;deprecated&quot;. 
+What does it mean?</i><br>
+A: It means this old format is not going to be expanded. All the new features 
+will be added for the new format only (the one using X files). The old format 
+will stay in place for backward compatibility, but the plan is to completely 
+remove it in WME 2.0. Hopefully the advantages of the new format will be worth 
+the trouble with converting your models. WME 1.6 already contains several new 
+features that only apply to 3D actors in the new format, namely smooth animation 
+transitions and support for 2D scene design for 3D actors.</p>
+<h3>Further reading:</h3>
+<ul>
+<li><a href="3D_principles.html">Principles and requirements</a></li>
+<li><a href="3D_actors_x.html">Actor definition files, X format</a></li>
+<li><a href="3D_actors_ms3d.html">Actor definition files, MS3D format</a> (deprecated)</li>
+<li><a href="3D_scripting.html">Scripting support</a></li>
+</ul>
+
+
+</body>
+
+</html>

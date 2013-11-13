@@ -1,0 +1,28 @@
+#include "scripts\base.inc"
+
+// here comes the stuff which initializes the scene
+
+switch(Game.PrevScene)
+{
+	case "Menu":
+    actor.SkipTo(190, 480);
+    actor.Direction = DI_DOWNRIGHT;
+    Game.Msg("Press F1 to show or hide the scene geometry.");
+    Game.Msg("");
+    Game.Msg("Press and hold the left mouse button to display the action menu.");
+    break;
+  case "Back alley":
+    actor.SkipTo(630, 482);
+    actor.Direction = DI_DOWNRIGHT;
+    break;
+}
+
+actor.Active = true;
+
+
+if(!Game.IsItemTaken("teapot"))
+{
+  var Teapot = Scene.LoadActor3D("actors\teapot\teapot.act3d");
+  Teapot.SkipTo(163, 442);
+  Teapot.Direction = DI_DOWNLEFT;
+}

@@ -1,0 +1,97 @@
+WINDOW
+{
+  TEMPLATE = "interface\system\window.template"
+  SCRIPT = "interface\system\save.script"
+
+
+  STATIC
+  {
+    TEXT = "Save game"
+    TEXT_ALIGN = "left"
+    FONT = "fonts\big_white.font"
+    X = 50
+    Y = 50
+    WIDTH = 500
+    HEIGHT = 32
+    VISIBLE = TRUE
+  }
+
+  
+;----- save slot buttons -----
+  BUTTON
+  {
+    TEMPLATE = "interface\system\button.template"
+    SCRIPT = "interface\system\saveslot.script"
+    NAME = "1"
+    TEXT = ""
+    X = 50
+    Y = 100
+    WIDTH = 300
+    HEIGHT = 60
+  }
+  BUTTON
+  {
+    TEMPLATE = "interface\system\button.template"
+    SCRIPT = "interface\system\saveslot.script"
+    NAME = "2"
+    TEXT = ""
+    X = 100
+    Y = 180
+    WIDTH = 300
+    HEIGHT = 60
+  }
+  BUTTON
+  {
+    TEMPLATE = "interface\system\button.template"
+    SCRIPT = "interface\system\saveslot.script"
+    NAME = "3"
+    TEXT = ""
+    X = 150
+    Y = 260
+    WIDTH = 300
+    HEIGHT = 60
+  }
+  BUTTON
+  {
+    TEMPLATE = "interface\system\button.template"
+    SCRIPT = "interface\system\saveslot.script"
+    NAME = "4"
+    TEXT = ""
+    X = 200
+    Y = 340
+    WIDTH = 300
+    HEIGHT = 60
+  }
+  BUTTON
+  {
+    TEMPLATE = "interface\system\button.template"
+    SCRIPT = "interface\system\saveslot.script"
+    NAME = "5"
+    TEXT = ""
+    X = 250
+    Y = 420
+    WIDTH = 300
+    HEIGHT = 60
+  }
+
+
+  BUTTON
+  {
+    TEMPLATE = "interface\system\button.template"
+    NAME = "close"
+    TEXT = "Cancel"
+    X = 50
+    Y = 500
+    WIDTH = 120
+    HEIGHT = 60
+  }
+
+  STATIC
+  {
+    NAME = "thumbnail"
+    X = 500
+    Y = 100
+    WIDTH = 270
+    HEIGHT = 200
+  }
+}

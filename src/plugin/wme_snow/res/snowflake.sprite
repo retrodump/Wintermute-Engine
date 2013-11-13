@@ -1,0 +1,9 @@
+SPRITE
+{
+  LOOPING = FALSE
+
+  FRAME{
+    IMAGE = "snowflake.png"
+    HOTSPOT { 14, 11 }
+  }
+}

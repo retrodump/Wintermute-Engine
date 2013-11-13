@@ -1,0 +1,77 @@
+*tit Region object
+*des The Region object allows you to access the properties of your scene's regions. Regions can be queried by using the <b>Scene.GetNode</b> method.
+*cls CAdRegion
+
+*grp Point manipulation
+
+*met AddPoint(X, Y)
+*des Adds a new point to the region.
+*par X The X coordinate of the point
+*par Y The Y coordinate of the point
+*ret Returns <b>true</b> if the method succeeded.
+
+*met InsertPoint(Index, X, Y)
+*des Adds a new point to the region.
+*par Index The index where the new point should be inserted
+*par X The X coordinate of the point
+*par Y The Y coordinate of the point
+*ret Returns <b>true</b> if the method succeeded.
+*rem If the index is higher than the number of points already present in the region, this method fails.
+
+*met SetPoint(Index, X, Y)
+*des Changes the coordinates of a point of this region.
+*par Index The index of the point to be modified
+*par X New X coordinate of the point
+*par Y New Y coordinate of the point
+*ret Returns <b>true</b> if the method succeeded.
+
+*met RemovePoint(Index)
+*des Removes point from the region.
+*par Index The index of the point to be removed
+*ret Returns <b>true</b> if the method succeeded.
+
+*met GetPoint(Index)
+*des Queries one point of the region.
+*par Index The index of the point to be queried
+*ret Returns an object which provides two properties, <b>X</b> and <b>Y</b>.
+
+
+
+*grp 
+
+*atr Type
+*des Returns always "region"
+*ro
+
+*atr Name
+*des The internal name of the region
+
+*atr Active
+*des Specifies whether the region is active
+
+*atr NumPoints
+*ro
+*des Returns the number of points of this region
+
+*atr Blocked
+*des Specifies whether this region is blocked
+
+*atr Decoration
+*des Specifies whether this is the "decoration" region
+
+*atr Scale
+*des The scale factor of this region
+
+*atr AlphaColor
+*des The alpha color of this region
+
+*atr SaveState
+*des Specifies if the region remembers its state after the player leaves the scene
+
+
+*evn ActorEntry
+*des Some of the actors just entered this region.
+
+*evn ActorLeave
+*des Some of the actors just left this region.
+

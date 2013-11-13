@@ -1,0 +1,426 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="cs">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Krok 7: Regionové entity, kurzory, skripty</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3>Krok 7: Regionové entity, kurzory, skripty</h3>
+
+<h4>&nbsp;</h4>
+
+<h4><a name="region_entities"></a>Regionové entity</h4>
+<p>Pokud otestujete naši scénu, zjistíte, že stůl a židle se jeví jako 
+&quot;interaktivní&quot; objekty. Pokud nad ně posunete ukazatel myši, změní se kurzor a 
+zobrazí se jejich název. To proto, jelikož entity tvořící stůl a židli mají 
+vlastnost &quot;Interactive&quot; (Interaktivní) nastavenu na true (pravda). Ale co 
+kdybychom chtěli jako interaktivní nastavit část pozadí scény? Je nutné vytvářet 
+entity pro každý z předmětů, který má být interaktivní? Odpověď je ano i ne. 
+SceneEdit vám umožňuje vytvořit takzvané &quot;regionové entity&quot;. Chovají se přesně 
+jako normální entity, ale nepotřebují žádnou grafickou reprezentaci (tj. 
+nemusíte pro ně malovat žádný obrázek). Místo toho jen představují určitou 
+oblast ve scéně.</p>
+
+<p>Učiníme pár dalších objektů interaktivními, jmenovitě to budou dveře, skříň a 
+okno.</p>
+
+<p>Otevřete soubor &quot;MyScene.scene&quot; ve SceneEditu.</p>
+
+<p>Abyste přidali regionovou entitu, klikněte na tlačítko &quot;Add entity&quot; (Přidat 
+entitu) a v menu vyberte položku &quot;Add region entity&quot; (Přidat regionovou entitu).</p>
+
+<p align="center">
+<img border="0" src="../img/tut7-1.gif" width="213" height="169"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Bude vytvořena nová entita. A teď už je to jednoduché. Můžete měnit jméno a 
+titulek v okně vlastností a dále můžete upravovat tvar regionové entity úplně 
+stejně jako při editaci regionů normálních.</p>
+
+<p>Přidejte do scény tři regionové entity: &quot;door&quot; (dveře), &quot;closet&quot; (skříň) a &quot;window&quot; 
+(okno):</p>
+
+
+
+<p align="center">
+<img border="0" src="../img/tut7-2.gif" width="164" height="335">&nbsp;&nbsp;&nbsp;
+<img border="0" src="../img/tut7-3.gif" width="275" height="386">&nbsp;&nbsp;&nbsp;
+<img border="0" src="../img/tut7-4.gif" width="211" height="236"></p>
+
+
+
+
+<p align="center">
+&nbsp;</p>
+
+
+
+
+<p>Je důležité si opět uvědomit, že pořadí entit a regionů je důležité! Už jsme 
+si řekli, proč je důležité pro rozvržení scény, ale pořadí je také důležité s 
+ohledem na uživatelskou interakci. Když herní engine zjišťuje, nad jakým 
+objektem je zrovna ukazatel myši, projíždí postupně všechny prvky scény odshora 
+dolů.</p>
+<p>V naší pokusné scéně sice na pořadí zase až tak nezáleží, protože se navzájem 
+nepřekrývají, ale měli byste na tohle vždy pamatovat.</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut7-5.gif" width="185" height="212"></p>
+
+
+<p align="center">&nbsp;</p>
+
+
+<p>Pokud spustíte hru a vyzkoušíte scénu, dveře, skříň a okno už by se měly stát 
+interaktivními.</p>
+
+
+<p>&nbsp;</p>
+
+
+<h4><a name="cursors"></a>Kurzory</h4>
+<p>Určitě jste si všimli, že pokud najedete myší na některý interaktivní objekt, 
+změní se kurzor. Hra má dva předdefinované kurzory - standardní a aktivní <br>
+(lze je změnit ve vlastnostech hry v programu ProjectMan). Ale také můžete 
+některým objektům přiřadit speciální kurzor. Řekněme, že chceme, aby kurzor 
+změnil tvar, pokud najedeme myší na dveře. Je to velice jednoduché. Všechny 
+kurzory jsou vlastně sprity a můžete je přiřadit entitám přímo ve SceneEditu.</p>
+<p>Přepněte se do SceneEditu a vyberte entitu &quot;door&quot; (dveře).</p>
+
+<table border="1" cellspacing="0" cellpadding="3" style="border-collapse: collapse" bordercolor="#111111">
+<tr>
+  <td>
+    <p align="center"><img src="../img/hint.gif" width="23" height="30"><br><b>
+    Rada</b>
+  </td>
+  <td>
+    Chcete-li ve SceneEditu rychle vybrat nějaký předmět, double-clickněte na 
+    něj přímo v náhledu scény.
+  </td>
+</table>
+
+<p>Podívejte se na okno vlastností entity a naleznete položku &quot;Cursor&quot;. Klikněte 
+na tlačítku &quot;...&quot; vedle vlastnosti &quot;Cursor&quot; a SceneEdit vás nechá vybrat sprite, 
+který bude ve hře použit jako kurzor pro tento objekt. V tomto výukovém projektu 
+už je několik kurzorů připraveno v adresáři &quot;data\sprite\system&quot;. Nalistujte 
+tento adresář,&nbsp; v něm vyberte soubor &quot;arrow_left.sprite&quot; a klikněte OK. 
+Vlastnost &quot;Cursor&quot; se změní a nyní se odkazuje na vybraný soubor.</p>
+
+<p>&nbsp;</p>
+
+<table border="1" cellspacing="0" cellpadding="3" style="border-collapse: collapse" bordercolor="#111111">
+<tr>
+  <td>
+    <p align="center"><img src="../img/hint.gif" width="23" height="30"><br><b>
+    Rada</b>
+  </td>
+  <td>
+    Pokud potřebujete odstranit vybraný kurzor, prostě opět klikněte na tlačítko 
+    &quot;...&quot; a až se zobrazí okno pro výběr souboru, stiskněte tlačítko &quot;Storno&quot;. 
+    SceneEdit se vás zeptá, zda máte v úmyslu odstranit aktuálně vybraný soubor.
+  </td>
+</table>
+
+
+<p>Uložte scénu a spusťte hru. Pokud teď najedete myší nad dveře, kurzor se 
+změní na oranžovou šipku.</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut7-6.gif" width="184" height="216"></p>
+
+
+<p align="center">&nbsp;</p>
+
+
+<h4><a name="scripts"></a>Skripty</h4>
+<p>Objekty ve scéně se nyní jeví jako interaktivní, ale když se na ně klikne, 
+nic se nestane. Potřebujeme jim přiřadit nějakou logiku, a herní logika je 
+reprezentována skripty. Skripty jsou textové soubory, obsahující jednoduchý 
+program. Podrobně jsou skripty popsány v <a href="scripting_about.html">jiné 
+kapitole</a> této dokumentace, zde probereme pouze základy.</p>
+
+<p>Připojíme skript k entitě &quot;desk&quot;, představující stůl. Nejjednodušší je použít 
+schopnost nástroje ProjectMan vytvářet nové soubory ze šablony. Tuto funkci už 
+jsme několikrát použili a úplně stejně funguje i pro skripty. Přepněte se do 
+ProjectManu, najděte adresář &quot;MyScene&quot; a rozklikněte jeho větev pomocí malého 
+(+). Adresář &quot;MyScene&quot; by měl mít podadresář, nazvaný &quot;scr&quot;. Zde jsou uloženy 
+skripty pro scénu. Klikněte pravým tlačítkem myši na adresáři &quot;scr&quot; a v menu 
+vyberte příkaz &quot;Add script&quot; (Přidat skript).</p>
+
+<p align="center">
+<img border="0" src="../img/tut7-7.gif" width="258" height="249"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Objeví se okno pro výběr šablony. Zde vyberte vlevo &quot;scene object&quot;, vpravo 
+změňte jméno na &quot;desk&quot; (stůl) a klikněte na OK. V adresáři &quot;scr&quot; bude vytvořen 
+nový skript s názvem &quot;desk&quot;.</p>
+
+<p align="center">
+<img border="0" src="../img/tut7-8.gif" width="563" height="412"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Otevřete soubor &quot;MyScene.scene&quot; ve SceneEditu. Chceme modifikovat entitu &quot;desk&quot;, 
+takže ji vyberte. Můžete buďto vybrat položku &quot;desk&quot; vlevo v seznamu prvků, nebo 
+double-clicknout stůl v náhledu vpravo. Podívejme se na okno vlastností, je zde 
+tlačítko &quot;Scripts...&quot; (Skripty). Zmáčkněte jej a objeví se okno pro připojení 
+skriptů. V tomto okně můžete k objektu připojit jeden nebo více skriptů. 
+Stiskněte tlačítko &quot;Add script&quot; (Přidat skript). V novějších verzích WME se toto 
+tlačítko jmenuje &quot;Attach existing script&quot; (Připojit existující skript).</p>
+
+<p align="center">
+<img border="0" src="../img/tut7-9.gif" width="224" height="209">&nbsp;&nbsp;&nbsp;
+<img border="0" src="../img/tut7-10.gif" width="330" height="262"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>SceneEdit vás nechá vybrat soubor se skriptem, který chcete připojit. Najděte 
+a vyberte náš &quot;desk.script&quot; a klikněte OK.</p>
+
+<p align="center">
+<img border="0" src="../img/tut7-11.gif" width="330" height="122"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Nyní budeme skript opravovat. Můžete jej otevřít v editoru buďto stisknutím 
+tlačítka &quot;Edit script&quot; (Opravit skript) nebo double-clickem na jménu skriptu. 
+SceneEdit otevře skript v přiřazeném textovém editoru (výchozí nastavení je 
+program &quot;Poznámkový blok&quot; ze systému Windows, přečtěte si více o
+<a href="scripting_editor.html">nastavení textového editoru</a> pro editaci 
+skriptů).</p>
+
+<table border="1" cellspacing="0" cellpadding="3" style="border-collapse: collapse" bordercolor="#111111">
+<tr>
+  <td>
+    <p align="center"><img src="../img/hint.gif" width="23" height="30"><br><b>
+    Rada</b>
+  </td>
+  <td>
+    Pokud objekt doposud neměl připojen žádný skript, SceneEdit ihned po 
+    kliknutí na tlačítko &quot;Scripts...&quot; zobrazí okno pro vytvoření nového skriptu. 
+    Není třeba jej vytvářet prostřednictvím ProjectManu, jak je popsáno výše.</td>
+</table>
+
+<p>&nbsp;</p>
+
+<p>Nový skript by měl vypadat nějak takhle:</p>
+
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber1">
+  <tr>
+    <td class="code">
+<pre>#include "scripts\base.inc"
+ 
+////////////////////////////////////////////////////////////////////////////////
+on "LookAt"
+{
+  GoToObject();
+  actor.Talk("Blah");
+}
+ 
+////////////////////////////////////////////////////////////////////////////////
+on "Take"
+{
+  GoToObject();
+  actor.Talk("Blah");
+}
+ 
+.
+.
+.
+ 
+////////////////////////////////////////////////////////////////////////////////
+function GoToObject()
+{
+  actor.GoTo(200, 200);
+  actor.TurnTo(DI_UP);
+}</pre>
+</table>
+
+
+
+<p>Bloky &quot;<i>on &quot;xxx&quot; {}</i>&quot; jsou takzvané &quot;obsluhy událostí&quot; (event handlers). 
+Tyto bloky jsou provedeny tehdy, pokud je v objektu vyvolána nějaká událost. 
+Například pokud hráč otevře nad stolem menu a vybere ikonu lupy, v objektu stůl 
+je vyvolána událost &quot;LookAt&quot; (podívat se na) a je spuštěn patřičný blok kódu. 
+Existují dva druhy událostí. Jednak jsou to vysokoúrovňové, jako &quot;LookAt&quot; 
+(podívat se na) nebo &quot;Talk&quot; (promluvit na), které jsou plně v režii vývojáře. 
+Může definovat události s jakýmkoliv jménem. Druhou skupinou jsou nízkoúrovňové 
+události, jako například &quot;LeftClick&quot; (levé kliknutí). Tyto nízkoúrovňové 
+události vyvolává sám herní engine a jejich jména jsou pevně daná a 
+dokumentovaná v této příručce.</p>
+<p>Podívejme se na obsluhu události &quot;LookAt&quot; (podívat se na):</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td class="code">
+<pre>  GoToObject();
+  actor.Talk("Blah");</pre>    
+    </td>
+  </tr>
+</table>
+<p>
+
+<p>Tento kousek kódu říká hernímu engine, že má zavolat funkci &quot;GoToObject&quot; (jdi 
+k objektu) a poté má postava říct &quot;Blah&quot; (actor = postava, Talk = mluvit). 
+Funkce GoToObject byla pro vaše pohodlí už předgenerována a vypadá takto:</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber3">
+  <tr>
+    <td class="code">
+<pre>function GoToObject()
+{
+  actor.GoTo(200, 200);
+  actor.TurnTo(DI_UP);
+}</pre>
+    </td>
+  </tr>
+</table>
+<p>
+
+
+<p>Tato funkce vykonává následující: postava dojde na pozici 200, 200 ve scéně a 
+otočí se nahoru (GoTo = jdi na, TurnTo = otočit se, Up = nahoru).</p>
+<p>Modifikujeme tento skript, abychom dosáhli následujícího: Když hráč použije 
+ikonu lupy na stůl (a tedy v něm vyvolá událost &quot;LookAt&quot;), postava dojde ke 
+stolu, otočí se k němu a řekne &quot;Je to těžký dubový stůl.&quot;</p>
+<p>Poslední část zvládneme snadno, prostě přepíšeme řetězec &quot;Blah&quot;. Obsluha 
+události &quot;LookAt&quot; teď vypadá takto:</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber4">
+  <tr>
+    <td class="code">
+<pre>on "LookAt"
+{
+  GoToObject();
+  actor.Talk("Je to těžký dubový stůl.");
+}
+</pre>
+</td>
+  </tr>
+</table>
+<p>
+
+
+<p>Teď musíme změnit funkci GoToObject tak, aby postava došla na správnou pozici 
+ve scéně. Ale jak zjistíme správnou pozici? Mno, nejjednodušší je opět použít 
+nástroj pro umístění postavy (je popsán v
+<a href="inside_scenes_step6.html#actor_placement">kroku 6</a> této výuky). 
+Vraťte se zpátky do SceneEditu a zavřete okno se skripty (klikněte Ok). 
+Stiskněte tlačítko &quot;Place actor&quot; (Umístit postavu) a vyberte soubor molly.actor. 
+Nyní nastavte postavu do takové pozice, v jaké by měla stát při prohlížení stolu 
+(pamatujte: postavou pohybujete myší, pravým tlačítkem měníte její natočení a 
+levým tlačítkem ji umístíte na trvalo).</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut7-12.gif" width="410" height="512"></p>
+
+
+<p align="center">&nbsp;</p>
+
+
+<p>Dobře, teď máme postavu na správném místě, ale jak tu pozici dostaneme do 
+skriptu? Použijte v menu funkci &quot;Actor-&gt;Copy actor placement&quot; 
+(Postava-&gt;Kopírovat umístění postavy) a nebo prostě stiskněte obvyklou 
+klávesovou kombinaci Ctrl+C.</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut7-13.gif" width="354" height="154"></p>
+
+
+<p align="center">&nbsp;</p>
+
+
+<p>Do schránky systému Windows bude zkopírován následující fragment kódu:</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber5">
+  <tr>
+    <td class="code">
+<pre>actor.GoTo(544, 638);
+actor.TurnTo(DI_UPRIGHT);</pre>
+</td>
+  </tr>
+</table>
+<p>
+
+
+<p>
+
+
+<p>Tento kód představuje umístění postavy, které jsme právě nastavili ve 
+SceneEditu. Jediné co teď musíme udělat je vložit tento kód do funkce GoToObject 
+v našem &quot;skriptu desk.script&quot;. Funkce pak bude vypadat takto:</p>
+
+
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber6">
+  <tr>
+    <td class="code">
+<pre>function GoToObject()
+{
+  actor.GoTo(544, 638);
+  actor.TurnTo(DI_UPRIGHT);
+}
+</pre>
+    </td>
+  </tr>
+</table>
+
+
+<p>Také můžete změnit obsluhu události &quot;Take&quot; (vzít). Postava by mohla prohlásit 
+něco rádoby vtipného, když se hráč pokusí sebrat stůl.</p>
+
+
+
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber7">
+  <tr>
+    <td class="code">
+<pre>on "Take"
+{
+  GoToObject();
+  actor.Talk("Ten stůl je pro mou maličkost trochu moc těžký...");
+}
+</pre>
+    
+    </td>
+  </tr>
+</table>
+
+
+
+<p>Jelikož se stolem se nedá mluvit, můžete obsluhu události &quot;Talk&quot; úplně 
+vymazat. Když není žádná speciální obsluha nalezena, použije se základní.</p>
+
+<p>Obsluha události &quot;LeftClick&quot; jednoduše zavolá funkci GoToObject. To znamená, 
+že pokud hráč klikne na stůl, postava k němu dojde.</p>
+
+<p>Tímto je náš jednoduchý skript hotov. Uložte jej, uložte scénu, ukončete 
+SceneEdit a přepněte se zpět do ProjectManu.</p>
+
+<p>Spusťte hru a otestujte scénu. Klikněte pravým tlačítkem na stůl a objeví se 
+menu. Zkoušejte různé ikony. Postava by měla dojít ke stolu, otočit se k němu a 
+říct patřičnou větu.</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut7-14.gif" width="417" height="414"></p>
+
+
+<p align="center">&nbsp;</p>
+
+
+<p>Ostatním objektům ve scéně lze přiřazovat skripty úplně stejným způsobem. Pro 
+inspiraci se můžete podívat na skripty v dokončené scéně &quot;step7.scene&quot;.</p>
+
+<p>Fajn, dost programování. Teď se přesuneme k dalšímu kroku této výuky,
+<a href="inside_scenes_step8.html">Krok 8: Vrstvy scény</a>.</p>
+
+</body>
+
+</html>

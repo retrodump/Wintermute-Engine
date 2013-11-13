@@ -1,0 +1,1211 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1250)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PROJECT_ROOT DIALOGEX 0, 0, 207, 158
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "/str1018/Root folder"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "/str1019/Please specify the root folder of your project:",IDC_STATIC,7,7,193,8
+    CONTROL         "/str1020/Previously specified folders:",IDC_PREVIOUS,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,7,25,133,10
+    LISTBOX         IDC_PREV_LIST,20,39,167,27,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "/str1021/Other folder:",IDC_CUSTOM,"Button",BS_AUTORADIOBUTTON,7,80,85,10
+    EDITTEXT        IDC_CUSTOM_NAME,20,94,151,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE,171,94,16,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,130,193,1
+    DEFPUSHBUTTON   "/str1005/OK",IDOK,50,137,50,14
+    PUSHBUTTON      "/str1004/Cancel",IDCANCEL,106,137,50,14
+END
+
+IDD_SCRIPTS DIALOGEX 0, 0, 254, 144
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "/str1022/Scripts"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LISTBOX         IDC_SCRIPTS,2,17,250,106,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "/str1005/OK",IDOK,74,126,50,14
+    PUSHBUTTON      "/str1004/Cancel",IDCANCEL,129,126,50,14
+    PUSHBUTTON      "",IDC_UP,2,2,16,14,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_DOWN,18,2,16,14,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_NEW,41,2,16,14,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_EDIT,57,2,16,14,NOT WS_TABSTOP
+    PUSHBUTTON      "",IDC_DELETE,80,2,16,14,NOT WS_TABSTOP
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT,37,2,1,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDVERT,76,2,1,14
+END
+
+IDD_TEMPLATE DIALOGEX 0, 0, 371, 236
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "/str1033/Template selection"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    CONTROL         "List1",IDC_TEMPLATES,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_SORTASCENDING | LVS_NOSORTHEADER | WS_BORDER | WS_TABSTOP,7,34,175,133
+    EDITTEXT        IDC_DESC,7,169,175,37,ES_MULTILINE | ES_AUTOVSCROLL | ES_READONLY | WS_VSCROLL
+    LTEXT           "/str1035/Name:",IDC_NAME_LABEL,186,7,178,8
+    EDITTEXT        IDC_NAME,186,17,178,14,ES_AUTOHSCROLL
+    LTEXT           "/str1036/Location:",IDC_DIR_LABEL,186,34,178,8
+    EDITTEXT        IDC_DIR,186,44,164,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE,350,44,14,14
+    LISTBOX         IDC_PROPS,186,60,178,146,LBS_OWNERDRAWVARIABLE | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,210,356,1
+    DEFPUSHBUTTON   "/str1005/OK",IDOK,133,215,50,14
+    PUSHBUTTON      "/str1004/Cancel",IDCANCEL,187,215,50,14
+    LTEXT           "/str1034/Repository:",IDC_STATIC,7,7,175,8
+    COMBOBOX        IDC_REPOSITORY,7,18,175,52,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_PAGE_GENERAL_SETTINGS DIALOGEX 0, 0, 247, 218
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION | WS_SYSMENU
+CAPTION "/str1006/General"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    CONTROL         "/str1007/Use hardware acceleration (if available)",IDC_ACCLERATION,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,7,233,10
+    CONTROL         "/str1008/Force 16bit textures",IDC_FORCE_16BIT_TEXTURES,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,18,221,10
+    CONTROL         "/str1009/Force texture subdivision",IDC_FORCE_TEXTURE_SUBDIVISION,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,28,221,10
+    LTEXT           "/str1010/Note: these settings will only affect the newly opened windows",IDC_STATIC,19,41,221,18
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,60,233,1
+    RTEXT           "/str1011/Path to WME tools:",IDC_STATIC,7,66,82,8
+    EDITTEXT        IDC_WME_PATH,90,64,136,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE_TOOLS,227,64,13,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,82,233,1
+    LTEXT           "/str1012/Repository paths:",IDC_STATIC,7,85,233,8
+    PUSHBUTTON      "/str1013/Add...",IDC_ADD_REPOSITORY,7,98,50,14
+    PUSHBUTTON      "/str1014/Remove",IDC_REMOVE_REPOSITORY,60,98,50,14
+    LISTBOX         IDC_REPOSITORIES,7,113,233,58,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,175,233,1
+    CONTROL         "/str1083/Automatically check for updates on startup",IDC_CHECK_UPDATES,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,179,233,10
+    CONTROL         "/str1103/Always display settings dialog when running game",IDC_SETTINGS_DLG,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,190,233,10
+    CONTROL         "/str1128/Show hidden files",IDC_SHOW_HIDDEN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,201,233,10
+END
+
+IDD_PROPS DIALOGEX 0, 0, 106, 124
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LISTBOX         IDC_PROP_LIST,0,0,105,124,LBS_OWNERDRAWVARIABLE | LBS_NOINTEGRALHEIGHT | NOT WS_BORDER | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_TREE DIALOGEX 0, 0, 109, 185
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    CONTROL         "Tree1",IDC_TREE,"SysTreeView32",TVS_HASBUTTONS | TVS_HASLINES | TVS_LINESATROOT | TVS_DISABLEDRAGDROP | TVS_SHOWSELALWAYS | TVS_FULLROWSELECT | WS_TABSTOP | 0x800,0,15,109,170,WS_EX_STATICEDGE
+    CONTROL         "/str0172/Preview",IDC_PREVIEW,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,2,2,71,10
+END
+
+IDD_LOG DIALOGEX 0, 0, 323, 93
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    CONTROL         "List1",IDC_LIST,"SysListView32",LVS_REPORT | LVS_SINGLESEL | LVS_SHOWSELALWAYS | LVS_NOCOLUMNHEADER | LVS_NOSORTHEADER | WS_TABSTOP,0,0,323,92
+END
+
+IDD_NEW_FOLDER DIALOGEX 0, 0, 227, 53
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "/str0162/New folder"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    RTEXT           "/str0163/Name:",IDC_STATIC,7,9,40,8
+    EDITTEXT        IDC_FOLDER_NAME,50,7,170,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "/str1005/OK",IDOK,117,32,50,14
+    PUSHBUTTON      "/str1004/Cancel",IDCANCEL,170,32,50,14
+END
+
+IDD_PAGE_PACKAGE DIALOGEX 0, 0, 268, 249
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION | WS_SYSMENU
+CAPTION "/str0164/Packages"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "/str0169/Output folder:",IDC_STATIC,7,6,254,8
+    EDITTEXT        IDC_OUTPUT_DIR,7,16,239,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE_OUTPUT,247,16,14,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,33,254,1
+    CONTROL         "/str0177/Copy WME runtime to the output folder as:",IDC_COPY_EXE,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,7,37,254,10
+    EDITTEXT        IDC_EXE_NAME,7,48,254,14,ES_AUTOHSCROLL
+    CONTROL         "/str0178/Change icon to: (unavailable on Windows 95/98/Me)",IDC_CHANGE_ICON,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,7,66,254,10
+    EDITTEXT        IDC_ICON_NAME,7,77,239,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE_ICON,247,77,14,14
+    CONTROL         "/str1096/Bind package to the engine runtime:",IDC_BIND_PACKAGE,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,7,94,166,10
+    COMBOBOX        IDC_PACKAGES,176,93,85,61,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,109,254,1
+    CONTROL         "/str1161/Copy settings.exe to the output folder as:",IDC_COPY_SET,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,7,114,254,10
+    EDITTEXT        IDC_SET_NAME,7,127,254,14,ES_AUTOHSCROLL
+    CONTROL         "/str0178/Change icon to: (unavailable on Windows 95/98/Me)",IDC_CHANGE_ICON_SET,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,7,144,254,10
+    EDITTEXT        IDC_ICON_NAME_SET,7,155,239,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE_ICON_SET,247,155,14,14
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,173,254,1
+    CONTROL         "/str1184/Include D3DX library (for games using Direct3D 9)",IDC_COPY_D3DX,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,7,177,254,10
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,7,189,254,1
+    LTEXT           "/str1172/Debugging options (useful when building alpha/beta versions):",IDC_STATIC,7,192,254,8
+    CONTROL         "/str1173/Include WME crash reporting library",IDC_ADD_CRASH_LIB,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,7,204,254,10
+    CONTROL         "/str1174/Enable framerate display",IDC_ADD_FPS,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,7,215,254,10
+    CONTROL         "/str1175/Enable error logging",IDC_ADD_DEBUG_MODE,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,7,226,254,10
+END
+
+IDD_COMPILE DIALOGEX 0, 0, 240, 67
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    CONTROL         "Package:",IDC_TITLE_1,"Static",SS_LEFTNOWORDWRAP | SS_NOPREFIX | WS_GROUP,7,7,226,8
+    CONTROL         "File:",IDC_TITLE_2,"Static",SS_LEFTNOWORDWRAP | SS_NOPREFIX | WS_GROUP,7,17,226,8
+    CONTROL         "Progress1",IDC_PROGRESS,"msctls_progress32",WS_BORDER,7,31,226,9
+    PUSHBUTTON      "/str1004/Cancel",IDCANCEL,183,46,50,14
+END
+
+IDD_VIEWPORT DIALOGEX 0, 0, 186, 89
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "/str0173/Viewport"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    RTEXT           "/str0175/Position:",IDC_STATIC,7,27,65,8
+    EDITTEXT        IDC_POS_X,73,25,29,14,ES_AUTOHSCROLL | ES_NUMBER
+    LTEXT           ",",IDC_STATIC,104,27,8,8
+    EDITTEXT        IDC_POS_Y,112,25,29,14,ES_AUTOHSCROLL | ES_NUMBER
+    RTEXT           "/str0176/Size:",IDC_STATIC,7,44,65,8
+    EDITTEXT        IDC_WIDTH,73,42,29,14,ES_AUTOHSCROLL | ES_NUMBER
+    CTEXT           "x",IDC_STATIC,103,44,8,8
+    EDITTEXT        IDC_HEIGHT,112,42,29,14,ES_AUTOHSCROLL | ES_NUMBER
+    DEFPUSHBUTTON   "/str1005/OK",IDOK,40,68,50,14
+    PUSHBUTTON      "/str1004/Cancel",IDCANCEL,96,68,50,14
+    CONTROL         "/str0174/No viewport (fullscreen)",IDC_FULLSCREEN,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,45,7,120,10
+END
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 257, 87
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "/str0160/About ProjectMan"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,14,20,20
+    LTEXT           "Wintermute Engine Project Manager",IDC_PRODUCT,40,10,149,8,SS_NOPREFIX
+    LTEXT           "Copyright (c) Dead:Code 2013",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "/str1005/OK",IDOK,200,7,50,14,WS_GROUP
+    LTEXT           "wme@wintermute-engine.org",IDC_MAIL,40,49,123,8
+    LTEXT           "/str0161/(See the documentation for the list of third party libraries used in this product)",IDC_STATIC,40,64,210,16
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,39,60,211,1
+    LTEXT           "http://www.wintermute-engine.org/",IDC_WEB,40,40,123,8
+END
+
+IDD_SAVELOAD DIALOGEX 0, 0, 221, 155
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "/str1107/Save / load screen"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    RTEXT           "/str1110/Position:",IDC_STATIC,7,23,56,8
+    EDITTEXT        IDC_LOAD_X,64,21,20,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LOAD_Y,84,21,20,14,ES_AUTOHSCROLL
+    RTEXT           "/str1111/Image file:",IDC_STATIC,7,38,56,8
+    EDITTEXT        IDC_LOAD_FILE,64,36,117,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_LOAD_BROWSE,181,36,16,14
+    RTEXT           "/str1110/Position:",IDC_STATIC,7,85,56,8
+    EDITTEXT        IDC_SAVE_X,64,84,20,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SAVE_Y,84,84,20,14,ES_AUTOHSCROLL
+    RTEXT           "/str1111/Image file:",IDC_STATIC,7,101,56,8
+    EDITTEXT        IDC_SAVE_FILE,64,99,117,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_SAVE_BROWSE,181,99,16,14
+    GROUPBOX        "/str1108/Loading screen",IDC_STATIC,7,7,207,54
+    GROUPBOX        "/str1109/Saving screen",IDC_STATIC,7,69,207,54
+    DEFPUSHBUTTON   "/str1005/OK",IDOK,58,134,50,14
+    PUSHBUTTON      "/str1004/Cancel",IDCANCEL,112,134,50,14
+END
+
+IDD_PAGE_PLUGINS DIALOGEX 0, 0, 268, 233
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "/str1117/Plugins"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LISTBOX         IDC_PLUGIN_LIST,7,17,254,117,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_PLUGIN_INFO,7,135,254,53,ES_MULTILINE | ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "/str1118/Select plugins you want to distribute with your game:",IDC_STATIC,7,7,254,8
+END
+
+IDD_GUID DIALOGEX 0, 0, 226, 91
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "/str1152/Game GUID"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "/str1153/Game GUID:",IDC_STATIC,7,7,212,8
+    EDITTEXT        IDC_GUID,7,17,160,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "/str1154/Generate",IDC_GENERATE,169,17,50,14
+    LTEXT           "/str1155/Warning: You shouldn't change this GUID once the game has been released.",IDC_STATIC,7,39,212,28
+    DEFPUSHBUTTON   "/str1005/OK",IDOK,60,70,50,14
+    PUSHBUTTON      "/str1004/Cancel",IDCANCEL,115,70,50,14
+END
+
+IDD_PAGE_FILTERS DIALOGEX 0, 0, 268, 237
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION | WS_SYSMENU
+CAPTION "/str1159/Filters"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    LTEXT           "/str0165/(semicolon separated list of file masks, e.g. *.txt;*.doc)",-1,7,126,254,8
+    CONTROL         "/str0166/Exclude from build:",IDC_FILTER_EXCLUDE,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,7,7,254,10
+    EDITTEXT        IDC_MASKS_EXCLUDE,7,17,254,14,ES_AUTOHSCROLL
+    CONTROL         "/str0167/Do not compress:",IDC_FILTER_UNCOMPRESS,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,7,36,254,10
+    EDITTEXT        IDC_MASKS_UNCOMPRESS,7,46,254,14,ES_AUTOHSCROLL
+    CONTROL         "/str0168/Use script compiler:",IDC_FILTER_SCRIPT,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,7,66,254,10
+    EDITTEXT        IDC_MASKS_SCRIPT,7,76,254,14,ES_AUTOHSCROLL
+    CONTROL         "/str1160/Copy as is:",IDC_FILTER_COPY,"Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,7,96,254,10
+    EDITTEXT        IDC_MASKS_COPY,7,107,254,14,ES_AUTOHSCROLL
+END
+
+IDD_PAGE_VISTA DIALOGEX 0, 0, 268, 237
+STYLE DS_SETFONT | DS_FIXEDSYS | WS_CHILD | WS_DISABLED | WS_CAPTION | WS_SYSMENU
+CAPTION "/str1163/Game Explorer"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
+BEGIN
+    CONTROL         "/str1164/Add Game Explorer integration data",IDC_GE_DATA,
+                    "Button",BS_AUTOCHECKBOX | BS_LEFT | WS_TABSTOP,7,8,254,10
+    LTEXT           "/str1165/Game definition file:",IDC_STATIC,7,26,254,8
+    EDITTEXT        IDC_GDF_FILE,7,36,239,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE_GDF,247,36,14,14
+    LTEXT           "/str1166/Game thumbnail:",IDC_STATIC,7,53,254,8
+    EDITTEXT        IDC_THUMBNAIL_FILE,7,63,239,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "...",IDC_BROWSE_THUMBNAIL,247,63,14,14
+    LTEXT           "/str1171/ Note: You can use the 'Tools->Generate GDF file...' command to generate a skeleton game definition file based on project settings.",IDC_STATIC,7,85,254,50
+END
+
+IDD_COMPAT DIALOGEX 0, 0, 264, 107
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "/str1177/Compatibility"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "/str1178/These options allow you to restore compatibility with previous WME releases:",IDC_STATIC,7,7,250,20
+    CONTROL         "/str1179/Custom methods behavior compatibility (changed in WME 1.8)",IDC_COMPAT_KILL_METHOD_THREADS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,32,250,10
+    DEFPUSHBUTTON   "/str1005/OK",IDOK,153,86,50,14
+    PUSHBUTTON      "/str1004/Cancel",IDCANCEL,207,86,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_PROJECT_ROOT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 200
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 151
+    END
+
+    IDD_SCRIPTS, DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 252
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 140
+    END
+
+    IDD_TEMPLATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 364
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 229
+    END
+
+    IDD_PAGE_GENERAL_SETTINGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 240
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 211
+    END
+
+    IDD_PAGE_PACKAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 261
+        TOPMARGIN, 8
+        BOTTOMMARGIN, 237
+    END
+
+    IDD_GUID, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 219
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 84
+    END
+
+    IDD_PAGE_VISTA, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 261
+        TOPMARGIN, 8
+    END
+
+    IDD_COMPAT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 257
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 100
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_DELETE              BITMAP                  "..\\MFCExt\\res\\delete.bmp"
+IDB_DOWN                BITMAP                  "..\\MFCExt\\res\\down.bmp"
+IDB_NEW                 BITMAP                  "..\\MFCExt\\res\\new.bmp"
+IDB_UP                  BITMAP                  "..\\MFCExt\\res\\up.bmp"
+IDB_PROPS               BITMAP                  "..\\MFCExt\\res\\props.bmp"
+IDB_NODES               BITMAP                  "..\\MFCExt\\res\\nodes.bmp"
+IDR_POPUP_FILE          BITMAP                  "res\\popup_file.bmp"
+IDR_TOOLBAR_2           BITMAP                  "res\\toolbar1.bmp"
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// GF_RES
+//
+
+OUTLINE_GREEN.BMP       GF_RES                  "res\\outline_green.bmp"
+OUTLINE_GREEN.FNT       GF_RES                  "res\\outline_green.fnt"
+PREVIEW.3DS             GF_RES                  "res\\preview.3DS"
+PREVIEW.SCENE           GF_RES                  "res\\preview.scene"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_POPUP_FILE TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_POPUP_FILE_BROWSE
+    BUTTON      ID_POPUP_FILE_EDIT
+    BUTTON      ID_POPUP_FILE_REMOVE
+END
+
+IDR_TOOLBAR_2 TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_TOOLS_OPTIONS
+    BUTTON      ID_PROJECT_COMPILE
+    BUTTON      ID_HELP_UPDATES
+    BUTTON      ID_HELP_DOCS
+END
+
+IDR_MAINFRAME TOOLBAR  16, 15
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_TOOLS_SCENEEDIT
+    BUTTON      ID_TOOLS_SPRITEEDIT
+    BUTTON      ID_TOOLS_STRINGTABLE
+    SEPARATOR
+    BUTTON      ID_PROJECT_RUN
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_POPUP_FILE MENU 
+BEGIN
+    POPUP "File"
+    BEGIN
+        MENUITEM "/str0217/&Browse...",         ID_POPUP_FILE_BROWSE
+        MENUITEM SEPARATOR
+        MENUITEM "/str0218/&Edit...",           ID_POPUP_FILE_EDIT
+        MENUITEM "/str0219/&Remove",            ID_POPUP_FILE_REMOVE
+    END
+END
+
+IDR_POPUP_TREE MENU 
+BEGIN
+    POPUP "Add"
+    BEGIN
+        MENUITEM "Add actor",                   32775
+        MENUITEM "Add 3D actor",                ID_POPUP_ADD_ACTOR3D
+        MENUITEM "Add entity",                  ID_POPUP_ADD_ENTITY
+        MENUITEM "Add scene",                   ID_POPUP_ADD_SCENE
+        MENUITEM "Add script",                  ID_POPUP_ADD_SCRIPT
+        MENUITEM "Add sprite",                  ID_POPUP_ADD_SPRITE
+        MENUITEM "Add font",                    ID_POPUP_ADD_FONT
+        MENUITEM "Add window",                  ID_POPUP_ADD_WINDOW
+    END
+    POPUP "Import"
+    BEGIN
+        MENUITEM "Import file",                 ID_POPUP_IMPORT_FILE
+        MENUITEM "Import folder",               ID_POPUP_IMPORT_FOLDER
+    END
+    POPUP "Other"
+    BEGIN
+        MENUITEM "Open",                        ID_POPUP_TREE_OPEN
+        MENUITEM "Edit",                        ID_POPUP_TREE_EDIT
+        MENUITEM "Explore",                     ID_POPUP_TREE_EXPLORE
+        MENUITEM "Promote to package",          ID_POPUP_TREE_PROMOTE
+        MENUITEM "Create folder",               ID_POPUP_TREE_CREATE_FOLDER
+        MENUITEM "Refresh",                     ID_POPUP_TREE_REFRESH
+        MENUITEM "Create folder (simple)",      ID_POPUP_TREE_FOLDER_TOP
+        MENUITEM "Remove",                      ID_POPUP_TREE_REMOVE
+        MENUITEM "Degrade to folder",           ID_POPUP_TREE_DEGRADE
+        MENUITEM "Set as primary package",      ID_POPUP_TREE_PRIMARY_PACKAGE
+        MENUITEM "Copy filename",               ID_POPUP_TREE_COPY
+        MENUITEM "Check syntax",                ID_POPUP_TREE_CHECK_SYNTAX
+        MENUITEM "Set as startup scene",        ID_POPUP_TREE_STARTUP_SCENE
+        MENUITEM "Set as startup scene (debug only)", ID_POPUP_TREE_STARTUP_SCENE_D
+        MENUITEM "Compile this package",        ID_POPUP_TREE_COMPILE
+    END
+END
+
+IDR_MAINFRAME MENU 
+BEGIN
+    POPUP "/str0190/&File"
+    BEGIN
+        MENUITEM "/str0191/&New...\tCtrl+N",    ID_FILE_NEW
+        MENUITEM "/str0192/&Open...\tCtrl+O",   ID_FILE_OPEN
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "/str0195/E&xit",              ID_APP_EXIT
+    END
+    POPUP "/str0201/&View"
+    BEGIN
+        MENUITEM "/str0202/&Toolbar",           ID_VIEW_TOOLBAR
+        MENUITEM "/str0203/&Status Bar",        ID_VIEW_STATUS_BAR
+    END
+    POPUP "/str0208/&Tools"
+    BEGIN
+        MENUITEM "/str0209/&Options...",        ID_TOOLS_OPTIONS
+    END
+    POPUP "/str0215/&Help"
+    BEGIN
+        MENUITEM "/str0220/&WME Documentation", ID_HELP_DOCS
+        POPUP "/str0222/WME on the Web"
+        BEGIN
+            MENUITEM "url1",                        ID_HELP_WEB1
+            MENUITEM "url2",                        ID_HELP_WEB2
+            MENUITEM "url3",                        ID_HELP_WEB3
+            MENUITEM "url4",                        ID_HELP_WEB4
+            MENUITEM "url5",                        ID_HELP_WEB5
+            MENUITEM "url6",                        ID_HELP_WEB6
+            MENUITEM "url7",                        ID_HELP_WEB7
+            MENUITEM "url8",                        ID_HELP_WEB8
+            MENUITEM "url9",                        ID_HELP_WEB9
+            MENUITEM "url10",                       ID_HELP_WEB10
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "/str0221/&Check for updates...", ID_HELP_UPDATES
+        MENUITEM "/str1142/Donate",             ID_HELP_DONATE
+        MENUITEM SEPARATOR
+        MENUITEM "/str0216/&About ProjectMan...", ID_APP_ABOUT
+    END
+END
+
+IDR_PROJECTYPE MENU 
+BEGIN
+    POPUP "/str0190/&File"
+    BEGIN
+        MENUITEM "/str0191/&New...\tCtrl+N",    ID_FILE_NEW
+        MENUITEM "/str0192/&Open...\tCtrl+O",   ID_FILE_OPEN
+        MENUITEM "/str0193/&Close",             ID_FILE_CLOSE
+        MENUITEM "/str0194/&Save project\tCtrl+S", ID_FILE_SAVE
+        MENUITEM SEPARATOR
+        MENUITEM "Recent File",                 ID_FILE_MRU_FILE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "/str0195/E&xit",              ID_APP_EXIT
+    END
+    POPUP "/str0196/&Edit"
+    BEGIN
+        MENUITEM "/str0197/&Undo\tCtrl+Z",      ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "/str0198/Cu&t\tCtrl+X",       ID_EDIT_CUT
+        MENUITEM "/str0199/&Copy\tCtrl+C",      ID_EDIT_COPY
+        MENUITEM "/str0200/&Paste\tCtrl+V",     ID_EDIT_PASTE
+    END
+    POPUP "/str0201/&View"
+    BEGIN
+        MENUITEM "/str0202/&Toolbar",           ID_VIEW_TOOLBAR
+        MENUITEM "/str0203/&Status Bar",        ID_VIEW_STATUS_BAR
+    END
+    POPUP "/str0204/&Project"
+    BEGIN
+        MENUITEM "/str0205/Run game\tF5",       ID_PROJECT_RUN
+        MENUITEM SEPARATOR
+        MENUITEM "/str0206/Compile packages\tF7", ID_PROJECT_COMPILE
+        MENUITEM SEPARATOR
+        MENUITEM "/str0207/&Project settings...", ID_PROJECT_SETTINGS
+    END
+    POPUP "/str0208/&Tools"
+    BEGIN
+        MENUITEM "&SceneEdit",                  ID_TOOLS_SCENEEDIT
+        MENUITEM "S&priteEdit",                 ID_TOOLS_SPRITEEDIT
+        MENUITEM SEPARATOR
+        MENUITEM "/str1169/Generate GDF file...", ID_GENERATE_GDF
+        MENUITEM SEPARATOR
+        MENUITEM "/str0209/&Options...",        ID_TOOLS_OPTIONS
+    END
+    POPUP "/str0210/&Window"
+    BEGIN
+        MENUITEM "/str0211/&New Window",        ID_WINDOW_NEW
+        MENUITEM "/str0212/&Cascade",           ID_WINDOW_CASCADE
+        MENUITEM "/str0213/&Tile",              ID_WINDOW_TILE_HORZ
+        MENUITEM "/str0214/&Arrange Icons",     ID_WINDOW_ARRANGE
+    END
+    POPUP "/str0215/&Help"
+    BEGIN
+        MENUITEM "/str0220/&WME Documentation", ID_HELP_DOCS
+        POPUP "/str0222/WME on the Web"
+        BEGIN
+            MENUITEM "url1",                        ID_HELP_WEB1
+            MENUITEM "url2",                        ID_HELP_WEB2
+            MENUITEM "url3",                        ID_HELP_WEB3
+            MENUITEM "url4",                        ID_HELP_WEB4
+            MENUITEM "url5",                        ID_HELP_WEB5
+            MENUITEM "url6",                        ID_HELP_WEB6
+            MENUITEM "url7",                        ID_HELP_WEB7
+            MENUITEM "url8",                        ID_HELP_WEB8
+            MENUITEM "url9",                        ID_HELP_WEB9
+            MENUITEM "url10",                       ID_HELP_WEB10
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "/str0221/&Check for updates...", ID_HELP_UPDATES
+        MENUITEM "/str1142/Donate",             ID_HELP_DONATE
+        MENUITEM SEPARATOR
+        MENUITEM "/str0216/&About ProjectMan...", ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\ProjectMan.ico"
+IDI_ACTOR               ICON                    "res\\ActorDoc.ico"
+IDI_WINDOW              ICON                    "res\\WindowDoc.ico"
+IDI_DEF                 ICON                    "res\\DefDoc.ico"
+IDI_ENTITY              ICON                    "res\\EntityDoc.ico"
+IDI_FONT                ICON                    "res\\FontDoc.ico"
+IDI_SCRIPT              ICON                    "res\\ScriptDoc.ico"
+IDR_PROJECTYPE          ICON                    "res\\ProjectDoc.ico"
+IDI_ACTOR3D             ICON                    "res\\actor3d.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS 
+BEGIN
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    VK_F7,          ID_PROJECT_COMPILE,     VIRTKEY, NOINVERT
+    VK_F5,          ID_PROJECT_RUN,         VIRTKEY, NOINVERT
+    VK_F5,          ID_PROJECT_RUN,         VIRTKEY, CONTROL, NOINVERT
+    VK_F1,          ID_HELP_DOCS,           VIRTKEY, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,10,2,0
+ PRODUCTVERSION 1,10,2,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x21L
+#else
+ FILEFLAGS 0x20L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "Dead:Code Software"
+            VALUE "FileDescription", "Wintermute Engine Project Manager"
+            VALUE "FileVersion", "1.10.2"
+            VALUE "InternalName", "ProjectMan"
+            VALUE "LegalCopyright", "Copyright (c) 2013 Dead:Code"
+            VALUE "OriginalFilename", "ProjectMan.exe"
+            VALUE "ProductName", "Wintermute Engine"
+            VALUE "ProductVersion", "1.10.2"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "WME Project Manager"
+    IDR_PROJECTYPE          "\nProject\nProject\nProject Files (*.wpr)\n.wpr\nProjectMan.Document\nWME Project"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "ProjectMan"
+    AFX_IDS_IDLEMESSAGE     "Ready"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_NEW             "/str0250/Create a new project\nNew"
+    ID_FILE_OPEN            "/str0251/Open an existing project\nOpen"
+    ID_FILE_CLOSE           "/str0252/Close the active project\nClose"
+    ID_FILE_SAVE            "/str0253/Save current project\nSave"
+    ID_FILE_SAVE_AS         "/str0254/Save the active document with a new name\nSave As"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_ABOUT            "/str0255/Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "/str0256/Quit the application; prompts to save documents\nExit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "/str0257/Open this document"
+    ID_FILE_MRU_FILE2       "/str0257/Open this document"
+    ID_FILE_MRU_FILE3       "/str0257/Open this document"
+    ID_FILE_MRU_FILE4       "/str0257/Open this document"
+    ID_FILE_MRU_FILE5       "/str0257/Open this document"
+    ID_FILE_MRU_FILE6       "/str0257/Open this document"
+    ID_FILE_MRU_FILE7       "/str0257/Open this document"
+    ID_FILE_MRU_FILE8       "/str0257/Open this document"
+    ID_FILE_MRU_FILE9       "/str0257/Open this document"
+    ID_FILE_MRU_FILE10      "/str0257/Open this document"
+    ID_FILE_MRU_FILE11      "/str0257/Open this document"
+    ID_FILE_MRU_FILE12      "/str0257/Open this document"
+    ID_FILE_MRU_FILE13      "/str0257/Open this document"
+    ID_FILE_MRU_FILE14      "/str0257/Open this document"
+    ID_FILE_MRU_FILE15      "/str0257/Open this document"
+    ID_FILE_MRU_FILE16      "/str0257/Open this document"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_NEXT_PANE            "/str0258/Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "/str0259/Switch back to the previous window pane\nPrevious Pane"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_WINDOW_NEW           "/str0260/Open another window for the active document\nNew Window"
+    ID_WINDOW_ARRANGE       "/str0261/Arrange icons at the bottom of the window\nArrange Icons"
+    ID_WINDOW_CASCADE       "/str0262/Arrange windows so they overlap\nCascade Windows"
+    ID_WINDOW_TILE_HORZ     "/str0263/Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_TILE_VERT     "/str0263/Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_SPLIT         "/str0264/Split the active window into panes\nSplit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_CLEAR           "/str0265/Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "/str0266/Erase everything\nErase All"
+    ID_EDIT_COPY            "/str0267/Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "/str0268/Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "/str0269/Find the specified text\nFind"
+    ID_EDIT_PASTE           "/str0270/Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "/str0271/Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "/str0272/Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "/str0273/Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "/str0274/Undo the last action\nUndo"
+    ID_EDIT_REDO            "/str0275/Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "/str0276/Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "/str0277/Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "/str0278/Change the window size"
+    AFX_IDS_SCMOVE          "/str0279/Change the window position"
+    AFX_IDS_SCMINIMIZE      "/str0280/Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "/str0281/Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "/str0282/Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "/str0283/Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "/str0284/Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "/str0285/Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "/str0286/Activate Task List"
+    AFX_IDS_MDICHILD        "/str0287/Activate this window"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_POPUP_TREE_EDIT      "/str0288/Edit selected object"
+    ID_POPUP_TREE_EXPLORE   "/str0289/Open selected folder in Windows Explorer"
+    ID_POPUP_TREE_PROMOTE   "/str0290/Promote this folder to a package"
+    ID_POPUP_TREE_CREATE_FOLDER "/str0291/Create a new subfolder"
+    ID_POPUP_TREE_REFRESH   "/str0292/Refresh the project tree"
+    ID_POPUP_TREE_FOLDER_TOP "/str0293/Create a new top-level folder"
+    ID_POPUP_TREE_REMOVE    "/str0294/Remove selected node (hold a SHIFT key to bypass the Recycle Bin)"
+    ID_POPUP_TREE_DEGRADE   "/str0295/Degrade this package to an ordinary folder"
+    ID_POPUP_TREE_PRIMARY_PACKAGE 
+                            "/str0296/Make this package a primary package"
+    ID_PROJECT_SETTINGS     "/str0297/Edits the project settings"
+    ID_PROJECT_COMPILE      "/str0298/Compile the packages"
+    ID_PROJECT_RUN          "/str0299/Run the game using raw resources\nRun game"
+    ID_POPUP_TREE_COPY      "/str0300/Copy the relative path to the selected file to the Clipboard"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_POPUP_ADD_ACTOR      "/str0301/Add a new actor"
+    ID_POPUP_ADD_ENTITY     "/str0302/Add a new entity"
+    ID_POPUP_ADD_SCENE      "/str0303/Add a new scene"
+    ID_POPUP_ADD_SCRIPT     "/str0304/Add a new script"
+    ID_POPUP_ADD_SPRITE     "/str0305/Add a new sprite"
+    ID_POPUP_ADD_FONT       "/str0306/Add a new font"
+    ID_POPUP_ADD_WINDOW     "/str0307/Add a new window"
+    ID_POPUP_IMPORT_FILE    "/str0308/Import one or multiple files into your project"
+    ID_POPUP_IMPORT_FOLDER  "/str0309/Import a folder into your project"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_POPUP_TREE_CHECK_SYNTAX 
+                            "/str0310/Check the selected script for syntactical errors"
+    ID_HELP_DOCS            "/str0311/Display the WME help file"
+    ID_HELP_UPDATES         "/str0312/Checks for available updates"
+    ID_TREE_STARTUP_SCENE   "/str1090/Sets this scene as startup scene (only applies when the game runs in debug mode)"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_TOOLS_SCENEEDIT      "/str1094/Launches ScenEdit\nSceneEdit"
+    ID_TOOLS_SPRITEEDIT     "/str1095/Launches SpriteEdit\nSpriteEdit"
+    ID_POPUP_ADD_ACTOR3D    "/str1114/Add a new 3D actor"
+    ID_TOOLS_STRINGTABLE    "/str1133/Launches String Table Manager\nString Table Manager"
+    ID_HELP_DONATE          "/str1143/Support WME development by making a donation\nDonate"
+END
+
+STRINGTABLE 
+BEGIN
+    ID__GENERATE_GDF        "Generates Game Definition File skeleton"
+    ID_GENERATE_GDF         "/str1170/Generates Game Definition File skeleton"
+    ID_POPUP_TREE_OPEN      "/str1181/Open selected object in an associated application"
+    ID_POPUP_TREE_COMPILE   "/str1183/Compile only the selected package"
+END
+
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Czech resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CSY)
+#ifdef _WIN32
+LANGUAGE LANG_CZECH, SUBLANG_DEFAULT
+#pragma code_page(1250)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+AFX_IDD_NEWTYPEDLG DIALOG  9, 26, 183, 70
+STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "New"
+FONT 8, "MS Shell Dlg"
+BEGIN
+    LTEXT           "&New ",IDC_STATIC,6,5,123,8,NOT WS_GROUP
+    LISTBOX         AFX_IDC_LISTBOX,6,15,125,49,WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "OK",IDOK,137,6,40,14
+    PUSHBUTTON      "Cancel",IDCANCEL,137,23,40,14
+    PUSHBUTTON      "&Help",ID_HELP,137,43,40,14
+END
+
+AFX_IDD_EMPTYDIALOG DIALOG  9, 26, 183, 70
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FONT 8, "MS Shell Dlg"
+BEGIN
+END
+
+IDD_REMINDER DIALOGEX 0, 0, 249, 138
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "/str1134/Donation reminder"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "/str1136/By now you should probably know whether this program is useful to you or not, and perhaps you'd like to support its further development by making a donation.",IDC_STATIC,7,18,235,28
+    LTEXT           "/str1137/Visit WME dotation page now",IDC_PAGE,7,49,235,8
+    CONTROL         "/str1138/Remind me later",IDC_REMIND_LATER,"Button",BS_AUTORADIOBUTTON | WS_GROUP,7,67,235,10
+    CONTROL         "/str1139/I already donated",IDC_ALREADY_DONATED,"Button",BS_AUTORADIOBUTTON,7,81,235,10
+    CONTROL         "/str1140/I don't want to donate",IDC_DONT_WANNA_DONATE,
+                    "Button",BS_AUTORADIOBUTTON,7,96,235,10
+    DEFPUSHBUTTON   "/str1005/OK",IDOK,72,117,50,14
+    PUSHBUTTON      "/str1004/Cancel",IDCANCEL,127,117,50,14
+    LTEXT           "/str1135/You have been using WME for quite some time...",IDC_STATIC,7,7,235,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_REMINDER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 242
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 131
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+AFX_IDB_MINIFRAME_MENU  BITMAP                  "res\\minifwnd.bmp"
+AFX_IDB_CHECKLISTBOX_95 BITMAP                  "res\\95check.bmp"
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#include ""dcgf.rc""\r\0"
+END
+
+1 TEXTINCLUDE 
+BEGIN
+    "< Cannot change standard MFC resources! >\0"
+END
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "#include ""shared.rc""\r\n"
+    "#include ""afxres.rc\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+AFX_IDC_CONTEXTHELP     CURSOR                  "res\\help.cur"
+AFX_IDC_SMALLARROWS     CURSOR                  "res\\sarrows.cur"
+AFX_IDC_HSPLITBAR       CURSOR                  "res\\splith.cur"
+AFX_IDC_VSPLITBAR       CURSOR                  "res\\splitv.cur"
+AFX_IDC_NODROPCRSR      CURSOR                  "res\\nodrop.cur"
+AFX_IDC_TRACKNWSE       CURSOR                  "res\\trcknwse.cur"
+AFX_IDC_TRACKNESW       CURSOR                  "res\\trcknesw.cur"
+AFX_IDC_TRACKNS         CURSOR                  "res\\trckns.cur"
+AFX_IDC_TRACKWE         CURSOR                  "res\\trckwe.cur"
+AFX_IDC_TRACK4WAY       CURSOR                  "res\\trck4way.cur"
+AFX_IDC_MOVE4WAY        CURSOR                  "res\\move4way.cur"
+AFX_IDC_MOUSE_PAN_N     CURSOR                  "res\\im_pann.cur"
+AFX_IDC_MOUSE_PAN_S     CURSOR                  "res\\im_pans.cur"
+AFX_IDC_MOUSE_PAN_E     CURSOR                  "res\\im_pane.cur"
+AFX_IDC_MOUSE_PAN_W     CURSOR                  "res\\im_panw.cur"
+AFX_IDC_MOUSE_PAN_NE    CURSOR                  "res\\im_panne.cur"
+AFX_IDC_MOUSE_PAN_NW    CURSOR                  "res\\im_pannw.cur"
+AFX_IDC_MOUSE_PAN_SE    CURSOR                  "res\\im_panse.cur"
+AFX_IDC_MOUSE_PAN_SW    CURSOR                  "res\\im_pansw.cur"
+AFX_IDC_MOUSE_PAN_HORZ  CURSOR                  "res\\im_panh.cur"
+AFX_IDC_MOUSE_PAN_VERT  CURSOR                  "res\\im_panv.cur"
+AFX_IDC_MOUSE_PAN_HV    CURSOR                  "res\\im_panhv.cur"
+AFX_IDC_MOUSE_ORG_HORZ  CURSOR                  "res\\im_orgh.cur"
+AFX_IDC_MOUSE_ORG_VERT  CURSOR                  "res\\im_orgv.cur"
+AFX_IDC_MOUSE_ORG_HV    CURSOR                  "res\\im_orghv.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_OPENFILE        "Open"
+    AFX_IDS_SAVEFILE        "Save As"
+    AFX_IDS_ALLFILTER       "All Files (*.*)"
+    AFX_IDS_UNTITLED        "Untitled"
+    AFX_IDS_UNNAMED_FILE    "an unnamed file"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_HIDE            "&Hide"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDP_NO_ERROR_AVAILABLE "No error message is available."
+    AFX_IDS_NOT_SUPPORTED_EXCEPTION "An unsupported operation was attempted."
+    AFX_IDS_RESOURCE_EXCEPTION "A required resource was unavailable."
+    AFX_IDS_MEMORY_EXCEPTION "Out of memory."
+    AFX_IDS_USER_EXCEPTION  "An unknown error has occurred."
+    AFX_IDS_INVALID_ARG_EXCEPTION "An invalid argument was encountered."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDP_INVALID_FILENAME "Invalid filename."
+    AFX_IDP_FAILED_TO_OPEN_DOC "Failed to open document."
+    AFX_IDP_FAILED_TO_SAVE_DOC "Failed to save document."
+    AFX_IDP_ASK_TO_SAVE     "Save changes to %1?"
+    AFX_IDP_FAILED_TO_CREATE_DOC "Failed to create empty document."
+    AFX_IDP_FILE_TOO_LARGE  "The file is too large to open."
+    AFX_IDP_FAILED_TO_START_PRINT "Could not start print job."
+    AFX_IDP_FAILED_TO_LAUNCH_HELP "Failed to launch help."
+    AFX_IDP_INTERNAL_FAILURE "Internal application error."
+    AFX_IDP_COMMAND_FAILURE "Command failed."
+    AFX_IDP_FAILED_MEMORY_ALLOC "Insufficient memory to perform operation."
+    AFX_IDP_UNREG_DONE      "System registry entries have been removed and the INI file (if any) was deleted."
+    AFX_IDP_UNREG_FAILURE   "Not all of the system registry entries (or INI file) were removed."
+    AFX_IDP_DLL_LOAD_FAILED "This program requires the file %s, which was not found on this system."
+    AFX_IDP_DLL_BAD_VERSION "This program is linked to the missing export %s in the file %s. This machine may have an incompatible version of %s."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_NOT_DOCOBJECT   "The file is not supported by a Document Object server."
+    AFX_IDP_FAILED_TO_NOTIFY 
+                            "%1\nUnable to register document.\nThe document may already be open."
+    AFX_IDP_GET_NOT_SUPPORTED "Unable to read write-only property."
+    AFX_IDP_SET_NOT_SUPPORTED "Unable to write read-only property."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDP_FAILED_INVALID_FORMAT "Unexpected file format."
+    AFX_IDP_FAILED_INVALID_PATH 
+                            "%1\nCannot find this file.\nPlease verify that the correct path and file name are given."
+    AFX_IDP_FAILED_DISK_FULL "Destination disk drive is full."
+    AFX_IDP_FAILED_ACCESS_READ 
+                            "Unable to read from %1, it is opened by someone else."
+    AFX_IDP_FAILED_ACCESS_WRITE 
+                            "Unable to write to %1, it is read-only or opened by someone else."
+    AFX_IDP_FAILED_IO_ERROR_READ 
+                            "An unexpected error occurred while reading %1."
+    AFX_IDP_FAILED_IO_ERROR_WRITE 
+                            "An unexpected error occurred while writing %1."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDP_PARSE_INT       "Please enter an integer."
+    AFX_IDP_PARSE_REAL      "Please enter a number."
+    AFX_IDP_PARSE_INT_RANGE "Please enter an integer between %1 and %2."
+    AFX_IDP_PARSE_REAL_RANGE "Please enter a number between %1 and %2."
+    AFX_IDP_PARSE_STRING_SIZE "Please enter no more than %1 characters."
+    AFX_IDP_PARSE_RADIO_BUTTON "Please select a button."
+    AFX_IDP_PARSE_BYTE      "Please enter an integer between 0 and 255."
+    AFX_IDP_PARSE_UINT      "Please enter a positive integer."
+    AFX_IDP_PARSE_DATETIME  "Please enter a date and/or time."
+    AFX_IDP_PARSE_CURRENCY  "Please enter a currency."
+    AFX_IDP_PARSE_GUID      "Please enter a GUID."
+    AFX_IDP_PARSE_TIME      "Please enter a time."
+    AFX_IDP_PARSE_DATE      "Please enter a date."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_PASTELINKEDTYPE "Linked %s"
+    AFX_IDS_UNKNOWNTYPE     "Unknown Type"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDP_FILE_NONE       "No error occurred."
+    AFX_IDP_FILE_GENERIC    "An unknown error occurred while accessing %1."
+    AFX_IDP_FILE_NOT_FOUND  "%1 was not found."
+    AFX_IDP_FILE_BAD_PATH   "%1 contains an invalid path."
+    AFX_IDP_FILE_TOO_MANY_OPEN 
+                            "%1 could not be opened because there are too many open files."
+    AFX_IDP_FILE_ACCESS_DENIED "Access to %1 was denied."
+    AFX_IDP_FILE_INVALID_FILE "An invalid file handle was associated with %1."
+    AFX_IDP_FILE_REMOVE_CURRENT 
+                            "%1 could not be removed because it is the current directory."
+    AFX_IDP_FILE_DIR_FULL   "%1 could not be created because the directory is full."
+    AFX_IDP_FILE_BAD_SEEK   "Seek failed on %1"
+    AFX_IDP_FILE_HARD_IO    "A hardware I/O error was reported while accessing %1."
+    AFX_IDP_FILE_SHARING    "A sharing violation occurred while accessing %1."
+    AFX_IDP_FILE_LOCKING    "A locking violation occurred while accessing %1."
+    AFX_IDP_FILE_DISKFULL   "Disk full while accessing %1."
+    AFX_IDP_FILE_EOF        "An attempt was made to access %1 past its end."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDP_ARCH_NONE       "No error occurred."
+    AFX_IDP_ARCH_GENERIC    "An unknown error occurred while accessing %1."
+    AFX_IDP_ARCH_READONLY   "An attempt was made to write to the reading %1."
+    AFX_IDP_ARCH_ENDOFFILE  "An attempt was made to access %1 past its end."
+    AFX_IDP_ARCH_WRITEONLY  "An attempt was made to read from the writing %1."
+    AFX_IDP_ARCH_BADINDEX   "%1 has a bad format."
+    AFX_IDP_ARCH_BADCLASS   "%1 contained an unexpected object."
+    AFX_IDP_ARCH_BADSCHEMA  "%1 contains an incorrect schema."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDP_FAILED_MAPI_LOAD "Unable to load mail system support."
+    AFX_IDP_INVALID_MAPI_DLL "Mail system DLL is invalid."
+    AFX_IDP_FAILED_MAPI_SEND "Send Mail failed to send message."
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_OCC_SCALEUNITS_PIXELS "pixels"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDP_SCRIPT_ERROR    "%1: %2\nContinue running script?"
+    AFX_IDP_SCRIPT_DISPATCH_EXCEPTION "Dispatch exception: %1"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_CHECKLISTBOX_UNCHECK "Uncheck"
+    AFX_IDS_CHECKLISTBOX_CHECK "Check"
+    AFX_IDS_CHECKLISTBOX_MIXED "Mixed"
+END
+
+#endif    // Czech resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#include "dcgf.rc"
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

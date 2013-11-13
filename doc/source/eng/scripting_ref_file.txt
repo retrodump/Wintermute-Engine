@@ -1,0 +1,168 @@
+*tit File object
+*des The File objects allow you to work with files. You can read from and write to both text and binary files. Reading is also supported from files stored in your game packages (DCP files). The File object can be created using the following syntax:
+*des <br><br>
+*des <table border="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" cellpadding="0" id="AutoNumber4">
+*des <tr>
+*des     <td class="code"><pre>
+*des var SomeFile = new File("c:\path\filename.txt");
+*des </pre></td>
+*des </tr>
+*des </table>
+*cls CSXFile
+
+*con File(Filename)
+*des Creates a new file object for a specified filename.
+*par Filename The file this File object should operate on
+
+
+*grp Operations
+
+*met SetFilename(Filename)
+*des Sets the filename the File object operates on.
+*par Filename The file to be used by this File object
+
+*met OpenAsText(AccessMode)
+*des Opens file for text reading or writing.
+*par AccessMode Specifies the desired file access, 1 - reading, 2 - writing, 3 - appending
+*ret Returns <b>true</b> is the file was successfuly open.
+
+*met OpenAsBinary(AccessMode)
+*des Opens file for binary reading or writing.
+*par AccessMode Specifies the desired file access, 1 - reading, 2 - writing, 3 - appending
+*ret Returns <b>true</b> is the file was successfuly open.
+
+*met Close()
+*des Closes the file.
+*rem Files are closed automatically when their File objects are destroyed but it's a good idea to close the file explicitly immediately after you're done with working with it.
+
+*met SetPosition(Position)
+*des Sets a new reading/writing point for a currently open file.
+*par Position The desired reading/writing position
+*ret Returns <b>true</b> if the position has been successfuly set.
+
+*met Delete()
+*des Deletes the file accosiated with this File object.
+*ret Returns <b>true</b> if the file has been successfuly deleted.
+
+*met Copy(DestinationFilename, Overwrite)
+*des Copies the file to a new location.
+*par DestinationFilename The new location to copy the file to.
+*par Overwrite Specifies if the file should overwrite any existing file with the same name (optional, default=true)
+*ret Returns <b>true</b> if the file has been successfuly copied.
+
+
+*grp Text file access
+
+*met ReadLine()
+*des Reads a line from a text file open for reading.
+*ret Returns a string value containing the line or <b>null</b> if file cannot be read / position is at the end of file.
+
+*met ReadText(Length)
+*des Reads text from a text file open for reading.
+*par Length Number of characters to be read from the file.
+*ret Returns a string value containing the text or <b>null</b> if file cannot be read / position is at the end of file.
+
+*met WriteLine(Line)
+*des Writes a line to a text file open for writing/appending.
+*par Line The text line to be written to the file
+*ret Returns <b>true</b> if the value has been successfuly written.
+
+*met WriteText(Text)
+*des Writes text to a text file open for writing/appending.
+*par Text The text to be written to the file
+*ret Returns <b>true</b> if the value has been successfuly written.
+
+
+*grp Binary file access
+
+*met ReadBool()
+*des Reads a boolean value (1 byte) from a binary file open for reading.
+*ret Returns the value or <b>null</b> if file cannot be read / position is at the end of file.
+
+*met ReadByte()
+*des Reads an 8-bit integer value from a binary file open for reading.
+*ret Returns the value or <b>null</b> if file cannot be read / position is at the end of file.
+
+*met ReadShort()
+*des Reads a 16-bit integer value from a binary file open for reading.
+*ret Returns the value or <b>null</b> if file cannot be read / position is at the end of file.
+
+*met ReadInt()
+*mt2 ReadLong()
+*des Reads a 32-bit integer value from a binary file open for reading.
+*ret Returns the value or <b>null</b> if file cannot be read / position is at the end of file.
+
+*met ReadFloat()
+*des Reads a 16-bit floating point value from a binary file open for reading.
+*ret Returns the value or <b>null</b> if file cannot be read / position is at the end of file.
+
+*met ReadDouble()
+*des Reads a 32-bit floating point value from a binary file open for reading.
+*ret Returns the value or <b>null</b> if file cannot be read / position is at the end of file.
+
+*met ReadString()
+*des Reads a zero-terminated string value from a binary file open for reading.
+*ret Returns the value or <b>null</b> if file cannot be read / position is at the end of file.
+
+*met WriteBool(Value)
+*des Writes a boolean value (1 byte) to a binary file open for writing/appending.
+*par Value The value to be written to the file.
+*ret Returns <b>true</b> if the value has been successfuly written.
+
+*met WriteByte(Value)
+*des Writes an 8-bit integer value to a binary file open for writing/appending.
+*par Value The value to be written to the file.
+*ret Returns <b>true</b> if the value has been successfuly written.
+
+*met WriteShort(Value)
+*des Writes a 16-bit integer value to a binary file open for writing/appending.
+*par Value The value to be written to the file.
+*ret Returns <b>true</b> if the value has been successfuly written.
+
+*met WriteInt(Value)
+*mt2 WriteLong(Value)
+*des Writes a 32-bit integer value to a binary file open for writing/appending.
+*par Value The value to be written to the file.
+*ret Returns <b>true</b> if the value has been successfuly written.
+
+*met WriteFloat(Value)
+*des Writes a 16-bit floating point value to a binary file open for writing/appending.
+*par Value The value to be written to the file.
+*ret Returns <b>true</b> if the value has been successfuly written.
+
+*met WriteDouble(Value)
+*des Writes a 32-bit floating point value to a binary file open for writing/appending.
+*par Value The value to be written to the file.
+*ret Returns <b>true</b> if the value has been successfuly written.
+
+*met WriteString(Value)
+*des Writes a zero-terminated string value to a binary file open for writing/appending.
+*par Value The value to be written to the file.
+*ret Returns <b>true</b> if the value has been successfuly written.
+
+
+*grp 
+
+*atr Type
+*des Returns always "file"
+*ro
+
+*atr Filename
+*des Returns the filename currently assigned to this object.
+*ro
+
+*atr Position
+*des Returns current reading/writing position within the file.
+*ro
+
+*atr Length
+*des Returns length of file.
+*ro
+
+*atr TextMode
+*des Returns <b>true</b> if the file is open in text mode.
+*ro
+
+*atr AccessMode
+*des Returns the access mode the file is open in (0 - not open, 1 - reading, 2 - writing, 3 - appending)
+*ro

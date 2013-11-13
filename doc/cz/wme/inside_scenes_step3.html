@@ -1,0 +1,101 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="cs">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Krok 3: Rozložení scény</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3>Krok 3: Rozložení scény</h3>
+<p>Tak jo, teď začíná ta správná zábava. Naučíme se, jak funguje rozložení
+scény. V tuhle chvíli už víme, že pořadí prvků scény je velice důležité,
+protože oblivňuje způsob vykreslování obsahu scény, jak jsme si řekli v
+minulé kapitole.</p>
+
+<p>Otevřete svou scénu &quot;MyScene.scene&quot; v programu SceneEdit.</p>
+
+<p>Máme tedy dvě entity (&quot;background&quot; - <i><font color="#808080">pozadí</font></i>
+a &quot;desk&quot; - <i><font color="#808080">stůl</font></i>) a jeden region,
+po kterém může postava chodit (&quot;floor&quot; - <i><font color="#808080">podlaha</font></i>).
+Potřebujeme dosáhnout toho, aby entita &quot;desk&quot; překrývala postavu
+jen tehdy, pokud postava stojí vzadu za stolem. Řešením je, přidat do scény
+další region.</p>
+
+<p>Klikněte na tlačítko &quot;Add region&quot; (Přidat region). Bude přidán
+nový prvek scény, pojmenovaný &quot;new region&quot;.</p>
+
+<p align="center">
+<img border="0" src="../img/tut3-1.gif" width="207" height="119"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Změňte jméno například na &quot;behind_desk&quot; (za stolem). Samozřejmě
+prvky scény můžete pojmenovávat jak chcete, ale dbejte na vhodné pojmenování,
+abyste se ve složitějších scénách vyznali.</p>
+
+<p>Teď potřebujeme změnit tvar našeho nového regionu tak, aby pokrýval
+celou plochu podlahy, která je &quot;za stolem&quot;. Upravte region tak, aby
+odpovídal tvaru na tomto obrázku:</p>
+
+<p align="center">
+<img border="0" src="../img/tut3-2.gif" width="709" height="377"></p>
+
+<p>&nbsp;</p>
+
+<p>Poslední věc, kterou musíme udělat, je správně nastavit pořadí prvků
+scény (použijte tlačítka se zelenými šipkami pro přesun prvků nahoru a
+dolu):</p>
+
+<p align="center">
+<img border="0" src="../img/tut3-3.gif" width="215" height="242"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Čeho jsme tím dosáhli? Herní engine bude nyní vykreslovat scénu tímto
+způsobem:</p>
+
+<blockquote>
+
+1)&nbsp;&nbsp;&nbsp;nejprve se vykreslí entita &quot;background&quot; (pozadí)<br>
+2)&nbsp;&nbsp;&nbsp;poté se vykreslí všechny postavy, stojící v regionu
+&quot;behind_desk&quot; (tedy za stolem)<br>
+3)&nbsp;&nbsp;&nbsp;pak se vykreslí entita &quot;desk&quot; (stůl)<br>
+4)&nbsp;&nbsp;&nbsp;a nakonec se vykreslí všechny postavy, stojící v regionu
+&quot;floor&quot; (podlaha)<br>
+
+</blockquote>
+
+<p>Jinými slovy: pokud stojí postava v regionu &quot;behind_desk&quot;, je
+vykreslena <u>dříve</u> než stůl (a je jím tedy překryta), jinak je
+vykreslena <u>později</u> než stůl, a překrýva tedy ona jej.</p>
+
+<p>Zkuste si to sami. Uložte scénu, ukončete SceneEdit a v programu
+ProjectMan klikněte na tlačítko &quot;Run game&quot; (Spustit hru). Vyberte
+položku &quot;MyScene&quot; a zkoušejte posílat postavu na různá místa scény.
+Měla by správně&nbsp; překrývat stůl a naopak, podle toho, zda stojí za ním
+nebo před ním. Prozatím budeme ignorovat skutečnost, že postava může projít
+skrz stůl. Tento problém vyřešíme v kapitole <a href="inside_scenes_step4.html">Krok
+4: Blokované regiony</a>.</p>
+
+<p>&nbsp;</p>
+
+<p align="center">
+<img border="0" src="../img/tut3-4.gif" width="409" height="358"></p>
+
+<p align="center">
+<img border="0" src="../img/tut3-5.gif" width="409" height="358"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>Doufám, že byla tato kapitola dostatečně srozumitelná. Jedná se o
+nejsložitější část této výuky, zbytek už bude jednoduchý :-) Ujistěte
+se, že dobře chápete důležitost správného řazení prvků scény.</p>
+
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Bitmap fonts</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3>Bitmap fonts</h3>
+<p>To display all the game texts (subtitles, captions, GUI texts etc.) WME can 
+use so-called &quot;bitmap fonts&quot;. It means the font is formed by an image, which 
+contains all the letters. This bitmap font image can look like this:</p>
+
+<p align="center">
+<img border="0" src="../img/franklin.png" width="512" height="512"></p>
+
+<p align="left">This image contains exactly 256 characters. As you can see, the 
+upper part contains standard alphabet, numbers and punctuation, while the lower 
+part can contain special character specific for various national alphabets (such 
+as the German umlaut characters, Spanish accents etc.).</p>
+
+<p align="left">Fortunately you don't need to create this image by hand, there 
+exist several 3rd party utilities for creating bitmap fonts:</p>
+
+<ul>
+  <li>
+<p align="left">
+<a target="_blank" href="http://www.lmnopc.com/bitmapfontbuilder/">Bitmap Font 
+Builder</a> (mailware)</p>
+
+  </li>
+  <li>
+<p align="left">
+<a target="_blank" href="http://www.zen28085.zen.co.uk/playerfactory/fontext/">
+FONText</a> (shareware)</p>
+
+  </li>
+</ul>
+<p align="left">The only think you need to keep in mind while creating the 
+bitmap fonts is that the letters need to be <u>left-aligned to the grid</u>. 
+What I mean by this? Your letters have some fixed dimensions, for example 32x32 
+pixels, in case of the above image. Those dimension actually make an invisible 
+grid within your image:</p>
+
+<p align="center">
+<img border="0" src="../img/font-2.png" width="409" height="409"></p>
+
+<p align="left">See, the letters are aligned in a 32x32 grid. This is crucial, 
+since WME uses this &quot;invisible&quot; grid to recognize where each letter lies within 
+the image. Notice that the letters are really left-aligned with the grid:</p>
+
+<p align="center">
+<img border="0" src="../img/font-3.png" width="259" height="280"></p>
+
+<p align="left">&nbsp;</p>
+
+<p align="left">Ok, we have the image itself, but how will WME know where the 
+letters lie and how big are they? We will need to create a definition file, 
+which describes the font properties. The definition file will look like this:</p>
+<pre><font color="#800000">FONT
+{
+  IMAGE = "fonts\franklin.png"
+  TRANSPARENT = 255,0,255
+  COLUMNS = 16
+  TILE_WIDTH = 32
+  TILE_HEIGHT = 32
+  AUTO_WIDTH = TRUE
+  EXPAND_WIDTH = 1
+  SPACE_WIDTH = 4
+  PAINT_WHOLE_CELL = FALSE
+}
+</font></pre>
+Description:<ul>
+  <li>IMAGE - the image with the letters (such as the one described above)</li>
+  <li>TRANSPARENT - specifies which color should be used as transparent; it's 
+  the purple color in our case</li>
+  <li>COLUMNS - the number of letters columns; as you can see above, we really 
+  have 16 columns of letters on our image</li>
+  <li>TILE_WIDTH, TILE_HEIGHT - the dimensions of one letter cell</li>
+  <li>AUTO_WIDTH - this tells WME to automatically detect the widths of each 
+  letter; you could manually specify width of each letter, but it's a tedious 
+  work</li>
+  <li>EXPAND_WIDTH - you can optionally specify an extra space between letters, 
+  in pixels</li>
+	<li>SPACE_WIDTH - specifies the width to be used for the space character, in 
+	pixels; if you don't specify space width, it will be calculated 
+	automatically</li>
+	<li>PAINT_WHOLE_CELL - if set to TRUE, the engine will always paint the 
+	entire character cell, no matter what the actual character width is; this is 
+	useful if you need characters to overlap by specifying a negative number in 
+	EXPAND_WIDTH</li>
+</ul>
+<p>&nbsp;</p>
+<p>Note that instead of the IMAGE attribute you can also use SPRITE keyword and 
+reference a WME sprite instead. This allows you to even create <u>animated fonts</u>.</p>
+<p>&nbsp;</p>
+<p>Resources:</p>
+<ul>
+  <li>see the WME demo for an example of finished fonts</li>
+  <li>there is a
+  <a target="_blank" href="http://wiki.dead-code.org/wakka.php?wakka=Fonts">short online guide</a> on using the FONText utility written by MMR </li>
+</ul>
+
+<p>See also:</p>
+<ul>
+  <li><a href="inside_ui_fonts_ttf.html">TrueType fonts</a></li>
+</ul>
+
+</body>
+
+</html>

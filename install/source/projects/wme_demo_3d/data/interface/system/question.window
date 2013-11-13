@@ -1,0 +1,47 @@
+WINDOW
+{
+  WIDTH = 800
+  HEIGHT = 600
+  FADE_COLOR { 0,0,0 }
+  FADE_ALPHA = 190
+  SCRIPT = "interface\system\question.script"
+  PAUSE_MUSIC = FALSE
+
+
+  STATIC
+  {
+    NAME = "message"
+    TEXT = "Question text here"
+    TEXT_ALIGN = "center"
+    FONT = "fonts\big_white.font"
+    X = 0
+    Y = 150
+    WIDTH = 800
+    HEIGHT = 64
+    VISIBLE = TRUE
+  }
+
+
+  BUTTON
+  {
+    TEMPLATE = "interface\system\button.template"
+    NAME = "yes"
+    TEXT = "Yes"
+    X = 255
+    Y = 300
+    WIDTH = 120
+    HEIGHT = 60
+  }
+
+  BUTTON
+  {
+    TEMPLATE = "interface\system\button.template"
+    NAME = "close"
+    TEXT = "No"
+    X = 425
+    Y = 300
+    WIDTH = 120
+    HEIGHT = 60
+  }
+
+}

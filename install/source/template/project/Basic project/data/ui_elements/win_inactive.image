@@ -1,0 +1,6 @@
+TILED_IMAGE
+{
+  IMAGE="ui_elements\win_inactive.bmp"
+  VERTICAL_TILES {30, 30, 30}
+  HORIZONTAL_TILES {30, 30, 30}
+}

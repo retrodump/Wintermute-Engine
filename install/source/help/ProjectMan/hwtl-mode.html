@@ -1,0 +1,28 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+<h3>Hardware T&amp;L</h3>
+<p>Specifies the usage of hardware transform and lighting. This option is only 
+useful for games using 3D characters, there&#39;s no point in enabling it for fully 
+2D games. Hardware T&amp;L moves some 3D calculations from CPU to video card, which 
+can significantly improve performance when using Direct3D 9.</p>
+<p>But this feature comes with a price. If enabled, the maximum number of active 
+lights in one scene will be limited by the capabilities of a video card. This 
+limit is usually 8 active lights. Therefore you should only enable this option 
+if your scenes are designed with limited number of lights in mind.</p>
+<p>There are three available modes:</p>
+<ul>
+	<li><em>don&#39;t use</em> - Hardware T&amp;L is disabled.</li>
+	<li><em>use when available</em> - Hardware T&amp;L will be used if the video 
+	card supports it (most video cards do).</li>
+	<li><em>ask user</em> - The settings dialog will contain a check box, 
+	allowing the player to choose whether to use HW T&amp;L or not.</li>
+</ul>
+</body>
+</html>

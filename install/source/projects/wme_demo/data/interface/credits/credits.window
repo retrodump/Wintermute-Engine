@@ -1,0 +1,16 @@
+WINDOW
+{
+  TRANSPARENT = TRUE
+  SCRIPT = "interface\credits\credits.script"
+  STATIC
+  {
+    TEXT = ""
+    TEXT_ALIGN = "center"
+    NAME = "credit"
+    FONT = "fonts\franklin.font"
+    X = 0
+    Y = 568
+    WIDTH = 800
+    HEIGHT = 32
+  }
+}

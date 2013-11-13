@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<DocMakerSettings>
+  <TxtOutputXmlFile>E:\projects\!wme2\app\DocMaker2\DocMaker2\tests\wme_docs_core_gr.xml</TxtOutputXmlFile>
+  <CmbHtmlOutputCodepage>Greek (ISO)</CmbHtmlOutputCodepage>
+  <TxtHtmlOutputPath>E:\projects\!wme2\app\DocMaker2\DocMaker2\tests\greek</TxtHtmlOutputPath>
+  <TxtExtensions>txt</TxtExtensions>
+  <CmbInputCodepage>Greek (ISO)</CmbInputCodepage>
+  <TxtInputPath>E:\projects\dcgf\doc\source\gre</TxtInputPath>
+  <TxtTermConstructors>Constructors</TxtTermConstructors>
+  <TxtTermReadOnly>μόνο για ανάγνωση</TxtTermReadOnly>
+  <TxtTermGlobalVariables>Global variables</TxtTermGlobalVariables>
+  <TxtTermGlobalFunctions>Γενικές συναρτήσεις</TxtTermGlobalFunctions>
+  <TxtTermExample>Παράδειγμα</TxtTermExample>
+  <TxtTermRemarks>Παρατηρήσεις</TxtTermRemarks>
+  <TxtTermReturn>Επιστρεφόμενη τιμή</TxtTermReturn>
+  <TxtTermParameters>Παράμετροι</TxtTermParameters>
+  <TxtTermEvents>Γεγονότα χαμηλού επιπέδου</TxtTermEvents>
+  <TxtTermAttributes>Ιδιότητες</TxtTermAttributes>
+  <TxtTermMethods>Μέθοδοι</TxtTermMethods>
+  <TxtTermLanguage>el</TxtTermLanguage>
+</DocMakerSettings>

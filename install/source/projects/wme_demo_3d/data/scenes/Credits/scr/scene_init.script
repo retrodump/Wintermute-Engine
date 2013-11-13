@@ -1,0 +1,118 @@
+#include "scripts\base.inc"
+
+actor.Active = false;
+
+var CurrY = 0;
+
+var Win = Game.CreateWindow();
+Win.X = 0;
+Win.Y = 0;
+Win.Width = Game.ScreenWidth;
+Win.Height = Game.ScreenHeight;
+Win.AttachScript("scenes\credits\scr\window.script");
+
+CurrY = 600;
+
+
+AddText("Wintermute Engine");
+AddText("3D characters technology demo");
+AddText("");
+AddText("");
+AddText("Background art", true);
+AddText("NaRCo");
+AddText("http://nihilis.games.cz");
+AddText("");
+AddText("");
+AddText("Character model", true);
+AddText("~A.u.s.t.i.n.");
+AddText("Neal 'Guplik' Corbett");
+AddText("");
+AddText("");
+AddText("Interface art", true);
+AddText("ReWegar");
+AddText("http://www.progress-studio.com");
+AddText("");
+AddText("odnorf");
+AddText("http://master.math.upatras.gr/~odnorf/dreams/");
+AddText("");
+AddText("");
+AddText("Music", true);
+AddText("NaRCo");
+AddText("");
+AddText("");
+AddText("Scripting", true);
+AddText("Mnemonic");
+AddText("");
+AddText("");
+AddText("Special thanks to", true);
+AddText("Jerrot");
+AddText("gfx johnny");
+AddText("Nihil");
+AddText("Daniel");
+AddText("McCoy");
+AddText("MMR");
+AddText("Rocco");
+AddText("NaRCo");
+AddText("deadworm222");
+AddText("Ben");
+AddText("odnorf");
+AddText("HeSh");
+AddText("Igorrr");
+AddText("Prisma");
+AddText("Odysee@SomeWhere");
+AddText("Hobie-wan");
+AddText("twk");
+AddText("Arcnor");
+AddText("SBOVIS");
+AddText("Jeroen");
+AddText("Orange Brat");
+AddText("metamorphium");
+AddText("Lawrence");
+AddText("slayte");
+AddText("PrestonD");
+AddText("DREAMWEB");
+AddText("Foggobbler");
+AddText("Martin");
+AddText("");
+AddText("");
+AddText("Powered by Wintermute Engine", true);
+AddText("Copyright (c) 2004 dead:code");
+AddText("");
+
+
+Win.Exclusive = true;
+while(Win.Y > -CurrY)
+{
+  Win.Y = Win.Y - 3;
+  Sleep(50);
+}
+if(Win!=null)
+{
+  Win.Close();
+  Game.UnloadObject(Win);
+  Game.ChangeScene("scenes\Menu\Menu.scene");
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+function AddText(Text, Hilight)
+{
+	if(Hilight==null) Hilight = false;
+	
+  var Static = Win.CreateStatic();
+  if(Text==null) Static.Text = "";
+  else Static.Text = Text;
+  Static.X = 0;
+  Static.Y = CurrY;
+  Static.Width = Game.ScreenWidth;
+  Static.Height = 32;
+  Static.TextAlign = TAL_CENTER;
+  
+  if(Hilight) Static.SetFont("fonts\big_blue.font");
+  else Static.SetFont("fonts\big_white.font");
+    
+  CurrY = CurrY + Static.Height;
+  
+  Win.Height = Win.Height + Static.Height;
+}

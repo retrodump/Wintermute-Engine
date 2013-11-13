@@ -1,0 +1,6 @@
+#include "scripts\base.inc"
+
+// here comes the stuff which initializes the scene
+
+var WinMenu = Game.LoadWindow("scenes\room\menu.window");
+WinMenu.Visible = true;

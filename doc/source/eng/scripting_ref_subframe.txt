@@ -1,0 +1,90 @@
+*tit Subframe object
+*des The Subframe object allows you to access the properties of the animation subframes. Subframe objects can be queried using the <b>Frame.GetSubframe</b> and <b>Frame.Addsubframe</b> methods. Also if there is only one subframe assigned to an animation frame all these methods and attributes apply directly to the frame.
+*cls CBSubFrame
+
+
+*grp Actions
+
+*met GetSound()
+*des Returns the sound assigned to this frame.
+*ret The filename of the assigned sound or <b>null</b>.
+
+*met SetSound(Filename)
+*des Assigns a sound to this frame.
+*par Filename The filename of the sound to be assigned.
+*ret If the method succeeds, the return value is <b>true</b>.
+
+
+*met GetSubframe(Index)
+*des Returns a subframe of this frame.
+*par Index A zero-based index of the subframe to be returned.
+*ret If the method succeeds it returns a subframe object.
+
+
+*met AddSubframe(Filename)
+*des Adds a new subframe to this animation frame.
+*par Filename An image file to be used for this subframe.
+*ret Returns the newly created subframe object.
+
+*met InsertSubframe(Index, Filename)
+*des Inserts a new subframe to this animation frame.
+*par Index The position where the new subframe should be inserted.
+*par Filename An image file to be used for this subframe.
+*ret Returns the newly created subframe object.
+
+
+*met Deletesubframe(Index)
+*mt2 Deletesubframe(Subframe)
+*des Removes specified subframe from this animation frame.
+*par Index A zero-based index of a subframe to be removed.
+*par Subframe The subframe object to be removed.
+
+
+*met GetEvent(Index)
+*des Returns an event assigned to this frame.
+*par Index A zero-based index of an event to be returned.
+*ret If the method succeeds it returns a name of the event.
+
+*met AddEvent(EventName)
+*des Adds an event to this frame.
+*par EventName A name of the event to be added.
+
+*met DeleteEvent(EventName)
+*des Removes an event from this frame.
+*par EventName A name of the event to be removed.
+
+
+
+*grp 
+
+*atr Type
+*des Returns always "subframe"
+*ro
+
+*atr AlphaColor
+*des Specifies an RGBA color of this subframe.
+
+*atr TransparentColor
+*ro
+*des Returns the transparent color of this subframe.
+
+*atr MirrorX
+*des Specifies if this frame is mirrored horizontally.
+
+*atr MirrorY
+*des Specifies if this frame is mirrored vertically.
+
+*atr Is2DOnly
+*des Specifies if this frame is only displayed when the game is running in non-accelerated mode.
+
+*atr Is3DOnly
+*des Specifies if this frame is only displayed when the game is running in accelerated mode.
+
+*atr Decoration
+*des Specifies if this is the decoration subrame (i.e. it's not active under mouse cursor)
+
+*atr HotspotX
+*des The X coordinate of the hotspot (the point the sprite is painted from)
+
+*atr HotspotY
+*des The Y coordinate of the hotspot (the point the sprite is painted from)

@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ExtractPackage", "ExtractPackage.vcproj", "{CF6C8EA1-F488-4931-AA40-633FB268B03A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CF6C8EA1-F488-4931-AA40-633FB268B03A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CF6C8EA1-F488-4931-AA40-633FB268B03A}.Debug|Win32.Build.0 = Debug|Win32
+		{CF6C8EA1-F488-4931-AA40-633FB268B03A}.Release|Win32.ActiveCfg = Release|Win32
+		{CF6C8EA1-F488-4931-AA40-633FB268B03A}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

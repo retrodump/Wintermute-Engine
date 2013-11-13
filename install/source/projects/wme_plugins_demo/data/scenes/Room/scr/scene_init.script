@@ -1,0 +1,16 @@
+#include "scripts\base.inc"
+
+// here comes the stuff which initializes the scene
+
+actor.SkipTo(400, 400);
+actor.Direction = DI_DOWN;
+actor.Active = true;
+
+
+Game.Msg("See the scene_init.script for snow plugin initialization code...");
+
+// start the snow plugin
+var SnowGen = new Snow(300);
+SnowGen.Run();
+SnowGen.StickToRegion("floor");
+WaitFor(SnowGen);

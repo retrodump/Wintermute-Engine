@@ -1,0 +1,82 @@
+; $EDITOR_PROJECT_ROOT_DIR$ $$PROJECT_ROOT$$
+
+SCENE {
+  NAME="$$NAME$$"
+  CAPTION=""
+  SCRIPT="$$BASE_PATH$$\scr\scene_init.script"
+  SCRIPT="scripts\scene.script"
+  PERSISTENT_STATE = TRUE
+  
+  ; ----- editor settings
+  EDITOR_MARGIN_H=100
+  EDITOR_MARGIN_V=100
+  EDITOR_COLOR_FRAME { 136,136,136,224 }
+  EDITOR_COLOR_ENTITY_SEL { 255,0,0,255 }
+  EDITOR_COLOR_REGION_SEL { 255,0,0,255 }
+  EDITOR_COLOR_BLOCKED_SEL { 255,0,0,255 }
+  EDITOR_COLOR_WAYPOINTS_SEL { 255,0,0,255 }
+  EDITOR_COLOR_ENTITY { 0,128,0,255 }
+  EDITOR_COLOR_REGION { 0,0,255,255 }
+  EDITOR_COLOR_BLOCKED { 128,0,128,255 }
+  EDITOR_COLOR_WAYPOINTS { 0,0,255,255 }
+  EDITOR_COLOR_SCALE { 0,255,0,255 }
+  EDITOR_SHOW_REGIONS=TRUE
+  EDITOR_SHOW_BLOCKED=TRUE
+  EDITOR_SHOW_ENTITIES=TRUE
+  EDITOR_SHOW_SCALE=TRUE
+  
+  ; ----- waypoints
+  
+  ; ----- layers
+  LAYER {
+    NAME="main"
+    CAPTION=""
+    MAIN=TRUE
+    WIDTH=1024
+    HEIGHT=768
+    ACTIVE=TRUE
+    EDITOR_SELECTED=TRUE
+
+    ENTITY {
+      NAME="background"
+      CAPTION=""
+      ACTIVE=TRUE
+      X=112
+      Y=84
+      SCALABLE=FALSE
+      REGISTRABLE=FALSE
+      SHADOWABLE=FALSE
+      EDITOR_SELECTED=TRUE
+      SPRITE="$$BASE_PATH$$\background.bmp"
+    }  
+
+    REGION {
+      NAME="floor"
+      CAPTION=""
+      BLOCKED=FALSE
+      DECORATION=FALSE
+      ACTIVE=TRUE
+      SCALE=0
+      ALPHA_COLOR { 255,255,255 }
+      ALPHA = 255
+      EDITOR_SELECTED=FALSE
+      POINT {50,50}
+      POINT {976,50}
+      POINT {976,718}
+      POINT {50,718}
+    }
+  }
+
+
+  ; ----- scale levels
+  SCALE_LEVEL {
+    Y=300
+    SCALE=70
+  }
+  SCALE_LEVEL {
+    Y=600
+    SCALE=100
+  }
+  
+  ; ----- free entities
+}

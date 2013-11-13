@@ -1,0 +1,20 @@
+#include "scripts\base.inc"
+
+////////////////////////////////////////////////////////////////////////////////
+method ResetButtons()
+{
+	ResetButton("LookAt");
+	ResetButton("Talk");
+	ResetButton("Take");
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+function ResetButton(Name)
+{
+	var Button = this.GetControl(Name);
+	if(Button==null) return;
+	
+	var Sprite = Button.GetImageObject();
+	Sprite.CurrentFrame = Sprite.NumFrames - 1;
+}

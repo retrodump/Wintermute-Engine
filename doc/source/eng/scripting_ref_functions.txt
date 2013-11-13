@@ -1,0 +1,95 @@
+*tit Global functions and variables
+*des These global functions and variables are available in all scripts.
+
+
+*glo Sleep (Milliseconds)
+*des Suspends the script for a specified number of milliseconds 
+*par Milliseconds Number of milliseconds to suspend the script for
+*rem The <b>Sleep</b> function suspends the script and returns control back to the engine. If you have a script that runs for a very long time, you should periodically call the <b>Sleep</b> function, otherwise the game will seem to be "stuck" until the script finishes.
+
+*glo WaitFor (Object)
+*des Suspends the script until the specified object is "ready"
+*par Object The object to wait for
+*rem The object is "ready", when it doesn't perform any action (like talking, walking etc.).
+
+*glo Random (From, To)
+*des Returns a pseudo-random number from a specified range 
+*par From The lower bound of the range
+*par To The higher bound of the range
+
+*glo SetScriptTimeSlice (Milliseconds)
+*des The script will be automatically suspended after a specified time interval 
+*par Milliseconds The time interval after which the script will be suspended
+*rem If you have a script that runs for a very long time, you should return control to the engine from time to time. You can do it either manually by calling the <b>Sleep</b> function, or you can set the time-slice interval. In that case, the engine will suspend the script automatically, perform other tasks, and return to the script again.
+
+*glo Debug ()
+*des Pauses game execution and displays a debugging console
+*rem If debugging console isn't enabled, this function is ignored.
+
+*glo MakeRGBA (R, G, B, A)
+*des Packs the Red, Green, Blue and Alpha color values into one number
+*par R The Red component of the requested color
+*par G The Green component of the requested color
+*par B The Blue component of the requested color
+*par A The Alpha component of the requested color (optional, defaults to 255)
+*ret Returns a color value based on the specified color components
+*rem All the color components range from 0 to 255. The alpha component specifies the transparency of the resulting color. It ranges from 0 (completely transparent) to 255 (opaque).
+
+*glo GetRValue (Color)
+*des Extracts a Red portion of a color
+*par Color A packed RGBA color
+
+*glo GetGValue (Color)
+*des Extracts a Green portion of a color
+*par Color A packed RGBA color
+
+*glo GetBValue (Color)
+*des Extracts a Blue portion of a color
+*par Color A packed RGBA color
+
+*glo GetAValue (Color)
+*des Extracts an Alpha portion of a color
+*par Color A packed RGBA color
+
+*glo MakeHSL(H, S, L)
+*des Packs the Hue, Saturation and Luminance color component into one number
+*par H The Hue component of the requested color
+*par S The Saturation component of the requested color
+*par L The Luminance component of the requested color
+*ret Returns a color value based on the specified color components
+*rem All the color components range from 0 to 255.
+
+*glo GetHValue(Color)
+*des Extracts a Hue portion of a color
+*par Color A packed color value
+
+*glo GetSValue(Color)
+*des Extracts a Saturation portion of a color
+*par Color A packed color value
+
+*glo GetLValue(Color)
+*des Extracts a Luminance portion of a color
+*par Color A packed color value
+
+
+*glo ToString (Value)
+*des Converts a specified value to a string
+*par Value The value to be converted
+
+*glo ToInt (Value)
+*des Converts a specified value to an integer number
+*par Value The value to be converted
+
+*glo ToBool (Value)
+*des Converts a specified value to a boolean (logical) value
+*par Value The value to be converted
+
+*glo ToFloat (Value)
+*des Converts a specified value to a floating point number
+*par Value The value to be converted
+
+
+*grp
+*gatr Game
+*des The one and only game object reference
+*ro

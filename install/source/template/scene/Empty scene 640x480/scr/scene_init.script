@@ -1,0 +1,36 @@
+#include "scripts\base.inc"
+
+// here comes the stuff which initializes the scene
+
+$$ACTOR$$.SkipTo(320, 300);
+$$ACTOR$$.Direction = DI_DOWN;
+$$ACTOR$$.Active = true;
+
+
+////////////////////////////////////////////////////////////////////////////////
+// scene state
+global State$$NAME$$;
+
+
+// default values
+if(State$$NAME$$==null)
+{
+  State$$NAME$$.Visited = false;
+  // add scene states here
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+// setup scene according to state variables
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+if(!State$$NAME$$.Visited)
+{
+  State$$NAME$$.Visited = true;
+
+  // this is our first visit in this scene...
+}
+

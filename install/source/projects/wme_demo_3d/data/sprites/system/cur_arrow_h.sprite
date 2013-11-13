@@ -1,0 +1,10 @@
+SPRITE
+{
+  LOOPING = FALSE
+
+  FRAME
+  {
+    IMAGE = "sprites\system\cur_arrow_h.bmp"
+    ALPHA = 150
+  }
+}

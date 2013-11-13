@@ -1,0 +1,30 @@
+*tit Entity container object
+*des The Entity container object allows you to incorporated an advanced interactive object (an entity) into your GUI windows. Entity containers can be queried using the Window.GetControl method.
+*cls CUIEntity
+
+*inc inc_uiobject_methods.inc
+
+*grp Actions
+
+
+*met GetEntity()
+*des Returns the entity object assigned to this container.
+*ret Returns a reference to the entity object.
+
+*met SetEntity(Filename)
+*des Assigns an entity object to this container.
+*par Filename The filename of the entity file to be assigned.
+*ret If the method succeeds, the return value is <b>true</b>.
+
+
+
+*grp 
+
+*atr Type
+*des Returns always "entity container"
+*ro
+
+*atr Freezable
+*des Specifies if the contained entity should be frozen when a system exclusive window is active
+
+*inc inc_object_attr_2D.inc

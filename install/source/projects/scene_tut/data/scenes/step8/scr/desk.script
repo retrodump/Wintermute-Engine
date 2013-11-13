@@ -1,0 +1,27 @@
+#include "scripts\base.inc"
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "LookAt"
+{
+  actor.TurnTo(self);
+  actor.Talk("It's a sturdy looking desk.");
+  if(!Game.IsItemTaken("book")) actor.Talk("There's a book lying on it.");
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "Take"
+{
+  actor.TurnTo(self);
+  actor.Talk("The desk is a bit too heavy for a poor little me...");
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "LeftClick"
+{
+  // just walk to the desk
+  actor.GoTo(544, 638);
+  actor.TurnTo(DI_UPRIGHT);
+}

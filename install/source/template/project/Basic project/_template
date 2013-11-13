@@ -1,0 +1,3 @@
+$$DESC Fully featured project, 3rd person view, 800x600
+$$PROP ACTOR_NAME,Actor name,molly,,string,1,256
+$$PROP SCENE_NAME,Scene name,Room,,string,1,256

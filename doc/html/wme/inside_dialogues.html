@@ -1,0 +1,186 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Scripting dialogues</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h2>Scripting dialogues</h2>
+<p>Dialogue trees can be scripted using a few commands. First, you need to 
+fill-in the available responses; it's done using the <b>
+<a href="generated/scripting_ref_game.html#AddResponse">Game.AddResponse()</a></b> 
+method. When calling this command, you specify the ID of each response and the 
+text. Optionally, if you are using the iconic responses, you can specify three 
+sprites for each response, for normal, hovered and pressed response button.</p>
+<p>Once you've filled all the possible responses, you'll call the <b>
+<a href="generated/scripting_ref_game.html#GetResponse">Game.GetResponse()</a></b> 
+method. It will display the response box on screen and let the player select one 
+of the responses. The script is suspended until the player make their choice. 
+Then the ID of the selected response is returned.</p>
+<p>A very simple dialog code would look like this:</p>
+<table>
+  <tr>
+    <td bgColor="#ccffff" style="font-size: 68%">
+    <pre>Game.AddResponse(0, &quot;Hello.&quot;);
+Game.AddResponse(1, &quot;How are you?&quot;);
+Game.AddResponse(2, &quot;I'll be going.&quot;);
+
+var Res = Game.GetResponse();</pre>
+    </td>
+  </tr>
+</table>
+<p>This code is nice, but mostly useless. In most cases you will want to check 
+the returned response and do some actions. Also, typically you will want to 
+display the responses until the player selects the &quot;I'll be going&quot; option. The 
+improved code will look like this:</p>
+
+<table>
+  <tr>
+    <td bgColor="#ccffff" style="font-size: 68%">
+    <pre>function MyTestDialogue()
+{
+  var EndBranch = false;
+
+  while(!EndBranch) // loop until the player ends this dialogue
+  {
+    // fill in the responses
+    Game.AddResponse(0, &quot;Hello.&quot;);
+    Game.AddResponse(1, &quot;How are you?&quot;);
+    Game.AddResponse(2, &quot;I'll be going.&quot;);
+
+    // let the player choose one
+    var Res = Game.GetResponse();
+
+    // let the actor say the selected response
+    actor.Talk(Game.LastResponse);
+
+    // and now handle the selected one
+    switch(Res)
+    {
+      case 0:
+        // some code to handle response #0
+        SomeGuy.Talk(&quot;Hi mister.&quot;);
+        break;
+
+      case 1:
+        // some code to handle response #1
+        SomeGuy.Talk(&quot;I'm fine, thank you.&quot;);
+        break;
+
+      case 2:
+        SomeGuy.Talk(&quot;Bye bye.&quot;);
+        EndBranch = true;  // response #2 exits the dialogue
+        break;        
+    }
+  }
+}</pre>
+    </td>
+  </tr>
+</table>
+
+<p>Ok, now it's slightly more complicated, but it's no rocket science. First, 
+notice that we enclosed the entire dialogue into a function. It's a good idea to 
+create one function for each dialogue branch. You can then simply call one 
+branch from another, and the code is more readable.</p>
+
+<p>Secondly, we added a line that instructs the player to say the selected 
+response text. This text is conveniently stored in the <b>Game.LastResponse</b> 
+property.</p>
+
+<p>Thirdly, the response selection is enclosed in a &quot;while&quot; loop, which loops 
+until the third dialogue option is selected.</p>
+
+<p>And lastly, we added the code for handling the selected response. The 
+&quot;switch&quot; command is probably the most elegant way of doing so. You can use the 
+code above as a template for your own dialogue functions.</p>
+<p>&nbsp;</p>
+<p>In addition to the simplest Game.AddResponse() method, WME provides also its special variations <b>
+<a href="generated/scripting_ref_game.html#AddResponseOnce">Game.AddResponseOnce()</a></b> 
+and <b><a href="generated/scripting_ref_game.html#AddResponseOnceGame">Game.AddResponseOnceGame()</a></b>.</p>
+<p><b>Game.AddResponseOnce()</b> method will add a dialogue response and once this response is selected by 
+the player, it will disappear from the list of responses until the dialogue is 
+finished.<br>
+&nbsp;</p>
+<p><b>Game.AddResponseOnceGame()</b> method will add a dialogue response and once this response is selected by 
+the player, it will disappear from the list of responses and it will never 
+reappear in the current game session.</p>
+<p>Using these two methods you don't need to explicitly code whether a certain 
+response should appear only once. The engine will remember which responses have 
+been previously selected by the player and it will hide them automatically.</p>
+<p>If you need to revive an automatically hidden response, you can use <b>
+<a href="generated/scripting_ref_game.html#ResetResponse">Game.ResetResponse()</a></b> method. </p>
+<p>&nbsp;</p>
+<p>As an addition to this functionality the Game.GetResponse() method has an 
+optional logical parameter, which specifies what to do if there's only one 
+response left for player to select. If you pass a <b>true</b> value as a 
+parameter to the GetResponse method and there is only one response available, 
+the engine will select it automatically.</p>
+<p>But there's a small complication. In order to make the Game.AddResponseOnce* 
+methods work, you must explicitly define where your dialogue branch starts and 
+where it ends so that the engine is able to track to which dialogue which 
+response belongs. You can mark a dialogue start using the <b>
+<a href="generated/scripting_ref_game.html#StartDlgBranch">Game.StartDlgBranch()</a></b> 
+method and end it using a <b>
+<a href="generated/scripting_ref_game.html#EndDlgBranch">Game.EndDlgBranch()</a></b> method.</p>
+<p>OK, let's show the complete dialogue scripting in an example:</p>
+<table>
+  <tr>
+    <td bgColor="#ccffff" style="font-size: 68%">
+    <pre>function MyTestDialogue()
+{
+  Game.StartDlgBranch(&quot;MyTestDialogue&quot;); // start a new dialogue branch
+
+  var EndBranch = false;
+
+  while(!EndBranch) // loop until the player ends this dialogue
+  {  
+    Game.AddResponseOnce(0, &quot;You can select this response only once in this dialogue&quot;);
+    Game.AddResponseOnceGame(1, &quot;You can select this response only once in the entire game&quot;);
+    Game.AddResponse(2, &quot;Ok, I have to go now.&quot;);
+    
+    var Res = Game.GetResponse(true); // automatically select last response
+    
+    actor.Talk(Game.LastResponse);
+    
+    // handle the responses
+    switch(Res)
+    {
+      case 0:
+        // some code to handle response #0
+        break;
+
+      case 1:
+        // some code to handle response #1
+        break;
+
+      case 2:
+        EndBranch = true;  // response #2 exits the dialogue
+        break;        
+    }
+  }
+  
+  Game.EndDlgBranch(); // end this dialogue branch
+}
+</pre>
+    </td>
+  </tr>
+</table>
+<br>
+<hr>There are now two third-party visual editors available for building WME 
+dialogues. Try them, maybe you'll find them helpful:<ul>
+	<li>
+	<a target="_blank" href="http://forum.dead-code.org/index.php?topic=2570.0">
+	WME Visual Dialog Editor</a> by SoundGuy</li>
+	<li>
+	<a target="_blank" href="http://forum.dead-code.org/index.php?topic=2608.0">
+	MACs WME Visual Dialogue Editor</a> by Mac</li>
+</ul>
+</body>
+
+</html>

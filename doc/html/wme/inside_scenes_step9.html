@@ -1,0 +1,78 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Step 9: Miscellaneous tips and procedures</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3>Step 9: Miscellaneous tips and procedures</h3>
+
+<p>Once out scene is complete, we can look closer at some additional procedures 
+you'll probably need when designing your game.</p>
+
+<p>&nbsp;</p>
+
+<p><b>Scene states</b></p>
+
+<p>The engine is able to automatically store states of various scene objects and 
+restore them later when the player revisits the scene. This behavior can be 
+enabled on the scene properties dialog in SceneEdit. You can also choose if you 
+want your scene objects to remember what sprite they were using, in case you've 
+changed them programmatically.</p>
+
+<p align="center">
+<img border="0" src="../img/tut9-1.png" width="224" height="446"></p>
+<p>Note that saving scene state is based on the names of your scene objects. It 
+mean you shouldn't have two objects with the same name or you may get 
+unpredictable results.</p>
+<p>&nbsp;</p>
+<p><b>Changing to another scene</b></p>
+<p>Your game probably won't be taking place in a single room. You already know 
+how to create scenes but how to interconnect them? There may be many ways of 
+invoking a scene change, therefore WME uses scripting for this. Let's try it. 
+We've already made the door an active object in
+<a href="inside_scenes_step7.html">Step 7</a> of this tutorial. Select the 
+&quot;door&quot; region entity in the node list and click the &quot;Scripts...&quot; button. Because 
+the door doesn't have any script assigned yet, SceneEdit will prompt you to 
+create a new script. Select the &quot;scene object&quot; template and click &quot;Ok&quot;. This 
+will create a new script called &quot;door.script&quot;. The script dialog will appear. 
+Double click the &quot;door.script&quot; in then list box, or click the &quot;Edit script&quot; 
+toolbar button.</p>
+<p align="center">
+<img border="0" src="../img/tut9-2.png" width="329" height="260"></p>
+<p align="left">The script will open in a text editor. You can see several event 
+handlers created by default. We will only want our door to react on clicking the 
+left mouse button. Delete all event handlers. All we need to do now is to add the left-click handler, which 
+will make the actor walk to the door and change to another scene. Add this piece 
+of code to the script:</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td class="code">
+<pre>on "LeftClick"
+{
+  actor.GoToObject(this);
+  Game.ChangeScene("scenes\menu\menu.scene");
+}
+</pre>    
+    </td>
+  </tr>
+</table>
+<p align="left">The first line will call the 
+<a href="generated/scripting_ref_actor.html#GoToObject">GoToObject</a> method, which sends 
+the actor to the door, and the second line will tell the game to load a new 
+scene, namely the &quot;scenes\menu\menu.scene&quot;. Of course, you can use a filename of 
+any other scene you already have in your project.</p>
+
+<p align="left">See the WME demo project for a finished example.</p>
+
+<p align="left">&nbsp;</p>
+
+</body>
+
+</html>

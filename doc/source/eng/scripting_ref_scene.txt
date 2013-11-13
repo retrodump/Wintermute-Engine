@@ -1,0 +1,358 @@
+*tit Scene object
+*des The Scene object represents the currently loaded scene. There is always one and only Scene object available. It's accessible via the Game.Scene attribute. For the convenience the templates automatically store the scene object in a global variable named <b>Scene</b>.
+*cls CAdScene
+	
+
+
+*grp Object manipulation
+
+*met LoadActor(Filename)
+*des Loads a new actor from a file.
+*par Filename The filename of the actor file to be loaded.
+*ret A reference to the new Actor object. If the method fails, the return value is <b>null</b>.
+*rem Actors loaded using this method will be automatically unloaded when the game changes to another scene (as opposed to the <b>Game.LoadActor</b> method).
+
+*met LoadActor3D(Filename)
+*des Loads a new 3D actor from a file.
+*par Filename The filename of the 3D actor file to be loaded.
+*ret A reference to the new 3D actor object. If the method fails, the return value is <b>null</b>.
+*rem Actors loaded using this method will be automatically unloaded when the game changes to another scene (as opposed to the <b>Game.LoadActor3D</b> method).
+
+*met LoadEntity(Filename)
+*des Loads a new entity from a file.
+*par Filename The filename of the entity file to be loaded.
+*ret A reference to the new Entity object. If the method fails, the return value is <b>null</b>.
+*rem Entities loaded using this method will be automatically unloaded when the game changes to another scene (as opposed to the <b>Game.LoadEntity</b> method).
+
+*met UnloadObject(Object)
+*des Removes an object from memory.
+*par Object The object to be removed from memory.
+*rem If you load an object using the Scene.LoadActor or Scene.LoadEntity methods, you should unload those when you no longer need them to free memory. Otherwise those objects will be released automatically when the game changes to another scene.
+
+
+
+*grp Scrolling functions
+
+*met SkipTo(X, Y)
+*mt2 SkipTo(Object)
+*des Sets the current scroll position to the given point / object.
+*par X New X coordinate for scroll position
+*par Y New Y coordinate for scroll position
+*par Object An object (actor/entity) to be used as a new scroll position
+
+*met ScrollTo(X, Y)
+*mt2 ScrollTo(Object)
+*mt2 ScrollToAsync(X, Y)
+*mt2 ScrollToAsync(Object)
+*des Scrolls the scene to the given point / object.
+*par X X coordinate of the target scroll position
+*par Y Y coordinate of the target scroll position
+*par Object An object (actor/entity) to be used as a new target scroll position
+*rem The <b>Scene.AutoScroll</b> attribute must be set to <b>true</b> for this method to work.
+*rem ScrollTo method blocks the script execution until the scrolling is over, while the ScrollToAsync method returns immediately.
+
+
+*grp Node querying functions
+
+*met GetLayer(LayerIndex)
+*mt2 GetLayer(LayerName)
+*des Returns the given layer.
+*par LayerIndex An index of a layer to be returned
+*par LayerName A name of a layer to be returned
+*ret Returns a reference to the layer object at a given index/with a given name or returns <b>null</b> if there's no such layer.
+
+*met GetWaypointGroup(WptGroupIndex)
+*des Returns the given waypoint group.
+*par WptGroupIndex An index of a waypoint group to be returned
+*ret Returns a reference to the waypoint group object at a given index or <b>null</b> if there's no such waypoint group.
+
+*met GetNode(Name)
+*des Returns the given scene node (entity or region).
+*par Name The name of the scene node to be returned
+*ret Returns a reference to the scene node object with a given name or <b>null</b> if there's no such node.
+*rem The scene nodes should have unique names for this method to work correctly.
+
+*met GetFreeNode(Name)
+*mt2 GetFreeNode(Index)
+*des Returns the given free scene node (entity or actor).
+*par Name The name of the scene node to be returned
+*par Index The index of the scene node to be returned
+*ret Returns a reference to the scene node object with a given name/index or <b>null</b> if there's no such node.
+
+
+*met GetRegionAt(X, Y, IncludeDecorations)
+*des Returns a scene region at a given position.
+*par X The X coordinate within the scene to be searched for regions
+*par Y The Y coordinate within the scene to be searched for regions
+*par IncludeDecorations Specifies whether the decoration regions should be searched too (optional, default=false)
+*ret Returns a reference to the scene region object at a given position or <b>null</b> if there's no such region.
+
+
+*grp Scene querying functions
+
+*met IsBlockedAt(X, Y)
+*des Queries whether the scene is blocked at a given point.
+*par X The X coordinate of the point within scene to be tested
+*par Y The Y coordinate of the point within scene to be tested
+*ret Returns <b>true</b> if the scene is blocked at given coordinates.
+
+*met IsWalkableAt(X, Y)
+*des Queries whether the scene is walkable at a given point.
+*par X The X coordinate of the point within scene to be tested
+*par Y The Y coordinate of the point within scene to be tested
+*ret Returns <b>true</b> if the scene is walkable at given coordinates.
+
+*met GetScaleAt(X, Y)
+*des Queries a scale factor at a given point of the scene.
+*par X The X coordinate of the point within scene to be queried
+*par Y The Y coordinate of the point within scene to be queried
+*ret Returns the scale factor at given coordinates (in percent).
+
+*met GetRotationAt(X, Y)
+*des Queries a sprite rotation factor at a given point of the scene.
+*par X The X coordinate of the point within scene to be queried
+*par Y The Y coordinate of the point within scene to be queried
+*ret Returns the sprite rotation factor at given coordinates (in degrees).
+
+*met IsPointInViewport(X, Y)
+*des Queries whether a given point is lying within the current scene viewport.
+*par X The X coordinate of the point to be tested
+*par Y The Y coordinate of the point to be tested
+*ret Returns <b>true</b> if the specified point lies within the scene viewport.
+
+
+*grp Fading functions
+
+*met FadeOut(Duration, TargetRed, TargetGreen, TargetBlue, TargetAlpha)
+*mt2 FadeOutAsync(Duration, TargetRed, TargetGreen, TargetBlue, TargetAlpha)
+*des Fades the scene out to a specified color.
+*par Duration Specifies how long it will take to fade out, in milliseconds (optional, default=500)
+*par TargetRed The Red component of a target fade color (optional, default=0)
+*par TargetGreen The Green component of a target fade color (optional, default=0)
+*par TargetBlue The Blue component of a target fade color (optional, default=0)
+*par TargetAlpha The Alpha component (opacity) of a target fade color (optional, default=255)
+*rem The FadeOut method blocks the script execution until the fading is over, while the FadeOutAsync method returns immediately.
+
+*met FadeIn(Duration, SourceRed, SourceGreen, SourceBlue, SourceAlpha)
+*mt2 FadeInAsync(Duration, SourceRed, SourceGreen, SourceBlue, SourceAlpha)
+*des Fades the scene in from a specified color.
+*par Duration Specifies how long it will take to fade in, in milliseconds (optional, default=500)
+*par SourceRed The Red component of the initial fade color (optional, default=0)
+*par SourceGreen The Green component of the initial fade color (optional, default=0)
+*par SourceBlue The Blue component of the initial fade color (optional, default=0)
+*par SourceAlpha The Alpha component (opacity) of the initial fade color (optional, default=255)
+*rem The FadeIn method blocks the script execution until the fading is over, while the FadeInAsync method returns immediately.
+
+*met GetFadeColor()
+*des Gets the current fading color.
+*ret Returns the current fading color in the encoded color format.
+*rem You can use the GetRValue(), GetGValue(), GetBValue() and GetAValue() functions to extract individual color components.
+
+
+*inc inc_dynamic.inc
+
+*met AddLayer(LayerName)
+*des Adds a new layer to the top of the scene
+*par LayerName The name of the new layer
+*ret Returns a reference to the newly created layer object.
+
+*met InsertLayer(Index, LayerName)
+*des Inserts a new layer to the scene
+*par Index The position within layers where the new layer is to be inserted
+*par LayerName The name of the new layer
+*ret Returns a reference to the newly created layer object.
+
+*met DeleteLayer(LayerIndex)
+*mt2 DeleteLayer(LayerObject)
+*des Permanently removes a scene layer
+*par LayerIndex The index of the layer to be deleted
+*par LayerObject The layer object to be deleted
+*ret Returns <b>true</b> if the layer was successfuly deleted.
+
+
+*grp 3D characters related
+
+*met EnableNode3D(NodeName)
+*des Enables a 3D walkplane or blocked object
+*par NodeName The name of the node to be enabled.
+*ret Returns <b>true</b> if the node has been successfuly enabled.
+*rem The scene must have a 3D geometry assigned for this method to work.
+
+*met DisableNode3D(NodeName)
+*des Disables a 3D walkplane or blocked object
+*par NodeName The name of the node to be disabled.
+*ret Returns <b>true</b> if the node has been successfuly disabled.
+*rem The scene must have a 3D geometry assigned for this method to work.
+
+*met IsNode3DEnabled(NodeName)
+*des Checks whether a specified 3D walkplane or blocked object is enabled.
+*par NodeName The name of the node to be queried.
+*ret Returns <b>true</b> if the specified 3D scene node exists and is currently enabled.
+
+*met EnableLight(LightName)
+*des Enables a 3D light within the scene
+*par LightName The name of the light to be enabled.
+*ret Returns <b>true</b> if the light has been successfuly enabled.
+*rem The scene must have a 3D geometry assigned for this method to work.
+
+*met DisableLight(LightName)
+*des Disables a 3D light within the scene
+*par LightName The name of the light to be disabled.
+*ret Returns <b>true</b> if the light has been successfuly disabled.
+*rem The scene must have a 3D geometry assigned for this method to work.
+
+*met IsLightEnabled(LightName)
+*des Checks whether a specified 3D light is enabled.
+*par LightName The name of the light to be queried.
+*ret Returns <b>true</b> if the specified light exists and is currently enabled.
+
+*met SetLightColor(LightName, Color)
+*des Changes the color of a 3D light
+*par LightName The name of the light to be changed
+*par Color The RGB color to be assigned to the light
+*ret Returns <b>true</b> if the light color has been successfuly changed.
+*rem The scene must have a 3D geometry assigned for this method to work.
+
+*met GetLightColor(LightName)
+*des Queries the color of a 3D light
+*par LightName The name of the light to be queried
+*ret Returns the color of the light in RGB format.
+*rem The scene must have a 3D geometry assigned for this method to work.
+*rem Use the global functions GetRValue(), GetGValue() and GetBValue() to get individual color components.
+
+*met GetLightPosition(LightName)
+*des Queries the position of a 3D light
+*par LightName The name of the light to be queried
+*ret Returns an object providing three properties, X, Y and Z, representing the light position in 3D space.
+*rem The scene must have a 3D geometry assigned for this method to work.
+
+*met GetLightName(LightIndex)
+*des Queries the name of a specified 3D light
+*par LightIndex The index of the light to be queried
+*ret Returns the name of the light at specified index or <b>null</b> if the index is invalid.
+*rem You can use a loop from 0 to Scene.NumLights - 1 to query the names of all lights in the scene.
+
+*met SetActiveCamera(CameraName)
+*des Switches a camera used to display 3D objects in scene
+*par CameraName The name of the camera to be used.
+*ret Returns <b>true</b> if the camera has been successfuly switched.
+*rem The scene must have a 3D geometry assigned for this method to work.
+
+*met EnableFog(Color, Start, End)
+*des Enables linear fog within the scene, which affects the 3D actors
+*par Color The fog color
+*par Start The start of the fog range (in scene geometry units)
+*par End The end of the fog range (in scene geometry units)
+*rem Use the MakeRGBA() function to encode the color value.
+
+*met DisableFog()
+*des Disables fog within the scene.
+
+
+*grp Miscelaneous functions
+
+*met SetViewport(X, Y, Width, Height)
+*des Sets scene viewport to specified values.
+*par X Viewport X position on screen
+*par Y Viewport Y position on screen
+*par Width Viewport width
+*par Height Viewport width
+*rem This method only affects the current scene (unlike Game.SetSceneViewport).
+*rem Call this method without any parameters to set viewport to full screen.
+
+
+
+*grp 
+
+*atr Type
+*des Returns always "scene"
+*ro
+
+*atr Name
+*des The internal name of the scene
+
+*atr Filename
+*ro
+*des Returns the filename.
+
+*atr Ready
+*des Returns whether the scene is ready (the scrolling is over)
+*ro
+
+*atr NumLayers
+*des Returns the number of layers
+*ro
+
+*atr NumWaypointGroups
+*des Return the number of waypoint groups
+*ro
+
+*atr MouseX
+*des Returns the current X position of the mouse cursor within the scene
+*ro
+
+*atr MouseY
+*des Returns the current Y position of the mouse cursor within the scene
+*ro
+
+*atr MainLayer
+*des Returns a reference to the scene's main layer
+*ro
+
+*atr AutoScroll
+*des Specifies whether scene automatically scrolls to the Game.MainObject
+
+*atr IsScrolling
+*des Returns <b>true</b> if the scene is currently scrolling.
+*ro
+
+*atr PersistentState
+*des Specifies whether the engine "remembers" the previous state of scene nodes when re-entering the scene
+
+*atr ScrollSpeedX
+*des Horizontal scrolling speed (in milliseconds, default=10)
+
+*atr ScrollSpeedY
+*des Vertical scrolling speed (in milliseconds, default=10)
+
+*atr ScrollPixelsX
+*des Horizontal scrolling shift (in pixels, default=1)
+
+*atr ScrollPixelsY
+*des Vertical scrolling shift (in pixels, default=1)
+
+*atr OffsetX
+*des Current horizontal scrolling offset of the scene
+
+*atr OffsetY
+*des Current vertical scrolling offset of the scene
+
+*atr Width
+*des Specifies the width of the main scene layer
+
+*atr Height
+*des Specifies the height of the main scene layer
+
+*atr NumFreeNodes
+*ro
+*des Returns the number of free scene nodes
+
+*atr GeometryFile
+*des The filename of the geometry file assigned to scene or <b>null</b> if no geometry is assigned
+*ro
+
+*atr ShowGeometry
+*des Specifies if the hidden scene geometry is displayed (for development purposes only)
+
+*atr MaxShadowType
+*des Specifies the maximum shadow detail to be used in this scene (0..none, 1..simple, 2..flat, 3..stencil shadows)
+
+*atr AmbientLightColor
+*des The color of the scene ambient light, which affects 3D actors
+
+*atr NumLights
+*des Returns the number of 3D lights defined by the hidden scene geometry.
+*ro
+
+*evn SceneShutdown
+*des Triggered before the scene is about to be destroyed. Event handler must not contain any blocking command, such as Sleep(), GoTo() etc.

@@ -1,0 +1,37 @@
+#include "scripts\base.inc"
+
+on "Quit"
+{
+	Game.QuitGame();
+}
+
+on "snow"
+{
+	var Ent = Scene.GetNode("Emitter");
+	Ent.MakeSnow();
+}
+
+
+on "rain"
+{
+	var Ent = Scene.GetNode("Emitter");
+	Ent.MakeRain();
+}
+
+on "smoke"
+{
+	var Ent = Scene.GetNode("Emitter");
+	Ent.MakeSmoke();
+}
+
+on "fireworks"
+{
+	var Ent = Scene.GetNode("Emitter");
+	Ent.MakeFireworks();
+}
+
+on "starfield"
+{
+	var Ent = Scene.GetNode("Emitter");
+	Ent.MakeStarfield();
+}

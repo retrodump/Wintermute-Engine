@@ -1,0 +1,36 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Mandatory exports</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h2>Mandatory exported functions</h2>
+<p>For WME to recognize a DLL library as a plugin:</p>
+<ul>
+  <li>The library has to be named &quot;<i>wme_XXXX.dll</i>&quot; where XXXX is any name</li>
+  <li>The library has to export three functions: <b>GetPluginInfo()</b>, <b>
+  GetSupportedClasses()</b> and <b>GetClassDefinition()</b></li>
+</ul>
+<h3><b><a name="GetPluginInfo"></a>void GetPluginInfo(SWmePluginInfo* PluginInfo)</b></h3>
+<p>This function returns some basic information about the plugin, its 
+description, version and the engine version this plugin is designed for.</p>
+<h3><a name="GetSupportedClasses"></a>const char* GetSupportedClasses()</h3>
+<p>This function returns a list of script classes provided by this plugin. It 
+can be one name or a comma separated list of names if the plugin provides 
+several classes.</p>
+<h3><a name="GetClassDefinition"></a>void GetClassDefinition(const char* ClassName, SWmeClassDef* ClassDef)</h3>
+<p>This function returns an interface for each of the provided script classes. 
+It returns a set of function pointers for each of the classes. These functions 
+define the behavior of the class and include e.g. a constructor, a destructor, 
+an event receiver etc. More on that <a href="plugins_class_def.html">later</a>.</p>
+
+</body>
+
+</html>

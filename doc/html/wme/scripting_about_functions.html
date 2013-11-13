@@ -1,0 +1,48 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Functions and the return statement</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3>Functions and the return statement</h3>
+<p>Functions combine several statements 
+under one name. You can execute the entire set by calling it and passing to it 
+any information it needs. You pass information to a function by enclosing the 
+information in parentheses after the name of the function. Pieces of information 
+that are passed to a function are called parameters. The parameters are 
+optional.</p>
+<p><a name="return_statement"></a>A function can contain zero or more <b>
+return</b> statements. You can use the <b>return</b> statement to return a 
+result value from the function back to its caller.</p>
+<p>You can also use the <b>return</b> 
+statement in the main block of the script file. In that case the execution of 
+the whole script is terminated.</p>
+
+<p>Example:</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber1">
+  <tr>
+    <td class="code"><pre>var Number1 = 10;
+var Number2 = 20;
+ 
+Game.Msg("Result is: " + MyFunction(Number1, Number2));
+ 
+function MyFunction(Param1, Param2)
+{
+   var Result;
+   Result = Param1 * Param2;
+   return Result;
+}
+</pre></td>
+  </tr>
+</table>
+
+</body>
+
+</html>

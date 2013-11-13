@@ -1,0 +1,81 @@
+#include "scripts\base.inc"
+#include "scripts\keys.inc"
+
+
+// this is the name of the material we apply the effect to
+// if you use a different model for testing, you'll have to change this
+var MaterialName = "teapot_mat";
+
+
+var CurrentEffect;
+SetCurrent("");
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "SetEffect"
+{
+  var File = Game.GetFile("effects", "*.fx");
+  if (File == "") return;
+  
+  SetEffect(File);
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "ReloadEffect"
+{
+  if (CurrentEffect != "")
+    SetEffect(CurrentEffect);
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "RemoveEffect"
+{
+  actor.RemoveEffect(MaterialName);
+  SetCurrent("");
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "ChangeBackground"
+{
+  var File = Game.GetFile("scenes\room", "*.png");
+  if (File == "") return;
+
+  var Bg = Scene.GetNode("background");
+  Bg.SetSprite(File);
+
+}
+
+////////////////////////////////////////////////////////////////////////////////
+function SetEffect(File)
+{
+  SetCurrent(File);
+  if (!actor.SetEffect(MaterialName, CurrentEffect))
+  {
+    SetCurrent(File, true);
+  }
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+function SetCurrent(File, Error)
+{
+  CurrentEffect = File;
+  
+  var Static = this.GetControl("CurrentEffect");
+  if (File != "")
+    Static.Text = "[ " + File + " ]";
+  else
+    Static.Text = "";
+    
+  if (Error)
+  {
+    Static.Text = Static.Text + "  ERROR LOADING EFFECT! See wme.log or the debugging console for details.";
+    Static.SetFont("fonts\outline_red.font");
+  }
+  else Static.SetFont("fonts\outline_white.font");
+}

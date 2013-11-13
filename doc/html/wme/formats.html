@@ -1,0 +1,172 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Supported file formats</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h1>Supported file formats</h1>
+<p>Your game <i>objects</i> and the 
+external data (such as sounds and graphics) are stored in files on your 
+computer. This chapter describes what file formats are supported by the engine. 
+If you have your data in another format, you’ll have to convert it to one of the 
+natively supported formats first.</p>
+
+<p>&nbsp;</p>
+
+<h2><a name="gfx_formats"></a>File formats for storing the graphics</h2>
+<p>WME uses four file formats for storing the graphics:</p>
+<p><b>BMP files</b> - The BMP (bitmap) format is very common and can be created 
+using almost any graphical editor (including the MS Paint program which is part 
+of the Windows distribution). WME supports 8 bit, 16 bit, 24 bit and 32 
+bit color depth for the bitmaps. A disadvantage of the BMP files it the 
+fact they are not compressed and so they may take up a lot of space, but since 
+the resulting WME packages are compressed this isn’t really an issue.</p>
+<p><b>TGA files</b> - TGA (Targa) files are similar to BMPs. As opposed to 
+bitmaps, TGA files can be slightly compressed resulting in smaller file size. 
+But a major difference is support for the alpha channel. The alpha channel is an 
+invisible layer stored within the image. This layer specifies the opacity of the 
+image which is extremely useful for game graphics. Note that WME only supports 
+the alpha channel effects when running in the &quot;accelerated&quot; mode. WME supports 8 
+bit, 16 bit, 24 bit and 32 bit color depth for the TGA files, with or without an 
+alpha channel.</p>
+
+<p><b>PNG files</b> - PNG (Portable Network Graphics) is a modern graphics 
+format. PNG files use efficient lossless compression and similarly to TGA files, 
+they can contain an alpha channel. WME supports 8 bit, 16 bit, 24 bit and 32 bit 
+color depth for the PNG files, with or without an alpha channel.</p>
+
+<p><b>JPG files</b> - JPG is a format designed for storing photorealistic 
+images. It uses lossy compression therefore the resulting images are usually 
+much smaller than other formats but for the price of losing quality. JPG images 
+are only suitable for images without any transparent areas, i.e. you can use 
+them to store solid background images, but DO NOT use them for sprites or other 
+partially transparent graphics. It won't work.</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<h2><a name="sfx_formats"></a>File format for storing the sounds</h2>
+<p>WME supports two file formats for 
+storing the sounds and music:</p>
+
+<p><b>WAV files</b> 
+– WAV format is commonly used format on the Windows platform. It’s supported by 
+almost all sound editing programs. WME only supports uncompressed (PCM encoded) 
+WAV files.</p>
+<p><b>OGG files</b> 
+– Ogg Vorbis files are compressed sound files, similar to the popular MP3’s. 
+Unlike MP3, the Ogg Vorbis is an open format and it provides better sound 
+quality. That’s why it becomes more and more popular and many sound programs 
+adopt it as well. You can find various tools for editing/converting OGG files at 
+the <a target="_blank" href="http://www.vorbis.com">Vorbis website</a>.</p>
+
+<p>WME does NOT support MP3 files.</p>
+
+<p>&nbsp;</p>
+
+<h2><a name="video_formats"></a>File formats for full-motion video</h2>
+<p>WME uses the license-free Theora codec for playing full-motion video. Read 
+more about Theora in <a href="inside_theora.html">this chapter</a> or visit the 
+official <a target="_blank" href="http://www.theora.org">Theora website</a>. </p>
+<p>There is also legacy support for videos in AVI format, but AVI playback has 
+some limitations compared to Theora. The video stream can be compressed by any codec, but you must ensure the 
+end user will have a correct codec installed on his/her computer. It’s better to 
+use a video codec, which is a part of the standard Windows installation. The 
+audio stream must be an uncompressed (PCM encoded) sound. WME  isn’t 
+able to handle compressed audio streams in AVI files.</p>
+<p>WME is able to display subtitles when playing the video. The subtitles must 
+be in the SUB format.</p>
+
+<p>&nbsp;</p>
+
+<h2><a name="3d_formats"></a>File formats for 3D support</h2>
+
+<p>Starting version 1.3 WME supports 3D characters. WME supports the Microsoft X 
+file format for 3D characters. X exporters exist for most major 3D modeling 
+packages. See the <a href="3D_intro.html">3D characters chapter</a> for more 
+information on X file creation. The binary Milkshape 3D format (MS3D) is also 
+supported for backward compatibility with previous WME versions (<a target="_blank" href="http://www.swissquake.ch/chumbalum-soft/index.html">MilkShape 3D</a>).</p>
+
+<p>Among the characters, WME requires a so-called &quot;hidden geometry file&quot;, which 
+defines walkable areas of a scene as well as 3D lights positions and cameras to 
+be used by WME. This file needs to be stored in 3DS format, originally 
+introduced by the MS-DOS versions of 3D Studio. The 3DS format is commonly used 
+and can be exported by most 3D packages nowadays. For WME you will need a 3D 
+program capable of exporting geometry, lights and cameras into a 3DS file.</p>
+
+<p>&nbsp;</p>
+
+<h2><a name="native_formats"></a>WME’s native file formats</h2>
+<p>Among the standard file formats 
+described above, WME uses number of custom file formats to define its native 
+objects (actors, scenes etc.). These are simple text files and can be easily 
+edited by any text editor. Because some of the WME objects tend to be very 
+complex and it’s too complicated to edit them “by hand”, the WME development kit 
+provides advanced tools for editing certain types of objects. Currently there 
+are tools available for editing the game scenes (SceneEdit) and the sprites 
+(SpriteEdit). More tools will be probably available in the future (e.g. a tool 
+for editing actors).</p>
+
+<p>All the other WME files need to be 
+edited by hand using a text editor (for example the Windows Notepad). This 
+chapter will briefly describe the common syntax shared by all of those 
+definition files.</p>
+
+<p>For example this is a definition of a <b>
+window </b>object:</p>
+
+<pre><font color="#800000">WINDOW
+{
+  NAME = "test_window"
+  TITLE = "Test window"
+  X = 100
+  Y = 100
+  WIDTH = 210
+  HEIGHT = 160
+  FONT = "fonts\outline_white.font"
+  
+  BUTTON
+  {
+    NAME = "button1"
+    TEXT = "Test button"
+    X = 80
+    Y = 60
+    WIDTH = 50
+    HEIGHT = 30    
+    ; this line is commented out
+  }
+}</font>
+</pre>
+
+<p>&nbsp;&nbsp;</p>
+<p>This definition describes a window 
+object. The window is positioned at the position of 100, 100 and it’s 210x160 
+pixels big. Its title is “Test window” and its internal name is “test_window”. 
+The window contains one button at the position of 80, 60 etc. As you can see, 
+the definition is very easy to understand. It consists of an “object” block (the 
+WINDOW { … }), and this block can contain definitions of various properties of 
+the object (e.g. X = 100). As you can see, the object block can contain a 
+definition of other objects (like the BUTTON block in our example).</p>
+<p>All the objects used by WME are defined 
+in a similar way and will be described in detail later in this document. See the 
+demo project for more examples.</p>
+
+<p>Notes:</p>
+<ul type="disc" style="margin-bottom: 0cm">
+  <li>If a property value contains spaces, 
+  it must be enclosed in quotes.</li>
+  <li>If you need to comment out a line, 
+  insert a semicolon to the beginning of the line</li>
+</ul>
+
+</body>
+
+</html>

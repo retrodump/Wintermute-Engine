@@ -1,0 +1,139 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Loops, break, continue and switch statements</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3>Loops, break, continue and switch statements</h3>
+<p>WME script currently supports two types 
+of loops: <b>for</b> loops and <b>while</b> loops.</p>
+
+<h4><a name="for_loops"></a>for loops</h4>
+<p>The <b>for</b> statement specifies a 
+counter variable, a test condition, and an action that updates the counter. 
+Before each iteration of the loop, the condition is tested. If the test is 
+successful, the code inside the loop is executed. If the test is unsuccessful, 
+the code inside the loop is not executed, and the program continues on the first 
+line of code immediately following the loop. After the loop is executed, the 
+counter variable is updated before the next iteration begins.</p>
+<p style="margin:0cm;margin-bottom:.0001pt">&nbsp;</p>
+<p style="margin:0cm;margin-bottom:.0001pt">A typical 
+example, loop from 0 to 9:</p>
+<p style="margin:0cm;margin-bottom:.0001pt">&nbsp;</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber1">
+  <tr>
+    <td class="code"><pre>for(var i=0; i<10; i=i+1)
+{
+  // ... some code here
+}
+</pre></td>
+  </tr>
+</table>
+
+<p>Note: WME currently does not 
+support the “++” and “--“ operators.</p>
+
+
+<p>&nbsp;</p>
+
+
+<h4><a name="while_loops"></a>while loops</h4>
+<p>A <b>while</b> loop is similar to a <b>
+for</b> loop. The difference is, a <b>while</b> loop does not have a built-in 
+counter variable or update expression. The code inside loop is repeatedly 
+executed as long as the specified condition is true.</p>
+
+<p>Example:</p>
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber2">
+  <tr>
+    <td class="code"><pre>var MyVar = 5;
+while(MyVar > 0)
+{
+  MyVar = MyVar - 1;
+}
+</pre></td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<h4><a name="break_and_continue"></a>The break and continue statements</h4>
+<p>The <b>break</b> statement is used to 
+stop the execution of a loop.<br>
+The <b>continue</b> statement can be 
+used to jump immediately to the next iteration, skipping the rest of the code 
+block</p>
+
+<p>Example:</p>
+
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber3">
+  <tr>
+    <td class="code"><pre>actor.GoToAsync(100, 200);
+while(true) // an infinite loop
+{
+  if(actor.Ready) break; // leave the while loop if the actor finished the walking
+  Sleep(20); // otherwise return the control to the engine and continue with the loop
+}
+</pre></td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<h4><a name="switch"></a>The switch statement</h4>
+<p>The <b>switch</b> statement enables the execution of one or more statements 
+when a specified expression's value matches a label.</p>
+<p><code><b>switch (</b><i>expression</i><b>)<br>
+{</b><br>
+&nbsp;&nbsp;&nbsp;<b>case</b> <i>label</i> <b>:</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>statementlist</i><br>
+&nbsp;&nbsp;&nbsp;<b>case</b> <i>label</i> <b>:</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>statementlist</i><br>
+&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;<b>default</b> <b>:</b><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>statementlist</i><br>
+<b>}</b> </code></p>
+<p>The &quot;expression&quot; is the expression to be evaluated, while &quot;labels&quot; are 
+identifiers to be matched against the expression. When one of the labels matches
+</code>the expressions, the statements following the label are executed until a
+<b>break</b> statement or end of the switch statement are encountered.</p>
+
+<p>Use the <b>default</b> clause to provide a statement to be executed if none 
+of the label values matches <i>expression</i>. The <b>default</b> branch must be 
+the last in the list.</p>
+
+<p>Example:</p>
+
+<table border="0" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" id="AutoNumber4">
+  <tr>
+    <td class="code"><pre>switch (Color)
+{
+  case "black":
+    actor.Talk("Creepy");
+  break;
+
+  case "red":
+    actor.Talk("Cheerful");
+  break;
+
+  case "yellow":
+    actor.Talk("Bright");
+  break;
+
+  default:
+    actor.Talk("Neutral");
+}
+</pre></td>
+  </tr>
+</table>
+
+</body>
+
+</html>

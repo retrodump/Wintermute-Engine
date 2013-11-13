@@ -1,0 +1,53 @@
+#include "scripts\base.inc"
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "LookAt"
+{
+  actor.GoToObject(this);
+  actor.Talk("It's open.");
+}
+
+////////////////////////////////////////////////////////////////////////////////
+on "Take"
+{
+  actor.GoToObject(this);
+  Game.Interactive = false;
+
+  // get those two entities we will need
+  var EntDrawer = Scene.GetNode("drawer");
+  var EntDrawerRegion = Scene.GetNode("drawer_region");
+
+  actor.Talk("OK, I'll close it again...");
+
+  // play actor's "take" animation
+  actor.PlayAnim("actors\molly\ur\take1.sprite");
+
+  // play actor's "take2" animation
+  actor.PlayAnim("actors\molly\ur\take2.sprite");
+
+  // display the drawer entity
+  // then play the drawer's opening animation and set it's default sprite to "drawer open"
+  EntDrawer.PlayAnim("scenes\room\sprites\drawer_closing.sprite");
+
+  // display the region entity "drawer_region" (which represents the closed drawer)
+  EntDrawerRegion.Active = true;
+
+  // and hide the "drawer" entity (open drawer)
+  EntDrawer.Active = false;
+
+
+
+  // set the state
+  global StateRoom;
+  StateRoom.DrawerOpen = false;
+
+  Game.Interactive = true;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+on "LeftClick"
+{
+  actor.GoToObject(this);
+}
+

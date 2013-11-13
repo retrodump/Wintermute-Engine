@@ -1,0 +1,37 @@
+*tit Static object
+*des The Static control object allows you to access the properties of the "static" controls contained in the game windows. The static control can be either a simple text or an image (sprite), or both, used for non-interactive window decorations (labels, icons etc.). Static control objects can be queried using the Window.GetControl method.
+*cls CUIText
+
+*inc inc_uiobject_methods.inc
+*inc inc_object_misc.inc
+
+
+*grp Actions
+
+*met SizeToFit()
+*des Changes the size of the control to fit the contained text or image.
+
+*met HeightToFit()
+*des Changes the height of the control to fit the contained text.
+
+
+*inc inc_object_cursor.inc
+*inc inc_object_script.inc
+*inc inc_object_sound.inc
+*inc inc_object_events.inc
+
+
+*grp 
+
+*atr Type
+*des Returns always "static"
+*ro
+
+*atr TextAlign
+*des Specifies the text alignment of the label (TAL_LEFT, TAL_RIGHT or TAL_CENTER).
+
+*atr VerticalAlign
+*des Specifies the vertical text alignment of the label (VAL_TOP, VAL_BOTTOM or VAL_CENTER).
+
+
+*inc inc_object_attr_2D.inc

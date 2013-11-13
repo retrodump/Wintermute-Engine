@@ -1,0 +1,856 @@
+<html>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="WME DocMaker 2.0">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Item object</title>
+<link rel="stylesheet" type="text/css" href="../../styles.css">
+</head>
+
+<body>
+<!-- Generated on 7.11.2005 18:05:37, settings file: english -->
+
+<h3>Item object</h3>
+<p>
+The Item object allows you to access the properties of your inventory items. Items objects are created at game startup or using the Game.CreateItem method. Existing items can be queried using the Game.GetItem method.
+</p>
+
+<br>
+
+<h4>Methods</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%"><b>Actions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetSprite">SetSprite</a></td>
+    <td>Sets the default sprite.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetHoverSprite">SetHoverSprite</a></td>
+    <td>Sets the hover sprite.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetTalkSprite">SetTalkSprite</a></td>
+    <td>Sets the talk sprite.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#AddTalkSprite">AddTalkSprite</a></td>
+    <td>Adds a talk sprite.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#RemoveTalkSprite">RemoveTalkSprite</a></td>
+    <td>Removes a sprite from the list of talk sprites.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetSprite">GetSprite</a></td>
+    <td>Queries a default sprite of this item.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetHoverSprite">GetHoverSprite</a></td>
+    <td>Queries a hover sprite of this item.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetSpriteObject">GetSpriteObject</a></td>
+    <td>Queries a default sprite of this item.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetHoverSpriteObject">GetHoverSpriteObject</a></td>
+    <td>Queries a hover sprite of this item.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Miscelaneous functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#Reset">Reset</a></td>
+    <td>Cancels the action the object was currently performing (like talking, walking etc.).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#IsTalking">IsTalking</a></td>
+    <td>Queries whether the object is currently talking.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#StopTalking">StopTalking</a></td>
+    <td>Cancels object's talking.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#Talk">Talk</a></td>
+    <td>Makes the object talk.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#StickToRegion">StickToRegion</a></td>
+    <td>Forces this actor/entity to act like it's inside a given region</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetFont">SetFont</a></td>
+    <td>Sets font of this object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetFont">GetFont</a></td>
+    <td>Gets a font assigned to this object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#PlayAnim">PlayAnim</a></td>
+    <td>Plays an animation.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ForceTalkAnim">ForceTalkAnim</a></td>
+    <td>Force a special animation to be used for a subsequent Talk call.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Cursor functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetCursor">SetCursor</a></td>
+    <td>Sets the standard cursor.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetCursor">GetCursor</a></td>
+    <td>Returns the filename of the cursor sprite (or null if no cursor is set)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetCursorObject">GetCursorObject</a></td>
+    <td>Returns a reference to the cursor sprite (or null if no cursor is set)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#RemoveCursor">RemoveCursor</a></td>
+    <td>Removes the standard cursor.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#HasCursor">HasCursor</a></td>
+    <td>Queries whether the standard cursor is set.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetNormalCursor">SetNormalCursor</a></td>
+    <td>Sets the normal cursor.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetNormalCursor">GetNormalCursor</a></td>
+    <td>Returns the filename of the cursor sprite (or null if no cursor is set)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetNormalCursorObject">GetNormalCursorObject</a></td>
+    <td>Returns a reference to the cursor sprite (or null if no cursor is set)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetHoverCursor">SetHoverCursor</a></td>
+    <td>Sets the hover cursor.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetHoverCursor">GetHoverCursor</a></td>
+    <td>Returns the filename of the cursor sprite (or null if no cursor is set)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetHoverCursorObject">GetHoverCursorObject</a></td>
+    <td>Returns a reference to the cursor sprite (or null if no cursor is set)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Script functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#AttachScript">AttachScript</a></td>
+    <td>Executes a script file and attaches it to the object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#DetachScript">DetachScript</a></td>
+    <td>Terminates a specified script file and detaches it from an object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#IsScriptRunning">IsScriptRunning</a></td>
+    <td>Queries whether a specified script file is running and attached to an object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#CanHandleMethod">CanHandleMethod</a></td>
+    <td>Queries whether the object supports a method of a specified name.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Sound functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#PlaySound">PlaySound</a></td>
+    <td>Plays a sound. If the filename is omitted, the currently assigned sound is played (if any).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#PlaySoundEvent">PlaySoundEvent</a></td>
+    <td>Plays a sound and triggers an event when the sound is over. If the filename is omitted, the currently assigned sound is played (if any).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#StopSound">StopSound</a></td>
+    <td>Stops the currently playing sound (if any).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#PauseSound">PauseSound</a></td>
+    <td>Pauses the currently playing sound.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ResumeSound">ResumeSound</a></td>
+    <td>Resumes a paused sound playback.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#IsSoundPlaying">IsSoundPlaying</a></td>
+    <td>Queries whether a sound playback is in progress.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetSoundPosition">SetSoundPosition</a></td>
+    <td>Sets the sound's current playing position.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetSoundPosition">GetSoundPosition</a></td>
+    <td>Queries the sound's current playing position</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetSoundVolume">SetSoundVolume</a></td>
+    <td>Sets a volume of the currently playing sound.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetSoundVolume">GetSoundVolume</a></td>
+    <td>Gets a volume of the currently playing sound.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#LoadSound">LoadSound</a></td>
+    <td>Initializes a sound from file and makes it ready to be played.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Sound effects functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SoundFXNone">SoundFXNone</a></td>
+    <td>Removes any sound effect currently assigned to this object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SoundFXEcho">SoundFXEcho</a></td>
+    <td>Assigns an echo effect to the sounds played by this object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SoundFXReverb">SoundFXReverb</a></td>
+    <td>Assigns a reverb effect to the sounds played by this object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Event functions</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#ApplyEvent">ApplyEvent</a></td>
+    <td>Applies a named event to the object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#CanHandleEvent">CanHandleEvent</a></td>
+    <td>Queries whether the object has an event handler for a specified event.</td>
+  </tr>
+</table>
+
+<h4>Attributes</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%">Type (read only)</td>
+    <td>Returns always "item"</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">DisplayAmount</td>
+    <td>Specifies whether the item should display current amount.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Amount</td>
+    <td>Current amount (integer).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">AmountOffsetX</td>
+    <td>The X offset of the amount label, relative to item position on screen.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">AmountOffsetY</td>
+    <td>The Y offset of the amount label, relative to item position on screen.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">AmountAlign</td>
+    <td>Specifies the text alignment of the amount label (TAL_LEFT, TAL_RIGHT or TAL_CENTER).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">CursorCombined</td>
+    <td>Specifies if the items displays together with default game cursor when selected.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">AmountString</td>
+    <td>A string label to be displayed beside the item (set to null to reset the default behavior).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Active</td>
+    <td>Specifies whether the object is visible on screen</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">IgnoreItems</td>
+    <td>Specifies whether the object appears to be non-interactive when an inventory item is used on it</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">SubtitlesPosRelative</td>
+    <td>Specifies whether the <b>SubtitlesPosX</b> and <b>SubtitlesPosY</b> attributes are relative to default position, or absolute screen coordinates</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">SubtitlesPosX</td>
+    <td>The X position of speech subtitles (either relative to speaker's position or absolute screen coordinates)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">SubtitlesPosY</td>
+    <td>The Y position of speech subtitles (either relative to speaker's position or absolute screen coordinates)</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">SubtitlesWidth</td>
+    <td>Width of speech subtitles. Set to zero to restore the default behavior.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">SubtitlesPosXCenter</td>
+    <td>Specifies if the <b>SubtitlesPosX</b> attribute affects the center of the subtitle or its left side.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Name</td>
+    <td>The internal name of the object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Caption</td>
+    <td>The caption of the object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">X</td>
+    <td>The X position of the object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Y</td>
+    <td>The Y position of the object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Height (read only)</td>
+    <td>Returns the current height of the object. In case of actors and entities the scaling is taken into account.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Filename (read only)</td>
+    <td>Returns the filename.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Ready (read only)</td>
+    <td>Returns whether the object isn't currently performing any action.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Interactive</td>
+    <td>Specifies whether the object recieves user input.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">SoundPanning</td>
+    <td>Specifies whether the sounds played by this object are automatically panned depending on object's position on screen.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">NonIntMouseEvents</td>
+    <td>Specifies if the object can receive the <b>MouseEntry</b> and <b>MouseLeave</b> events even if the game is in non-interactive mode.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Movable</td>
+    <td>Specifies whether the object can be moved by its sprites (in case the sprite frames have a "move" property set).</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Scalable</td>
+    <td>Specifies whether the object is affected by scene's scaling levels.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Rotatable</td>
+    <td>Specifies whether the object is affected by scene's rotation levels.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Colorable</td>
+    <td>Specifies whether the object is affected by scene's color regions.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">AlphaColor</td>
+    <td>Specifies an RGBA color of this object (overrides scene coloring); set to 0 to reset default behavior.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Scale</td>
+    <td>Specifies a scale of this object (overrides scene scaling); set to null to reset default behavior.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">ScaleX</td>
+    <td>Specifies horizontal scale of this object; set to null to reset default behavior.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">ScaleY</td>
+    <td>Specifies vertical scale of this object; set to null to reset default behavior.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">RelativeScale</td>
+    <td>Specifies a scale amount to be added to the default scene scale.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Rotate</td>
+    <td>Specifies rotation of this object (in degrees); overrides scene rotation; set to null to reset default behavior; not available in compatibility mode</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">RelativeRotate</td>
+    <td>Specifies a rotation amount to be added to the default scene rotation.</td>
+  </tr>
+</table>
+
+<h4>Low level events</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%">MouseEntry</td>
+    <td>The mouse pointer has been just moved over the object.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">MouseLeave</td>
+    <td>The mouse pointer has been just moved away from the object.</td>
+  </tr>
+</table>
+
+<hr>
+<h3><a name="SetSprite"></a>SetSprite(Filename)</h3>
+<p>Sets the default sprite.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the sprite file to be used as a default sprite.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="SetHoverSprite"></a>SetHoverSprite(Filename)</h3>
+<p>Sets the hover sprite.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the sprite file to be used as a hover sprite.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+<h4>Remarks</h4>
+<p>The hover sprite is displayed if the player moves mouse pointer above the inventory item.</p>
+
+<hr>
+<h3><a name="SetTalkSprite"></a>SetTalkSprite(Filename, Extended)</h3>
+<p>Sets the talk sprite.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the sprite file to be used as a talk sprite.</dd>
+<dt><i>Extended</i></dt>
+<dd>Should this sprite be used for explicit talk stances only (optional, default=false).</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="AddTalkSprite"></a>AddTalkSprite(Filename, Extended)</h3>
+<p>Adds a talk sprite.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the sprite file to be added to the list of talk sprites.</dd>
+<dt><i>Extended</i></dt>
+<dd>Should this sprite be used for explicit talk stances only (optional, default=false).</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="RemoveTalkSprite"></a>RemoveTalkSprite(Filename)</h3>
+<p>Removes a sprite from the list of talk sprites.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the sprite file to be removed.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetSprite"></a>GetSprite()</h3>
+<p>Queries a default sprite of this item.</p>
+<h4>Return value</h4>
+<p>Returns filename of the currently assigned sprite.</p>
+
+<hr>
+<h3><a name="GetHoverSprite"></a>GetHoverSprite()</h3>
+<p>Queries a hover sprite of this item.</p>
+<h4>Return value</h4>
+<p>Returns filename of the currently assigned sprite.</p>
+
+<hr>
+<h3><a name="GetSpriteObject"></a>GetSpriteObject()</h3>
+<p>Queries a default sprite of this item.</p>
+<h4>Return value</h4>
+<p>Returns a reference to the currently assigned sprite object.</p>
+
+<hr>
+<h3><a name="GetHoverSpriteObject"></a>GetHoverSpriteObject()</h3>
+<p>Queries a hover sprite of this item.</p>
+<h4>Return value</h4>
+<p>Returns a reference to the currently assigned sprite object.</p>
+
+<hr>
+<h3><a name="Reset"></a>Reset()</h3>
+<p>Cancels the action the object was currently performing (like talking, walking etc.).</p>
+
+<hr>
+<h3><a name="IsTalking"></a>IsTalking()</h3>
+<p>Queries whether the object is currently talking.</p>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the object is talking.</p>
+
+<hr>
+<h3><a name="StopTalking"></a>StopTalking()</h3>
+<p>Cancels object's talking.</p>
+<h4>Remarks</h4>
+<p>You can also use StopTalk() abbreviation.</p>
+
+<hr>
+<h3><a name="Talk"></a>Talk(Text, SoundFilename, Duration, TalkStances, TextAlignment)<br>TalkAsync(Text, SoundFilename, Duration, TalkStances, TextAlignment)</h3>
+<p>Makes the object talk.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Text</i></dt>
+<dd>A text to be used as a talk subtitle</dd>
+<dt><i>SoundFilename</i></dt>
+<dd>A filename of a sound file to be used (oprtional, default is no sound)</dd>
+<dt><i>Duration</i></dt>
+<dd>A subtitle duration in milliseconds (optional, default is 0)</dd>
+<dt><i>TalkStances</i></dt>
+<dd>A comma separated list of talk "stances" to be used for the talking (optional, default is random stances)</dd>
+<dt><i>TextAlignment</i></dt>
+<dd>A text alignment for the subtitle (0-left, 1-right, 2-center) (optional, default=2)</dd>
+</dl>
+<h4>Remarks</h4>
+<p>Talk method blocks the script execution until the animation is over, while the TalkAsync method returns immediately. If the duration is set to zero, it's calculated automatically either from the sound file or from the length of the subtitle.</p>
+
+<hr>
+<h3><a name="StickToRegion"></a>StickToRegion(Region)<br>StickToRegion(RegionName)</h3>
+<p>Forces this actor/entity to act like it's inside a given region</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Region</i></dt>
+<dd>Reference to a scene region object</dd>
+<dt><i>RegionName</i></dt>
+<dd>Name of a scene region</dd>
+</dl>
+<h4>Remarks</h4>
+<p>Use this method to "lock" a z-order value of an actor or an entity.</p>
+
+<hr>
+<h3><a name="SetFont"></a>SetFont(Filename)</h3>
+<p>Sets font of this object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The name of the font to be set.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetFont"></a>GetFont()</h3>
+<p>Gets a font assigned to this object.</p>
+<h4>Return value</h4>
+<p>Returns the filename of currently assigned font.</p>
+
+<hr>
+<h3><a name="PlayAnim"></a>PlayAnim(Filename)<br>PlayAnimAsync(Filename)</h3>
+<p>Plays an animation.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>A filename of a sprite file to be played</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the animation has been played successfuly.</p>
+<h4>Remarks</h4>
+<p>The PlayAnim method blocks the script execution until the animation is over, while the PlayAnimAsync method returns immediately.</p>
+
+<hr>
+<h3><a name="ForceTalkAnim"></a>ForceTalkAnim(Filename)</h3>
+<p>Force a special animation to be used for a subsequent Talk call.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>A filename of the sprite file to be used as a talking animation</dd>
+</dl>
+<h4>Remarks</h4>
+<p>This setting has only effect on one subsequent Talk() method call. After the talking is over, the talking animation is reset back to default.</p>
+
+<hr>
+<h3><a name="SetCursor"></a>SetCursor(Filename)</h3>
+<p>Sets the standard cursor.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>Filename of a sprite file to be used as a cursor pointer.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the cursor has been set succesfuly.</p>
+
+<hr>
+<h3><a name="GetCursor"></a>GetCursor()</h3>
+<p>Returns the filename of the cursor sprite (or null if no cursor is set)</p>
+
+<hr>
+<h3><a name="GetCursorObject"></a>GetCursorObject()</h3>
+<p>Returns a reference to the cursor sprite (or null if no cursor is set)</p>
+
+<hr>
+<h3><a name="RemoveCursor"></a>RemoveCursor()</h3>
+<p>Removes the standard cursor.</p>
+
+<hr>
+<h3><a name="HasCursor"></a>HasCursor()</h3>
+<p>Queries whether the standard cursor is set.</p>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the object has a custom mouse pointer assigned.</p>
+
+<hr>
+<h3><a name="SetNormalCursor"></a>SetNormalCursor(Filename)</h3>
+<p>Sets the normal cursor.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>Filename of a sprite file to be used as a cursor pointer.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the cursor has been set succesfuly.</p>
+
+<hr>
+<h3><a name="GetNormalCursor"></a>GetNormalCursor()</h3>
+<p>Returns the filename of the cursor sprite (or null if no cursor is set)</p>
+
+<hr>
+<h3><a name="GetNormalCursorObject"></a>GetNormalCursorObject()</h3>
+<p>Returns a reference to the cursor sprite (or null if no cursor is set)</p>
+
+<hr>
+<h3><a name="SetHoverCursor"></a>SetHoverCursor(Filename)</h3>
+<p>Sets the hover cursor.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>Filename of a sprite file to be used as a cursor pointer.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the cursor has been set succesfuly.</p>
+
+<hr>
+<h3><a name="GetHoverCursor"></a>GetHoverCursor()</h3>
+<p>Returns the filename of the cursor sprite (or null if no cursor is set)</p>
+
+<hr>
+<h3><a name="GetHoverCursorObject"></a>GetHoverCursorObject()</h3>
+<p>Returns a reference to the cursor sprite (or null if no cursor is set)</p>
+
+<hr>
+<h3><a name="AttachScript"></a>AttachScript(Filename)</h3>
+<p>Executes a script file and attaches it to the object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the script file to be executed.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the script hs been executed succesfuly.</p>
+<h4>Remarks</h4>
+<p>Each WME object can have multiple scripts attached.</p>
+
+<hr>
+<h3><a name="DetachScript"></a>DetachScript(Filename)</h3>
+<p>Terminates a specified script file and detaches it from an object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the (running) script to be terminated and detached.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the script has been detached succesfully.</p>
+
+<hr>
+<h3><a name="IsScriptRunning"></a>IsScriptRunning(Filename)</h3>
+<p>Queries whether a specified script file is running and attached to an object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the script to be queried.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if a specified script file is attached to an object.</p>
+
+<hr>
+<h3><a name="CanHandleMethod"></a>CanHandleMethod(MethodName)</h3>
+<p>Queries whether the object supports a method of a specified name.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>MethodName</i></dt>
+<dd>The name of the method to be checked.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the object is able to handle the specified method.</p>
+
+<hr>
+<h3><a name="PlaySound"></a>PlaySound(Filename, Looping, LoopStart)<br>PlaySound(Looping, LoopStart)</h3>
+<p>Plays a sound. If the filename is omitted, the currently assigned sound is played (if any).</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the sound file to be played</dd>
+<dt><i>Looping</i></dt>
+<dd>Whether the sound should be looped (optional, default = false).</dd>
+<dt><i>LoopStart</i></dt>
+<dd>The point from which the sound restarts when looping, in milliseconds (optional, default=0).</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="PlaySoundEvent"></a>PlaySoundEvent(Filename, EventName)<br>PlaySoundEvent(EventName)</h3>
+<p>Plays a sound and triggers an event when the sound is over. If the filename is omitted, the currently assigned sound is played (if any).</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The filename of the sound file to be played</dd>
+<dt><i>EventName</i></dt>
+<dd>The name of the event to be triggered after the sound finishes.</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="StopSound"></a>StopSound()</h3>
+<p>Stops the currently playing sound (if any).</p>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="PauseSound"></a>PauseSound()</h3>
+<p>Pauses the currently playing sound.</p>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="ResumeSound"></a>ResumeSound()</h3>
+<p>Resumes a paused sound playback.</p>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="IsSoundPlaying"></a>IsSoundPlaying()</h3>
+<p>Queries whether a sound playback is in progress.</p>
+<h4>Return value</h4>
+<p>If the sound is playing, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="SetSoundPosition"></a>SetSoundPosition(Time)</h3>
+<p>Sets the sound's current playing position.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Time</i></dt>
+<dd>A new playing position (in milliseconds)</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetSoundPosition"></a>GetSoundPosition()</h3>
+<p>Queries the sound's current playing position</p>
+<h4>Return value</h4>
+<p>Returns the current playing position (in milliseconds).</p>
+
+<hr>
+<h3><a name="SetSoundVolume"></a>SetSoundVolume(Volume)</h3>
+<p>Sets a volume of the currently playing sound.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Volume</i></dt>
+<dd>A new sound volume (in percent).</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+
+<hr>
+<h3><a name="GetSoundVolume"></a>GetSoundVolume()</h3>
+<p>Gets a volume of the currently playing sound.</p>
+<h4>Return value</h4>
+<p>Returns the volume of the currently playing sound (in percent).</p>
+
+<hr>
+<h3><a name="LoadSound"></a>LoadSound(Filename)</h3>
+<p>Initializes a sound from file and makes it ready to be played.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Filename</i></dt>
+<dd>The sound file to be loaded</dd>
+</dl>
+<h4>Return value</h4>
+<p>If the method succeeds, the return value is <b>true</b>.</p>
+<h4>Remarks</h4>
+<p>Use this method to pre-cache a sound file. Initializing the sound takes some time and sometimes it's desirable to move all sound initialization to e.g. scene start so that the subsequent PlaySound calls don't slow the game down. That's what LoadSound is for. To play the pre-cached sound simply call PlaySound without specifying a filename, for example SomeObject.PlaySound(false);</p>
+
+<hr>
+<h3><a name="SoundFXNone"></a>SoundFXNone()</h3>
+<p>Removes any sound effect currently assigned to this object.</p>
+
+<hr>
+<h3><a name="SoundFXEcho"></a>SoundFXEcho(WetDryMix, Feedback, LeftDelay, RightDelay)</h3>
+<p>Assigns an echo effect to the sounds played by this object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>WetDryMix</i></dt>
+<dd>Wet/Dry Mix, in percent (0 to 100)</dd>
+<dt><i>Feedback</i></dt>
+<dd>Feedback, in percent (0 to 100)</dd>
+<dt><i>LeftDelay</i></dt>
+<dd>Left delay, in milliseconds (1 to 2000)</dd>
+<dt><i>RightDelay</i></dt>
+<dd>Right delay, in milliseconds (1 to 2000)</dd>
+</dl>
+<h4>Remarks</h4>
+<p>Example: <b>actor.SoundFXEcho(50, 50);</b></p>
+
+<hr>
+<h3><a name="SoundFXReverb"></a>SoundFXReverb(InGain, ReverbMix, ReverbTime, HighFreqRTRatio)</h3>
+<p>Assigns a reverb effect to the sounds played by this object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>InGain</i></dt>
+<dd>In gain, in dB (-96 to 0)</dd>
+<dt><i>ReverbMix</i></dt>
+<dd>Reverb mix, in dB (-96 to 0)</dd>
+<dt><i>ReverbTime</i></dt>
+<dd>Reverb time, in milliseconds (0.001 to 3000)</dd>
+<dt><i>HighFreqRTRatio</i></dt>
+<dd>HighFreq RT Ratio (0.001 to 0.999)</dd>
+</dl>
+<h4>Remarks</h4>
+<p>Example: <b>actor.SoundFXReverb(0, 0, 2000);</b></p>
+
+<hr>
+<h3><a name="ApplyEvent"></a>ApplyEvent(EventName)</h3>
+<p>Applies a named event to the object.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>EventName</i></dt>
+<dd>A name of the event to be applied to the object.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> it the event has been applied succesfuly.</p>
+
+<hr>
+<h3><a name="CanHandleEvent"></a>CanHandleEvent(EventName)</h3>
+<p>Queries whether the object has an event handler for a specified event.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>EventName</i></dt>
+<dd>The name of the event to be checked.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the object is able to handle the specified event.</p>
+
+
+</body>
+
+</html>

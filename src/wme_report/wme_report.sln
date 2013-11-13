@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wme_report", "wme_report\wme_report.vcproj", "{7D0643A7-2712-481F-8F69-F6A2289F9C57}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestApp", "TestApp\TestApp.vcproj", "{80C113B1-47F6-48FF-A544-8B40556FCA42}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7D0643A7-2712-481F-8F69-F6A2289F9C57} = {7D0643A7-2712-481F-8F69-F6A2289F9C57}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D0643A7-2712-481F-8F69-F6A2289F9C57}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7D0643A7-2712-481F-8F69-F6A2289F9C57}.Debug|Win32.Build.0 = Debug|Win32
+		{7D0643A7-2712-481F-8F69-F6A2289F9C57}.Release|Win32.ActiveCfg = Release|Win32
+		{7D0643A7-2712-481F-8F69-F6A2289F9C57}.Release|Win32.Build.0 = Release|Win32
+		{80C113B1-47F6-48FF-A544-8B40556FCA42}.Debug|Win32.ActiveCfg = Debug|Win32
+		{80C113B1-47F6-48FF-A544-8B40556FCA42}.Debug|Win32.Build.0 = Debug|Win32
+		{80C113B1-47F6-48FF-A544-8B40556FCA42}.Release|Win32.ActiveCfg = Release|Win32
+		{80C113B1-47F6-48FF-A544-8B40556FCA42}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

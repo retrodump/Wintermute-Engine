@@ -1,0 +1,136 @@
+#include "scripts\base.inc"
+#include "scripts\keys.inc"
+
+var NumSlotButtons = 10;
+var NumSavegames = 100;
+var ScrollOffset = 0;
+var SelectedSlot = -1;
+
+SetState();
+
+////////////////////////////////////////////////////////////////////////////////
+on "close"
+{
+  this.Close();
+}
+
+////////////////////////////////////////////////////////////////////////////////
+on "up"
+{
+  ScrollOffset = ScrollOffset - 1;
+  SetState();
+}
+
+////////////////////////////////////////////////////////////////////////////////
+on "down"
+{
+  ScrollOffset = ScrollOffset + 1;
+  SetState();
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "load"
+{
+  if(SelectedSlot >= 0) Game.LoadGame(SelectedSlot);
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "Keypress"
+{
+  var button;
+
+  if(Keyboard.KeyCode==VK_ESCAPE){
+    button = this.GetControl("close");
+    button.Press();
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////
+function SetState()
+{
+  var BtnUp = this.GetControl("up");
+  var BtnDown = this.GetControl("down");
+  var BtnLoad = this.GetControl("load");
+  
+  var Thumbnail = this.GetControl("thumbnail");
+
+  BtnUp.Disabled = (ScrollOffset <= 0);
+  BtnDown.Disabled = (ScrollOffset+NumSlotButtons >= NumSavegames);
+  BtnLoad.Disabled = (SelectedSlot < 0);
+
+  for(var i=0; i<NumSlotButtons; i=i+1)
+  {
+    var SaveSlot = ScrollOffset + i;
+    var SlotButton = this.GetControl(ToString(i+1));
+
+    SlotButton.Pressed = (SaveSlot==SelectedSlot);
+    SlotButton.Text = SaveSlot;
+    if(Game.IsSaveSlotUsed(SaveSlot))
+    {
+      SlotButton.Text = Game.GetSaveSlotDescription(SaveSlot);
+      SlotButton.Disabled = false;
+    }
+    else
+    {
+      SlotButton.Text = "<empty>";
+      SlotButton.Disabled = true;
+    }
+  }
+  
+  if(Game.IsSaveSlotUsed(SelectedSlot)) Thumbnail.SetImage("savegame:" + SelectedSlot);
+  else Thumbnail.SetImage(null);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+on "1"
+{
+  SelectedSlot = ScrollOffset;
+  SetState();
+}
+on "2"
+{
+  SelectedSlot = ScrollOffset+1;
+  SetState();
+}
+on "3"
+{
+  SelectedSlot = ScrollOffset+2;
+  SetState();
+}
+on "4"
+{
+  SelectedSlot = ScrollOffset+3;
+  SetState();
+}
+on "5"
+{
+  SelectedSlot = ScrollOffset+4;
+  SetState();
+}
+on "6"
+{
+  SelectedSlot = ScrollOffset+5;
+  SetState();
+}
+on "7"
+{
+  SelectedSlot = ScrollOffset+6;
+  SetState();
+}
+on "8"
+{
+  SelectedSlot = ScrollOffset+7;
+  SetState();
+}
+on "9"
+{
+  SelectedSlot = ScrollOffset+8;
+  SetState();
+}
+on "10"
+{
+  SelectedSlot = ScrollOffset+9;
+  SetState();
+}

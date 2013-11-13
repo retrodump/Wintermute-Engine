@@ -1,0 +1,9 @@
+FONT
+{
+  IMAGE = "fonts\outline_green.bmp"
+  TRANSPARENT = 255,0,255
+  COLUMNS = 32
+  TILE_WIDTH = 12
+  TILE_HEIGHT = 15
+  AUTO_WIDTH = TRUE
+}

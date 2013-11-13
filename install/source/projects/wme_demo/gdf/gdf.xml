@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GameDefinitionFile xmlns:baseTypes="urn:schemas-microsoft-com:GamesExplorerBaseTypes.v1" xmlns="urn:schemas-microsoft-com:GameDescription.v1">
+  <GameDefinition gameID="{EB86CDAB-B379-417A-A809-7430E6274691}">
+    <Name>WME Demo</Name>
+    <Description>Wintermute Engine demo game</Description>
+    <ReleaseDate>2003-01-12</ReleaseDate>
+    <Genres>
+      <Genre>Adventure</Genre>
+    </Genres>
+    <SavedGames baseKnownFolderID="{4C5C32FF-BB9D-43B0-B5B4-2D72E54EAAA4}" path="WME Demo" />
+    <Developers>
+      <Developer URI="http://www.dead-code.org/">Dead:Code Software</Developer>
+    </Developers>
+    <Publishers>
+      <Publisher URI="http://www.dead-code.org/">Dead:Code Software</Publisher>
+    </Publishers>
+    <Version>
+      <VersionNumber versionNumber="1.0.0.0" />
+    </Version>
+    <GameExecutables>
+      <GameExecutable path="game.exe" />
+      <GameExecutable path="settings.exe" />
+    </GameExecutables>
+  </GameDefinition>
+</GameDefinitionFile>

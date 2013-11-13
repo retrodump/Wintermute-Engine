@@ -1,0 +1,181 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{885F5149-C610-4B96-B02F-57F1493BBF8D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DeadCode.WME.WindowEdit</RootNamespace>
+    <AssemblyName>WindowEdit</AssemblyName>
+    <ApplicationIcon>WindowEdit.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DocumentTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DocumentTypeForm.Designer.cs">
+      <DependentUpon>DocumentTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbout.designer.cs">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HotSpot.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmMain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Proxies\UiEditorProxy.cs" />
+    <Compile Include="RectangleResizer.cs" />
+    <Compile Include="Proxies\UiButtonProxy.cs" />
+    <Compile Include="Proxies\UiEntityProxy.cs" />
+    <Compile Include="Proxies\UiProxies.cs" />
+    <Compile Include="Proxies\UiStaticProxy.cs" />
+    <Compile Include="Proxies\UiWindowProxy.cs" />
+    <Compile Include="SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WindowDoc.Actions.cs" />
+    <Compile Include="WindowDoc.cs" />
+    <Compile Include="WindowDoc.ResizeMove.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\asm\ControlsNew\ControlsNew\ControlsNew.csproj">
+      <Project>{70775545-71C0-4EF7-A4F5-A016A943576C}</Project>
+      <Name>ControlsNew</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\asm\Global\Global\Global.csproj">
+      <Project>{DA8FF13F-661C-48CE-8060-0CEB05033923}</Project>
+      <Name>Global</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\asm\WmeWrapper\WmeWrapper\WmeWrapper.vcproj">
+      <Project>{889EDAED-6C28-41D7-9C20-0E58AE09B2E4}</Project>
+      <Name>WmeWrapper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Graphics\Icons\new.png" />
+    <EmbeddedResource Include="Graphics\Icons\open.png" />
+    <EmbeddedResource Include="Graphics\Icons\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Graphics\Icons\button.png" />
+    <EmbeddedResource Include="Graphics\Icons\editor.png" />
+    <EmbeddedResource Include="Graphics\Icons\entity.png" />
+    <EmbeddedResource Include="Graphics\Icons\pointer.png" />
+    <EmbeddedResource Include="Graphics\Icons\static.png" />
+    <EmbeddedResource Include="Graphics\Icons\window.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Graphics\Icons\box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Graphics\Icons\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Graphics\Icons\copy.png" />
+    <EmbeddedResource Include="Graphics\Icons\cut.png" />
+    <EmbeddedResource Include="Graphics\Icons\paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DocumentTypeForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DocumentTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbout.resx">
+      <DependentUpon>FrmAbout.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Graphics\Icons\redo.png" />
+    <EmbeddedResource Include="Graphics\Icons\undo.png" />
+    <EmbeddedResource Include="SettingsForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Graphics\Images\logo100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Graphics\Icons\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="WindowEdit.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

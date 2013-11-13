@@ -1,0 +1,9 @@
+#include "scripts\base.inc"
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "LeftClick"
+{
+  actor.GoTo(Scene.MouseX, Scene.MouseY);
+  Game.ChangeScene("scenes\Front\Front.scene");
+}

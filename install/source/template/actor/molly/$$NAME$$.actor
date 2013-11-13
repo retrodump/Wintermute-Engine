@@ -1,0 +1,89 @@
+; $EDITOR_PROJECT_ROOT_DIR$ $$PROJECT_ROOT$$
+
+ACTOR
+{
+  NAME = "$$NAME$$"
+  CAPTION=""
+  SCALABLE = TRUE
+  INTERACTIVE = FALSE
+  X = 400
+  Y = 460
+  SCRIPT="$$BASE_PATH$$\$$NAME$$.script"
+
+  FONT = "fonts\outline_red.font"
+  
+  ANIMATION
+  {
+    NAME       = "idle"
+    
+    LEFT       = "$$BASE_PATH$$\ll\stand.sprite"
+    RIGHT      = "$$BASE_PATH$$\rr\stand.sprite"
+    UP         = "$$BASE_PATH$$\uu\stand.sprite"
+    DOWN       = "$$BASE_PATH$$\dd\stand.sprite"
+
+    UP_LEFT    = "$$BASE_PATH$$\ul\stand.sprite"
+    UP_RIGHT   = "$$BASE_PATH$$\ur\stand.sprite"
+    DOWN_LEFT  = "$$BASE_PATH$$\dl\stand.sprite"
+    DOWN_RIGHT = "$$BASE_PATH$$\dr\stand.sprite"
+  }  
+
+  ANIMATION
+  {
+    NAME       = "walk"
+    
+    LEFT       = "$$BASE_PATH$$\ll\walk.sprite"
+    RIGHT      = "$$BASE_PATH$$\rr\walk.sprite"
+    UP         = "$$BASE_PATH$$\uu\walk.sprite"
+    DOWN       = "$$BASE_PATH$$\dd\walk.sprite"
+
+    UP_LEFT    = "$$BASE_PATH$$\ul\walk.sprite"
+    UP_RIGHT   = "$$BASE_PATH$$\ur\walk.sprite"
+    DOWN_LEFT  = "$$BASE_PATH$$\dl\walk.sprite"
+    DOWN_RIGHT = "$$BASE_PATH$$\dr\walk.sprite"
+  }
+
+  ANIMATION
+  {
+    NAME       = "talk"
+    
+    LEFT       = "$$BASE_PATH$$\ll\talk.sprite"
+    RIGHT      = "$$BASE_PATH$$\rr\talk.sprite"
+    UP         = "$$BASE_PATH$$\uu\talk.sprite"
+    DOWN       = "$$BASE_PATH$$\dd\talk.sprite"
+
+    UP_LEFT    = "$$BASE_PATH$$\ul\talk.sprite"
+    UP_RIGHT   = "$$BASE_PATH$$\ur\talk.sprite"
+    DOWN_LEFT  = "$$BASE_PATH$$\dl\talk.sprite"
+    DOWN_RIGHT = "$$BASE_PATH$$\dr\talk.sprite"
+  }
+
+  ANIMATION
+  {
+    NAME       = "turnleft"
+    
+    LEFT       = "$$BASE_PATH$$\ll\turn.sprite"
+    RIGHT      = "$$BASE_PATH$$\rr\turn.sprite"
+    UP         = "$$BASE_PATH$$\uu\turn.sprite"
+    DOWN       = "$$BASE_PATH$$\dd\turn.sprite"
+
+    UP_LEFT    = "$$BASE_PATH$$\ul\turn.sprite"
+    UP_RIGHT   = "$$BASE_PATH$$\ur\turn.sprite"
+    DOWN_LEFT  = "$$BASE_PATH$$\dl\turn.sprite"
+    DOWN_RIGHT = "$$BASE_PATH$$\dr\turn.sprite"
+  }
+  
+  ANIMATION
+  {
+    NAME       = "turnright"
+    
+    LEFT       = "$$BASE_PATH$$\ll\turn.sprite"
+    RIGHT      = "$$BASE_PATH$$\rr\turn.sprite"
+    UP         = "$$BASE_PATH$$\uu\turn.sprite"
+    DOWN       = "$$BASE_PATH$$\dd\turn.sprite"
+
+    UP_LEFT    = "$$BASE_PATH$$\ul\turn.sprite"
+    UP_RIGHT   = "$$BASE_PATH$$\ur\turn.sprite"
+    DOWN_LEFT  = "$$BASE_PATH$$\dl\turn.sprite"
+    DOWN_RIGHT = "$$BASE_PATH$$\dr\turn.sprite"
+  }  
+}

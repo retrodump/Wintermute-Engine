@@ -1,0 +1,225 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Postavy (Actors)</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h2>Postavy (Actors)</h2>
+<p>Postavy, jak je z názvu zřejmé, reprezentují postavy ve vaší hře (ať
+už ty ovládané hráčem, tak ty ostatní). Postava ve WME je schopna chodit
+do osmi směrů, otočit se do určitého směru, může mluvit a umí přehrát
+animaci (jako například animaci &quot;sebrání předmětu&quot;). Typická
+postava sestává z mnoha animací, proto je její tvorba poměrně časově náročná
+záležitost.</p>
+
+<p>Ve většině adventur se vyskytuje celá řada postav, ale jak si můžete všimnout,
+mnohé z nich jsou do značné míry &quot;omezeny&quot;, čímž chci říct,
+že jen stojí/sedí na jednom místě. Je tomu tak proto, aby se ušetřil čas,
+který by stálo vytvoření plnohodnotné chodící postavy. Ve WME je doporučeno
+použít pro tyto &quot;zjednodušené&quot; postavy objekt typu entita (<a href="inside_entites.html">více
+informací o entitách</a>) a objekty typu postava použít jen pro složitější
+(chodící) postavy, jako například pro postavu hráče.</p>
+
+<p>Momentálně WME nemá žádný specializovaný nástroj pro tvorbu postav.
+Soubory s definicí postav (mají příponu .actor) se editují ručně pomocí
+textového editoru. Ale buďte bez obav, struktura tohoto souboru není příliš
+složitá a krom toho zpravidla nebudete pro jednu hru vytvářet příliš
+mnoho chodících postav.&nbsp;</p>
+
+<p>Co všechno potřebujeme pro vytvoření postavy? V prvé řadě jsou to
+animace (<a href="inside_sprites.html">sprity</a>). Každá postava potřebuje
+čtyři sady animací: chůze, postoj, otočení a mluvení. Také mějte na paměti,
+že postava je schopna chodit do osmi směrů, proto potřebujete od každého
+typu animace osm verzí pro jednotlivé směry. Ve skutečnosti ale naštěstí
+nemusíte definovat všech osm směrů, například v některých hrách postava
+chodí jen do čtyř směrů. Nicméně WME vyžaduje, aby měla postava definovánu
+animaci pro minimálně jeden směr.</p>
+
+<p>Definice postavy neobsahuje odkaz na žádné speciální animace typu
+&quot;postava bere předmět&quot;. Tyto animace jsou obsluhovány odděleně
+pomocí sriptovacího jazyka (<a href="scripting_about.html">více informací o
+skriptování</a>).</p>
+
+<p>&nbsp;</p>
+
+<h3>Animace chůze (walking)</h3>
+
+<p>Animace chůze jsou použity, pokud postava přechází z jednoho místa na
+jiné. Jediná specifická věc u animací chůze je, že musíte jednolivým snímkům
+v programu SpriteEdit zadefinovat vlastnost &quot;move&quot; (posun). Vkastnosti
+&quot;Move X&quot; a &quot;Move Y&quot; udávají, o kolik se postava posouvá během
+chůze.</p>
+
+<p>Například na následujícím obrázku je zobrazena animace &quot;chůze
+vlevo&quot;. Jak vidíte, animace má nastaveno, že ve zvolením snímku se
+postava posune o -12 pixelů v ose X (jinými slovy: o 12 pixelů doleva).
+Nezapomeňte, že posun je třeba nastavit pro všechny snímky animace.</p>
+
+<p align="center">
+<img border="0" src="../img/Actors1.gif" width="456" height="327"></p>
+
+<p align="left">Tímto způsobem můžete vlastně ovlivnit rychlost chůze
+postavy. Rychlost posunu při chůzi je ve hře automaticky korigována v závislosti
+na aktuálním zvětšení/zmenšení postavy.</p>
+
+<p align="left">&nbsp;</p>
+
+<h3 align="left">Anmace postoje (standing)</h3>
+
+<p align="left">Animace postoje je použita, pokud postava stojí na místě. Buďto
+může být tvořena jednoduše jedním snímkem, nebo můžete vytvořit nějakou
+animaci, jako je dýchání apod.</p>
+
+<p align="left">&nbsp;</p>
+
+<h3 align="left">Animace otáčení (turning left / turning right)</h3>
+
+<p align="left">Pokud je postava natočena do nějakého směru a potřebuje se
+otočit do jiného, použije se animace otáčení. Animace je tvořena snímky
+pro jednotlivé směry a herní engine pak přehrává jen snímky pro ty směry,
+kterými postava prochází při otáčení. Také si všimněte, že animace otáčení
+jsou dvě, jedna pro otáčení vlevo (ve směru hodinových ručiček) a jedna
+ve směru vpravo (proti směru hodinových ručiček). Například je-li postava
+otočena nahoru a potřebuje se otočit dolů, přehraje animace pro směry
+&quot;nahoru&quot;, &quot;vpravo nahoru&quot;, &quot;vpravo&quot; a &quot;vpravo
+dolů&quot;, přičemž použije sadu animací &quot;otočení vpravo&quot;
+(turn right).</p>
+
+<p align="left">Animace otáčení je obvykle tvořena jedním snímkem, ale můžete
+použít i složitější animace pro docílení realističtějšího dojmu (lidé
+při otáčení nestojí strnule na místě, ale přešlápnou si nohama, zkuste
+si to :-).</p>
+
+<p align="left">&nbsp;</p>
+
+<h3 align="left"><a name="talking_animations"></a>Animace mluvení (talking)</h3>
+
+<p align="left">Animace mluvení, jak je zřejmé z názvu, jsou použity, pokud
+postava mluví. WME vám navíc umožňuje dosáhnout pokročilých efektů při
+mluvení pomocí takzvaných &quot;talk stances&quot; (postoje při mluvení). V
+podstatě jsou tyto &quot;postoje&quot; různé animace mluvení, které jsou
+poté poskládány v jenom příkazu actor.Talk() (postava - mluvit). Například
+lze takto docílit gestikulace během mluvení a podobně. Postojů můžete
+zadefinovat kolik chcete, a při vyvolání metody Talk ze skriptu pak můžete
+specifikovat, které konkrétní postoje mají být použity při vyslovení určitého
+textu (<a href="generated/scripting_ref_actor.html#Talk">více o příkazu actor.Talk</a>).
+Pokud žádné postoje explicitně neurčíte, herní engine některé při
+mluvení vybere náhodně.</p>
+
+<p align="left">Pochopitelně, někdy je nežádoucí, aby některé postoje
+byly použity náhodně při mluvení, protože byly připraveny pro nějakou
+speciální příležitost. Proto máze možnost zadefinovat pro postavu dvě
+sady postojů: normální a speciální. Normálně postoje mohou být vybrány
+náhodně, speciální si musíte při volání příkazu Talk explicitně vyžádat.</p>
+
+<p align="left">Jestě než vás zděsí ty předchozí dva odstavce :-) vězte,
+že u jednoduchých postav vám postačí zadefinouvat jen jednu animaci mluvení
+(nebo dokonce žádnou). Onen popsaný mechanismus postojů ocení spíš pokročilí
+uživatelé WME.&nbsp;</p>
+
+<p align="left">&nbsp;</p>
+
+<h3 align="left">Skripty</h3>
+
+<p align="left">Všechny výše popsané animace definují to, jak vaše postava
+vypadá, takříkajíc jeho &quot;tělo&quot;. Ale její &quot;mozek&quot; je
+tvořen skriptem (<a href="scripting_about.html">více informací o skriptování</a>).
+Tak jako většina ostatních herních objektů ve WME, i postavy mohou mít přiřazen
+jeden nebo více skriptů, které definují jejich chování.</p>
+
+<p align="left">&nbsp;</p>
+
+<h3 align="left">Soubor s definicí postavy</h3>
+
+<p align="left">Takže jsme si popsali, co všechno potřebujeme pro vytvoření
+postavy. Nyní všechny tyto komponenty zkombinujeme pomocí definičního
+souboru (soubory s definicí postav používají příponu .actor). Soubor
+obsahuje nejprve hlavičku a obecné vlastnosti:</p>
+
+<div align="left">
+<pre><font color="#800000">ACTOR
+{
+  NAME = &quot;MojePostava&quot;
+  CAPTION=&quot;Moje úplně nová postava&quot;
+  X = 100
+  Y = 100
+  SCALABLE = TRUE
+  INTERACTIVE = FALSE
+  COLORABLE=TRUE
+  ROTATABLE = FALSE
+  SOUND_PANNING=TRUE
+  SCRIPT=&quot;actors\MojePostava\MojePostava.script&quot;
+  FONT = &quot;fonts\outline_red.font&quot;</font>
+</pre>
+</div>
+Popis:<ul>
+  <li>NAME - interní jméno postavy</li>
+  <li>CAPTION - titulek s názvem postavy</li>
+  <li>X, Y - výchozí pozice na obrazovce</li>
+  <li>SCALABLE - určuje, zda se postava zmenšuje/zvětšuje dle nastavení scény</li>
+  <li>INTERACTIVE - určuje, zda se postava jeví jako interaktivní (reaguje na
+    události od myši)</li>
+  <li>COLORABLE - určuje, zda postava mění odstín dle nastavení scény</li>
+  <li>ROTATABLE - určuje, zda je postava ovlivňována rotací, nastavenou ve
+    scéně</li>
+  <li>SOUND_PANNING - určuje, uda zvuky, vydávané postavou, jsou automaticky
+    posunuty vzhledem k pozici postavy ve scéně</li>
+  <li>SCRIPT - skript, připojený k této postavě (v definici může být více
+    řádku typu SCRIPT)</li>
+  <li>FONT - font, použitý k zobrazení titulků, když tato postava mluví</li>
+</ul>
+<p>Then follows the definition of all the animations described above. There must 
+be eight animations defined in each section, for the eight directions.</p>
+<p>For example the walk animation definition might look like this:</p>
+<pre><font color="#800000">  WALK
+  {
+    SPRITESET
+    {
+      LEFT       = &quot;actors\MojePostava\ll\walk.sprite&quot;
+      RIGHT      = &quot;actors\MojePostava\rr\walk.sprite&quot;
+      UP         = &quot;actors\MojePostava\uu\walk.sprite&quot;
+      DOWN       = &quot;actors\MojePostava\dd\walk.sprite&quot;
+
+      UP_LEFT    = &quot;actors\MojePostava\ul\walk.sprite&quot;
+      UP_RIGHT   = &quot;actors\MojePostava\ur\walk.sprite&quot;
+      DOWN_LEFT  = &quot;actors\MojePostava\dl\walk.sprite&quot;
+      DOWN_RIGHT = &quot;actors\MojePostava\dr\walk.sprite&quot;
+    }
+  }</font>
+</pre>
+
+The other animations are defines similarly, you only need to replace the &quot;WALK&quot; 
+keyword by STAND, TURN_LEFT, TURN_RIGHT, TALK or TALK_SPECIAL respectively.<p>
+There can be more than one TALK and TALK_SPECIAL definitions. This way you can 
+prepare more than one talk stances. But if you do so, you must also specify a 
+name for each stance. For example:</p>
+<pre><font color="#800000">TALK
+{
+  SPRITESET
+  {
+    NAME = &quot;stance name&quot;
+      
+    LEFT = &quot;filename.sprite&quot;
+    RIGHT = &quot;filename.sprite&quot;
+    ...
+  }
+}</font></pre>
+
+&nbsp;<p>For an example of a complete actor definition file please see the &quot;WME 
+demo&quot; project. There is the &quot;molly&quot; actor prepared in the &quot;actors\molly&quot; folder. 
+Also, you don't need to write the definition file from scratch, there is an 
+actor template available in ProjectMan (<a href="inside_projectman.html">learn 
+more about ProjectMan</a>).</p>
+<p>&nbsp;</p>
+<p><b>See also</b>: <a href="generated/scripting_ref_actor.html">Actor scripting 
+reference</a></p>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+#include "scripts\base.inc"
+#include "scripts\keys.inc"
+
+this.xResult = false;
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "close"
+{
+  this.Close();
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "yes"
+{
+  this.xResult = true;
+  this.Close();
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "Keypress"
+{
+  var button;
+
+  if(Keyboard.KeyCode==VK_ESCAPE)
+  {
+    button = this.GetControl("close");
+    button.Press();
+  }
+  else if(Keyboard.KeyCode==VK_RETURN)
+  {
+    button = this.GetControl("yes");
+    button.Press();
+  }
+}

@@ -1,0 +1,10 @@
+#include "scripts\base.inc"
+
+// here comes the stuff which initializes the scene
+
+
+
+actor.SkipTo(512, 540);
+actor.Direction = DI_UPLEFT;
+actor.Active = true;
+

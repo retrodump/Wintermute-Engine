@@ -1,0 +1,165 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Scripting support</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+<style type="text/css">
+.style1 {
+	color: #808080;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Scripting support</h1>
+
+<p>The 3D characters support brings several new scripting methods and 
+attributes. You will find a complete listing in the <a href="scripting_ref.html">
+scripting reference</a> section of this manual, but let's take a quick look into 
+some of the most commonly used methods.</p>
+
+<h2>Creation and basics</h2>
+
+<p>To load a 3D actor use either
+<a href="generated/scripting_ref_game.html#LoadActor3D">Game.LoadActor3D()</a> 
+method or <a href="generated/scripting_ref_scene.html#LoadActor3D">
+Scene.LoadActor3D()</a> methods. They work exactly the same as their original 
+counterparts (LoadActor()). These methods create a new 3D actor object, which 
+provides a set of methods and attributes fairly similar to those provided by 2D 
+actors. Besides the original
+<a href="generated/scripting_ref_actor3d.html#TurnTo">TurnTo()</a> method which 
+turns the actor into one of eight directions, 3D actors also provide a
+<a href="generated/scripting_ref_actor3d.html#TurnToAngle">TurnToAngle()</a> 
+method, which can be used to turn the character to any angle.</p>
+
+<h2>Animations</h2>
+
+<p>Animations work very differently than in case of 2D actors. Instead of lots 
+of separate files, all the animations are part of the model files and they are 
+then listed in the actor definition file. The
+<a href="generated/scripting_ref_actor3d.html#PlayAnim">PlayAnim()</a> method 
+only accepts the name of the animation to be played. In addition, you can play 
+several animations at one time. Each animation can affect only some of the 
+bones, therefore you can combine several animations into one; for example the 
+actor can walk while making some gesture with their arm (the arm animation only 
+modifies arm bones thus partially overrides the walking animation). Use the
+<a href="generated/scripting_ref_actor3d.html#PlayAnimChannel">PlayAnimChannel()</a> 
+method to achieve this. There are 10 independent animation channels available, 
+numbered from 0 to 9. The 0 channel is used internally by the engine for 
+standard animations, such as walking, talking and standing.</p>
+
+<p>Speaking of which, the engine recognizes these standard animation by their 
+name, which means your actor definition file should contain animations named 
+&quot;walk&quot;, &quot;idle&quot; and &quot;talk&quot;. You can override those names using the <b>
+WalkAnimName</b>, <b>IdleAnimName</b> and <b>TalkAnimName</b> attributes. What 
+is this good for? Well, for example if you want to temporarily change walking to 
+running, set the WalkAnimName to &quot;run&quot; and the actor will use the &quot;run&quot; 
+animation for walking (providing animation with this name exists).</p>
+
+<p>It is possible to load new actor animations at runtime. The 3D actor provides 
+a <a href="generated/scripting_ref_actor3d.html#MergeAnims">MergeAnims()</a> 
+method, which will load animations from an external X model file. If you need to 
+specify additional animations options (looping animation or animation events), 
+you will need to create a definition file pairing the X model. For example, 
+let's say you want to load an animation called &quot;throw&quot;, which is stored in file 
+&quot;trinity_throw.x&quot;. To specify animation options, create a new file called &quot;trinity_throw.anim&quot; 
+in the same directory where the X file is located. This definition file will 
+contain one or more ANIMATION sections, using exactly the same syntax as the
+<a href="3D_actors_x.html#animations">actor definition file</a>. WME will 
+automatically use the trinity_throw.anim file when loading trinity_throw.x 
+model.</p>
+
+<p>To release animation which is no longer needed from memory, use the
+<a href="generated/scripting_ref_actor3d.html#UnloadAnim">UnloadAnim()</a> 
+method.</p>
+
+<h2>Attachments</h2>
+
+<p>WME allows you to attach 3D models to 3D actors. This can be used for various 
+purposes, such as the actor holding an item in their hand, a hat on their heads 
+etc. The attachment can be created using the
+<a href="generated/scripting_ref_actor3d.html#AddAttachment">AddAttachment()</a> 
+method, and removed using the
+<a href="generated/scripting_ref_actor3d.html#RemoveAttachment">
+RemoveAttachment()</a> method. To query an existing attachment, use the
+<a href="generated/scripting_ref_actor3d.html#GetAttachment">GetAttachment()</a> 
+method. It returns an attachment object, which provides its own set of scripting 
+methods and properties.</p>
+
+<h2>Direct control</h2>
+
+<p>Among the primary point'n'click interface, WME also provides a set of methods 
+for direct keyboard control for 3D characters. These include
+<a href="generated/scripting_ref_actor3d.html#DirectWalk">DirectWalk()</a>,
+<a href="generated/scripting_ref_actor3d.html#DirectWalkBack">DirectWalkBack()</a>,
+<a href="generated/scripting_ref_actor3d.html#DirectWalkStop">DirectWalkStop()</a>,
+<a href="generated/scripting_ref_actor3d.html#DirectTurnLeft">DirectTurnLeft()</a>,
+<a href="generated/scripting_ref_actor3d.html#DirectTurnRight">DirectTurnRight()</a> 
+and <a href="generated/scripting_ref_actor3d.html#DirectTurnStop">
+DirectTurnStop()</a>. The WME 3D characters demo already contains a script which 
+demonstrates the use of those methods (scripts\direct_control.script).</p>
+
+<p><br>
+There are more methods available, see the <a href="scripting_ref.html">scripting 
+reference</a> for details.</p>
+
+<h2>Textures</h2>
+
+<p>You can change model textures at runtime using the
+<a href="generated/scripting_ref_actor3d.html#SetTexture">SetTexture()</a> 
+method. Since your model can be using several textures you have to specify which 
+one you're changing by specifying material name. Material name defaults to the 
+name of the original texture assigned to your model, without extension. For 
+example, if you assigned texture called &quot;path\some_texture.png&quot; in the 3D 
+modeling software, you reference the material by name &quot;some_texture&quot;.</p>
+
+<p>The new texture can be either a static image or WME sprite, which means you 
+can have animated textures. But note that only the images and frame delays are 
+imported from the sprite, all the additional sprite properties used for 2D 
+graphics are ignored when using a sprite as an animated texture for 3D models.</p>
+<h2>Video textures</h2>
+<p>You can even use Theora videos as 3D model textures using the
+<a href="generated/scripting_ref_actor3d.html#SetTheoraTexture">SetTheoraTexture()</a> 
+method. The use is exactly the same as the <strong>SetTexture()</strong> method 
+(see above). Keep in mind the video dimensions must be powers of two (2, 4, 8, 
+16, 32, 64, 128...). Keep the video textures as small as possible not to degrade 
+game performance needlessly.</p>
+
+<hr>
+
+<h2><span class="style1">Meshes - MS3D format only (deprecated)</h2>
+
+<p>You can also modify the appearance of the actors. There is set of methods 
+working with &quot;meshes&quot;. A mesh is part of the model; usually the model is 
+separated into multiple meshes based on different materials. You can hide or 
+show individual parts of the model using the
+</span>
+<a href="generated/scripting_ref_actor3d.html#HideMesh" class="style1">HideMesh()</a><span class="style1"> and
+</span>
+<a href="generated/scripting_ref_actor3d.html#ShowMesh" class="style1">ShowMesh()</a><span class="style1"> methods.</p>
+
+<p>You can also load a new mesh from a separate file. This is useful if you want 
+- for example - make the actors hold an item in their hands. A new mesh can be 
+loaded using the </span> 
+<a href="generated/scripting_ref_actor3d.html#AddMesh" class="style1">
+AddMesh()</a><span class="style1"> method. This method accepts filename of another MS3D file, the 
+name of the mesh and the name of the bone you want this new mesh attach to. This 
+way you can for example attach a hat model to character's head, or insert some 
+object into his hand. The new mesh is &quot;glued&quot; to the given bone and inherits all 
+its movements and rotations.</p>
+
+<p>Last of the methods dealing with individual meshes is
+</span>
+<a href="generated/scripting_ref_actor3d.html#RemoveMesh" class="style1">RemoveMesh()</a><span class="style1">. It 
+permanently removes one mesh from the model.</span></p>
+
+<p>&nbsp;</p>
+
+</body>
+
+</html>

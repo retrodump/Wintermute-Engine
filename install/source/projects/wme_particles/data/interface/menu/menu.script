@@ -1,0 +1,41 @@
+#include "scripts\base.inc"
+
+global MenuObject;
+
+////////////////////////////////////////////////////////////////////////////////
+on "Take"
+{
+  this.Close();
+  if(MenuObject!=null)
+  {
+    if(MenuObject.CanHandleEvent("Take")) MenuObject.ApplyEvent("Take");
+    else actor.Talk("I can't take this.");
+  }
+  MenuObject = null;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "LookAt"
+{
+  this.Close();
+  if(MenuObject!=null)
+  {
+    if(MenuObject.CanHandleEvent("LookAt")) MenuObject.ApplyEvent("LookAt");
+    else actor.Talk("I don't know what to say about it.");
+  }
+  MenuObject = null;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+on "Talk"
+{
+  this.Close();
+  if(MenuObject!=null)
+  {
+    if(MenuObject.CanHandleEvent("Talk")) MenuObject.ApplyEvent("Talk");
+    else actor.Talk("Can't talk to this.");
+  }
+  MenuObject = null;
+}

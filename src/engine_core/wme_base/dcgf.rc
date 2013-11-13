@@ -1,0 +1,291 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1250)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// GF_RES
+//
+
+SYSTEM_FONT.BMP         GF_RES                  "res\\system_font.bmp"
+SYSTEM_FONT.FNT         GF_RES                  "res\\system_font.fnt"
+WPT.BMP                 GF_RES                  "res\\wpt.bmp"
+WPT.SPRITE              GF_RES                  "res\\wpt.sprite"
+SHADOW.PNG              GF_RES                  "res\\shadow.png"
+INVALID.BMP             GF_RES                  "res\\invalid.bmp"
+INVALID_DEBUG.BMP       GF_RES                  "res\\invalid_debug.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ADVANCED DIALOGEX 0, 0, 186, 111
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "/syseng0012/Advanced settings"
+FONT 8, "MS Shell Dlg", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "/syseng0100/OK",IDOK,40,90,50,14
+    PUSHBUTTON      "/syseng0101/Cancel",IDCANCEL,96,90,50,14
+    LTEXT           "/syseng0013/Note: These settings are provided for troubleshooting purposes only. If the game displays correctly on your computer, you don't need to select any of these options.",IDC_STATIC,7,7,172,34,SS_SUNKEN
+    GROUPBOX        "/syseng0014/Texture settings",IDC_STATIC,7,45,172,38
+    CONTROL         "/syseng0015/Force 16bit textures",IDC_16BIT_TEXTURES,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,56,159,10
+    CONTROL         "/syseng0016/Force texture subdivision",IDC_TEXTURE_SUBDIVISION,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,67,159,10
+END
+
+IDD_WMESETTINGS DIALOGEX 0, 0, 298, 203
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | DS_CENTER | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+CAPTION "/syseng0001/Game settings"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "/syseng0024/Don't show this window again",IDC_DONT_SHOW,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,167,219,10
+    DEFPUSHBUTTON   "/syseng0100/OK",IDOK,94,182,50,14
+    PUSHBUTTON      "/syseng0101/Cancel",IDCANCEL,152,182,50,14
+    CONTROL         "",IDC_TAB_PAGES,"SysTabControl32",WS_TABSTOP,7,7,284,156
+    RTEXT           "ver",IDC_WME_VER,191,167,100,8,WS_DISABLED
+END
+
+IDD_PAGE_DISPLAY DIALOGEX 0, 0, 277, 141
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         "/syseng0004/Use hardware acceleration",IDC_ACCELERATED,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,81,7,152,10
+    RTEXT           "/syseng0005/Display device:",IDC_STATIC,7,22,73,8
+    COMBOBOX        IDC_VIDEO_DEVICE,81,20,117,53,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "/syseng0010/More...",IDC_ADVANCED,203,19,53,14
+    RTEXT           "/syseng0006/Colors:",IDC_STATIC,7,37,73,8
+    COMBOBOX        IDC_COLORS,81,35,53,34,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "/syseng0007/Run in window",IDC_WINDOWED,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,138,37,132,10
+    RTEXT           "/syseng0022/Antialiasing:",IDC_MULTISAMPLE_LABEL,7,53,73,8
+    COMBOBOX        IDC_MULTISAMPLE,81,51,53,53,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "/syseng0009/Use hardware T&&L",IDC_TL,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,138,53,132,10
+    CONTROL         "/syseng0070/Maintain aspect ratio",IDC_MAINTAIN_ASPECT,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,81,68,189,10
+    CONTROL         "/syseng0071/Use desktop resolution",IDC_USE_DESKTOP_RES,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,81,80,189,10
+    ICON            IDI_WARNING_SM,IDC_WARN_ICON,7,97,20,20,SS_NOTIFY | SS_REALSIZEIMAGE
+    LTEXT           "Static",IDC_WARN_TEXT,24,97,246,37
+END
+
+IDD_PAGE_SOUND DIALOGEX 0, 0, 277, 141
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    RTEXT           "/syseng0011/Sound device:",IDC_STATIC,7,22,73,8
+    COMBOBOX        IDC_AUDIO_DEVICE,81,20,117,53,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Static",IDC_WARN_TEXT,24,97,246,37
+    ICON            IDI_WARNING_SM,IDC_WARN_ICON,7,97,21,20,SS_NOTIFY | SS_REALSIZEIMAGE
+END
+
+IDD_PAGE_ACCESS DIALOGEX 0, 0, 277, 147
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "/SYSENG0031/These options are intended for enhancing accessibility for some vision-impaired players.",IDC_STATIC,7,7,263,17
+    CONTROL         "/SYSENG0032/Send written text to text-to-speech output",IDC_TTS_ENABLED,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,54,29,216,10
+    CONTROL         "/SYSENG0033/Read item captions",IDC_TTS_CAPTIONS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,61,41,209,10
+    CONTROL         "/SYSENG0034/Read spoken lines",IDC_TTS_TALK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,61,52,209,10
+    CONTROL         "/SYSENG0035/Read typed characters",IDC_TTS_KEYPRESS,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,61,63,209,10
+    CONTROL         "/SYSENG0036/Use keyboard shortcuts to highlight active items",IDC_KEYBOARD_ENABLED,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,54,82,216,10
+    CONTROL         "/SYSENG0037/Move mouse pointer to the active item",IDC_KEYBOARD_CURSOR_SKIP,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,61,94,209,10
+    LTEXT           "/SYSENG0038/(Use Ctrl+Tab and Ctrl+Shift+Tab to cycle through active items)",IDC_STATIC,54,106,216,17
+    CONTROL         "/SYSENG0039/Allow pausing game anytime using Ctrl+Space",IDC_KEYBOARD_PAUSE,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,54,124,216,10
+END
+
+IDD_PAGE_ABOUT DIALOGEX 0, 0, 277, 157
+STYLE DS_SETFONT | DS_FIXEDSYS | DS_CONTROL | WS_CHILD | WS_SYSMENU
+EXSTYLE WS_EX_CONTROLPARENT
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    CONTROL         133,IDC_WME_LOGO,"Static",SS_BITMAP | SS_SUNKEN,6,7,265,63
+    LTEXT           "http://www.wintermute-engine.org",IDC_WME_LINK,7,95,263,8
+    LTEXT           "/SYSENG0051/Powered by Wintermute Engine",IDC_STATIC,7,73,263,8
+    LTEXT           "Copyright (c) 2013 Dead:Code Software",IDC_STATIC,7,84,263,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ADVANCED, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 104
+    END
+
+    IDD_WMESETTINGS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 291
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 196
+    END
+
+    IDD_PAGE_DISPLAY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 270
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 134
+    END
+
+    IDD_PAGE_SOUND, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 270
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 134
+    END
+
+    IDD_PAGE_ACCESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 270
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 140
+    END
+
+    IDD_PAGE_ABOUT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 270
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 150
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_WME_LOGO_ORANGE     BITMAP                  "res\\wme_orange.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_CURSOR_LINK         CURSOR                  "res\\link.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_WARNING_SM          ICON                    "res\\warning.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_MISSING_FILES_ENG   "Some of the essential game files cannot be loaded. Please reinstall the game and try again."
+    IDS_MISSING_FILES_CZE   "Nebyly nalezeny soubory, potøebné ke spuštìní hry. Prosím, pøeinstalujte hru a zkuste to znovu."
+    IDS_MISSING_FILES_DAN   "En eller flere nodvendige programfiler kunne ikke indlases. Geninstallér venligst spillet og prov igen."
+    IDS_MISSING_FILES_GER   "Einige notwendige Spieldateien können nicht geladen werden. Bitte installieren Sie das Spiel erneut und versuchen Sie es noch einmal."
+    IDS_MISSING_FILES_SPA   "Algunos archivos esenciales para el juego no se pudieron cargar. Reinstale el juego e inténtelo de nuevo por favor."
+    IDS_MISSING_FILES_DUT   "Sommige van de essentiële spelbestanden konden niet geladen worden. Herinstalleer het spel en probeer opnieuw."
+    IDS_MISSING_FILES_FRE   "Certains des fichiers essentiels du jeu ne peuvent etre chargés. SVP réinstaller le jeu et réessayer."
+    IDS_MISSING_FILES_GRE   "Some of the essential game files cannot be loaded. Please reinstall the game and try again."
+END
+
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Czech resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CSY)
+#ifdef _WIN32
+LANGUAGE LANG_CZECH, SUBLANG_DEFAULT
+#pragma code_page(1250)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Czech resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

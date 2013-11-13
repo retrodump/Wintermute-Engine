@@ -1,0 +1,45 @@
+*tit Array object
+*des The Array objects allow you to perform advanced array manipulations. The Array object can be created using the one of the following syntaxes:
+*des <br><br>
+*des <table border="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" cellpadding="0" id="AutoNumber4">
+*des <tr>
+*des     <td class="code"><pre>
+*des var EmptyArray = new Array();
+*des var TestArray = new Array(10); // create an empty array with 10 items
+*des var DaysArray = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+*des </pre></td>
+*des </tr>
+*des </table>
+*cls CSXArray
+
+*con Array()
+*des Creates an empty array object.
+
+*con Array(NumItems)
+*des Creates an array object with the specified number of items.
+*par NumItems The initial number of items contained in the array
+
+*con Array(Item1, Item2, Item3, ...)
+*des Creates an array object and fills it with the specified items.
+*par ItemX A value you want to add to the array
+
+*met Push(Item1, Item2, Items3, ...)
+*des Adds one or more items to the end of the array.
+*par ItemX A value you want to add to the array
+*ret Returns the new length of the array.
+
+*met Pop()
+*des Removes a last item from the array and returns it.
+*ret Returns the last item of the array.
+
+*grp 
+
+*atr Type
+*des Returns always "array"
+*ro
+
+*atr Length
+*des Gets or sets the current length of the array, deleting the extra items if necessary.
+
+*atr [index]
+*des You can set/get individual items of an array using the usual square bracket notation.

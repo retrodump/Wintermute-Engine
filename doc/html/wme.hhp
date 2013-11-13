@@ -1,0 +1,117 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=wme.chm
+Contents file=wme.hhc
+Default Window=WME
+Default topic=wme\intro.html
+Display compile progress=No
+Full-text search=Yes
+Language=0x409 English (United States)
+Title=Wintermute Engine Developent Kit
+
+[WINDOWS]
+WME="Wintermute Engine Development Kit","wme.hhc",,"wme\intro.html",,,,,,0x63420,,0x383e,[37,40,945,688],,,,,,,0
+
+
+[FILES]
+wme\inside_localization.html
+wme\architecture.html
+wme\credits.html
+wme\license.html
+wme\features.html
+wme\formats.html
+wme\inside.html
+wme\inside_actors.html
+wme\inside_entites.html
+wme\inside_filesystem.html
+wme\inside_inventory.html
+wme\inside_particles.html
+wme\inside_access.html
+wme\inside_widescreen.html
+wme\inside_effects.html
+wme\inside_dialogues.html
+wme\inside_music.html
+wme\inside_projectman.html
+wme\inside_scenes.html
+wme\inside_scenes_step1.html
+wme\inside_scenes_step2.html
+wme\inside_scenes_step3.html
+wme\inside_scenes_step4.html
+wme\inside_scenes_step5.html
+wme\inside_scenes_step6.html
+wme\inside_scenes_step7.html
+wme\inside_scenes_step8.html
+wme\inside_scenes_step9.html
+wme\inside_sprites.html
+wme\inside_ui.html
+wme\windowedit.html
+wme\inside_ui_fonts.html
+wme\inside_ui_fonts_bitmap.html
+wme\inside_ui_fonts_ttf.html
+wme\inside_ui_responses.html
+wme\inside_ui_inventory.html 
+wme\inside_ui_windows.html
+wme\intro.html
+wme\requirements.html
+wme\scripting_about.html
+wme\scripting_about_comments.html
+wme\scripting_about_conditions.html
+wme\scripting_about_events.html
+wme\scripting_about_files.html
+wme\scripting_about_functions.html
+wme\scripting_about_methods.html
+wme\scripting_about_loops.html
+wme\scripting_about_variables.html
+wme\scripting_about_dll.html
+wme\scripting_editor.html
+wme\scripting_editor_highlight.html
+wme\scripting_editor_tools.html
+wme\scripting_ref.html
+wme\generated\scripting_ref_actor.html
+wme\generated\scripting_ref_particle.html
+wme\generated\scripting_ref_actor3d.html
+wme\generated\scripting_ref_item.html
+wme\generated\scripting_ref_sprite.html
+wme\generated\scripting_ref_frame.html
+wme\generated\scripting_ref_subframe.html
+wme\generated\scripting_ref_button.html
+wme\generated\scripting_ref_date.html
+wme\generated\scripting_ref_math.html
+wme\generated\scripting_ref_editor.html
+wme\generated\scripting_ref_entity.html
+wme\generated\scripting_ref_functions.html
+wme\generated\scripting_ref_game.html
+wme\generated\scripting_ref_layer.html
+wme\generated\scripting_ref_region.html
+wme\generated\scripting_ref_scene.html
+wme\generated\scripting_ref_static.html
+wme\generated\scripting_ref_string.html
+wme\generated\scripting_ref_waypoint.html
+wme\generated\scripting_ref_window.html
+wme\generated\scripting_ref_array.html
+wme\generated\scripting_ref_membuffer.html
+wme\generated\scripting_ref_file.html
+wme\generated\scripting_ref_directory.html
+wme\history.html
+wme\generated\scripting_ref_entity_container.html
+wme\generated\scripting_ref_keyboard.html
+wme\3D_actors_x.html
+wme\3D_actors_ms3d.html
+wme\3D_additional.html
+wme\3D_shadows.html
+wme\3D_intro.html
+wme\3D_principles.html
+wme\3D_scripting.html
+wme\plugins_about.html
+wme\plugins_basics.html
+wme\plugins_class_def.html
+wme\plugins_classes.html
+wme\plugins_exports.html
+wme\plugins_samples.html 
+wme\inside_theora.html 
+wme\inside_stm.html 
+wme\inside_console.html 
+wme\inside_vista.html 
+
+[INFOTYPES]
+

@@ -1,0 +1,131 @@
+<html>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="WME DocMaker 2.0">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Directory object</title>
+<link rel="stylesheet" type="text/css" href="../../styles.css">
+</head>
+
+<body>
+<!-- Generated on 7.11.2005 18:05:37, settings file: english -->
+
+<h3>Directory object</h3>
+<p>
+The Directory object allows you to access directories on disk. This object is always available in a form of predefined <b>Directory</b> global variable.
+<br><br>
+<table border="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" cellpadding="0" id="AutoNumber4">
+<tr>
+<td class="code"><pre>
+// create directory structure
+Directory.Create("c:\somedir\otherdir");
+</pre></td>
+</tr>
+</table>
+</p>
+
+<br>
+
+<h4>Methods</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%"><a href="#Create">Create</a></td>
+    <td>Creates a new directory or directory tree.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#Delete">Delete</a></td>
+    <td>Deletes a directory.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetFiles">GetFiles</a></td>
+    <td>Returns list of files stored in a given directory.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetDirectories">GetDirectories</a></td>
+    <td>Returns list of sub-directories stored in a given directory.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetDrives">GetDrives</a></td>
+    <td>Returns list of present disk drives.</td>
+  </tr>
+</table>
+
+<h4>Attributes</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%">Type (read only)</td>
+    <td>Returns always "directory"</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">PathSeparator (read only)</td>
+    <td>Returns the standard path separator character.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">CurrentDirectory</td>
+    <td>Gets or sets the current working directory for an application.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">TempDirectory (read only)</td>
+    <td>Returns Windows temporary directory.</td>
+  </tr>
+</table>
+
+<hr>
+<h3><a name="Create"></a>Create(Path)</h3>
+<p>Creates a new directory or directory tree.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Path</i></dt>
+<dd>Specifies the path to be created.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the directory tree has been successfuly created.</p>
+
+<hr>
+<h3><a name="Delete"></a>Delete(Path)</h3>
+<p>Deletes a directory.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Path</i></dt>
+<dd>The directory to be deleted.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the directory has been successfuly deleted.</p>
+<h4>Remarks</h4>
+<p>This method only deletes one directory, not the entire directory tree specified in the Path parameter.</p>
+
+<hr>
+<h3><a name="GetFiles"></a>GetFiles(Path, Mask)</h3>
+<p>Returns list of files stored in a given directory.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Path</i></dt>
+<dd>The directory to be searched</dd>
+<dt><i>Mask</i></dt>
+<dd>Mask for the filenames to be matched against (optional, default=*.*)</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns an <b>Array</b> object containing filenames of all the files stored in a given directory.</p>
+
+<hr>
+<h3><a name="GetDirectories"></a>GetDirectories(Path, Mask)</h3>
+<p>Returns list of sub-directories stored in a given directory.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Path</i></dt>
+<dd>The directory to be searched</dd>
+<dt><i>Mask</i></dt>
+<dd>Mask for the sub-directories to be matched against (optional, default=*.*)</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns an <b>Array</b> object containing names of all the sub-directories stored in a given directory.</p>
+
+<hr>
+<h3><a name="GetDrives"></a>GetDrives()</h3>
+<p>Returns list of present disk drives.</p>
+<h4>Return value</h4>
+<p>Returns an <b>Array</b> object containing names of all the disk drives, such as "c:\".</p>
+
+
+</body>
+
+</html>

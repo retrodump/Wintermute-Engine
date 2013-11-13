@@ -1,0 +1,356 @@
+<html>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="WME DocMaker 2.0">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>MemBuffer object</title>
+<link rel="stylesheet" type="text/css" href="../../styles.css">
+</head>
+
+<body>
+<!-- Generated on 7.11.2005 18:05:37, settings file: english -->
+
+<h3>MemBuffer object</h3>
+<p>
+The MemBuffer objects allow you to create a reserved memory space which can contain various binary values. MemBuffers are intended to be used in conjunction with external DLL libraries. Using MemBuffers you can define a structure with several values and pass the entire structure to and from a DLL function. The MemBuffer object can be created using the following syntax:
+<br><br>
+<table border="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="100%" cellpadding="0" id="AutoNumber4">
+<tr>
+<td class="code"><pre>
+var Buffer = new MemBuffer(256); // create a memory buffer 256 bytes large
+</pre></td>
+</tr>
+</table>
+</p>
+
+<br>
+
+<h4>Constructors</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%"><a href="#MemBuffer1">MemBuffer</a></td>
+    <td>Creates a new memory buffer of a specified size.</td>
+  </tr>
+</table>
+
+<h4>Methods</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%"><b>Operations</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetSize">SetSize</a></td>
+    <td>Resizes the memory buffer to the desired size.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Reading values</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetBool">GetBool</a></td>
+    <td>Reads a boolean value (1 byte) from memory buffer.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetByte">GetByte</a></td>
+    <td>Reads an 8-bit integer value from memory buffer.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetShort">GetShort</a></td>
+    <td>Reads a 16-bit integer value from memory buffer.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetInt">GetInt</a></td>
+    <td>Reads a 32-bit integer value from memory buffer.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetFloat">GetFloat</a></td>
+    <td>Reads a 16-bit floating point value from memory buffer.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetDouble">GetDouble</a></td>
+    <td>Reads a 32-bit floating point value from memory buffer.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetString">GetString</a></td>
+    <td>Reads a string value from memory buffer.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#GetPointer">GetPointer</a></td>
+    <td>Reads a 32-bit memory-pointer value from memory buffer.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><b>Storing values</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetBool">SetBool</a></td>
+    <td>Writes a boolean value (1 byte) to a memory buffer.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetByte">SetByte</a></td>
+    <td>Writes an 8-bit integer value to a memory buffer.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetShort">SetShort</a></td>
+    <td>Writes a 16-bit integer value to a memory buffer.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetInt">SetInt</a></td>
+    <td>Writes a 32-bit integer value to a memory buffer.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetFloat">SetFloat</a></td>
+    <td>Writes a 16-bit floating point value to a memory buffer.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetDouble">SetDouble</a></td>
+    <td>Writes a 32-bit floating point value to a memory buffer.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetString">SetString</a></td>
+    <td>Writes a string value to a memory buffer.</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%"><a href="#SetPointer">SetPointer</a></td>
+    <td>Writes a 32-bit memory pointer to a memory buffer.</td>
+  </tr>
+</table>
+
+<h4>Attributes</h4>
+<table border="2" cellspacing="0" cellpadding="2" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td nowrap width="25%">Type (read only)</td>
+    <td>Returns always "membuffer"</td>
+  </tr>
+  <tr>
+    <td nowrap width="25%">Length (read only)</td>
+    <td>Returns the current length of the associated memory space.</td>
+  </tr>
+</table>
+
+<hr>
+<h3><a name="MemBuffer1"></a>MemBuffer(Size)</h3>
+<p>Creates a new memory buffer of a specified size.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Size</i></dt>
+<dd>The size of memory to be allocated for this buffer, in bytes</dd>
+</dl>
+
+<hr>
+<h3><a name="SetSize1"></a>SetSize(Size)</h3>
+<p>Resizes the memory buffer to the desired size.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Size</i></dt>
+<dd>Desired buffer size in bytes.</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the buffer has been successfuly resized.</p>
+<h4>Remarks</h4>
+<p>Resizing buffer to zero will free all memory associated with the buffer.</p>
+
+<hr>
+<h3><a name="GetBool1"></a>GetBool(Position)</h3>
+<p>Reads a boolean value (1 byte) from memory buffer.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Position</i></dt>
+<dd>A position within the buffer from which the value is read</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns the value or <b>null</b> if Position is outside the buffer.</p>
+
+<hr>
+<h3><a name="GetByte1"></a>GetByte(Position)</h3>
+<p>Reads an 8-bit integer value from memory buffer.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Position</i></dt>
+<dd>A position within the buffer from which the value is read</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns the value or <b>null</b> if Position is outside the buffer.</p>
+
+<hr>
+<h3><a name="GetShort1"></a>GetShort(Position)</h3>
+<p>Reads a 16-bit integer value from memory buffer.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Position</i></dt>
+<dd>A position within the buffer from which the value is read</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns the value or <b>null</b> if Position is outside the buffer.</p>
+
+<hr>
+<h3><a name="GetInt1"></a>GetInt(Position)<br>GetLong(Position)</h3>
+<p>Reads a 32-bit integer value from memory buffer.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Position</i></dt>
+<dd>A position within the buffer from which the value is read</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns the value or <b>null</b> if Position is outside the buffer.</p>
+
+<hr>
+<h3><a name="GetFloat1"></a>GetFloat(Position)</h3>
+<p>Reads a 16-bit floating point value from memory buffer.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Position</i></dt>
+<dd>A position within the buffer from which the value is read</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns the value or <b>null</b> if Position is outside the buffer.</p>
+
+<hr>
+<h3><a name="GetDouble1"></a>GetDouble(Position)</h3>
+<p>Reads a 32-bit floating point value from memory buffer.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Position</i></dt>
+<dd>A position within the buffer from which the value is read</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns the value or <b>null</b> if Position is outside the buffer.</p>
+
+<hr>
+<h3><a name="GetString1"></a>GetString(Position, Length)</h3>
+<p>Reads a string value from memory buffer.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Position</i></dt>
+<dd>A position within the buffer from which the value is read</dd>
+<dt><i>Length</i></dt>
+<dd>Number of characters to read (optional)</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns the value or <b>null</b> if Position is outside the buffer.</p>
+<h4>Remarks</h4>
+<p>If you don't specify the Length parameter the string is read until terminating zero or end of buffer is encountered (whichever comes first).</p>
+
+<hr>
+<h3><a name="GetPointer1"></a>GetPointer(Position)</h3>
+<p>Reads a 32-bit memory-pointer value from memory buffer.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Position</i></dt>
+<dd>A position within the buffer from which the value is read</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns a new MemBuffer object encapsulating the memory pointer or <b>null</b> if Position is outside the buffer.</p>
+<h4>Remarks</h4>
+<p>MemBuffer objects created by this method cannot be bound-checked, resized or saved. Be very careful when working with them.</p>
+
+<hr>
+<h3><a name="SetBool1"></a>SetBool(Position, Value)</h3>
+<p>Writes a boolean value (1 byte) to a memory buffer.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Position</i></dt>
+<dd>A position within the buffer to which the value should be written</dd>
+<dt><i>Value</i></dt>
+<dd>The value to be written to the buffer</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the value has been successfuly written.</p>
+
+<hr>
+<h3><a name="SetByte1"></a>SetByte(Position, Value)</h3>
+<p>Writes an 8-bit integer value to a memory buffer.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Position</i></dt>
+<dd>A position within the buffer to which the value should be written</dd>
+<dt><i>Value</i></dt>
+<dd>The value to be written to the buffer</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the value has been successfuly written.</p>
+
+<hr>
+<h3><a name="SetShort1"></a>SetShort(Position, Value)</h3>
+<p>Writes a 16-bit integer value to a memory buffer.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Position</i></dt>
+<dd>A position within the buffer to which the value should be written</dd>
+<dt><i>Value</i></dt>
+<dd>The value to be written to the buffer</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the value has been successfuly written.</p>
+
+<hr>
+<h3><a name="SetInt1"></a>SetInt(Position, Value)<br>SetLong(Position, Value)</h3>
+<p>Writes a 32-bit integer value to a memory buffer.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Position</i></dt>
+<dd>A position within the buffer to which the value should be written</dd>
+<dt><i>Value</i></dt>
+<dd>The value to be written to the buffer</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the value has been successfuly written.</p>
+
+<hr>
+<h3><a name="SetFloat1"></a>SetFloat(Position, Value)</h3>
+<p>Writes a 16-bit floating point value to a memory buffer.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Position</i></dt>
+<dd>A position within the buffer to which the value should be written</dd>
+<dt><i>Value</i></dt>
+<dd>The value to be written to the buffer</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the value has been successfuly written.</p>
+
+<hr>
+<h3><a name="SetDouble1"></a>SetDouble(Position, Value)</h3>
+<p>Writes a 32-bit floating point value to a memory buffer.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Position</i></dt>
+<dd>A position within the buffer to which the value should be written</dd>
+<dt><i>Value</i></dt>
+<dd>The value to be written to the buffer</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the value has been successfuly written.</p>
+
+<hr>
+<h3><a name="SetString1"></a>SetString(Position, Value)</h3>
+<p>Writes a string value to a memory buffer.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Position</i></dt>
+<dd>A position within the buffer to which the value should be written</dd>
+<dt><i>Value</i></dt>
+<dd>The value to be written to the buffer</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the value has been successfuly written.</p>
+<h4>Remarks</h4>
+<p>The string is copied to the buffer including its zero terminating character.</p>
+
+<hr>
+<h3><a name="SetPointer1"></a>SetPointer(Position, Value)</h3>
+<p>Writes a 32-bit memory pointer to a memory buffer.</p>
+<h4>Parameters</h4>
+<dl>
+<dt><i>Position</i></dt>
+<dd>A position within the buffer to which the value should be written</dd>
+<dt><i>Value</i></dt>
+<dd>A MemBuffer object whose address should be written to the buffer</dd>
+</dl>
+<h4>Return value</h4>
+<p>Returns <b>true</b> if the value has been successfuly written.</p>
+
+
+</body>
+
+</html>

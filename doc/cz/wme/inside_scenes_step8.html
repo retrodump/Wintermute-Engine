@@ -1,0 +1,110 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="cs">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Krok 8: Vrstvy scény</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3>Krok 8: Vrstvy scény</h3>
+<p>Předešlý krok této výuky byl poměrně složitý, takže si teď odpočineme u 
+něčeho jednoduššího. Naučíme se, jak docílit takzvaného paralaxního skrolování 
+(vícevrstvý posuv scény, kdy se jednotlivé vrstvy posouvají různou rychlostí 
+podle vzdálenosti od &quot;kamery&quot;). Pro tento účel nabízí WME možnost mít v jedné 
+scéně více vrstev. Pokud jsou rozměry vrstvy větší, než rozlišení hry, vrstva 
+bude automaticky skrolovat. A čím větší vrstva je, tím rychleji skroluje. Pokud 
+máme, řekněme, tři vrstvy a každá z nich má jiné rozměry, budou skrolovat každá 
+jinou rychlostí, čímž budou budit dojem perspektivy. Ano, je to takhle 
+jednoduché. Aby bylo dosaženo realistického dojmu, je nutné, aby největší vrstvy 
+byly v popředí a nejmenší byly v pozadí. Další věc, kterou musíte vědět, je, že 
+ve scéně musí být vždy jedna &quot;hlavní&quot; vrstva a ostatní vrstvy jsou jen pro 
+efekt. Pouze hlavní vrstva může obsahovat regiony a tudíž postavy se pohybují v 
+ní.</p>
+<p>Tři vrstvy jsou obyčejně dostatečné k dosažení dobrých výsledků (pozadí, 
+hlavní vrstva, popředí), ale obecně není žádný limit na počet vrstev v jedné 
+scéně.</p>
+
+<p>Přidáme do scény vrstvu s pozadím. Bude to obrázek oblohy, která bude vidět 
+za oknem.</p>
+
+<p>Nejdříve potřebujeme nějakou grafiku pro novou vrstvu. Opět, obrázek oblohy 
+je pro účely této výuky připraven v adresáři &quot;data\tutorial\gfx&quot;. V ProjectManu 
+klikněte pravým tlačítkem myši na složce &quot;MyScene&quot; a v menu vyberte příkaz 
+&quot;Import-&gt;Import file&quot; (Import-&gt;Import souboru). Nalistujte adresář &quot;data\tutorial\gfx&quot; 
+a vyberte soubor &quot;sky.bmp&quot;. Obrázek oblohy bude naimportován do adresáře se 
+scénou.</p>
+
+<p>Otevřete soubor &quot;MyScene.scene&quot; ve SceneEditu.</p>
+
+<p>Novou vrstvu přidáme stisknutím tlačítka &quot;Add layer&quot; (Přidat vrstvu) nad 
+seznamem vrstev.</p>
+
+<p align="center">
+<img border="0" src="../img/tut8-1.gif" width="222" height="129"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>SceneEdit pak otevře okno s vlastnostmi vrstvy. Změňte název na &quot;sky&quot; 
+(obloha) a změňte rozměry (dimensions) na 800x716. To znamená, že šířka vrstvy 
+odpovídá rozlišení hry a tudíž vrstva nebude skrolovat horizontálně. Jelikož 
+hlavní vrstva je širší a BUDE skrolovat, dostaneme ve výsledku perspektivní 
+efekt. Výška vrstvy odpovídá výšce hlavní vrstvy, což znamená, že ve vertikálním 
+směru bude obloha skrolovat stejně rychle, jako zbytek scény, takže bude vždy 
+vidět za oknem.</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut8-2.gif" width="276" height="163"></p>
+
+
+<p>Klikněte OK pro zavření okna s vlastnostmi. Musíte nyní posunout vrstvu tak, 
+aby byla první v seznamu (použijte tlačítka nahoru/dolů).</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut8-3.gif" width="221" height="148"></p>
+
+
+<p align="center">&nbsp;</p>
+
+
+<p>Poslední, co musíme udělat, je přidat do nové vrstvy entitu s obrázkem 
+oblohy. Tlačítko &quot;Add entity&quot; (Přidat entitu) už známe. Stiskněte jej a vyberte 
+v menu položku &quot;Add sprite entity&quot; (Přidat sprite entitu). Nově vytvořené entitě 
+změňte jméno na &quot;sky&quot; a její sprite nastavte na soubor &quot;sky.bmp&quot;, který jsme 
+před chvílí naimportovali.</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut8-4.gif" width="215" height="132"></p>
+
+
+<p align="center">&nbsp;</p>
+
+
+<p>Posuňte entitu tak, aby obloha řádně zakrývala okno.</p>
+
+
+<p align="center">
+<img border="0" src="../img/tut8-5.gif" width="564" height="325"></p>
+
+
+<p>&nbsp;</p>
+
+<p>A to je vše. Uložte scénu a spusťte hru. Měli byste vidět paralaxní skrolování 
+v akci.</p>
+
+<p>Výborně! Právě jste dokončili svou první scénu pro Wintermute Engine!!! :-)</p>
+
+<p>Teď se můžeme přesunout k poslední kapitole této výuky,
+<a href="inside_scenes_step9.html">Krok 9: Různé tipy a postupy</a>.</p>
+
+
+</body>
+
+</html>

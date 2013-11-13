@@ -1,0 +1,8 @@
+GEOMETRY
+{
+  NODE
+  {
+    NAME = "shadow_*"
+    RECEIVE_SHADOWS = TRUE
+  }
+}

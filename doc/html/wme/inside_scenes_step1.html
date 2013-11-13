@@ -1,0 +1,181 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Step 1: Creating the scene; introducing the SceneEdit tool</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h3>Step 1: Creating the scene; introducing the SceneEdit 
+tool</h3>
+<p>Run the ProjectMan tool and open a 
+“scene_tut.wpr” project file (it’s located in your WME Development Kit folder in 
+the “scene_tut” subfolder). This project already contains finished scenes for 
+each step of this tutorial. You can quickly explore the scenes (in the “scenes” 
+folder) using the SceneEdit tool and if you run the game (using the “Run game” 
+command), you can see the results.</p>
+
+<p>We will start by creating a new scene. 
+Right-click the “scenes” folder and select an “Add scene…” command.</p>
+
+<p align="center">
+<img border="0" src="../img/tut1-1.png" width="274" height="347"></p>
+
+<p align="center">&nbsp;</p>
+
+<p>A “Template selection” window will 
+appear. Select the “Empty scene 800x600” template and change the name to <b>
+MyScene</b>. There will be several templates available, make sure to select the 
+right one (800x600).</p>
+<p>(Note: you <u>must</u> name the scene 
+MyScene, because the tutorial project relies on it)</p>
+
+<p align="center">
+<img border="0" src="../img/tut1-2.png" width="563" height="412"></p>
+
+<p>Click OK and the ProjectMan will create 
+a new scene for you.</p>
+
+<p>Now we need to import the background 
+image for our new scene. It is recommended that you store all the graphics for a 
+scene in scene’s folder. The graphics for our tutorial scene is prepared in the 
+“tutorial\gfx” folder. Right-click the “MyScene” folder and select the 
+“Import-&gt;Import file…” command. Now browse to the “scene_tut\data\tutorial\gfx” 
+folder and select the “background.bmp” file. ProjectMan will copy the file to 
+your scene’s folder. (Note: you could as well copy the file using the Windows 
+Explorer or whatever file manager you use)</p>
+
+<p align="center">
+<img border="0" src="../img/tut1-3.png" width="374" height="276"></p>
+
+<p>OK, now we have a new scene with the 
+correct background image.</p>
+
+<p>You can try to test the resulting scene. 
+Click the “Run game” button on the toolbar. The engine will run and the tutorial 
+project will be loaded. You can see your new scene by clicking the “My Scene” 
+item. So far it’s not very impressive, right? The actor can walk anywhere, the 
+scene doesn’t scroll and the scaling looks weird.</p>
+
+<p>Quit the engine (press Escape to return 
+to the scene selection screen, then press Escape again to quit).</p>
+
+<p>In the ProjectMan right click the 
+“MyScene.scene” file and select the “Edit…” command (you can also double-click 
+the file to run the editor). ProjectMan will open our scene in the SceneEdit 
+tool.</p>
+
+<p align="center">
+<img border="0" src="../img/tut1-4.png" width="1024" height="742"></p>
+
+<p>Let’s have a brief look at the <b>
+SceneEdit</b> tool: SceneEdit allows you to edit the WME scene files. At the 
+right side there is the scene view, here you can manipulate the scene elements. 
+At the left side there is a “scene bar”. It shows the list of layers (we will 
+explain the layers later in this tutorial), the list of scene nodes and 
+properties of a selected node.</p>
+
+<p>Try clicking different nodes in the node 
+list (currently there are only two nodes: “background” and “floor”). You will 
+see the scene view will reflect your selection and it will highlight either the 
+background image or a rectangular region. Also the “Properties” window will 
+change its contents as you select different nodes.</p>
+
+<p>OK, when we tested the scene, it didn’t 
+scroll, right? Let’s fix it. Our background image is 1000x716 pixels big, but 
+the scene’s dimensions are preset to 800x600. We will change the scene 
+dimensions to fit our background image. Highlight the “main” node in the layers 
+list and then click the “Layer properties” button above. A “Layer properties” 
+dialog will appear. Change the dimensions to 1000x716 and click OK.</p>
+
+<p align="center">
+<img border="0" src="../img/tut1-5.png" width="214" height="120"></p>
+
+<p align="center">
+<img border="0" src="../img/tut1-6.png" width="276" height="163"></p>
+<p>Now, because our game runs at a 
+resolution of 800x600 pixels and our scene is 1000x716 big, the engine will know 
+it should scroll the scene.</p>
+
+<p>The last thing we will do in this step 
+is setting where the actor can walk and where not. Click the “floor” node in the 
+node list. This region represents the “walkable” area within the scene. We will 
+change the shape of the “floor” region to roughly fit the layout of the room. 
+That way the actor won’t be able to walk at the walls etc.</p>
+<p>The regions in WME can have virtually 
+any shape. You can add and remove vertices of a region and move individual 
+vertices to another position, thus forming any shape you need.</p>
+
+<p>You can add a vertex using the “Add 
+point” button. Click the button and then click somewhere within the scene view 
+window to create a new vertex. SceneEdit will add a new vertex to the region (it 
+will try to guess in between of which two vertices you want the new vertex to be 
+placed). Notice that the mouse cursor will change to indicate you are placing a 
+new vertex. You can cancel the vertex placement by clicking the right mouse 
+button.</p>
+
+<p align="center">
+<img border="0" src="../img/tut1-7.png" width="213" height="155"></p>
+
+<p>Similarly you can remove existing 
+vertices using the “Remove point” button. Click the button and then click the 
+vertex you want to remove.</p>
+<p>Note: Regions must have at least three 
+vertices.</p>
+
+<p align="center">
+<img border="0" src="../img/tut1-8.png" width="210" height="130"></p>
+
+<table border="1" cellspacing="0" cellpadding="3" style="border-collapse: collapse" bordercolor="#111111">
+<tr>
+  <td>
+    <p align="center"><img src="../img/hint.png" width="23" height="30"><br><b>
+	Hint</b>
+  </td>
+  <td>
+    You can use the numpad plus and minus keys for adding / removing region 
+	vertices and waypoints.
+  </td>
+</table>
+
+
+<p>You can drag and drop vertices of region 
+using your mouse. Move the mouse pointer above a vertex (the mouse cursor will 
+change its shape) then click and hold the left mouse button and move the mouse 
+to move the vertex. Release the mouse button when you are done.</p>
+
+<table border="1" cellspacing="0" cellpadding="3" style="border-collapse: collapse" bordercolor="#111111">
+<tr>
+  <td>
+    <p align="center"><img src="../img/hint.png" width="23" height="30"><br><b>Hint</b>
+  </td>
+  <td>
+    If you accidentally drag an 
+    object, you can cancel the drag operation by clicking the right mouse button 
+    while dragging is in progress. The object will return to its original position. 
+    Or, of course, you can use the “Undo” command.
+  </td>
+</table>
+
+<p>OK, let’s try it. Try to change the 
+shape of the “floor” region to match the one on the picture.</p>
+
+<p align="center">
+<img border="0" src="../img/tut1-9.png" width="815" height="379"></p>
+
+<p>Save your scene and quit the SceneEdit. 
+Try to run the game again. The scene should now scroll and the actor will only 
+walk on the floor.</p>
+
+<p>Proceed to <a href="inside_scenes_step2.html">Step 2: Scene entities</a>.</p>
+
+<p>&nbsp;</p>
+
+</body>
+
+</html>

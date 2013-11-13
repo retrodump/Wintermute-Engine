@@ -1,0 +1,158 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1250">
+<title>Class definition</title>
+<link rel="stylesheet" type="text/css" href="../styles.css">
+</head>
+
+<body>
+
+<h2>Class definition functions</h2>
+<p>Each class provided by the plugin is defined by a set of function pointers. 
+WME calls these functions whenever it needs the class to perform some action. 
+For example, if WME needs to create a new object of this class, it calls its 
+Construct() method, when WME saves/loads game, it calls the Serialize() method 
+etc. The plugin sends a set of function pointers to WME via the <b>
+GetClassDefinition()</b> function described 
+<a href="plugins_exports.html#GetClassDefinition">here</a>.</p>
+<p>Each class has to provide the following functions:</p>
+<ul>
+  <li><a href="#Construct">Construct</a></li>
+  <li><a href="#ConstructEmpty">ConstructEmpty</a></li>
+  <li><a href="#Destruct">Destruct</a></li>
+  <li><a href="#CallMethod">CallMethod</a></li>
+  <li><a href="#SetProperty">SetProperty</a></li>
+  <li><a href="#GetProperty">GetProperty</a></li>
+  <li><a href="#Serialize">Serialize</a></li>
+  <li><a href="#ReceiveEvent">ReceiveEvent</a></li>
+</ul>
+<hr>
+<h3><a name="Construct"></a>unsigned long Construct(IWmeObject* Owner, IWmeGame* Game, IWmeScript* 
+Script, IWmeStack* Stack)</h3>
+<p>This function is called by WME when it needs to create a new scripting object 
+of this class. In the example <a href="plugins_basics.html">above</a>, the line</p>
+<p>&nbsp;&nbsp;&nbsp; <font face="Courier New">
+<span style="background-color: #C0FFFF">var</span><span style="background-color: #C0FFFF"> SnowGen = new Snow(100);</span></font></p>
+<p>invokes a Construct() method of the &quot;Snow&quot; class.</p>
+<p>Typically you create an initialized instance of your internal class in this 
+function.</p>
+<p>This function receives the following parameters:</p>
+<ul>
+  <li><a href="plugins_classes.html#IWmeObject">IWmeObject</a>* Owner - it's a reference to the WME object encapsulating this 
+  newly created scripting object</li>
+  <li><a href="plugins_classes.html#IWmeGame">IWmeGame</a>* Game - it's a reference to the one and only Game object, 
+  representing the current game &quot;session&quot;</li>
+  <li><a href="plugins_classes.html#IWmeScript">IWmeScript</a>* Script - it's a reference to the WME script object which 
+  requested the object creation</li>
+  <li><a href="plugins_classes.html#IWmeStack">IWmeStack</a>* Stack - it's a reference to WME stack object which contains 
+  parameters passed to the constructor. In the example above the stack would 
+  contain one value, the integer value of 100.</li>
+</ul>
+<p>This function returns an ID of the newly created object. Typically this 
+returned value is the pointer to the newly created object.</p>
+<hr>
+<h3><a name="ConstructEmpty"></a>unsigned long ConstructEmpty(IWmeObject* Owner, IWmeGame* Game)</h3>
+<p>This function is called by WME when it restores a saved game. In that case, 
+WME recreates the entire object graph by creating empty objects and then calls 
+their Serialize() methods to restore their state from a savegame file. Typically 
+you create an empty instance of your internal class in this function.</p>
+<p>This function receives the following parameters:</p>
+<ul>
+  <li><a href="plugins_classes.html#IWmeObject">IWmeObject</a>* Owner - it's a reference to the WME object encapsulating this 
+  newly created scripting object</li>
+  <li><a href="plugins_classes.html#IWmeGame">IWmeGame</a>* Game - it's a reference to the one and only Game object, 
+  representing the current game &quot;session&quot;</li>
+</ul>
+<p>This function returns an ID of the newly created object. Typically this 
+returned value is the pointer to the newly created object.</p>
+<hr>
+<h3><a name="Destruct"></a>void Destruct(unsigned long ID)</h3>
+<p>This function is called by WME when it needs to delete an existing scripting 
+object. Typically you delete the instance of your internal class in this 
+function.</p>
+<p>This function receives the following parameter:</p>
+<ul>
+  <li>unsigned long ID - it's the ID of your object, returned by 
+  <a href="#Construct">Construct()</a> or <a href="#ConstructEmpty">ConstructEmpty()</a> methods</li>
+</ul>
+<hr>
+<h3><a name="CallMethod"></a>bool CallMethod(unsigned long ID, const char* MethodName, IWmeScript* 
+Script, IWmeStack* Stack)</h3>
+<p>This function is called by WME whenever a script is calling a method of the 
+plugin object.</p>
+<p>This function receives the following parameters:</p>
+<ul>
+  <li>unsigned long ID - it's the ID of your object, returned by 
+  <a href="#Construct">Construct()</a> or <a href="#ConstructEmpty">ConstructEmpty()</a> methods</li>
+  <li>const char* MethodName - the name of the method being invoked</li>
+  <li><a href="plugins_classes.html#IWmeScript">IWmeScript</a>* Script - it's a reference to the WME script object which 
+  invoked the method</li>
+  <li><a href="plugins_classes.html#IWmeStack">IWmeStack</a>* Stack - it's a reference to WME stack object which contains 
+  parameters passed to the method</li>
+</ul>
+<p>This function returns <b>true</b> if it was able to handle the requested 
+method call or <b>false</b> if the method name was invalid.</p>
+<hr>
+<h3><a name="SetProperty"></a>bool SetProperty(unsigned long ID, const char* PropName, IWmeValue* Value)</h3>
+<p>This function is called by WME whenever a script is attempting to set a 
+property of the plugin object.</p>
+<p>This function receives the following parameters:</p>
+<ul>
+  <li>unsigned long ID - it's the ID of your object, returned by 
+  <a href="#Construct">Construct()</a> or <a href="#ConstructEmpty">ConstructEmpty()</a> methods</li>
+  <li>const char* PropName - the name of the property being set</li>
+  <li><a href="plugins_classes.html#IWmeValue">IWmeValue</a>* Value - it's the reference to WME value object containing the 
+  value to be assigned to the property</li>
+</ul>
+<p>This function returns <b>true</b> if it was able to set the requested 
+property or <b>false</b> if the property name was invalid.</p>
+<hr>
+<h3><a name="GetProperty"></a>bool GetProperty(unsigned long ID, const char* PropName, IWmeValue* Value)</h3>
+<p>This function is called by WME whenever a script is attempting to access a 
+property of the plugin object.</p>
+<p>This function receives the following parameters:</p>
+<ul>
+  <li>unsigned long ID - it's the ID of your object, returned by 
+  <a href="#Construct">Construct()</a> or <a href="#ConstructEmpty">ConstructEmpty()</a> methods</li>
+  <li>const char* PropName - the name of the property being read</li>
+  <li><a href="plugins_classes.html#IWmeValue">IWmeValue</a>* Value - it's the reference to WME value object which will 
+  accept the value to be returned</li>
+</ul>
+<p>This function returns <b>true</b> if it was able to return the requested 
+property or <b>false</b> if the property name was invalid.</p>
+<hr>
+<h3><a name="Serialize"></a>bool Serialize(unsigned long ID, IWmeSerialMgr* SerialMgr)</h3>
+<p>This function is called by WME whenever it needs to serialize or deserialize 
+the contents of the plugin object (when saving/restoring game).</p>
+<p>This function receives the following parameters:</p>
+<ul>
+  <li>unsigned long ID - it's the ID of your object, returned by 
+  <a href="#Construct">Construct()</a> or <a href="#ConstructEmpty">ConstructEmpty()</a> methods</li>
+  <li><a href="plugins_classes.html#IWmeSerialMgr">IWmeSerialMgr</a>* SerialMgr - it's the reference to the WME serialization 
+  manager which handles the serialization/deserialization</li>
+</ul>
+<p>This function returns <b>true</b> if the object was successfully 
+serialized/deserialized.</p>
+<hr>
+<h3><a name="ReceiveEvent"></a>bool ReceiveEvent(unsigned long ID, EWmeEvent EventID, void* EventData1, 
+void* EventData2)</h3>
+<p>This function is called by WME whenever any of the 
+<a href="plugins_classes.html#IWmeGame">subscribed</a> events occurs.</p>
+<p>This function receives the following parameters:</p>
+<ul>
+  <li>unsigned long ID - it's the ID of your object, returned by 
+  <a href="#Construct">Construct()</a> or <a href="#ConstructEmpty">ConstructEmpty()</a> methods</li>
+  <li>EWmeEvent EventID - this parameter specifies which event occurred</li>
+  <li>void* EventData1 - event specific data</li>
+  <li>void* EventData2 - event specific data</li>
+</ul>
+<p>This function returns <b>true</b> if it handled the event.</p>
+<p>&nbsp;</p>
+
+</body>
+
+</html>

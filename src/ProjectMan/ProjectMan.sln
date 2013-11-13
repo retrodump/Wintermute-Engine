@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProjectMan", "ProjectMan.vcproj", "{7AAC312A-DD8C-4AC1-9015-1B2A8F32A8D2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{72011C29-C7CA-4699-A8EE-282E7DAF64FE} = {72011C29-C7CA-4699-A8EE-282E7DAF64FE}
+		{2F880492-116C-45EF-BEFA-C3E4094D6829} = {2F880492-116C-45EF-BEFA-C3E4094D6829}
+	EndProjectSection
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wme_base", "..\engine_core\wme_base\wme_base.vcproj", "{72011C29-C7CA-4699-A8EE-282E7DAF64FE}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wme_ad", "..\engine_core\wme_ad\wme_ad.vcproj", "{2F880492-116C-45EF-BEFA-C3E4094D6829}"
+	ProjectSection(ProjectDependencies) = postProject
+		{72011C29-C7CA-4699-A8EE-282E7DAF64FE} = {72011C29-C7CA-4699-A8EE-282E7DAF64FE}
+	EndProjectSection
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.Debug = "False"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+		ReleaseD3D9|Win32 = ReleaseD3D9|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7AAC312A-DD8C-4AC1-9015-1B2A8F32A8D2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{7AAC312A-DD8C-4AC1-9015-1B2A8F32A8D2}.Debug|Win32.Build.0 = Debug|Win32
+		{7AAC312A-DD8C-4AC1-9015-1B2A8F32A8D2}.Release|Win32.ActiveCfg = Release|Win32
+		{7AAC312A-DD8C-4AC1-9015-1B2A8F32A8D2}.Release|Win32.Build.0 = Release|Win32
+		{7AAC312A-DD8C-4AC1-9015-1B2A8F32A8D2}.ReleaseD3D9|Win32.ActiveCfg = Release|Win32
+		{7AAC312A-DD8C-4AC1-9015-1B2A8F32A8D2}.ReleaseD3D9|Win32.Build.0 = Release|Win32
+		{72011C29-C7CA-4699-A8EE-282E7DAF64FE}.Debug|Win32.ActiveCfg = DebugD3D9|Win32
+		{72011C29-C7CA-4699-A8EE-282E7DAF64FE}.Debug|Win32.Build.0 = DebugD3D9|Win32
+		{72011C29-C7CA-4699-A8EE-282E7DAF64FE}.Release|Win32.ActiveCfg = ReleaseD3D9|Win32
+		{72011C29-C7CA-4699-A8EE-282E7DAF64FE}.Release|Win32.Build.0 = ReleaseD3D9|Win32
+		{72011C29-C7CA-4699-A8EE-282E7DAF64FE}.ReleaseD3D9|Win32.ActiveCfg = ReleaseD3D9|Win32
+		{72011C29-C7CA-4699-A8EE-282E7DAF64FE}.ReleaseD3D9|Win32.Build.0 = ReleaseD3D9|Win32
+		{2F880492-116C-45EF-BEFA-C3E4094D6829}.Debug|Win32.ActiveCfg = DebugD3D9|Win32
+		{2F880492-116C-45EF-BEFA-C3E4094D6829}.Debug|Win32.Build.0 = DebugD3D9|Win32
+		{2F880492-116C-45EF-BEFA-C3E4094D6829}.Release|Win32.ActiveCfg = ReleaseD3D9|Win32
+		{2F880492-116C-45EF-BEFA-C3E4094D6829}.Release|Win32.Build.0 = ReleaseD3D9|Win32
+		{2F880492-116C-45EF-BEFA-C3E4094D6829}.ReleaseD3D9|Win32.ActiveCfg = ReleaseD3D9|Win32
+		{2F880492-116C-45EF-BEFA-C3E4094D6829}.ReleaseD3D9|Win32.Build.0 = ReleaseD3D9|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
