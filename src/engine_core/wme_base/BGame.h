@@ -281,7 +281,7 @@ public:
 	HRESULT SetMusicStartTime(int Channel, DWORD Time);
 	HRESULT PauseMusic(int Channel);
 	HRESULT StopMusic(int Channel);
-	HRESULT PlayMusic(int Channel, char* Filename, bool Looping = true, DWORD LoopStart=0);
+	HRESULT PlayMusic(int Channel, char* Filename, bool Looping = true, DWORD LoopStart=0, DWORD PrivVolume=100);
 	CBSound* m_Music[NUM_MUSIC_CHANNELS];
 	bool m_MusicCrossfadeRunning;
 	bool m_MusicCrossfadeSwap;
