@@ -598,6 +598,51 @@ namespace DeadCode.WME.Controls
 			return blnSelected;
 		}
 
+        /// <summary>
+        /// A proper way how to get an item index - recursive traversal of the tree
+        /// </summary>
+        /// <param name="startNode">the recursive root node</param>
+        /// <param name="compareNode">target node</param>
+        /// <param name="index">global index</param>
+        /// <returns>true on found</returns>
+        private bool RecursiveSort(TreeNode startNode, TreeNode compareNode, ref int index)
+        {
+
+            if (startNode == compareNode) return true;
+            index++;
+
+            foreach (TreeNode node in startNode.Nodes)
+            {
+                if (node == compareNode) return true;
+
+                index++;
+
+                if (RecursiveSort(node, compareNode, ref index)) return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// This method switches an order of TreeNodes in case the startNode is further in the tree than the endNode
+        /// </summary>
+        /// <param name="startNode"></param>
+        /// <param name="endNode"></param>
+        private void SortNodes(ref TreeNode startNode,ref TreeNode endNode)
+        {
+            var srt1 = 0;
+            var srt2 = 0;
+
+            RecursiveSort(this.TopNode, startNode, ref srt1);
+            RecursiveSort(this.TopNode, endNode, ref srt2);
+
+            if (srt2 >= srt1) return;
+
+            var tmp = endNode;
+            endNode = startNode;
+            startNode = tmp;
+        }
+
+
 		/// <summary>
 		/// Selects nodes within the specified range.
 		/// </summary>
@@ -609,19 +654,34 @@ namespace DeadCode.WME.Controls
 			// Calculate start node and end node
 			TreeNode firstNode = null;
 			TreeNode lastNode = null;
-			if (startNode.Bounds.Y < endNode.Bounds.Y)
+
+            SortNodes(ref startNode, ref endNode);
+	
+            firstNode = startNode;
+    		lastNode = endNode;
+
+
+            //This was a terrible idea, whoever came up with it...
+            // Bounds are not updated always and it's not fixable as it's part of .NET framework.
+            // Much better is to rely on a real index in a tree model
+/*
+            
+            if (startNode.Bounds.Y < endNode.Bounds.Y)
 			{
-				firstNode = startNode;
-				lastNode = endNode;
+                firstNode = startNode;
+    		    lastNode = endNode;
 			}
 			else
 			{
 				firstNode = endNode;
 				lastNode = startNode;
 			}
+*/
+
 
 			// Select each node in range
-			SelectNode(firstNode, true, tva);
+	
+            SelectNode(firstNode, true, tva);
 			TreeNode tnTemp = firstNode;
 			while (tnTemp != lastNode)
 			{

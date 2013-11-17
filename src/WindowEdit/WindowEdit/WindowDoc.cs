@@ -1533,7 +1533,11 @@ namespace DeadCode.WME.WindowEdit
 
 					NewParent.Controls.Remove(Obj);
 					NewParent.Controls.Insert(NewIndex, Obj);
-					NewIndex++;
+
+                    // **************FIX****************
+                    // This is pretty much bad, because you can't increment index as you go node by node
+					// NewIndex++;
+                    // **************FIX ENDS****************
 				}
 				FillLayout();
 				RefreshTree(true);
