@@ -318,7 +318,7 @@ void CBArray<TYPE, ARG_TYPE>::RemoveAt(int nIndex, int nCount)
 	int nMoveCount = m_nSize - (nIndex + nCount);
 	DCDestructElements<TYPE>(&m_pData[nIndex], nCount);
 	if (nMoveCount)
-		memcpy(&m_pData[nIndex], &m_pData[nIndex + nCount],
+		memmove(&m_pData[nIndex], &m_pData[nIndex + nCount],
 			nMoveCount * sizeof(TYPE));
 	m_nSize -= nCount;
 }
