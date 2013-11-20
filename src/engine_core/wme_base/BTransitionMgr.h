@@ -18,9 +18,7 @@ public:
 	DWORD m_LastTime;
 	bool m_OrigInteractive;
 	bool m_PreserveInteractive;
-	bool m_FadeInBlocked;
 	HRESULT Update();
-	void BlockFadeIn(bool blocked);
 	HRESULT Start(TTransitionType Type, bool NonInteractive=false);
 	bool IsReady();
 	TTransMgrState m_State;
